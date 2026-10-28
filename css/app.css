@@ -1,0 +1,205 @@
+/* The game's look. Plain and calm until a story's art style is chosen; each story then sets the
+   variables below in its own theme file (stories/<id>/theme.css). Big touch targets for the iPhone,
+   one thing on screen at a time, nothing moving beside the question (seductive details lower learning). */
+
+:root {
+  --bg: #f6f3ee;
+  --card: #ffffff;
+  --ink: #23222a;
+  --soft: #6b6876;
+  --line: #e2ddd5;
+  --accent: #3d6fd9;
+  --accent-ink: #ffffff;
+  --good: #2f9e6a;
+  --warm: #e0913a;
+  --pic-ink: var(--ink);
+  --pic-accent: var(--accent);
+  --pic-soft: #c9c2b6;
+  --radius: 18px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", system-ui, sans-serif;
+  --reading: "Iowan Old Style", "Palatino", Georgia, serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 20px/1.5 var(--font);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+
+#app { max-width: 720px; margin: 0 auto; padding: max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom)); min-height: 100%; display: flex; flex-direction: column; gap: 16px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; }
+.top h1 { font-size: 22px; margin: 0; font-weight: 700; }
+.iconbtn { background: none; border: 0; padding: 10px; border-radius: 12px; font-size: 22px; line-height: 1; min-width: 44px; min-height: 44px; }
+.iconbtn:active { background: var(--line); }
+
+.card { background: var(--card); border-radius: var(--radius); padding: 20px; box-shadow: 0 1px 0 var(--line), 0 6px 24px rgba(0,0,0,.05); }
+.card h2 { margin: 0; font-size: 22px; }
+.card p { margin: 0; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat { font-size: 28px; font-weight: 700; }
+.muted { color: var(--soft); }
+.small { font-size: 16px; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.grow { flex: 1; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 14px; padding: 14px 22px; min-height: 52px; font-weight: 650; background: var(--accent); color: var(--accent-ink); }
+.btn.big { width: 100%; font-size: 22px; min-height: 64px; }
+.btn.quiet { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+.btn.plain { background: var(--line); color: var(--ink); }
+.btn:disabled { opacity: .45; }
+.btn:active { transform: translateY(1px); }
+.btn.stop { align-self: center; margin-top: 8px; }
+
+/* the question */
+.question { text-align: center; padding: 28px 16px; }
+.ask { font-size: 40px; font-weight: 650; letter-spacing: .01em; line-height: 1.35; word-spacing: .08em; }
+.ask.long { font-size: 30px; } /* a long number sentence (js/answer.js long): "394 ÷ 5 = ☐ r ☐" on one line at 390 wide */
+.ask.words { font-size: 22px; font-weight: 500; text-align: left; line-height: 1.6; font-family: var(--reading); }
+.box { display: inline-block; min-width: 1.8em; padding: 0 .25em; border-bottom: 4px solid var(--accent); color: var(--accent); text-align: center; vertical-align: baseline; }
+.box.on { background: color-mix(in srgb, var(--accent) 12%, transparent); border-radius: 8px 8px 0 0; }
+.box.done { border-color: var(--soft); color: var(--ink); }
+/* a fraction as she writes it on paper (js/answer.js fracNodes): the numerator over a bar over the denominator, its slash
+   kept in the text for its words ("3/8") but not drawn */
+.frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.05; margin: 0 .08em; }
+.frac > .num { border-bottom: .08em solid currentColor; padding: 0 .12em .03em; }
+.frac > .den { padding: .03em .12em 0; }
+.frac > .slash { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+/* each part as wide as the wider, so the bar covers a "10" under a "1"; a comma after a fraction sits on its
+   denominator's line taking no width, so the fraction keeps its size (js/answer.js fracNodes) */
+.frac > .num, .frac > .den { align-self: stretch; text-align: center; }
+.frac .after { display: inline-block; width: 0; text-align: left; }
+/* a number sentence with a fraction, or a fraction and the mark after it, on one line (js/answer.js fracNodes) */
+.nowrap { white-space: nowrap; }
+.picture { margin: 12px auto 0; max-width: 520px; color: var(--pic-ink); }
+.picture svg { display: block; width: 100%; height: auto; }
+/* a worked example's question picture back on a step with no picture of its own: laid out by the card, as the question's
+   is, so it keeps the question's size and place (js/runner.js worked) */
+.as-question { display: contents; }
+/* a fraction picture one width through a problem, wherever it is: sized to its content, as a column (#app, a card) sizes
+   the question's, never filling the line of a step or of a step picture's own box (an SVG of width 100% and no width of
+   its own: 300 px in a column, 318 or 330 in a block; WebKit at 390 × 844, pt61, T14) */
+.picture:has(> svg.pic-strips, > svg.pic-fracline, > svg.pic-fracarea) { width: fit-content; }
+/* a fraction question's strips or tape docked under the top edge (js/runner.js askOnly), the page sliding under it on the
+   page's colour, the page's own scroll anchoring off (WebKit moved the page by itself as a step went in: the measure, pt61);
+   the card under it, its padding smaller, with the steps between its words and its "Answer:" line, and "Show me one step"
+   in the two empty slots of the pad's fifth row, as tall as a key */
+html:has(#app > .picture.docked) { overflow-anchor: none; }
+#app > .picture.docked { position: sticky; top: 0; z-index: 2; margin-top: 0; padding: 4px 0; background: var(--bg); box-shadow: 0 0 0 100vmax var(--bg); clip-path: inset(0 -100vmax); }
+.picture.docked ~ .stack .card.question { padding-top: 12px; padding-bottom: 12px; }
+.card.question ol.steps { margin: 12px 0; text-align: left; }
+.card.question ol.steps:empty { display: none; }
+.pad > .btn.inpad { grid-column: span 2; min-height: 60px; padding: 0 12px; font-size: 20px; border-radius: 14px; }
+
+.feedback:empty { display: none; }
+.feedback { min-height: 32px; text-align: center; font-size: 19px; }
+.feedback.good { color: var(--good); font-weight: 650; }
+.feedback.hint { color: var(--warm); }
+
+/* steps of a worked example */
+.steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.steps li { background: var(--bg); border-radius: 12px; padding: 12px 14px; font-size: 20px; }
+.steps li.now { box-shadow: inset 0 0 0 2px var(--accent); background: var(--card); }
+.steps li.later { opacity: .35; }
+
+/* number pad: always on screen, so the iPhone keyboard never covers the question */
+.pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pad button { min-height: 60px; border: 0; border-radius: 14px; background: var(--card); font-size: 26px; font-weight: 600; box-shadow: 0 1px 0 var(--line), 0 3px 10px rgba(0,0,0,.05); }
+.pad button.go { background: var(--accent); color: var(--accent-ink); }
+.pad button.fn { font-size: 18px; color: var(--soft); }
+.pad button:active { transform: translateY(1px); background: var(--line); }
+/* the point key (js/answer.js): its dot drawn large in the middle of the key, so it reads as a point at a glance (a typed
+   "." is about 3px and sits near the key's bottom); the key the size of every other */
+.pad button.point { position: relative; color: transparent; }
+.pad button.point::after { content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); transform: translate(-50%, -50%); }
+
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.choices button { min-height: 60px; border: 0; border-radius: 14px; background: var(--card); font-size: 24px; font-weight: 650; box-shadow: inset 0 0 0 2px var(--line); }
+.choices button.picked { box-shadow: inset 0 0 0 3px var(--accent); }
+/* the one to tap after a second miss (js/runner.js copyAnswer), ringed outside its edge, apart from one she taps */
+.choices button.show { outline: 3px solid var(--accent); outline-offset: 3px; }
+.btn.small { min-height: 40px; padding: 6px 12px; font-size: 15px; }
+.choices.small button { min-height: 52px; font-size: 18px; }
+/* choices in words (js/answer.js): one under another, smaller, so a 9-digit number's three fit at 390 × 844 */
+.choices.long { grid-template-columns: 1fr; }
+.choices.long button { font-size: 18px; line-height: 1.35; padding: 10px 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.chips button { min-height: 52px; padding: 0 18px; border-radius: 26px; border: 0; background: var(--card); font-size: 22px; font-weight: 600; box-shadow: inset 0 0 0 2px var(--line); }
+.chips button.used { opacity: .3; }
+
+/* the sprint timer: a calm shrinking bar, no ticking, no red (Hallez & Vallier 2025) */
+.timer { height: 14px; border-radius: 7px; background: var(--line); overflow: hidden; }
+.timer > div { height: 100%; width: 100%; background: var(--accent); transform-origin: left; transition: transform 1s linear; }
+.timer.waiting > div { opacity: .45; }
+.score { font-size: 18px; color: var(--soft); text-align: center; }
+
+.progress { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.progress > div { height: 100%; background: var(--good); width: 0; transition: width .3s; }
+.top .count { min-width: 44px; text-align: right; font-size: 18px; font-weight: 650; color: var(--soft); white-space: nowrap; }
+
+/* the end of a round */
+.reward { padding: 32px 20px; }
+.reward-icon { font-size: 88px; line-height: 1.1; }
+@media (prefers-reduced-motion: no-preference) {
+  .reward-icon { animation: pop .45s ease-out; }
+  @keyframes pop { from { transform: scale(.4); opacity: 0; } 70% { transform: scale(1.12); opacity: 1; } to { transform: scale(1); } }
+}
+
+/* the story */
+.story { font-family: var(--reading); font-size: 21px; line-height: 1.7; }
+.story h2 { font-family: var(--font); font-size: 24px; margin: 0 0 4px; }
+.story .scene { color: var(--soft); font-style: italic; margin: 0 0 16px; }
+.story p { margin: 0 0 1em; }
+.story hr { border: 0; text-align: center; margin: 1.4em 0; }
+.story hr::after { content: "⁂"; color: var(--soft); }
+.story .speaking { background: color-mix(in srgb, var(--accent) 18%, transparent); border-radius: 4px; }
+.story img { width: 100%; border-radius: var(--radius); margin: 8px 0 16px; }
+
+/* the skill map */
+/* two ways side by side on the same sum (engine/methods.js): stacked on a phone, beside each other on a wider screen */
+.ways { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.way h3 { margin: 0; font-size: 19px; }
+.way .steps li { font-size: 17px; padding: 10px 12px; }
+@media (min-width: 700px) { .ways { grid-template-columns: 1fr 1fr; } }
+.map { display: flex; flex-direction: column; gap: 18px; }
+.map h3 { margin: 0 0 6px; font-size: 18px; }
+.node { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; flex: none; background: var(--line); }
+.dot.learning { background: var(--warm); }
+.dot.learned, .dot.placed { background: color-mix(in srgb, var(--good) 55%, white); }
+.dot.mastered { background: var(--good); }
+.dot.shaky { background: var(--warm); box-shadow: 0 0 0 3px color-mix(in srgb, var(--warm) 30%, transparent); }
+
+input.text { font: inherit; font-size: 24px; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); width: 100%; background: var(--card); color: var(--ink); }
+input.text:focus { outline: none; border-color: var(--accent); }
+
+.center { text-align: center; }
+.hidden { display: none !important; }
+
+@media (min-width: 700px) {
+  .ask { font-size: 48px; }
+  .ask.long { font-size: 40px; }
+  .pad { max-width: 420px; margin: 0 auto; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* a word problem's numbers and doing-words, marked for her (research 2.5): numbers shaded, doing-words underlined too, so
+   colour is never the only difference; a missed one ringed. Finding them, every word is a tap, the lines spaced a
+   finger's height apart. */
+.mark { border-radius: 5px; padding: 0 2px; }
+.mark.num { background: color-mix(in srgb, var(--accent) 16%, transparent); font-weight: 650; }
+.mark.doing { background: color-mix(in srgb, var(--warm) 22%, transparent); text-decoration: underline; text-decoration-color: var(--warm); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.mark.missed { box-shadow: inset 0 0 0 2px var(--warm); }
+.ask.words.find { line-height: 2.1; }
+.ask.words.find .word { padding: 8px 1px; cursor: pointer; }
+/* building the bar: the story's number for the part she is on, ringed after a second wrong one */
+.chips button.show { box-shadow: inset 0 0 0 3px var(--accent); }
