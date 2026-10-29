@@ -78,6 +78,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .frac .after { display: inline-block; width: 0; text-align: left; }
 /* a number sentence with a fraction, or a fraction and the mark after it, on one line (js/answer.js fracNodes) */
 .nowrap { white-space: nowrap; }
+/* a question with units on one line (js/answer.js fit), a box on its line, so a change of its width is seen (a
+   ResizeObserver sees no width in a plain inline span) */
+.fit { display: inline-block; }
 .picture { margin: 12px auto 0; max-width: 520px; color: var(--pic-ink); }
 .picture svg { display: block; width: 100%; height: auto; }
 /* a worked example's question picture back on a step with no picture of its own: laid out by the card, as the question's
@@ -87,6 +90,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
    the question's, never filling the line of a step or of a step picture's own box (an SVG of width 100% and no width of
    its own: 300 px in a column, 318 or 330 in a block; WebKit at 390 × 844, pt61, T14) */
 .picture:has(> svg.pic-strips, > svg.pic-fracline, > svg.pic-fracarea) { width: fit-content; }
+/* a scale at its full width wherever it is, its SVG no wider than its own 340 px and centred: in a column it shrank to the
+   default 300 px, and a 12-space scale's spaces came to 23 px and its labels to 16, under the plan's 26 px a space as she
+   sees it (WebKit at 390 × 844, stage 6 step 4.2, the replay's shots 011 and 052; fact 4's branch, pt76) */
+.picture:has(> svg.pic-scale) { width: 100%; }
+.picture > svg.pic-scale { margin: 0 auto; }
+/* a shape the same: a rhombus 340 px wide shrank to 300, its 18 px label to 15.9 px as she sees it (WebKit at 390 × 844,
+   stage 6 step 4.3, pt78) */
+.picture:has(> svg.pic-shape) { width: 100%; }
+.picture > svg.pic-shape { margin: 0 auto; }
 /* a fraction question's strips or tape docked under the top edge (js/runner.js askOnly), the page sliding under it on the
    page's colour, the page's own scroll anchoring off (WebKit moved the page by itself as a step went in: the measure, pt61);
    the card under it, its padding smaller, with the steps between its words and its "Answer:" line, and "Show me one step"

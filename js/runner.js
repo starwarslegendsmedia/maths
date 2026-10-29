@@ -22,7 +22,7 @@ import { inRounds, roundSizes, countLabel, pickReward, didLine, didCount } from 
 import { Level, startLevel } from '../engine/level.js';
 import { BANDS, bandOf, RATE_FROM } from '../engine/rating.js';
 import { bestWarmUp } from '../engine/goals.js';
-import { METHODS, WHOLE_OPS, preferredMethod, taughtFirst, reviewMethod, choiceOp, wayTitle } from '../engine/methods.js';
+import { METHODS, WHOLE_OPS, preferredMethod, taughtFirst, reviewMethod, choiceOp, wayTitle, groupWays, groupChoice } from '../engine/methods.js';
 import { FAMILY_OPS, LEARNED } from '../engine/items/ways.js';
 import { FRACTION_WAYS } from '../engine/fraction-ways.js';
 import { flashMs } from '../engine/flash.js';
@@ -33,6 +33,9 @@ import { lowerFirst } from '../engine/items/facts.js';
 const MOST_SAID = 25;
 // the percentage sums' ops (engine/items/index.js: pct-benchmarks' pct, pct-of's pof, pct-discount's poff and pest)
 const PERCENT_OPS = new Set(['pct', 'pof', 'poff', 'pest']);
+// the measurement sums' ops (stage 6 strand 4, plans/2026-10-25-stage-6-plan.md "The ways"): a scale read, units
+// changed, a total, a perimeter, an area and a volume
+const MEASURE_OPS = new Set(['mread', 'mconv', 'mtotal', 'mper', 'marea', 'mvol']);
 const wordsIn = (t) => said(t).split(/\s+/).filter((w) => /[a-z0-9]/i.test(w)).length;
 const PRACTICE_CAP = 8;    // problems of the new skill in one session (kept short), in rounds (engine/rounds.js)
 const SPRINT_MS = 60000;
@@ -179,9 +182,11 @@ export class Runner {
   }
 
   // A problem worked her way (engine/methods.js): the way she chose, else the way taught first (for a facts skill, each
-  // fact's own: taughtFirst).
+  // fact's own: taughtFirst). A skill with groups (engine/skills.js) takes her way in each group (groupWays) in its
+  // place, with no way taught first: the generator works each key by its group's.
   make(skill, opts = {}) {
     const events = this.store.events;
+    if (BY_ID[skill]?.groups) return makeItem(skill, this.rng, { ways: groupWays(events, skill), ...this.byTables(skill), ...opts });
     const way = { method: preferredMethod(events, skill, '×', this.choice(skill, '×')) };
     // a facts skill's division takes her ÷ way, kept apart from her × way
     if (BY_ID[skill]?.kind === 'facts') way.divMethod = preferredMethod(events, skill, '÷', this.choice(skill, '÷'));
@@ -455,7 +460,9 @@ export class Runner {
         if (helped) this.count.helped = (this.count.helped ?? 0) + 1;
         if (result.firstTry) this.count.right++;
         if (phase !== 'placement') {
-          const chose = this.choice(item.skill, choiceOp(item));
+          // the way she chose: her choice for this kind of sum, on a skill with groups her choice in the group of the way it was
+          // worked (engine/methods.js groupChoice), so a choice in another group says nothing of it
+          const chose = BY_ID[item.skill]?.groups ? groupChoice(this.store.events, item.skill, item.method) : this.choice(item.skill, choiceOp(item));
           this.did({ firstTry: result.firstTry, correct: ok, ...(helped ? { helped } : {}),
             ...(chose && item.method ? { own: chose.chosen === item.method } : {}), ...(boxes != null ? { boxes: boxed.length } : {}) });
         }
@@ -474,6 +481,7 @@ export class Runner {
       const pad = (old) => this.showPad(widget, { old, under: step?.parentNode ? step : null });
       const steps = h('ol', { class: 'steps' });
       const pictured = new Set(); // the pictures drawn beside the steps listed, as the SVG each draws
+      let dock = null; // a docked scale, shape or prism, whose place a step's own picture of its type takes (below)
       const step = ['learn', 'practice'].includes(phase) && shows > 0 ? h('button', { class: 'btn quiet', onclick: () => {
         if (settled || at >= shows) return;
         if (box) {
@@ -492,8 +500,14 @@ export class Runner {
         // 2.3's I1) is not drawn again, so the list stays short enough to keep the pad in view (the pt56 replay, shot 018)
         const own = s.picture ? ownPicture(item, s, open) : null;
         const svg = own ? renderPicture(own.picture) : '';
-        const pic = svg && !pictured.has(svg) ? this.picture(own) : null;
+        let pic = svg && !pictured.has(svg) ? this.picture(own) : null;
         if (pic) pictured.add(svg);
+        // under a docked scale, shape or prism, a step's own picture of the same type takes its place in the dock, the
+        // step its words only: drawn beside the step, it pushed the step under the dock (stage 6 step 4.1, fact 3, (c))
+        if (pic && dock && own.picture.type === drawn.picture.type) {
+          dock.replaceChildren(...pic.childNodes);
+          pic = null;
+        }
         steps.append(h('li', {}, ...fill(text, open ? null : s.value), pic));
         this.say(open ? text : stepWords(s, true));
         if (at === shows) step.remove();
@@ -511,8 +525,10 @@ export class Runner {
         // picture docked under the top edge (css/app.css .docked, the page sliding under it), the steps shown inside the
         // card between the question's words and its "Answer:" line, the button in the two empty slots of a pad's fifth
         // row (a pad of 13 keys), and the pad's scroll stopped at the picture's bottom (dock). Every other screen as it was.
-        const docked = picture != null && drawn.picture.type === 'strips';
+        // a measurement scale, shape or prism docked too, the picture she reads from (stage 6 step 4.1, fact 3)
+        const docked = picture != null && ['strips', 'scale', 'shape', 'prism'].includes(drawn.picture.type);
         if (docked) picture.classList.add('docked');
+        if (docked && drawn.picture.type !== 'strips') dock = picture;
         const el = answer(docked && step ? steps : null);
         if (docked && step && widget.pad?.children.length % 3 === 1) {
           step.classList.add('inpad');
@@ -608,16 +624,21 @@ export class Runner {
     // or wider than it is there (stage 6 step 2.3, the replay's E/088 and A/043)
     const ownPictures = item.steps.some((st) => st.picture);
     const pictureOf = (st, mine) => this.picture(!st.picture ? base : ownPicture(item, st, mine));
-    const first = ownPictures ? this.picture(base) : null;
+    // a scale, shape or prism docked under the top edge, as on the question (askOnly), so it is whole on the screen at every
+    // step she types: in the card it went off the top under a refusal's lines (stage 6 step 4.2, the replay's shots 123
+    // and 126; fact 3, the lead's ruling, pt76); a step's own picture of its type shown in the dock, as on the question
+    const dock = ['scale', 'shape', 'prism'].includes(base.picture?.type) ? this.picture(base) : null;
+    dock?.classList.add('docked');
+    const first = ownPictures && !dock ? this.picture(base) : null;
     const shownHere = ownPictures ? h('div', first ? { class: 'as-question' } : {}, first) : null;
     let showing = null; // the step whose picture is shown, or null for the problem's
     // the question as the first screen shows it, in its look and size (askClass)
     const card = h('div', { class: 'card stack' },
       h('h2', {}, heading),
       h('div', { class: askClass(item.ask) }, ...(item.marks ? marked(item) : fracNodes(item.ask.replaceAll('☐', '?')))),
-      shownHere ?? this.picture(base), list);
+      shownHere ?? (dock ? null : this.picture(base)), list);
     const area = h('div', { class: 'stack' });
-    this.frame(title, null, card, area);
+    this.frame(title, null, dock, card, area);
     for (let i = 0; i < watched; i++) {
       const s = item.steps[i];
       const li = h('li', { class: 'now' });
@@ -626,12 +647,19 @@ export class Runner {
       const opening = i === 0 ? `${heading}. ` : '';
       // drawn again only where it changes: at a step with its own picture, and back after it; where the problem has none
       // here (a working picture left off once she answers), a step's own stays on, as "Show me one step" keeps it, so the
-      // steps after it still point at a picture she sees
-      const wants = s.picture ? s : base.picture ? null : showing;
+      // steps after it still point at a picture she sees; under a dock too, as "Show me one step" keeps a step's picture
+      // in the dock to the end (area-rows' filled first row, the L-shape cut: step 4.2's code review 2 finding 5, the
+      // lead's ruling, pt79)
+      const wants = s.picture ? s : base.picture && !dock ? null : showing;
       if (shownHere && wants !== showing) {
         const pic = pictureOf(s, toFill.has(i));
-        shownHere.className = !s.picture && pic ? 'as-question' : '';
-        shownHere.replaceChildren(...[pic].filter(Boolean));
+        if (dock && (!s.picture || s.picture.type === base.picture.type)) {
+          if (pic) dock.replaceChildren(...pic.childNodes);
+          shownHere.replaceChildren();
+        } else {
+          shownHere.className = !s.picture && pic ? 'as-question' : '';
+          shownHere.replaceChildren(...[pic].filter(Boolean));
+        }
         showing = wants;
       }
       if (toFill.has(i)) {
@@ -1126,9 +1154,10 @@ export class Runner {
     const bothList = sharedSteps.length ? h('ol', { class: 'steps' }) : null;
     // a percentage way's card with no picture of its own draws its first step picture that is not the one at the top
     // (the line's line, out of 100's strip filled in), its steps here being shown worked (stage 6 step 3.2's looker, F2,
-    // the lead's ruling R12); a fraction's, a decimal's and a whole number's as before
+    // the lead's ruling R12), and so does a measurement way's (moving the digits: its place value chart; stage 6 step
+    // 4.2); a fraction's, a decimal's and a whole number's as before
     const top = shared ? JSON.stringify(items[0].picture) : null;
-    const stepPicture = (it) => (PERCENT_OPS.has(sum.op) ? it.steps.find((s) => s.picture && JSON.stringify(s.picture) !== top)?.picture : null);
+    const stepPicture = (it) => (PERCENT_OPS.has(sum.op) || MEASURE_OPS.has(sum.op) ? it.steps.find((s) => s.picture && JSON.stringify(s.picture) !== top)?.picture : null);
     const cardPicture = (it) => {
       const own = shared ? null : this.picture(it), step = own ? null : stepPicture(it);
       return own ?? (step ? this.picture({ picture: step }) : null);
@@ -1145,7 +1174,8 @@ export class Runner {
     // two cards and their steps sliding under it and every scroll here (follow) stopping at its bottom (pt61, the lead's
     // ruling R12); any other on the card, as before
     const picture = shared ? this.picture(items[0]) : null;
-    const docked = picture != null && items[0].picture.type === 'strips';
+    // and a measurement scale, shape or prism, as on the question (stage 6 step 4.1, fact 3)
+    const docked = picture != null && ['strips', 'scale', 'shape', 'prism'].includes(items[0].picture.type);
     if (docked) picture.classList.add('docked');
     this.frame('Another way', null, docked ? picture : null, h('div', { class: 'card stack center' }, h('h2', {}, heading),
       !named && !twoAsks ? h('p', {}, ...shownAsk(items[0])) : null, docked ? null : picture, bothList), ways, area);

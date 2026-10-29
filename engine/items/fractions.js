@@ -376,13 +376,20 @@ export function problemsOf(skillId, key, easy) {
   return MEMO.get(at);
 }
 
+// a story's two people, drawn after its numbers: the giver, then a receiver who is not the giver (pct-of's too,
+// engine/items/percentages.js)
+export function twoNames(rng) {
+  const first = rng.pick(NAMES);
+  return [first, rng.pick(NAMES.filter((x) => x !== first))];
+}
+// a fraction of an amount's story (F6's, and pct-of's): its context, its names, and the unit its answer is in, the things
+// or metres for a length
+export const storyOf = (c, names) => ({ context: c.id, unit: c.length ? 'metres' : c.things, names });
 // F6's share's things, and its story's names, context and the unit its answer is in, drawn after its numbers
 function toldOf(sum, rng) {
   if (sum.op === 'fdiv') return { ...sum, thing: rng.pick(Object.keys(SHARES)) };
-  const first = rng.pick(NAMES);
-  const people = [first, rng.pick(NAMES.filter((x) => x !== first))];
-  const c = rng.pick(AMOUNTS);
-  return { ...sum, story: { context: c.id, unit: c.length ? 'metres' : c.things, names: people } };
+  const people = twoNames(rng);
+  return { ...sum, story: storyOf(rng.pick(AMOUNTS), people) };
 }
 
 // A problem drawn from a generator's lists (plan, "Rules every fraction generator keeps"; the percentages' generator,
@@ -425,8 +432,7 @@ function sumFor(skillId, rng, easy, opts) {
   const { key, sum } = drawSum(skillId, rng, easy, opts, { levelKeys: (easy ? EASY : KEYS)[skillId], problemsOf, kept: KEPT });
   if (sum.op === 'fdiv' || (sum.op === 'fof' && key === 'story')) return toldOf(sum, rng);
   if (key !== 'same-whole' && key !== 'story') return sum;
-  const first = rng.pick(NAMES);
-  const people = [first, rng.pick(NAMES.filter((x) => x !== first))];
+  const people = twoNames(rng);
   if (key === 'same-whole') return { ...sum, names: people };
   // a story's context, one cut into its parts (and for giving away, one that can be given), drawn after its numbers
   const context = rng.pick(contextsFor(sum.story.kind, value(sum.a).d, value(sum.b).d)).id;
@@ -494,6 +500,13 @@ function equivalentProblem(sum) {
   // missing the other way round, the box on the left with the smaller denominator: "☐/4 = 6/8"
   return { ask: d2 < d ? `☐/${d2} = ${a}` : `${a} = ☐/${d2}`, say: `How many ${names} make ${a}?`, answer };
 }
+// a story of a fraction of an amount given away, the part given as she reads it ('3/4', and pct-of's '25%'): the plan's
+// "How many did she give?", the giver named, since the names are anyone's; a length asked in metres
+export function ofStoryAsk(story, of, part) {
+  const c = AMOUNTS.find((x) => x.id === story.context), [p, q] = story.names;
+  return c.length ? `${p} had ${of} metres of ${c.length} and gave ${part} of it to ${q}. How many metres did ${p} give?`
+    : `${p} had ${of} ${c.things} and gave ${part} of them to ${q}. How many did ${p} give?`;
+}
 // F6's asks (plan F6, "Keys and asks"): "3/4 of 24 = ☐"; a story of a collection or of metres given away, two parts
 // then its question; the whole from a part, as a number or a length of tape; a share in the Example's words, under one
 // answered ☐/☐ and past one in the whole-and form. The tape on every one but a share, whose strips are a strip a thing
@@ -512,10 +525,7 @@ function ofProblem(sum) {
   }
   const v = ofValue(sum), answer = typeof v === 'string' ? { kind: 'decimal', value: v } : { kind: 'number', value: v };
   if (sum.key === 'story') {
-    const c = AMOUNTS.find((x) => x.id === sum.story.context), [p, q] = sum.story.names;
-    // the plan's "How many did she give?", the giver named, since the names are anyone's; a length asked in metres
-    const ask = c.length ? `${p} had ${sum.of} metres of ${c.length} and gave ${f} of it to ${q}. How many metres did ${p} give?`
-      : `${p} had ${sum.of} ${c.things} and gave ${f} of them to ${q}. How many did ${p} give?`;
+    const ask = ofStoryAsk(sum.story, sum.of, f);
     return { ask, say: ask, answer, picture };
   }
   return { ask: `${f} of ${sum.of} = ☐`, say: `What is ${f} of ${sum.of}?`, answer, picture };

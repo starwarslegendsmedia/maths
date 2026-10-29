@@ -24,6 +24,7 @@ export const PATHS = {
   D: 'Decimals, fractions and percentages',
   E: 'Equals and unknowns',
   P: 'Word problems',
+  M: 'Measurement, data and chance',
 };
 
 // a fact from one she knows: the three release 1 taught, in its order, then five lots and the rest for 6s to 9s; then
@@ -219,21 +220,48 @@ export const SKILLS = [
     title: 'Fractions of amounts, and a fraction as a division', outcomes: ['MA3-RQF-02', 'MA3-RQF-01'],
     methods: ['frac-tape', 'frac-divide', 'frac-halve'], school: 'frac-tape', lookalikes: ['div-remainder'] },
 
-  // ---- Percentages (stage 6 strand 3, plans/2026-10-25-stage-6-plan.md "Strand 3: percentages"): release 4, reached only
-  // once approved (step 3.7). NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments; content points from the saved
-  // page of 10 October 2026, checked live 28 October 2026: MA3-RN-03 Stage 3 Represents numbers B (stage-3/fa0a18f458
-  // l.52-63), its Examples and teaching advice read live (Examples fa0a18f458). The Department's Year A has percentages.
+  // ---- Percentages (stage 6 strand 3, plans/2026-10-25-stage-6-plan.md "Strand 3: percentages"): release 4, reached
+  // since 29 October (step 3.7, on the word to push on with the plan). NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments;
+  // content points from the saved page of 10 October 2026, checked live 28 October 2026: MA3-RN-03 Stage 3 Represents
+  // numbers B (stage-3/fa0a18f458 l.52-63), its Examples and teaching advice read live (Examples fa0a18f458). The
+  // Department's Year A has percentages.
   { id: 'pct-benchmarks', path: 'D', stage: 'S3B', yearA: true, kind: 'skill', release: 4, prereqs: ['dec-hundredths', 'frac-parts'],
     title: 'Percentages as fractions and decimals', outcomes: ['MA3-RN-03'], methods: ['pct-hundred', 'pct-line'],
     lookalikes: ['dec-hundredths'] },
+  { id: 'pct-of', path: 'D', stage: 'S3B', yearA: true, kind: 'skill', release: 4, prereqs: ['pct-benchmarks', 'frac-of'],
+    title: 'Percentages of amounts', outcomes: ['MA3-RN-03'], methods: ['pct-fraction', 'pct-tens', 'pct-halve'],
+    lookalikes: ['frac-of'] },
+  { id: 'pct-discount', path: 'D', stage: 'S3B', yearA: true, kind: 'skill', release: 4, prereqs: ['pct-of', 'dec-addsub'],
+    title: 'Discounts and sale prices', outcomes: ['MA3-RN-03'], methods: ['pct-fraction', 'pct-halve'],
+    lookalikes: ['pct-of'] },
+
+  // ---- Measurement (stage 6 strand 4, plans/2026-10-25-stage-6-plan.md "Strand 4: measurement"): release 5, reached only
+  // once approved (step 4.9). NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments; content points from the pages
+  // read live 28 October 2026 and saved 28 October 2026, checked live 28 October 2026: MA3-GM-02 Stage 3 Geometric
+  // measure A and B (stage-3/fa35c41b81 l.43-77, stage-3/fae314fde1 l.37-73); MA3-2DS-02 and MA3-2DS-03 Stage 3
+  // Two-dimensional spatial structure A and B (stage-3/fad7c142c4 l.51-79, stage-3/fa0dfe5fec l.39-73); MA3-3DS-02 Stage 3
+  // Three-dimensional spatial structure A and B (stage-3/fa51e61164 l.48-72, stage-3/fa89ed4224 l.32-66); MA3-NSM-01 Stage 3
+  // Non-spatial measure A and B (stage-3/fa7e80b308 l.24-48, stage-3/faebab48ca l.24-32). Part A, the Department's Year A,
+  // is meas-area and each other skill's easy level. A scale read from a picture stands in for a real device: chosen for this
+  // game, not a syllabus requirement. groups: the ways that share a kind of problem, one set to a key, so a second way is
+  // offered only beside one that works the same problem (engine/methods.js groupWays, compareOffer).
+  { id: 'meas-length', path: 'M', stage: 'S3B', kind: 'skill', release: 5, prereqs: ['dec-x10', 'dec-addsub'],
+    title: 'Lengths, perimeters and changing units', outcomes: ['MA3-GM-02'],
+    methods: ['scale-space', 'scale-small', 'unit-place', 'unit-split', 'per-add', 'per-pairs'], lookalikes: ['dec-x10'],
+    groups: [['scale-space', 'scale-small'], ['unit-place', 'unit-split'], ['per-add', 'per-pairs']] },
+  { id: 'meas-area', path: 'M', stage: 'S3A', kind: 'skill', release: 5, prereqs: ['meas-length', 'mult-1digit'],
+    title: 'Areas of rectangles, and hectares', outcomes: ['MA3-2DS-02'],
+    methods: ['area-rows', 'area-words', 'unit-place', 'unit-split'], lookalikes: ['mult-1digit'],
+    groups: [['area-rows', 'area-words'], ['unit-place', 'unit-split']] },
 ];
 
 export const BY_ID = Object.fromEntries(SKILLS.map((s) => [s.id, s]));
 
 // The skills and paths she can meet at a release (js/app.js RELEASE: 2 since its approval on 27 October, stage 6 plan
-// step 7; 3 since its approval on 28 October, step 2.7). A skill above it is built and checked but shown on no screen,
-// not in the home screen's total and not on her map, until it is approved; release 3, the fractions, is the top reached,
-// and release 4, the percentages, is built out of sight until approved (step 3.7).
+// step 7; 3 since its approval on 28 October, step 2.7; 4 since 29 October, step 3.7, on the word to push on with the plan). A skill above it
+// is built and checked but shown on no screen, not in the home screen's total and not on her map, until it is approved;
+// release 4, the percentages, is the top reached, and release 5, the measurement skills, is built out of sight until
+// approved (step 4.9).
 export const inRelease = (release) => SKILLS.filter((s) => (s.release ?? 1) <= release);
 export function pathsIn(release) {
   const skills = inRelease(release);

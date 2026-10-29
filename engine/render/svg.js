@@ -72,9 +72,28 @@
 //                                                                  fraction marked by a dot
 //   { type: 'fracarea', cols, rows, shaded }                       the area model: a rectangle cut into columns and rows,
 //                                                                  the first shaded columns shaded
+//   { type: 'scale', device: 'ruler' | 'tape' | 'kitchen' | 'jug', unit, marks: ['0', '1', …], parts, start?, end, name }
+//                                                                  a scale to read: marks the labelled values (2 to 7,
+//                                                                  equally spaced), parts the small spaces between two,
+//                                                                  start and end in small spaces from the first mark (start
+//                                                                  on a ruler or tape only); across (12 spaces at most) or,
+//                                                                  a jug, up (8 at most); name what is measured
+//   { type: 'shape', kind: 'rect' | 'square' | 'tri' | 'rhombus' | 'lshape' | 'para' | 'ptri', unit, sides, labels:
+//     'area' | 'perimeter', unknown?, edge?, rows?, cut?, corner?, height?, slant?, ticks?, move?, double?, working? }
+//                                                                  a shape to scale, its sides by kind (rect { l, w },
+//                                                                  square and rhombus { s }, tri { a, b, c }, lshape
+//                                                                  { W, H, cw, ch }, para { b, h, o, s }, ptri { b, h, o });
+//                                                                  edge and rows: unit squares; cut, corner, height, move
+//                                                                  and double: the pieces of a step (move and double on a
+//                                                                  working: true picture only)
+//   { type: 'prism', l, w, h, cubes?, unit?, labels?, layer?, front? }   a rectangular prism in oblique view; cubes: every
+//                                                                  face she sees, to count; else its three edges labelled
+//                                                                  (labels: { l, w, h } in place of a length, '?' a box)
 // A fraction n/d in a fraction picture's label is drawn stacked, as she writes it: <text class="pic-label pic-num">,
 // a bar <line class="pic-line pic-fbar">, <text class="pic-label pic-den">, and said in words ("3 eighths",
 // engine/fractions.js FRACTION and fractionWords). tests/oracle reads these pictures by their classes: keep them as they are.
+// The measurement pictures (scale, shape, prism) write an amount as its number, a no-break space and its symbol ("6 cm",
+// engine/units.js), and are read by tests/oracle/measurement.mjs by their classes in the same way.
 // A value of '?' is the unknown, drawn as ☐; ☐ in any label is drawn as an empty box, the number she works out.
 // Decimals are text as the game shows them ('0.50' keeps its zero), never floats (plans/2026-10-25-stage-6-plan.md).
 //
@@ -91,6 +110,7 @@ import { PLACES } from '../items/placevalue.js';
 import { DEC_PLACES, splitDecimal, placesOf } from '../items/decimals.js';
 import { FRACTION, FRACTION_NAMES, fractionWords } from '../fractions.js';
 import { hundredthsText } from '../percents.js';
+import { UNITS, unitWords } from '../units.js';
 
 const PHONE = 340; // widest a picture is laid out: a 360 px phone screen, less a little margin
 const BIG = 18; // numbers and words she reads
@@ -1566,7 +1586,392 @@ function fracarea(p) {
   return svg('fracarea', W + 2 * PAD, H + 2 * PAD, body, label, FRAC_STYLE);
 }
 
-const DRAW = { array, groups, chunks, shortdiv, balance, placevalue, grid, area, numberline, table, columns, bar, strips, fracline, fracarea };
+// ---- the measurement pictures (stage 6 strand 4, plans/2026-10-25-stage-6-plan.md "The measurement pictures"): each
+// fits 340 × 260 with no text under 16 px, says itself in words that never give what she works out (a reading, a
+// perimeter, an area or a volume), and carries the classes tests/oracle/measurement.mjs reads it by. A picture that
+// would do a step is marked working: true by its generator; move and double are drawn on such a picture only ----
+
+// their own rules, in their SVG alone with FRAC_STYLE's parts and shading, so every older picture is drawn as before
+const MEAS_STYLE = '<style>'
+  + `:where(.pic .pic-pointer){fill:${ACCENT}}`
+  + ':where(.pic .pic-part.pic-unit-square){stroke-width:1.25}'
+  + ':where(.pic .pic-cube){fill:none;stroke:var(--pic-ink,currentColor);stroke-width:1.5;stroke-linejoin:round}'
+  + ':where(.pic .pic-cube.pic-top){fill:var(--pic-soft,rgba(128,128,128,.16))}'
+  + ':where(.pic .pic-cube.pic-right){fill:var(--pic-shadow,rgba(128,128,128,.32))}'
+  + '</style>';
+
+// a whole number, given as a number or its digits, else NaN: a picture asked for with a part of one draws nothing
+const counted = (v) => { const n = num(v, NaN); return Number.isInteger(n) ? n : NaN; };
+// a straight line [[x1, y1], [x2, y2]] through a label's box { l, r, top, bot } (Liang-Barsky)
+function through([[x1, y1], [x2, y2]], q) {
+  let t0 = 0, t1 = 1;
+  const dx = x2 - x1, dy = y2 - y1;
+  for (const [pp, k] of [[-dx, x1 - q.l], [dx, q.r - x1], [-dy, y1 - q.top], [dy, q.bot - y1]]) {
+    if (pp === 0) { if (k < 0) return false; continue; }
+    const t = k / pp;
+    if (pp < 0) t0 = Math.max(t0, t); else t1 = Math.min(t1, t);
+    if (t0 > t1) return false;
+  }
+  return true;
+}
+// thousandths back to the shortest decimal text ('4.5', never '4.500')
+const decimalText = (t) => { const f = String(t % 1000n).padStart(3, '0').replace(/0+$/, ''); return f ? `${t / 1000n}.${f}` : String(t / 1000n); };
+
+// ---- scale: a ruler, tape measure or kitchen scales across, one line 316 px long (shorter only where a wide end label
+// needs the room), 18 px ticks down from it at the labelled marks (<path class="pic-line pic-major">) with their labels
+// under them (<text class="pic-tick">), 9 px ticks at the rest (<path class="pic-line pic-minor">), and the unit once,
+// under the last label (<text class="pic-unit">); on a ruler or tape the object 24 px tall just over the line from start
+// to end (<rect class="pic-part pic-shade pic-object">), on kitchen scales a pan (<path class="pic-line pic-soft">) and
+// a pointer from above (<path class="pic-accent pic-pointer">, its first corner the tip). A jug is drawn up: its outline
+// 120 px wide (<path class="pic-line pic-jug">), the ticks up its left side and their labels left of them, the unit over
+// them, the liquid from the bottom to end (<rect class="pic-part pic-shade pic-object">). Every small space is 26 px or
+// more, as every fraction space is: a scale of more spaces than that allows (12 across, 8 up) draws nothing, and so does
+// one it cannot say true (marks not equally spaced, end on a labelled mark, a unit not of what the device measures).
+// Chosen for this game, not a syllabus requirement: a ruler, tape measure, jug or kitchen scales read from a picture in
+// place of a real device, and every scale drawn straight, never as a round dial (plans/2026-10-25-stage-6-plan.md,
+// "What is outside NESA in the measurement strand") ----
+
+const MEASURED = { ruler: ['A ruler', 'length'], tape: ['A tape measure', 'length'], kitchen: ['Kitchen scales', 'mass'], jug: ['A jug', 'capacity'] };
+
+function scale(p) {
+  const [called, kind] = MEASURED[p.device] ?? [];
+  const marks = Array.isArray(p.marks) ? p.marks.map((m) => String(m ?? '').trim()) : [];
+  const at = marks.map((m) => thousandths(m));
+  const step = at.length > 1 && at[0] !== null && at[1] !== null ? at[1] - at[0] : 0n;
+  const parts = [2, 4, 5, 10].includes(counted(p.parts)) ? counted(p.parts) : 0;
+  const up = p.device === 'jug', along = p.device === 'ruler' || p.device === 'tape';
+  const total = (marks.length - 1) * parts, start = p.start == null ? 0 : counted(p.start), end = counted(p.end);
+  const name = typeof p.name === 'string' ? p.name.trim() : '';
+  if (!kind || UNITS[p.unit]?.kind !== kind || marks.length < 2 || marks.length > 7 || !parts || total > (up ? 8 : 12)
+    || step <= 0n || at.some((t, i) => t === null || t !== at[0] + BigInt(i) * step)
+    || !(start >= 0) || (start > 0 && !along) || !(end > start && end <= total) || end % parts === 0
+    || (!name && p.device !== 'kitchen') || (step * BigInt(start)) % BigInt(parts) !== 0n) return '';
+  let body = '', w, h;
+  if (!up) {
+    const x0 = Math.max(12, textWidth(marks[0], BIG) / 2 + 1), x1 = PHONE - Math.max(12, textWidth(marks.at(-1), BIG) / 2 + 1);
+    const space = (x1 - x0) / total, X = (i) => x0 + i * space;
+    if (space < 26) return '';
+    // the line, under the object, or under the pan and the pointer
+    const y = p.device === 'kitchen' ? PAD + 62 : PAD + 31;
+    if (p.device === 'kitchen') {
+      const [tx, ty, c] = [X(end), y - 3, PHONE / 2];
+      body += `<path d="M${c - 60} ${PAD + 4}L${c + 60} ${PAD + 4}L${c + 44} ${PAD + 24}L${c - 44} ${PAD + 24}Z" class="pic-line pic-soft"/>`;
+      body += `<path d="M${r(tx)} ${r(ty)}L${r(tx - 7)} ${r(ty - 12)}L${r(tx - 2.5)} ${r(ty - 12)}L${r(tx - 2.5)} ${r(ty - 28)}`
+        + `L${r(tx + 2.5)} ${r(ty - 28)}L${r(tx + 2.5)} ${r(ty - 12)}L${r(tx + 7)} ${r(ty - 12)}Z" class="pic-accent pic-pointer"/>`;
+    } else body += rect(X(start), y - 25, X(end) - X(start), 24, 'pic-part pic-shade pic-object');
+    let major = '', minor = '';
+    for (let i = 0; i <= total; i++) {
+      if (i % parts) minor += `M${r(X(i))} ${r(y)}V${r(y + 9)}`;
+      else major += `M${r(X(i))} ${r(y)}V${r(y + 18)}`;
+    }
+    body += line(x0, y, x1, y) + `<path d="${major}" class="pic-line pic-major"/><path d="${minor}" class="pic-line pic-minor"/>`;
+    marks.forEach((m, k) => { body += text(X(k * parts), y + 40, m, { cls: 'pic-tick' }); });
+    body += text(PHONE - PAD, y + 64, p.unit, { anchor: 'end', cls: 'pic-unit' });
+    [w, h] = [PHONE, y + 64 + PAD];
+  } else {
+    // up: 160 px of scale, or 26 px a space where it has more than 6
+    const space = Math.max(160 / total, 26), Y = (i) => PAD + 26 + (total - i) * space, bottom = Y(0);
+    const left = PAD + Math.max(...marks.map((m) => textWidth(m, BIG)), textWidth(p.unit, BIG)) + 6;
+    body += rect(left, Y(end), 120, bottom - Y(end), 'pic-part pic-shade pic-object');
+    body += `<path d="M${r(left)} ${r(Y(total) - 12)}L${r(left)} ${r(bottom)}L${r(left + 120)} ${r(bottom)}L${r(left + 120)} ${r(Y(total) - 12)}" class="pic-line pic-jug"/>`;
+    let major = '', minor = '';
+    for (let i = 0; i <= total; i++) {
+      if (i % parts) minor += `M${r(left)} ${r(Y(i))}H${r(left + 9)}`;
+      else major += `M${r(left)} ${r(Y(i))}H${r(left + 18)}`;
+    }
+    body += `<path d="${major}" class="pic-line pic-major"/><path d="${minor}" class="pic-line pic-minor"/>`;
+    marks.forEach((m, k) => { body += text(left - 6, Y(k * parts) + 6.5, m, { anchor: 'end', cls: 'pic-tick' }); });
+    body += text(left - 6, PAD + 10, p.unit, { anchor: 'end', cls: 'pic-unit' });
+    [w, h] = [left + 120 + PAD, bottom + 6.5 + PAD];
+  }
+  // never where the object ends, the pointer points or the liquid comes to: the reading is hers to find
+  const label = `${called} marked from ${marks[0]} to ${marks.at(-1)} ${unitWords(p.unit, marks.at(-1))}, with ${parts} equal spaces between the numbers`
+    + (p.device === 'kitchen' ? ', the pointer between two of them'
+      : up ? `, with ${name} in it` : `, and ${name} along it from ${decimalText(at[0] + (step * BigInt(start)) / BigInt(parts))}`);
+  return svg('scale', w, h, body, `${label}.`, FRAC_STYLE + MEAS_STYLE);
+}
+
+// ---- shape: a rectangle, square, triangle, rhombus, L-shape, parallelogram, or a triangle by its base and height (ptri,
+// its apex over the point o along the base's line), drawn to scale in its own units (x along the base from its left
+// end, y up) inside 324 × 200 px, its longer extent to its shorter at most 3 to 1 (past that drawn at 3 to 1, its
+// labels the true lengths). Each side its own <path class="pic-line pic-strong">, each label a <text class="pic-side">
+// beside the middle of its side, outside the shape; equal sides each marked by a short <path class="pic-line pic-equal">
+// across its middle. The pieces: edge and rows unit squares (<rect class="pic-part pic-unit-square">, the rows shaded),
+// only where the rectangle is drawn to its true shape (both sides 12 at most, 3 to 1 at most), else nothing is drawn;
+// an L-shape's cut (<path class="pic-line pic-dash pic-cut">, each rectangle's "3 by 2" a <text class="pic-piece"> at
+// its middle) and its missing corner (pic-corner); the height (pic-height) with its 10 px right-angle mark (<path
+// class="pic-line pic-right-angle">) and its label (<text class="pic-height">); an obtuse triangle's base dashed on to
+// under its apex (pic-extend); and, on a working picture only, the parallelogram's move (the cut, the triangle cut off
+// <path class="pic-part pic-shade pic-move-from"> and where it goes, pic-move-to) and the triangle's double (pic-double).
+// Every label is kept clear of every other and of every line (but the height's), and a shape whose labels cannot all be
+// kept clear inside 340 × 260 draws nothing. Chosen for this game, not a syllabus requirement: a shape drawn to scale at
+// most 3 to 1, and every side of an L-shape labelled for its area, where NESA's picture is on a grid
+// (plans/2026-10-25-stage-6-plan.md, "What is outside NESA in the measurement strand") ----
+
+const SHAPE_SIDES = { rect: ['l', 'w'], square: ['s'], rhombus: ['s'], tri: ['a', 'b', 'c'], lshape: ['W', 'H', 'cw', 'ch'], para: ['b', 'h', 'o', 's'], ptri: ['b', 'h', 'o'] };
+
+function shape(p) {
+  const names = SHAPE_SIDES[p.kind], u = p.unit, given = p.sides && typeof p.sides === 'object' ? p.sides : {};
+  const v = Object.fromEntries((names ?? []).map((k) => [k, counted(given[k])]));
+  if (!names || UNITS[u]?.kind !== 'length' || names.some((k) => !(v[k] >= (k === 'o' ? 0 : 1))) || !['area', 'perimeter'].includes(p.labels)
+    || (p.unknown != null && !(p.kind === 'rect' && ['l', 'w'].includes(p.unknown)))) return '';
+  const len = (n) => `${show(n)} ${u}`, said = (n) => (n === '?' ? 'a box' : `${show(n)} ${u}`);
+  const working = p.working === true, { l, w, W, H, cw, ch, b, h, o } = v;
+  // the outline counter-clockwise from (0, 0); each label [side, text]; the sides marked equal; the pieces { cls, pts,
+  // close? }, the unit squares [x, y, shaded] and the pieces' labels [text, [x0, y0, x1, y1] the piece], all in units
+  let pts, labels, equal = [], words;
+  const pieces = [], squares = [], named = [];
+  if (p.kind === 'rect') {
+    pts = [[0, 0], [l, 0], [l, w], [0, w]];
+    labels = [[0, len(p.unknown === 'l' ? '?' : l)], [3, len(p.unknown === 'w' ? '?' : w)]];
+    words = p.unknown === 'l' ? `A rectangle ${said(w)} wide, its length marked with a box`
+      : p.unknown === 'w' ? `A rectangle ${said(l)} long, its width marked with a box` : `A rectangle ${said(l)} long and ${said(w)} wide`;
+  } else if (p.kind === 'square' || p.kind === 'rhombus') {
+    const s = v.s, t = p.kind === 'square' ? s : (s * Math.sqrt(3)) / 2, o2 = p.kind === 'square' ? 0 : s / 2;
+    pts = [[0, 0], [s, 0], [s + o2, t], [o2, t]];
+    labels = [[0, len(s)]];
+    if (p.ticks) equal = [0, 1, 2, 3];
+    words = `A ${p.kind} with sides of ${said(s)}${p.ticks ? ', its sides marked equal' : ''}`;
+  } else if (p.kind === 'tri') {
+    // the longest side the base (an isosceles triangle's base its odd side), the apex found from the other two
+    const all = [v.a, v.b, v.c].sort((x, y) => y - x), kinds = new Set(all).size;
+    if (all[0] >= all[1] + all[2]) return '';
+    const odd = all.find((x) => all.indexOf(x) === all.lastIndexOf(x)), pair = all.find((x) => x !== odd);
+    const [base, left, right] = kinds === 2 ? [odd, pair, pair] : all;
+    const ax = (base * base + left * left - right * right) / (2 * base);
+    pts = [[0, 0], [base, 0], [ax, Math.sqrt(left * left - ax * ax)]];
+    labels = kinds === 3 ? [[0, len(base)], [1, len(right)], [2, len(left)]] : kinds === 2 ? [[0, len(base)], [2, len(left)]] : [[0, len(base)]];
+    // a triangle with equal sides shows fewer labels than sides, so its equal sides must be marked to tell her the rest;
+    // its words name only the sides labelled, never the ones she writes in herself (per-add)
+    if (kinds < 3 && !p.ticks) return '';
+    if (p.ticks) equal = kinds === 2 ? [1, 2] : kinds === 1 ? [0, 1, 2] : [];
+    words = kinds === 3 ? `A triangle with sides of ${listWords([...all].reverse().map(said))}`
+      : kinds === 2 ? `A triangle with one side of ${said(base)} and one of ${said(left)}, its two equal sides marked`
+        : `A triangle with one side of ${said(base)}, its three sides marked equal`;
+  } else if (p.kind === 'lshape') {
+    if (cw >= W || ch >= H) return '';
+    pts = [[0, 0], [W, 0], [W, H - ch], [W - cw, H - ch], [W - cw, H], [0, H]];
+    labels = p.labels === 'area' ? [[0, len(W)], [1, len(H - ch)], [2, len(cw)], [3, len(ch)], [4, len(W - cw)], [5, len(H)]] : [[0, len(W)], [5, len(H)]];
+    words = `An L-shape ${said(W)} wide and ${said(H)} high`;
+    if (p.cut != null) {
+      const across = p.cut === 'h';
+      if (!across && p.cut !== 'v') return '';
+      pieces.push({ cls: 'pic-line pic-dash pic-cut', pts: across ? [[0, H - ch], [W - cw, H - ch]] : [[W - cw, 0], [W - cw, H - ch]] });
+      named.push(...(across ? [[`${W} by ${H - ch}`, [0, 0, W, H - ch]], [`${W - cw} by ${ch}`, [0, H - ch, W - cw, H]]]
+        : [[`${W - cw} by ${H}`, [0, 0, W - cw, H]], [`${cw} by ${H - ch}`, [W - cw, 0, W, H - ch]]]));
+      words += `, cut ${across ? 'across' : 'down'} into two rectangles, ${named[0][0]} and ${named[1][0]}`;
+    }
+    if (p.corner) {
+      pieces.push({ cls: 'pic-line pic-dash pic-corner', pts: [[W - cw, H], [W, H], [W, H - ch]] });
+      words += ', its missing corner drawn dashed to make the whole rectangle';
+    }
+  } else if (p.kind === 'para') {
+    pts = [[0, 0], [b, 0], [b + o, h], [o, h]];
+    labels = [[0, len(b)], ...(p.slant != null ? [[1, len(p.slant)]] : [])];
+    words = `A parallelogram with a base of ${said(b)}`;
+    if (p.move && working) {
+      // the cut straight down from the top corner must land on the base: past its end (o > b) nothing is cut off it
+      if (o > b) return '';
+      pieces.push({ cls: 'pic-part pic-shade pic-move-from', pts: [[0, 0], [o, 0], [o, h]], close: true },
+        { cls: 'pic-line pic-dash pic-cut', pts: [[o, h], [o, 0]] }, { cls: 'pic-line pic-dash pic-move-to', pts: [[b, 0], [b + o, 0], [b + o, h]], close: true });
+    }
+  } else {
+    pts = [[0, 0], [b, 0], [o, h]];
+    labels = [[0, len(b)]];
+    words = `A triangle with a base of ${said(b)}`;
+    if (o > b) pieces.push({ cls: 'pic-line pic-dash pic-extend', pts: [[b, 0], [o, 0]] });
+    if (p.double && working) pieces.push({ cls: 'pic-line pic-dash pic-double', pts: [[b, 0], [b + o, h], [o, h]], close: true });
+  }
+  const tall = p.height != null && (p.kind === 'para' || p.kind === 'ptri');
+  if (tall) words += p.height === '?' ? ' and its height marked with a box' : ` and a height of ${said(p.height)}`;
+  if (p.kind === 'para' && p.slant != null) words += `, its slanted side ${said(p.slant)}`;
+  if (pieces.some((q) => q.cls.includes('pic-move-to'))) words += ', the triangle at its left end cut off and moved to its right end, making a rectangle';
+  if (pieces.some((q) => q.cls.includes('pic-double'))) words += ', and a copy of it turned round to make a parallelogram';
+  // the unit squares: a rectangle drawn to its true shape only, every square one unit on each axis
+  const rows = p.rows == null ? 0 : counted(p.rows);
+  if (p.edge || p.rows != null) {
+    if (p.kind !== 'rect' || l > 12 || w > 12 || Math.max(l, w) > 3 * Math.min(l, w) || !(rows >= 0 && rows <= w)) return '';
+    if (p.edge) {
+      for (let i = 0; i < l; i++) squares.push([i, 0, false]);
+      for (let j = 1; j < w; j++) squares.push([0, j, false]);
+      words += `, one row and one column of 1 ${u} squares along its edges`;
+    }
+    for (let j = 0; j < rows; j++) for (let i = 0; i < l; i++) squares.push([i, j, true]);
+    if (rows) words += `, ${rows} ${rows === 1 ? 'row' : 'rows'} of 1 ${u} squares shaded`;
+  }
+
+  // drawn at kx px a unit across and kx / c up: c is 1 but where the shape is past 3 to 1
+  const all = [...pts, ...pieces.flatMap((q) => q.pts)];
+  const ew = Math.max(...all.map(([x]) => x)), eh = Math.max(...all.map(([, y]) => y));
+  const c = ew > 3 * eh ? (3 * eh) / ew : eh > 3 * ew ? eh / (3 * ew) : 1;
+  const draw = (kx, dx, dy) => {
+    const P = ([x, y]) => [dx + x * kx, dy + ((eh - y) * kx) / c];
+    let body = '', box = [Infinity, Infinity, -Infinity, -Infinity];
+    const grow = (x, y) => { box = [Math.min(box[0], x), Math.min(box[1], y), Math.max(box[2], x), Math.max(box[3], y)]; };
+    const d = (list, close) => list.map((q, i) => { const [x, y] = P(q); grow(x, y); return `${i ? 'L' : 'M'}${r(x)} ${r(y)}`; }).join('') + (close ? 'Z' : '');
+    const label = (x, y, str, anchor, cls, size = BIG) => {
+      const tw = textWidth(str, size), a = anchor === 'middle' ? x - tw / 2 : anchor === 'end' ? x - tw : x;
+      grow(a, y - 15);
+      grow(a + tw, y + 4);
+      body += text(x, y, str, { size, anchor, cls });
+    };
+    for (const [i, j, shaded] of squares) {
+      const [x, y] = P([i, j + 1]);
+      body += rect(x, y, kx, kx, shaded ? 'pic-part pic-shade pic-unit-square' : 'pic-part pic-unit-square');
+    }
+    for (const q of pieces.filter((x) => !x.cls.includes('pic-dash'))) body += `<path d="${d(q.pts, q.close)}" class="${q.cls}"/>`;
+    pts.forEach((a, i) => { body += `<path d="${d([a, pts[(i + 1) % pts.length]])}" class="pic-line pic-strong"/>`; });
+    for (const q of pieces.filter((x) => x.cls.includes('pic-dash'))) body += `<path d="${d(q.pts, q.close)}" class="${q.cls}"/>`;
+    if (tall) {
+      // the height, straight down from the top to the base's line, its right-angle mark on the base's side of its foot
+      const foot = P([o, 0]), dir = o < b ? 1 : -1;
+      body += `<path d="${d([[o, h], [o, 0]])}" class="pic-line pic-dash pic-height"/>`;
+      body += `<path d="M${r(foot[0] + 10 * dir)} ${r(foot[1])}L${r(foot[0] + 10 * dir)} ${r(foot[1] - 10)}L${r(foot[0])} ${r(foot[1] - 10)}" class="pic-line pic-right-angle"/>`;
+    }
+    // each side's ends, middle, direction and outward normal, on screen (the outline goes clockwise there, y down)
+    const side = (i) => {
+      const A = P(pts[i]), B = P(pts[(i + 1) % pts.length]), L = Math.hypot(B[0] - A[0], B[1] - A[1]);
+      return { A, B, m: [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2], t: [(B[0] - A[0]) / L, (B[1] - A[1]) / L], n: [(A[1] - B[1]) / L, (B[0] - A[0]) / L] };
+    };
+    const sides = pts.map((_, i) => side(i));
+    for (const i of equal) {
+      const { m, n } = side(i);
+      const ends = [[m[0] - 6 * n[0], m[1] - 6 * n[1]], [m[0] + 6 * n[0], m[1] + 6 * n[1]]];
+      ends.forEach(([x, y]) => grow(x, y));
+      body += `<path d="M${r(ends[0][0])} ${r(ends[0][1])}L${r(ends[1][0])} ${r(ends[1][1])}" class="pic-line pic-equal"/>`;
+    }
+    // every label off every other label and every line drawn (review finding 1: an L-shape's small notch put its floor's
+    // and its wall's labels on each other): each label tries its places in turn and takes the first clear one; a label
+    // with no clear place draws nothing. A side's label stays nearer its own side's middle than any other's, as the
+    // oracle reads it; its first place is beside its middle, outside, then slid along, then inside
+    const lines = [...sides.map((sd) => [sd.A, sd.B]),
+      ...pieces.filter((q) => q.cls.includes('pic-dash')).flatMap((q) => q.pts.map((a, i) => [a, q.pts[(i + 1) % q.pts.length]])
+        .slice(0, q.close ? q.pts.length : q.pts.length - 1).map(([a, z]) => [P(a), P(z)]))];
+    const taken = [];
+    const boxAt = ([x, y, anchor, size = BIG], str) => {
+      const tw = textWidth(str, size), a = anchor === 'middle' ? x - tw / 2 : anchor === 'end' ? x - tw : x;
+      return { l: a, r: a + tw, top: y - 15, bot: y + 4 };
+    };
+    // 2 px apart from another label; off every line, but the height's label (across), which is kept off labels only
+    // and may cross a side as before, a tall narrow triangle leaving it no room beside the height
+    const clear = (q, across) => !taken.some((z) => q.l < z.r + 4 && z.l < q.r + 4 && q.top < z.bot && z.top < q.bot)
+      && (across || !lines.some((ln) => through(ln, q)));
+    const place = (str, cls, spots, ok, across = false) => {
+      const spot = spots.find((sp) => { const q = boxAt(sp, str); return clear(q, across) && ok(q); });
+      if (!spot) return false;
+      taken.push(boxAt(spot, str));
+      label(spot[0], spot[1], str, spot[2], cls, spot[3]);
+      return true;
+    };
+    const SLIDE = [0, 10, -10, 20, -20, 30, -30, 40, -40];
+    for (const [i, str] of labels) {
+      const { m, n, t } = sides[i], spots = [];
+      for (const nn of [n, [-n[0], -n[1]]]) {
+        // 8 px out, or further where a slanted side would cross its label's box
+        for (const out of [8, 14, 20]) {
+          for (const k of SLIDE) {
+            const q = [m[0] + k * t[0] + out * nn[0], m[1] + k * t[1] + out * nn[1]];
+            spots.push(Math.abs(nn[0]) >= 0.5 ? [q[0], q[1] + 6.5, nn[0] > 0 ? 'start' : 'end'] : [q[0], nn[1] > 0 ? q[1] + 14 : q[1] - 1, 'middle']);
+          }
+        }
+      }
+      // read by its middle, 6.3 px over its baseline
+      const own = (q) => {
+        const at = [(q.l + q.r) / 2, q.top + 8.7], far = sides.map((sd) => Math.hypot(sd.m[0] - at[0], sd.m[1] - at[1]));
+        return far.every((f, j) => j === i || f > far[i]);
+      };
+      if (!place(str, 'pic-side', spots, own)) return null;
+    }
+    for (const [str, [ux0, uy0, ux1, uy1]] of named) {
+      // at its piece's middle, or moved within the piece; at 16 px where 18 px does not fit
+      const [a, z] = [P([ux0, uy1]), P([ux1, uy0])], mid = [(a[0] + z[0]) / 2, (a[1] + z[1]) / 2];
+      const spots = [BIG, SMALL].flatMap((size) => SLIDE.flatMap((ky) => SLIDE.map((kx2) => [mid[0] + kx2, mid[1] + 6.5 + ky, 'middle', size]))
+        .sort((s1, s2) => Math.hypot(s1[0] - mid[0], s1[1] - mid[1] - 6.5) - Math.hypot(s2[0] - mid[0], s2[1] - mid[1] - 6.5)));
+      const inside = (q) => (q.l + q.r) / 2 > a[0] && (q.l + q.r) / 2 < z[0] && q.top + 8.7 > a[1] && q.top + 8.7 < z[1];
+      if (!place(str, 'pic-piece', spots, inside)) return null;
+    }
+    if (tall) {
+      const top = P([o, h]), foot = P([o, 0]), y = (top[1] + foot[1]) / 2 + 6.5;
+      const spots = SLIDE.flatMap((k) => [[foot[0] + 6, y + k, 'start'], [foot[0] - 6, y + k, 'end']]);
+      if (!place(len(p.height), 'pic-height', spots, () => true, true)) return null;
+    }
+    return { body, box };
+  };
+  // as large as fits 324 × 200, and with its labels 340 × 260; kx in tenths of a px, so every corner at a whole number of
+  // units lands exactly where it should. A perimeter question's shape, docked, with its labels 160 tall at most: at its
+  // full 242 to 248 the steps of the longest question in metres, or of a refusal, went under it at 390 × 844 (stage 6
+  // step 4.3, fact 3's first branch, pt78); its labels 18 px as before
+  const most = p.labels === 'perimeter' && !working ? 160 : 260;
+  let kx = Math.min(324 / ew, (200 * c) / eh), out;
+  for (let pass = 0; pass < 6; pass++) {
+    kx = Math.floor(kx * 10) / 10;
+    if (!(kx > 0)) return '';
+    out = draw(kx, 0, 0);
+    if (!out) return '';
+    const [x0, y0, x1, y1] = out.box, dw = ew * kx, dh = (eh * kx) / c;
+    const f = Math.min((PHONE - 2 * PAD - (x1 - x0 - dw)) / dw, (most - 2 * PAD - (y1 - y0 - dh)) / dh);
+    if (f >= 1) break;
+    kx *= f;
+  }
+  const [x0, y0, x1, y1] = out.box;
+  // nothing drawn where its labels cannot all be kept clear inside 340 × 260 (or 160)
+  const last = draw(kx, Math.round((PAD - x0) * 10) / 10, Math.round((PAD - y0) * 10) / 10);
+  if (!last || x1 - x0 + 2 * PAD > PHONE + 0.5 || y1 - y0 + 2 * PAD > most + 0.5) return '';
+  return svg('shape', x1 - x0 + 2 * PAD, y1 - y0 + 2 * PAD, last.body, `${words}.`, FRAC_STYLE + MEAS_STYLE);
+}
+
+// ---- prism: a rectangular prism in oblique view, its depth drawn at half size 45° up and right, its edge s px the largest
+// that fits 340 × 260 and at most 40. cubes (l 2 to 6, w 2 to 4, h 2 to 5, else nothing is drawn): every face she sees,
+// the front ones <rect class="pic-cube pic-front"> (l × h), the top ones <path class="pic-cube pic-top"> (l × w) and the
+// right ones <path class="pic-cube pic-right"> (w × h), so they can be counted. With no cubes, the box and its three
+// edges labelled (<text class="pic-edge">, "6 cm"; labels: { l, w, h } a label in place of a length, '?' a box). layer
+// shades the top layer (<path class="pic-part pic-shade pic-layer">), front the front face (<rect class="pic-part
+// pic-shade pic-face">) ----
+
+function prism(p) {
+  const l = counted(p.l), w = counted(p.w), h = counted(p.h), cubes = p.cubes === true, u = p.unit;
+  if (!(l >= 1 && w >= 1 && h >= 1)) return '';
+  if (cubes ? !(l >= 2 && l <= 6 && w >= 2 && w <= 4 && h >= 2 && h <= 5) : UNITS[u]?.kind !== 'length') return '';
+  const given = p.labels && typeof p.labels === 'object' ? p.labels : {};
+  const edge = { l: given.l ?? l, w: given.w ?? w, h: given.h ?? h };
+  const lab = (k) => `${show(edge[k])} ${u}`, say = (k) => (edge[k] === '?' ? 'a box' : `${show(edge[k])} ${u}`);
+  const left = cubes ? 0 : textWidth(lab('h'), BIG) + 8, right = cubes ? 0 : textWidth(lab('w'), BIG) + 8, under = cubes ? 0 : 26;
+  const D = Math.SQRT1_2 / 2; // a unit of depth, in edges across and up
+  const s = Math.floor(Math.min(40, (PHONE - 2 * PAD - left - right) / (l + w * D), (260 - 2 * PAD - under) / (h + w * D)) * 10) / 10;
+  const e = s * D, x0 = PAD + left, top = PAD + w * e, xr = x0 + l * s, bottom = top + h * s;
+  const poly = (list) => `M${list.map(([x, y]) => `${r(x)} ${r(y)}`).join('L')}Z`;
+  let body = '';
+  if (cubes) {
+    for (let j = 0; j < h; j++) for (let i = 0; i < l; i++) body += rect(x0 + i * s, top + j * s, s, s, 'pic-cube pic-front');
+    for (let k = 0; k < w; k++) {
+      for (let i = 0; i < l; i++) {
+        const [xa, ya] = [x0 + i * s + k * e, top - k * e];
+        body += `<path d="${poly([[xa, ya], [xa + s, ya], [xa + s + e, ya - e], [xa + e, ya - e]])}" class="pic-cube pic-top"/>`;
+      }
+      for (let j = 0; j < h; j++) {
+        const [xa, ya] = [xr + k * e, top + j * s - k * e];
+        body += `<path d="${poly([[xa, ya], [xa + e, ya - e], [xa + e, ya - e + s], [xa, ya + s]])}" class="pic-cube pic-right"/>`;
+      }
+    }
+  } else {
+    body += rect(x0, top, l * s, h * s, 'pic-line');
+    body += `<path d="${poly([[x0, top], [xr, top], [xr + w * e, top - w * e], [x0 + w * e, top - w * e]])}" class="pic-line pic-soft"/>`;
+    body += `<path d="${poly([[xr, top], [xr + w * e, top - w * e], [xr + w * e, bottom - w * e], [xr, bottom]])}" class="pic-line pic-soft"/>`;
+    body += text(x0 + (l * s) / 2, bottom + 22, lab('l'), { cls: 'pic-edge' });
+    body += text(x0 - 8, top + (h * s) / 2 + 6.5, lab('h'), { anchor: 'end', cls: 'pic-edge' });
+    body += text(xr + (w * e) / 2 + 8, bottom - (w * e) / 2 + 10, lab('w'), { anchor: 'start', cls: 'pic-edge' });
+  }
+  if (p.front) body += rect(x0, top, l * s, h * s, 'pic-part pic-shade pic-face');
+  if (p.layer) body += `<path d="${poly([[x0, top + s], [x0, top], [x0 + w * e, top - w * e], [xr + w * e, top - w * e], [xr + w * e, top + s - w * e], [xr, top + s]])}" class="pic-part pic-shade pic-layer"/>`;
+  // the counts the picture shows, or the lengths its labels give; never the volume
+  let label = cubes ? `A rectangular prism made of cubes, ${l} cubes long, ${w} wide and ${h} high`
+    : `A rectangular prism ${say('l')} long, ${say('w')} wide and ${say('h')} high`;
+  if (p.layer) label += ', its top layer shaded';
+  if (p.front) label += ', its front face shaded';
+  return svg('prism', xr + w * e + right + PAD, bottom + under + PAD, body, `${label}.`, FRAC_STYLE + MEAS_STYLE);
+}
+
+const DRAW = { array, groups, chunks, shortdiv, balance, placevalue, grid, area, numberline, table, columns, bar, strips, fracline, fracarea, scale, shape, prism };
 
 export const PICTURE_TYPES = Object.keys(DRAW);
 
@@ -1615,4 +2020,10 @@ export const EXAMPLES = [
   // the number line with percentages, and decimals, under it (tests/oracle/percentages.mjs reads these)
   { type: 'fracline', wholes: 1, d: 4, labels: 'all', below: 4, pct: true, point: { n: 3, d: 4, label: '', below: '?' } },
   { type: 'fracline', wholes: 1, d: 10, labels: 'wholes', below: 10, pct: true, dec: true, point: { n: 3, d: 10, label: '', dec: '?' } },
+  // the measurement pictures (tests/oracle/measurement.mjs reads these): NESA's L-shape, area 18, and its prism of 5 layers
+  // of 4 rows of 2 cubes; the pages' saved copies are 2026-10-28-2213-article-k-10-mathematics-k-10-syllabus-2022-<id>.md,
+  // NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments, checked 28 October 2026 (fa0dfe5fec l.45, fa89ed4224 l.48)
+  { type: 'scale', device: 'ruler', unit: 'cm', marks: ['0', '1', '2', '3', '4', '5', '6'], parts: 2, end: 9, name: 'the pencil' },
+  { type: 'shape', kind: 'lshape', unit: 'cm', sides: { W: 6, H: 4, cw: 3, ch: 2 }, labels: 'area' },
+  { type: 'prism', l: 2, w: 4, h: 5, cubes: true, unit: 'cm' },
 ];

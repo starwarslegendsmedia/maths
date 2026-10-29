@@ -7,7 +7,7 @@
 // fetched and kept, so a line built from them is said offline too; a piece the fill misses is kept the first time it
 // plays, and a piece the list no longer names is let go.
 // tools/publish.mjs names the cache for what it published, so each new publish replaces every file kept from the last.
-const CACHE = 'maths-game-ed403f05f4ba';
+const CACHE = 'maths-game-547947070269';
 const PIECES = 'maths-game-pieces';
 
 self.addEventListener('install', (event) => {

@@ -6,6 +6,7 @@
 import { h } from './ui.js';
 import { fmt, thousandths } from '../engine/check.js';
 import { FRACTION, FRACTION_NAMES, fractionWords } from '../engine/fractions.js';
+import { UNITS } from '../engine/units.js';
 
 function isSentenceAsk(ask) {
   return ask.includes('☐') && !/[a-z]{3,}/i.test(ask.replace(/\br\b/g, ''));
@@ -42,17 +43,34 @@ export function askClass(ask) {
 // decimal sentence beside a fraction (dec-x10's "1/10 of 3.6 = ☐"): the screens of every skill before the fractions draw
 // as they did (tests/stage6-fractions-screens.test.js). The one exception, written only by the fraction ways: a count
 // sentence with no fraction whose spaces are no-break ones ("6 eighths + 5 eighths = 11 eighths") can run out of a
-// phone's step box, so it may break before its "=" and nowhere else (counted).
-export function fracNodes(text, slot = null, { step = false } = {}) {
+// phone's step box, so it may break before its "=" and nowhere else (counted). A question that is a number sentence
+// with units (UNIT_SENTENCE: "41.03 m = 41 m ☐ cm") is one span that does not wrap, made smaller where it is wider than
+// its line (fit).
+export function fracNodes(text, slot = null, { step = false, inStep = false, whole = false } = {}) {
+  // a question with units on one line: broken after "41 m", line 1 read as a false sum, "41.03 m = 41 m", the box and its
+  // unit alone on line 2 (stage 6 step 4.2, the replay's shot 057; fact 6's branch, the lead's ruling, pt76); a step as
+  // before
+  if (!whole && !step && !inStep && UNIT_SENTENCE.test(text)) return [fit(h('span', { class: 'nowrap fit' }, fracNodes(text, slot, { whole: true })))];
   // a box with a word joined to it by a no-break space ("covers ☐ eighths.", I7) kept on one line with it, which a browser
   // would otherwise break beside the box, the word alone on the next line (stage 6 step 2.4, the replay's shot 112, pt59);
-  // and a box with "%" straight after it ("So 100% − 30% = ☐%", stage 6 strand 3, plan "Showing a percentage")
+  // and a box with "%" straight after it ("So 100% − 30% = ☐%", stage 6 strand 3, plan "Showing a percentage"), or "$"
+  // straight before it in her question ("The sale price is $☐.", which WebKit parted at a line's end in 150 of 1,440 such
+  // asks at 320 and 390 wide, stage 6 step 3.4, fact 7); not in a step or a step's box (inStep), where the word problems'
+  // "So the answer is $☐." was never parted and draws as before (the lead's ruling, R12)
   const plain = (into, t) => {
     if (!slot) return t && into.push(t);
-    t.split('☐').forEach((p, i) => {
-      const joined = i ? p.match(/^(?:\u00a0\S+|%)/) : null;
-      if (joined) into.push(h('span', { class: 'nowrap' }, slot(), joined[0]), p.slice(joined[0].length));
-      else { if (i) into.push(slot()); into.push(p); }
+    const parts = t.split('☐');
+    let dollar = false; // a "$" taken off the end of the text before this box, to go in its span
+    parts.forEach((p, i) => {
+      // after a box with its "$", the mark after it too ("$☐.", which WebKit wrapped onto a line of its own at 390 wide,
+      // stage 6 step 3.4, the looker's round 3)
+      const joined = i ? p.match(dollar ? /^(?:\u00a0\S+|%|[.?!,;:])/ : /^(?:\u00a0\S+|%)/) : null;
+      let rest = joined ? p.slice(joined[0].length) : p;
+      const next = !step && !inStep && i < parts.length - 1 && rest.endsWith('$');
+      if (next) rest = rest.slice(0, -1);
+      if (joined || dollar) into.push(h('span', { class: 'nowrap' }, ...(dollar ? ['$'] : []), slot(), ...(joined ? [joined[0]] : [])), rest);
+      else { if (i) into.push(slot()); into.push(rest); }
+      dollar = next;
     });
   };
   const part = (cls, v, after = null) => h('span', { class: cls }, v === '☐' && slot ? slot() : v,
@@ -62,8 +80,34 @@ export function fracNodes(text, slot = null, { step = false } = {}) {
   // 25%", which broke after its "÷", stage 6 step 3.2's looker, F6), and a fraction outside one with a closing mark after
   // it, each with the mark after it
   const percent = step && text.includes('%');
-  const keep = !fracs.length && !percent ? [] : [...text.matchAll(SENTENCE)].map((m) => [m.index, m.index + m[0].length])
+  let keep = !fracs.length && !percent ? [] : [...text.matchAll(SENTENCE)].map((m) => [m.index, m.index + m[0].length])
     .filter(([from, to]) => fracs.some((f) => f.index >= from && f.index < to) || (percent && text.slice(from, to).includes('%')));
+  // and in such a step the number sentence it ends on, its box last, a per cent or half of an amount a part of it ("So
+  // 25% of 120 = ☐", "half of 328 = ☐", "328 ÷ 10 = ☐": "of" is a word, so "164" went to the next line, stage 6 step 3.3's
+  // replay, fact 3); one with two "=" may break before the first and nowhere else, as a count sentence may (counted: at
+  // 320 px "50% of 398 = half of 398 = 199" is 280 px, past a step's 220, WebKit, 28 October 2026); and so in a step
+  // naming dollars, whose sum has no "%" ("So the discount in dollars is 47 ÷ 4 = ☐", "Take it off: so the sale price in
+  // dollars is 47 − 11.75 = ☐", pct-discount's ways, stage 6 step 3.4)
+  const ends = percent || (step && /\bin dollars\b/.test(text)) ? text.match(ENDS) : null;
+  if (ends) {
+    const from = ends.index, to = from + ends[0].length;
+    const signs = [...ends[0].matchAll(/([  ]*)=/g)].slice(0, -1);
+    keep = keep.filter(([a, b]) => b <= from || a >= to);
+    signs.forEach((m, i) => keep.push([i ? from + signs[i - 1].index + signs[i - 1][1].length : from, from + m.index]));
+    const last = signs.at(-1);
+    keep.push([last ? from + last.index + last[1].length : from, to]);
+  }
+  // and in a step each number sentence with units ("… to the right: 6 cm = ☐ m", "So 2.6 km = 2 km ☐ m", "5.5 cm − 1 cm
+  // = ☐ cm long"), which broke before its "=" or before its box (stage 6 step 4.2, S's shot 160 and the second code
+  // review's finding 1, pt76), its value or her box in it, made smaller only where it is wider than its line (fit); and a
+  // box with its unit and the word before it ("each space is ☐ cm", "1 cm and ☐ mm"), which broke before the box (the
+  // read steps, pt76)
+  // and so a number sentence whose unit is only after its box ("Length and width once: 3 + 2 = ☐ cm"), which went to
+  // counted and broke before its "=" (stage 6 step 4.3, WebKit at 390 wide, pt78)
+  const runs = step || inStep ? [...text.matchAll(UNIT_RUN)] : [];
+  const units = [...runs, ...(step || inStep ? [...text.matchAll(UNIT_LABEL)] : []).filter((l) => !runs.some((u) => l.index < u.index + u[0].length && u.index < l.index + l[0].length))];
+  const worded = step || inStep ? [...text.matchAll(WORD_BOX)].filter((w) => !units.some((u) => w.index < u.index + u[0].length && u.index < w.index + w[0].length)) : [];
+  for (const m of [...units, ...worded]) keep = [...keep.filter(([a, b]) => b <= m.index || a >= m.index + m[0].length), [m.index, m.index + m[0].length]];
   const kept = fracs.length || keep.length;
   if (!kept && text.includes('\u00a0=')) return counted(text, plain);
   if (!kept && !slot) return [text];
@@ -96,7 +140,7 @@ export function fracNodes(text, slot = null, { step = false } = {}) {
     upTo(out, from);
     const together = [];
     upTo(together, to);
-    out.push(h('span', { class: 'nowrap' }, together));
+    out.push(units.some((u) => u.index === from) ? fit(h('span', { class: 'nowrap fit' }, together)) : h('span', { class: 'nowrap' }, together));
   }
   upTo(out, text.length);
   return out;
@@ -128,6 +172,50 @@ function counted(text, plain) {
 // ("So 75% = ☐/4", stage 6 step 3.1 review, finding 2; "12.5% = ☐", "0.75 = ?%", step 3.2 code review 2, finding 2)
 const SENTENCE_TERM = `(?:${FRACTION.source}|(?<![\\d.\\/])\\d+(?:\\u00a0\\d{3})*(?:\\.\\d+)?%?|☐%?|\\?%?)`;
 const SENTENCE = new RegExp(`${SENTENCE_TERM}(?:[ \\u00a0]*[=+−×÷<>][ \\u00a0]*${SENTENCE_TERM})+`, 'g');
+// a number sentence with units, the whole of the text (fracNodes): amounts, each a number, a box or "?" with its unit of
+// engine/units.js after a no-break space, one or more to a side ("2 km 600 m"), the sides joined by = + − × ÷
+const UNIT_SYMBOL = `(?:${Object.keys(UNITS).sort((a, b) => b.length - a.length).join('|')})(?![A-Za-z²³])`;
+const UNIT_AMOUNT = `(?:\\d+(?:\\u00a0\\d{3})*(?:\\.\\d+)?|☐|\\?)\\u00a0${UNIT_SYMBOL}`;
+const UNIT_SIDE = `${UNIT_AMOUNT}(?: ${UNIT_AMOUNT})*`;
+const UNIT_SENTENCE = new RegExp(`^${UNIT_SIDE}(?: [=+−×÷] ${UNIT_SIDE})+$`);
+// in a step (fracNodes): a number sentence with units, its signs between no-break or ordinary spaces; and a box with its
+// unit and the word before it
+const UNIT_RUN = new RegExp(`(?<![\\d.])${UNIT_SIDE}(?:[ \\u00a0][=+−×÷][ \\u00a0]${UNIT_SIDE})+`, 'g');
+const WORD_BOX = new RegExp(`[^\\s]+ ☐\\u00a0${UNIT_SYMBOL}`, 'g');
+// and a number sentence of numbers with no unit, the unit only after the box that ends it ("2 × 10 = ☐ cm", plan, "Units
+// in a step's number sentence")
+const UNIT_NUMBER = '\\d+(?:\\u00a0\\d{3})*(?:\\.\\d+)?';
+const UNIT_LABEL = new RegExp(`(?<![\\d.])${UNIT_NUMBER}(?:[ \\u00a0][+−×÷][ \\u00a0]${UNIT_NUMBER})*[ \\u00a0]=[ \\u00a0]☐\\u00a0${UNIT_SYMBOL}`, 'g');
+
+// A number sentence with units kept on one line (fracNodes), at the card's own size (css/app.css .ask, .ask.long) where
+// that fits its line, else made just small enough to: at 30 px the widest, "68.906 km = 68 km ☐ m", is 388 px, and a
+// question's line is 326 at 390 wide, 256 at 320 (WebKit, pt76, /tmp/pt76-y/widths.mjs). Sized again whenever its width
+// or its line's changes (a box she types in grows; the phone turned); a page with no layout (tests) leaves it as it is.
+// Sized in the frame after, never in the observer's own call, where a size it changes or a line it starts watching is
+// an error on the page ("ResizeObserver loop completed with undelivered notifications", WebKit, pt76).
+function fit(span) {
+  if (!globalThis.ResizeObserver) return span;
+  let line = null;
+  const size = () => {
+    if (span.isConnected === false) return watch.disconnect(); // off the page: watched no more
+    if (span.parentNode && span.parentNode !== line) watch.observe((line = span.parentNode));
+    span.style.fontSize = '';
+    const box = span.parentNode && getComputedStyle(span.parentNode); // a step's line has padding
+    const room = span.parentNode?.clientWidth - (parseFloat(box?.paddingLeft) || 0) - (parseFloat(box?.paddingRight) || 0);
+    // again until it fits: the line's letter and word spacing do not get smaller with it (css/app.css .ask)
+    for (let k = 0, wide; k < 4 && room && (wide = span.getBoundingClientRect().width) > room; k++) {
+      span.style.fontSize = `${Math.floor((parseFloat(getComputedStyle(span).fontSize) * room * 10) / wide) / 10}px`;
+    }
+  };
+  const watch = new ResizeObserver(() => requestAnimationFrame(size));
+  watch.observe(span);
+  return span;
+}
+
+// a step's closing number sentence (fracNodes): its parts those of a number sentence, or a per cent or half of an amount
+// ("25% of 120", "half of 328"), ending "= ☐" at the end of the text, a closing mark after it
+const OF_TERM = `(?:(?<![\\d.\\/])\\d+(?:\\.\\d+)?%|\\bhalf) of (?<![\\d.\\/])\\d+(?:\\u00a0\\d{3})*(?:\\.\\d+)?`;
+const ENDS = new RegExp(`(?:${OF_TERM}|${SENTENCE_TERM})(?:[ \\u00a0]*[=+−×÷<>][ \\u00a0]*(?:${OF_TERM}|${SENTENCE_TERM}))*[ \\u00a0]*=[ \\u00a0]*☐%?(?=[.?!]?$)`);
 
 // Render text with ☐ turned into boxes, a fraction's two numerator first; returns { el, boxes }.
 function withBoxes(text, cls = 'ask') {
@@ -137,7 +225,7 @@ function withBoxes(text, cls = 'ask') {
     boxes.push(b);
     return b;
   };
-  return { el: h('div', { class: cls }, fracNodes(text, box)), boxes };
+  return { el: h('div', { class: cls }, fracNodes(text, box, { inStep: cls === 'in-step' })), boxes };
 }
 
 // A word problem's story with its numbers and doing-words marked (item.marks, engine/items/wordproblems.js; research

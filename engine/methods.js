@@ -25,6 +25,7 @@ import { middle } from './speed.js';
 import { DEC_ONE, DEC_PLACES, andList, countOf, decParts, decimalText, inOrder, partText, placesOf, signOf, splitDecimal, thOf, timesOf, worthOf } from './items/decimals.js';
 import { FRACTION_WAYS, fractionEstimateStep, relatedSum } from './fraction-ways.js';
 import { PERCENT_WAYS } from './percent-ways.js';
+import { MEASURE_WAYS } from './measure-ways.js';
 
 const PLACES = ['Ones', 'Tens', 'Hundreds', 'Thousands'];
 
@@ -1834,6 +1835,8 @@ export const METHODS = {
   ...FRACTION_WAYS,
   // the percentage ways (stage 6 strand 3), the same, in engine/percent-ways.js
   ...PERCENT_WAYS,
+  // the measurement ways (stage 6 strand 4), the same, in engine/measure-ways.js
+  ...MEASURE_WAYS,
 };
 
 // ---- the ways of the skills whose generators build their own steps (engine/items/ways.js; plans/2026-10-25-two-ways-plan.md):
@@ -1950,6 +1953,24 @@ export const wontWork = (asked, why, method, sum) => ({ text: `${METHODS[asked].
 export const wayTitle = (method, sum) => METHODS[method].namedAs?.(sum) ?? METHODS[method].title;
 
 const choices = (events, skillId) => events.filter((e) => e.type === 'method-choice' && e.skill === skillId);
+// her choices within one group of a skill with groups: those whose two shown ways are both in it
+const groupChoices = (events, skillId, group) => choices(events, skillId).filter((c) => c.shown.every((m) => group.includes(m)));
+
+// Her way in each group of a skill with `groups` (engine/skills.js: its ways in sets that share a kind of problem, one
+// set to a key; plans/2026-10-25-stage-6-plan.md "The ways", "Groups"): her latest choice whose two shown ways are both
+// in it, else its first way, so her choice on one kind of problem never drops her way on another. { [group index]: way },
+// Runner.make's opts.ways, by which the generator works each key.
+export function groupWays(events, skillId) {
+  return Object.fromEntries((BY_ID[skillId]?.groups ?? []).map((g, i) => [i, lastInGroup(events, skillId, g)?.chosen ?? g[0]]));
+}
+// her latest choice in a group, of a way of the skill's, or undefined
+const lastInGroup = (events, skillId, group) => groupChoices(events, skillId, group).filter((c) => methodsOf(skillId).includes(c.chosen)).at(-1);
+// Her latest choice in the group of a skill with groups whose ways include the way given, by groupWays' rule; null
+// before she has chosen in it (js/runner.js: whether an answer was worked the way she chose).
+export function groupChoice(events, skillId, method) {
+  const group = BY_ID[skillId]?.groups?.find((g) => g.includes(method));
+  return (group && lastInGroup(events, skillId, group)) ?? null;
+}
 
 // A facts skill keeps her ÷ way apart from her × way: a choice made on a division fact is marked op '÷', so choosing
 // halving never drops the way she chose for multiplying. Every other choice is a × choice (op as for a facts skill;
@@ -2009,7 +2030,9 @@ export function methodStats(events, skillId) {
 
 // The way for a warm-up on this skill: hers, except that school's way comes up in one warm-up in three once it has
 // been shown to her, if she keeps another.
+// A skill with groups gives none: the generator works each key by her way for its group (groupWays).
 export function reviewMethod(events, skillId) {
+  if (BY_ID[skillId]?.groups) return undefined;
   const mine = preferredMethod(events, skillId) ?? taughtFirst(skillId);
   const school = BY_ID[skillId]?.school;
   if (!school || mine === school || !choices(events, skillId).some((c) => c.shown.includes(school))) return mine;
@@ -2032,6 +2055,11 @@ export function compareOffer(st, events, { rng, target = null, fresh = false } =
     const list = methodsOf(id);
     const status = st[id]?.status;
     if (list.length < 2) continue;
+    if (BY_ID[id]?.groups) {
+      const offer = groupOffer(st, events, id, target);
+      if (offer) return offer;
+      continue;
+    }
     const shown = new Set(choices(events, id).flatMap((c) => c.shown));
     // a skill taught a way for each sum is set beside its other way from its first, as before it had one that leads
     const mine = preferredMethod(events, id) ?? taughtFirst(id) ?? (BY_ID[id]?.kind === 'facts' ? undefined : list[0]);
@@ -2070,6 +2098,34 @@ export function compareOffer(st, events, { rng, target = null, fresh = false } =
     const share = (m) => (stats[m]?.tries ? stats[m].right / stats[m].tries : 0);
     const other = list.filter((m) => m !== mine).sort((x, y) => share(y) - share(x))[0];
     return { skill: id, mine, other, again: true };
+  }
+  return null;
+}
+
+// compareOffer for a skill with groups, the same group by group, so the two ways set side by side always share a kind of
+// problem and Runner.compare draws one both fit: a group's ways shown are those of its own choices, hers its groupWays
+// entry, the other its first way not shown; the slip branch the same within a group, her tries with her way there since
+// her latest choice in it. Null if no group has one to offer.
+function groupOffer(st, events, id, target) {
+  const status = st[id]?.status;
+  const groups = BY_ID[id].groups, ways = groupWays(events, id);
+  if (id !== target && SHOWN_TO.has(status)) {
+    for (const [i, g] of groups.entries()) {
+      const shown = new Set(groupChoices(events, id, g).flatMap((c) => c.shown));
+      const other = g.find((m) => m !== ways[i] && !shown.has(m));
+      if (other) return { skill: id, mine: ways[i], other, again: false };
+    }
+  }
+  if (!(SHOWN_TO.has(status) || status === 'shaky')) return null;
+  for (const [i, g] of groups.entries()) {
+    const mine = ways[i], last = groupChoices(events, id, g).at(-1);
+    const since = last ? events.slice(events.lastIndexOf(last) + 1) : events;
+    const recent = since.filter((e) => tryWith(e, id, mine)).slice(-SLIP_OF);
+    if (recent.length < SLIP_OF || recent.filter((e) => e.correct && e.firstTry).length / SLIP_OF >= SLIP_SHARE) continue;
+    const stats = methodStats(events, id);
+    const share = (m) => (stats[m]?.tries ? stats[m].right / stats[m].tries : 0);
+    const other = g.filter((m) => m !== mine).sort((x, y) => share(y) - share(x))[0];
+    if (other) return { skill: id, mine, other, again: true };
   }
   return null;
 }

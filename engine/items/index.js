@@ -52,7 +52,12 @@
 //            { op: 'pct', key, p, n?, d?, dec?, noun? }, { op: 'pof', key, p, of, story? },
 //            { op: 'poff', key, p, price, thing } or { op: 'pest', key: 'estimate', p, price, round, thing, options },
 //            p the whole per cent, a price in whole dollars as a number (pest's as text with its cents, round the whole
-//            dollars)
+//            dollars); a measurement sum (stage 6 strand 4) one of
+//            { op: 'mread', key, device, unit, marks, parts, start, end, ask }, { op: 'mconv', key, form, value, from,
+//            to }, { op: 'mtotal', key, parts: [{ value, unit }], to }, { op: 'mper', key, kind, sides, unit },
+//            { op: 'marea', key, kind, sides, unit, form? } or { op: 'mvol', key, l, w, h, unit, cubes }, every unit a
+//            symbol of engine/units.js UNITS, every amount decimal text, mconv's form 'to-larger', 'to-smaller', 'split'
+//            or 'join'
 //   method   for a skill with ways: the way its steps work it (engine/methods.js), kept on her answer
 //
 // Rules every generator keeps (tests/items.test.js checks them over thousands of seeds):
@@ -72,8 +77,9 @@ import words from './wordproblems.js';
 import decimals from './decimals.js';
 import fractions from './fractions.js';
 import percentages from './percentages.js';
+import measurement from './measurement.js';
 
-const MODULES = [facts, divide, equals, placevalue, addsub, multiply, algebra, words, decimals, fractions, percentages];
+const MODULES = [facts, divide, equals, placevalue, addsub, multiply, algebra, words, decimals, fractions, percentages, measurement];
 
 export const GENERATORS = {};
 for (const m of MODULES) for (const s of m.skills) GENERATORS[s] = m;

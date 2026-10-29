@@ -15,7 +15,7 @@ import { placementFromEvents, isDone as placementDone } from '../engine/placemen
 import { makeRng } from '../engine/rng.js';
 import { didLine, PART_WAY } from '../engine/rounds.js';
 
-export const RELEASE = 3;
+export const RELEASE = 4;
 const root = document.getElementById('app');
 const params = new URLSearchParams(location.search);
 const preview = params.has('preview'); // shows stories not yet approved

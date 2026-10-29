@@ -748,12 +748,12 @@ export function tapeOf(sum, value = '?') {
 // unit fraction's or a remainder's, fills in nowhere, and the question's tape stays (one picture on the screen, never the
 // same tape twice: the lead, pt59 (ii))
 const found = (sum, step) => ({ ...step, picture: tapeOf(sum, step.value) });
-const carried = (step) => ({ picture: { ...step.picture, working: true } });
+export const carried = (step) => ({ picture: { ...step.picture, working: true } });
 
 // the answer step: "So 3/4 of 24 = ☐", after a way's own word ("× 3: so …", "Half again: so …"); a story's in its unit,
 // "So the answer is ☐ stickers." (the word problems' own words, engine/items/wordproblems.js); the whole "the number is
 // ☐", or the tape's "the whole tape is ☐ metres." (plan F6)
-const so = (lead, claim) => (lead ? `${lead}: so ${claim}` : `So ${claim}`);
+export const so = (lead, claim) => (lead ? `${lead}: so ${claim}` : `So ${claim}`);
 const ofClaim = (sum) => (sum.key === 'story' ? `the answer is ☐ ${sum.story.unit}.` : `${sum.n}/${sum.d} of ${sum.of} = ☐`);
 const ofAnswer = (sum, lead) => ({ text: so(lead, ofClaim(sum)), value: ofValue(sum), answer: true });
 const wholeClaim = (sum) => (sum.tape ? 'the whole tape is ☐ metres.' : 'the number is ☐');
@@ -772,7 +772,7 @@ function remainderSteps(sum, lead) {
     { text: `The ${r} left over, shared by ${d}, is ${r}/${d} = ☐`, value: amount(r, d) }, ofAnswer(sum)];
 }
 // a number sentence never breaks (I7), nor a way's own first word from its number ("÷ 4:", "× 3:")
-const keptOf = (steps) => steps.map((s) => ({ ...s, text: kept(s.text).replace(/^([×÷]) /, `$1${NB}`) }));
+export const keptOf = (steps) => steps.map((s) => ({ ...s, text: kept(s.text).replace(/^([×÷]) /, `$1${NB}`) }));
 
 // ---- A tape diagram (frac-of): cut the amount into d equal parts, find one part, then the parts asked for; backwards,
 // one part from the parts given, then every part; a share, each thing cut for each person ----

@@ -11,6 +11,7 @@
 import { audioContext } from './sound.js';
 import { assemble } from './pieces.js';
 import { FRACTION, fractionWords } from '../engine/fractions.js';
+import { UNITS, unitWords } from '../engine/units.js';
 
 export const REPEAT_MS = 18000;
 // The decoded sounds kept to play again, the one used longest ago let go first while over either limit:
@@ -133,11 +134,15 @@ export function stop() {
 // A decimal said digit by digit after "point", as Australian classrooms read it: 3.45 "3 point 4 5", 0.056
 // "0 point 0 5 6", a time too ("5.0 s" and "5.0s" "5 point 0 seconds", "27.22 seconds" "27 point 2 2 seconds"); money
 // in dollars and cents, "$3.45" "3 dollars 45", "$12.5" "12 dollars 50", "$0.45" "45 cents", "$1 234.50" "1 234 dollars
-// 50", whole dollars "$25" "25 dollars", "$☐" "what, in dollars"; a bare unit after a number as its word ("2.75 m"
-// "2 point 7 5 metres", "kg" kilograms, "s" seconds), after a space or a no-break space alike. The one rule: every voiced line is a sentence as sentences() says it
+// 50", whole dollars "$25" "25 dollars", "$☐" "what, in dollars"; a unit after a number as its word ("2.75 m"
+// "2 point 7 5 metres", "1 kg" "1 kilogram", "s" seconds), after a space or a no-break space alike. The one rule: every voiced line is a sentence as sentences() says it
 // (tools/voice-lines.mjs), so tools/voice.mjs reads these words, not the digits.
 const DOLLARS = /\$(\d{1,3}(?:[  ,]\d{3})+|\d+)(?:\.(\d{1,2}))?(?!\d)/g;
 const point = (w, f) => `${w} point ${f.split('').join(' ')}`;
+// A unit's symbol, longest first so "m²" is never "m" and a "²", after a whole amount ("25 000", "2.6", never starting
+// straight after a digit or a point) or a box, and a space; nothing but a space, a mark or the end after it
+const SYMBOLS = Object.keys(UNITS).sort((a, b) => b.length - a.length).join('|');
+const UNIT_AFTER = new RegExp(`(?<![\\d.])(\\d+(?:[ \\u00a0]\\d{3})*(?:\\.\\d+)?|☐)[ \\u00a0](${SYMBOLS})(?=[\\s.,;:!?)]|$)`, 'g');
 // A fraction, said first: its count and its name, as Australian classrooms and NESA's pages say it, 3/8 "3 eighths",
 // 1/2 "1 half", 7/4 "7 quarters", ☐/8 "what eighths" (engine/fractions.js FRACTION and fractionWords, the pattern and
 // words the screens and the pictures use too); a denominator it does not name is left as written ('3/7'), and so is a
@@ -150,11 +155,13 @@ const saidNumbers = (text) => text
     return `${dollars} dollar${dollars === '1' ? '' : 's'}${cents ? ` ${cents}` : ''}`;
   })
   .replace(/\$\s*☐/g, 'what, in dollars')
+  // a unit of engine/units.js after the whole amount or a box (stage 6 strand 4, plan "Showing and saying a unit"),
+  // before the decimal rule so it sees the amount whole: "2.1 km" "2 point 1 kilometres", "1 km" "1 kilometre",
+  // "☐ cm²" "what square centimetres", "m²" never "metres²"
+  .replace(UNIT_AFTER, (_, n, unit) => `${n} ${unitWords(unit, n)}`)
   .replace(/(\d)\.(\d+)(?!\d|s\b)/g, (_, w, f) => point(w, f))
   .replace(/(\d)\.(\d+)s\b/g, (_, w, f) => `${point(w, f)} seconds`)
   .replace(/(\d)[  ]s\b/g, '$1 seconds')
-  .replace(/(\d)[  ]m\b/g, '$1 metres')
-  .replace(/(\d)[  ]kg\b/g, '$1 kilograms')
   // "%" straight after a number or a box, "per cent" (stage 6 strand 3, plan "Saying a percentage"; the page's own
   // vocabulary word, Examples fa0a18f458 l.110, l.124): "25%" "25 per cent", "☐%" "what per cent"; any other "%" as it is
   .replace(/(?<=[\d☐])%/g, ' per cent');
