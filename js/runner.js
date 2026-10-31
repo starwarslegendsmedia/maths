@@ -36,6 +36,8 @@ const PERCENT_OPS = new Set(['pct', 'pof', 'poff', 'pest']);
 // the measurement sums' ops (stage 6 strand 4, plans/2026-10-25-stage-6-plan.md "The ways"): a scale read, units
 // changed, a total, a perimeter, an area and a volume
 const MEASURE_OPS = new Set(['mread', 'mconv', 'mtotal', 'mper', 'marea', 'mvol']);
+// the angle and position sums' ops (stage 6 strand 4b, plans/2026-10-25-stage-6-plan.md "The ways"): an angle and a point
+const GEOMETRY_OPS = new Set(['tang', 'tpos']);
 const wordsIn = (t) => said(t).split(/\s+/).filter((w) => /[a-z0-9]/i.test(w)).length;
 const PRACTICE_CAP = 8;    // problems of the new skill in one session (kept short), in rounds (engine/rounds.js)
 const SPRINT_MS = 60000;
@@ -205,7 +207,8 @@ export class Runner {
   }
 
   // Her latest choice of way on a skill (engine/methods.js lastChoice), or null, kept up as events come in, so a problem
-  // does not read her whole history again; read afresh if her events were merged from another device (a new list).
+  // does not read her whole history again; read afresh when her events become a new list: merged from another device,
+  // or another open copy's events read in (engine/store.js refresh; 31 October 2026).
   choice(skill, op = '×') {
     const events = this.store.events;
     if (this.chosen?.events !== events) this.chosen = { events, at: 0, last: new Map() };
@@ -407,9 +410,10 @@ export class Runner {
       const feedback = h('div', { class: 'feedback' });
       const boxed = boxes ? workingSteps(item).slice(0, boxes) : [];
       // a remainder's steps say which are the answer (engine/methods.js own): its small remainder is too often a working
-      // step's number by chance to go by value
-      const isAnswer = (s) => Boolean(s.answer) || (item.answer.kind !== 'remainder' && answerParts(item).some((v) => sameAmount(v, s.value)));
-      const shows = item.steps.length - (['number', 'decimal', 'fraction', 'remainder'].includes(item.answer.kind) ? 0 : 1); // the steps it gives
+      // step's number by chance to go by value; and so do a point's (a pair, stage 6 strand 4b), whose across is a working
+      // step's value
+      const isAnswer = (s) => Boolean(s.answer) || (!['remainder', 'pair'].includes(item.answer.kind) && answerParts(item).some((v) => sameAmount(v, s.value)));
+      const shows = item.steps.length - (['number', 'decimal', 'fraction', 'remainder', 'pair'].includes(item.answer.kind) ? 0 : 1); // the steps it gives
       const answer = (between = null) => {
         started = performance.now();
         widget = answerWidget(item, {
@@ -481,7 +485,7 @@ export class Runner {
       const pad = (old) => this.showPad(widget, { old, under: step?.parentNode ? step : null });
       const steps = h('ol', { class: 'steps' });
       const pictured = new Set(); // the pictures drawn beside the steps listed, as the SVG each draws
-      let dock = null; // a docked scale, shape or prism, whose place a step's own picture of its type takes (below)
+      let dock = null; // a docked scale, shape, prism, angle or grid, whose place a step's own picture of its type takes (below)
       const step = ['learn', 'practice'].includes(phase) && shows > 0 ? h('button', { class: 'btn quiet', onclick: () => {
         if (settled || at >= shows) return;
         if (box) {
@@ -502,8 +506,9 @@ export class Runner {
         const svg = own ? renderPicture(own.picture) : '';
         let pic = svg && !pictured.has(svg) ? this.picture(own) : null;
         if (pic) pictured.add(svg);
-        // under a docked scale, shape or prism, a step's own picture of the same type takes its place in the dock, the
-        // step its words only: drawn beside the step, it pushed the step under the dock (stage 6 step 4.1, fact 3, (c))
+        // under a docked scale, shape, prism, angle or grid, a step's own picture of the same type takes its place in the
+        // dock, the step its words only: drawn beside the step, it pushed the step under the dock (stage 6 step 4.1, fact 3,
+        // (c); a grid with its guide, stage 6 strand 4b)
         if (pic && dock && own.picture.type === drawn.picture.type) {
           dock.replaceChildren(...pic.childNodes);
           pic = null;
@@ -525,8 +530,9 @@ export class Runner {
         // picture docked under the top edge (css/app.css .docked, the page sliding under it), the steps shown inside the
         // card between the question's words and its "Answer:" line, the button in the two empty slots of a pad's fifth
         // row (a pad of 13 keys), and the pad's scroll stopped at the picture's bottom (dock). Every other screen as it was.
-        // a measurement scale, shape or prism docked too, the picture she reads from (stage 6 step 4.1, fact 3)
-        const docked = picture != null && ['strips', 'scale', 'shape', 'prism'].includes(drawn.picture.type);
+        // a measurement scale, shape or prism docked too, the picture she reads from (stage 6 step 4.1, fact 3), and an angle
+        // or a grid (stage 6 strand 4b, plan "The pictures")
+        const docked = picture != null && ['strips', 'scale', 'shape', 'prism', 'angle', 'plane'].includes(drawn.picture.type);
         if (docked) picture.classList.add('docked');
         if (docked && drawn.picture.type !== 'strips') dock = picture;
         const el = answer(docked && step ? steps : null);
@@ -626,8 +632,9 @@ export class Runner {
     const pictureOf = (st, mine) => this.picture(!st.picture ? base : ownPicture(item, st, mine));
     // a scale, shape or prism docked under the top edge, as on the question (askOnly), so it is whole on the screen at every
     // step she types: in the card it went off the top under a refusal's lines (stage 6 step 4.2, the replay's shots 123
-    // and 126; fact 3, the lead's ruling, pt76); a step's own picture of its type shown in the dock, as on the question
-    const dock = ['scale', 'shape', 'prism'].includes(base.picture?.type) ? this.picture(base) : null;
+    // and 126; fact 3, the lead's ruling, pt76); a step's own picture of its type shown in the dock, as on the question; and
+    // an angle or a grid, as on the question (stage 6 strand 4b, plan "The pictures")
+    const dock = ['scale', 'shape', 'prism', 'angle', 'plane'].includes(base.picture?.type) ? this.picture(base) : null;
     dock?.classList.add('docked');
     const first = ownPictures && !dock ? this.picture(base) : null;
     const shownHere = ownPictures ? h('div', first ? { class: 'as-question' } : {}, first) : null;
@@ -787,8 +794,13 @@ export class Runner {
   // brought into view so, a one-box pad too: followed, the steps in its card and a hint under it made it taller than the
   // room under the picture, and ✓ was left under the bottom edge (pt61, the review of step 2.6, finding 1); choices and
   // chips, which have no pad, are followed as before.
+  // A pad pushed down as she types is brought back (keep): her box grows with each digit, and a step whose line then
+  // has no room for it wraps, its box's words onto a line of their own ("… to the left. 2.4 kg = 240 g"), so a pad
+  // brought into view ended 30 px under the bottom edge, "0" and ✓ off it (stage 6 step 4.7, the replay's 450 g + 1.2 kg
+  // + 2.4 kg = ☐ g; the lead's ruling F2, pt91). Each time the pad is shown, keep's top is set and its span measured afresh.
   showPad(widget, { old = null, top = widget.boxLine ?? widget.el, under = null } = {}) {
     const floor = widget.pad ? this.dock() : 0;
+    if (widget.pad) (widget.kept ??= this.keep(widget))(top);
     if (!widget.tall && !floor) {
       if (old) this.follow(old);
       return;
@@ -798,6 +810,33 @@ export class Runner {
     const by = end && from ? padScroll(end, from, window.innerHeight, floor) : 0;
     const to = floor && by > 0 ? this.edge(by, Math.floor(from.top - floor), Math.min(by, Math.ceil(end.bottom - window.innerHeight))) : by;
     if (to > 0) window.scrollBy({ top: to, behavior: 'smooth' });
+  }
+
+  // After each key she taps but ✓, what that key added between top's start and the pad's bottom (her box's line grown
+  // taller), scrolled back as far as the pad's bottom went under the edge, never more than it grew, and never so far that
+  // top goes off the screen or under a docked picture (padScroll, edge, as showPad); a key that grows nothing, or leaves
+  // the pad's bottom on the screen, scrolls nothing, as before. The pad only, not "Show me one step" under it: followed
+  // too, it scrolled 7 decimal questions 1 px on a key (code review 2, finding 3; Y5b's sweep). Its listeners go on once
+  // for each widget; its top is set, and the span measured, at each showPad (the function returned),
+  // so a hint a miss writes above the pad, brought on with it there (fillStep), is never taken for a key's growth (step
+  // 4.7's code review 2, finding 1: the next key moved the pad a row up under her finger).
+  keep(widget) {
+    let top = null, was = null;
+    const rects = () => [widget.pad.getBoundingClientRect?.(), top?.getBoundingClientRect?.()];
+    const span = ([end, from]) => (end && from ? end.bottom - from.top : null); // null: a page with no layout, nothing measured
+    for (const k of widget.pad.children) {
+      if (!k.getAttribute('aria-label') || k.getAttribute('aria-label') === 'enter') continue;
+      k.addEventListener('click', () => {
+        const [end, from] = rects(), now = span([end, from]), grown = was == null || now == null ? 0 : now - was;
+        was = now;
+        if (!(grown > 0)) return;
+        const floor = this.dock();
+        const by = Math.min(Math.ceil(grown), padScroll(end, from, window.innerHeight, floor));
+        const to = floor && by > 0 ? this.edge(by, Math.floor(from.top - floor), by) : by;
+        if (to > 0) window.scrollBy({ top: to, behavior: 'smooth' });
+      });
+    }
+    return (on) => { top = on; was = span(rects()); };
   }
 
   // A step she fills in: resolves once it is right, with true if it was filled in for her instead (hold.give, "Show me
@@ -816,7 +855,7 @@ export class Runner {
       };
       if (hold) {
         hold.give = () => done(true);
-        hold.hint = (text) => { fb.className = 'feedback hint'; writeIn(fb, text); this.say(text); };
+        hold.hint = (text) => { fb.className = 'feedback hint'; writeIn(fb, text); this.say(text); this.showPad(widget, { old: area, top: li }); };
       }
       const widget = answerWidget(stepItem, {
         askIn: li,
@@ -831,11 +870,13 @@ export class Runner {
             fb.textContent = first ? 'Read the step again. What does it ask?' : 'Look at the step before. What does it tell you?';
             this.say(fb.textContent);
             widget.clear();
+            this.showPad(widget, { old: area, top: li }); // the hint and the pad on the screen as the hint appears, as a question's miss
           } else {
             fb.className = 'feedback hint';
             fb.textContent = `It is ${fmt(step.value)}. Type it in.`;
             this.say(fb.textContent);
             widget.clear();
+            this.showPad(widget, { old: area, top: li });
           }
         },
       });
@@ -1155,12 +1196,24 @@ export class Runner {
     // a percentage way's card with no picture of its own draws its first step picture that is not the one at the top
     // (the line's line, out of 100's strip filled in), its steps here being shown worked (stage 6 step 3.2's looker, F2,
     // the lead's ruling R12), and so does a measurement way's (moving the digits: its place value chart; stage 6 step
-    // 4.2); a fraction's, a decimal's and a whole number's as before
+    // 4.2), and an angle or position way's (stage 6 strand 4b); a fraction's, a decimal's and a whole number's as before
     const top = shared ? JSON.stringify(items[0].picture) : null;
-    const stepPicture = (it) => (PERCENT_OPS.has(sum.op) || MEASURE_OPS.has(sum.op) ? it.steps.find((s) => s.picture && JSON.stringify(s.picture) !== top)?.picture : null);
+    const stepPicture = (it) => (PERCENT_OPS.has(sum.op) || MEASURE_OPS.has(sum.op) || GEOMETRY_OPS.has(sum.op) ? it.steps.find((s) => s.picture && JSON.stringify(s.picture) !== top)?.picture : null);
+    // under a docked grid, a way's step grid (to-axes' guide) takes the dock's place from its step to the end of its way,
+    // and is not drawn on its card too: there the two made two whole grids on one screen (stage 6 step 4b.3, the lookers'
+    // finding 2, the lead's ruling R12); a scale's, shape's, prism's or angle's card as before
+    const inDock = (s) => docked && items[0].picture.type === 'plane' && s?.picture?.type === 'plane';
     const cardPicture = (it) => {
       const own = shared ? null : this.picture(it), step = own ? null : stepPicture(it);
-      return own ?? (step ? this.picture({ picture: step }) : null);
+      return own ?? (step && !inDock({ picture: step }) ? this.picture({ picture: step }) : null);
+    };
+    // what the dock shows: a step's grid, or null for the question's own, drawn again only where it changes
+    let docking = null;
+    const toDock = (pic) => {
+      if (pic === docking) return;
+      const el = this.picture(pic ? { picture: pic } : items[0]);
+      if (el) picture.replaceChildren(...el.childNodes);
+      docking = pic;
     };
     const way = (it, i) => h('div', { class: 'card stack way' },
       h('h3', {}, names[i]),
@@ -1174,8 +1227,9 @@ export class Runner {
     // two cards and their steps sliding under it and every scroll here (follow) stopping at its bottom (pt61, the lead's
     // ruling R12); any other on the card, as before
     const picture = shared ? this.picture(items[0]) : null;
-    // and a measurement scale, shape or prism, as on the question (stage 6 step 4.1, fact 3)
-    const docked = picture != null && ['strips', 'scale', 'shape', 'prism'].includes(items[0].picture.type);
+    // and a measurement scale, shape or prism, as on the question (stage 6 step 4.1, fact 3), and an angle or a grid (stage 6
+    // strand 4b, plan "The pictures")
+    const docked = picture != null && ['strips', 'scale', 'shape', 'prism', 'angle', 'plane'].includes(items[0].picture.type);
     if (docked) picture.classList.add('docked');
     this.frame('Another way', null, docked ? picture : null, h('div', { class: 'card stack center' }, h('h2', {}, heading),
       !named && !twoAsks ? h('p', {}, ...shownAsk(items[0])) : null, docked ? null : picture, bothList), ways, area);
@@ -1193,17 +1247,27 @@ export class Runner {
       await this.tapNext(area, 'Next');
     }
     for (const [i, it] of items.entries()) {
-      ways.append(way(it, i));
+      // under a docked grid, a card with no picture of its own comes with its first step: where its opening is said alone
+      // first, it stood empty on that screen (across-up on a `read`; stage 6 step 4b.4, the lookers' L-C 3, the lead's
+      // ruling R12); any other card as before. On that screen its name is shown alone, with no frame or list, as the way
+      // it names is said (step 4b.4's code review, finding 2, the lead's ruling R12)
+      const card = way(it, i), bare = docked && items[0].picture.type === 'plane' && !card.querySelector('.picture');
+      if (!bare) ways.append(card);
       for (const [j, s] of own[i].entries()) {
         // a way's opening is said with its first step where the two fit in 25 words as said (research 2.1), else on its own
         // first (partitioning's "Put the parts together: 6 + 0.8 + 0.09 + 0.006 = 6.896" is 22 of them)
         const lead = j === 0 ? `${opening}${openings[i]}` : '';
         const alone = lead && wordsIn(`${lead} ${stepWords(s, true)}`) > MOST_SAID;
+        const title = bare && alone ? h('div', { class: 'way' }, h('h3', {}, names[i])) : null;
         if (alone) {
+          if (title) ways.append(title);
           this.say(lead);
           await this.tapNext(area, 'Next');
         }
+        title?.remove();
+        if (bare && j === 0) ways.append(card);
         now();
+        toDock(own[i].slice(0, j + 1).findLast(inDock)?.picture ?? null);
         lists[i].append(h('li', { class: 'now' }, ...fill(s.text, s.value)));
         this.say(lead && !alone ? `${lead} ${stepWords(s, true)}` : stepWords(s, true));
         if (j === 0) opening = '';
@@ -1211,6 +1275,7 @@ export class Runner {
       }
     }
     now();
+    toDock(null); // her choice under the question's own grid
     return this.waitFor((resolve) => {
       area.replaceChildren(h('p', { class: 'center' }, line),
         h('p', { class: 'center', style: 'font-weight:650' }, question),
@@ -1424,11 +1489,11 @@ export class Runner {
 
 // The values that make up an item's answer: a number or a decimal, a fraction's numerator (its last step's box, "So 3/8 +
 // 2/8 = ☐/8"), a remainder answer's quotient and remainder, or a choice that is a number (the "32" of "Which is right:
-// (2 + 6) × 4 = 26 or 32?", worked out in a step "8 × 4 = ☐").
-function answerParts(item) {
+// (2 + 6) × 4 = 26 or 32?", worked out in a step "8 × 4 = ☐"), or a point's two numbers (a pair, stage 6 strand 4b).
+export function answerParts(item) {
   const a = item.answer;
   return a.kind === 'number' || a.kind === 'decimal' ? [a.value] : a.kind === 'fraction' ? [a.n] : a.kind === 'remainder' ? [a.quotient, a.remainder]
-    : a.kind === 'choice' && /^\d+$/.test(a.value) ? [Number(a.value)] : [];
+    : a.kind === 'pair' ? [...a.values] : a.kind === 'choice' && /^\d+$/.test(a.value) ? [Number(a.value)] : [];
 }
 
 

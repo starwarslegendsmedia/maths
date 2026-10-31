@@ -235,8 +235,8 @@ export const SKILLS = [
     title: 'Discounts and sale prices', outcomes: ['MA3-RN-03'], methods: ['pct-fraction', 'pct-halve'],
     lookalikes: ['pct-of'] },
 
-  // ---- Measurement (stage 6 strand 4, plans/2026-10-25-stage-6-plan.md "Strand 4: measurement"): release 5, reached only
-  // once approved (step 4.9). NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments; content points from the pages
+  // ---- Measurement (stage 6 strand 4, plans/2026-10-25-stage-6-plan.md "Strand 4: measurement"): release 5, reached
+  // from 31 October (step 4.9). NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments; content points from the pages
   // read live 28 October 2026 and saved 28 October 2026, checked live 28 October 2026: MA3-GM-02 Stage 3 Geometric
   // measure A and B (stage-3/fa35c41b81 l.43-77, stage-3/fae314fde1 l.37-73); MA3-2DS-02 and MA3-2DS-03 Stage 3
   // Two-dimensional spatial structure A and B (stage-3/fad7c142c4 l.51-79, stage-3/fa0dfe5fec l.39-73); MA3-3DS-02 Stage 3
@@ -253,15 +253,41 @@ export const SKILLS = [
     title: 'Areas of rectangles, and hectares', outcomes: ['MA3-2DS-02'],
     methods: ['area-rows', 'area-words', 'unit-place', 'unit-split'], lookalikes: ['mult-1digit'],
     groups: [['area-rows', 'area-words'], ['unit-place', 'unit-split']] },
+  { id: 'meas-area-shapes', path: 'M', stage: 'S3B', kind: 'skill', release: 5, prereqs: ['meas-area'],
+    title: 'Areas of L-shapes, parallelograms and triangles', outcomes: ['MA3-2DS-03'],
+    methods: ['area-split', 'area-take', 'area-move', 'area-words', 'area-double'], lookalikes: ['meas-area'],
+    groups: [['area-split', 'area-take'], ['area-move', 'area-words'], ['area-double', 'area-words']] },
+  { id: 'meas-volume', path: 'M', stage: 'S3B', kind: 'skill', release: 5, prereqs: ['meas-area'],
+    title: 'Volume and capacity', outcomes: ['MA3-3DS-02'],
+    methods: ['vol-layers', 'vol-front', 'unit-place', 'unit-split', 'scale-space', 'scale-small'], lookalikes: ['meas-area'],
+    groups: [['vol-layers', 'vol-front'], ['unit-place', 'unit-split'], ['scale-space', 'scale-small']] },
+  { id: 'meas-mass', path: 'M', stage: 'S3B', kind: 'skill', release: 5, prereqs: ['meas-length'],
+    title: 'Mass in grams, kilograms and tonnes', outcomes: ['MA3-NSM-01'],
+    methods: ['scale-space', 'scale-small', 'unit-place', 'unit-split'], lookalikes: ['meas-length'],
+    groups: [['scale-space', 'scale-small'], ['unit-place', 'unit-split']] },
+
+  // ---- Angles and position (stage 6 strand 4b, plans/2026-10-25-stage-6-plan.md "Strand 4b: angles and position"):
+  // release 6, reached only once approved (step 4b.5). NSW Mathematics K–10 Syllabus (2022), 16 June 2026 amendments;
+  // content points from the pages read live 28 October 2026 and saved 28 October 2026, checked live 30 October 2026:
+  // MA3-GM-03 Stage 3 Geometric measure A and B (stage-3/fa35c41b81 l.93-105, stage-3/fae314fde1 l.97-125); MA3-GM-01
+  // Stage 3 Geometric measure A (stage-3/fa35c41b81 l.25-41). Part A, the Department's Year A, is meas-position and the
+  // easy level of meas-angles. The first quadrant only: negative numbers are outside stage 6. groups: the ways that
+  // share a kind of problem, one set to a key (engine/methods.js groupWays, compareOffer).
+  { id: 'meas-angles', path: 'M', stage: 'S3B', kind: 'skill', release: 6, prereqs: ['addsub-written', 'eq-missing-add'],
+    title: 'Angles in a right angle, on a line and at a point', outcomes: ['MA3-GM-03'],
+    methods: ['angle-take', 'angle-count'], lookalikes: ['eq-missing-add'], groups: [['angle-take', 'angle-count']] },
+  { id: 'meas-position', path: 'M', stage: 'S3A', kind: 'skill', release: 6, prereqs: ['pv-10k'],
+    title: 'Points on a grid, across then up', outcomes: ['MA3-GM-01'],
+    methods: ['across-up', 'to-axes'], groups: [['across-up', 'to-axes']] },
 ];
 
 export const BY_ID = Object.fromEntries(SKILLS.map((s) => [s.id, s]));
 
 // The skills and paths she can meet at a release (js/app.js RELEASE: 2 since its approval on 27 October, stage 6 plan
-// step 7; 3 since its approval on 28 October, step 2.7; 4 since 29 October, step 3.7, on the word to push on with the plan). A skill above it
-// is built and checked but shown on no screen, not in the home screen's total and not on her map, until it is approved;
-// release 4, the percentages, is the top reached, and release 5, the measurement skills, is built out of sight until
-// approved (step 4.9).
+// step 7; 3 since its approval on 28 October, step 2.7; 4 since 29 October, step 3.7, on the word to push on with the plan;
+// 5 from 31 October, step 4.9). A skill above it is built and checked but shown on no screen, not in the home screen's
+// total and not on her map, until it is approved; release 5, the measurement skills, is the top reached, and release 6,
+// the angles and position skills, is built out of sight until approved (step 4b.5).
 export const inRelease = (release) => SKILLS.filter((s) => (s.release ?? 1) <= release);
 export function pathsIn(release) {
   const skills = inRelease(release);

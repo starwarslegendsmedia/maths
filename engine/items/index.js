@@ -36,6 +36,10 @@
 //              { kind: 'order', values: [...] }              numbers to put smallest first; decimal text ('0.50') and
 //                                                            fraction text ('1/5') are compared by value, each only
 //                                                            with its own kind, and shown as written
+//              { kind: 'pair', values: [a, b], form }        two whole numbers in two boxes, in order, e.g. a point;
+//                                                            form the answer's text with its two boxes, '(☐, ☐)';
+//                                                            the steps that give it marked answer: true, as a
+//                                                            remainder's are, never found by value
 //   steps    the worked solution, in order: [{ text, value? }]; ☐ in text stands for value, which may be decimal
 //            text ('0.06'), its box then taking a point, never a fraction. The last step with a value gives the
 //            answer; for a fraction answer it is its numerator, "So 3/8 + 2/8 = ☐/8". Fading hides values from the
@@ -57,7 +61,10 @@
 //            to }, { op: 'mtotal', key, parts: [{ value, unit }], to }, { op: 'mper', key, kind, sides, unit },
 //            { op: 'marea', key, kind, sides, unit, form? } or { op: 'mvol', key, l, w, h, unit, cubes }, every unit a
 //            symbol of engine/units.js UNITS, every amount decimal text, mconv's form 'to-larger', 'to-smaller', 'split'
-//            or 'join'
+//            or 'join'; an angle or a point (stage 6 strand 4b) { op: 'tang', key, whole, parts, turn } (whole 90, 180 or
+//            360, parts the angles as the picture's, one '?') or { op: 'tpos', key, across, up, points, asked } on a read
+//            and { op: 'tpos', key, across, up, points, at } on a plot (points [{ x, y, name }] lettered by x then y;
+//            asked the letter asked about on a read, at the coordinates [x, y] asked about on a plot)
 //   method   for a skill with ways: the way its steps work it (engine/methods.js), kept on her answer
 //
 // Rules every generator keeps (tests/items.test.js checks them over thousands of seeds):
@@ -78,8 +85,9 @@ import decimals from './decimals.js';
 import fractions from './fractions.js';
 import percentages from './percentages.js';
 import measurement from './measurement.js';
+import geometry from './geometry.js';
 
-const MODULES = [facts, divide, equals, placevalue, addsub, multiply, algebra, words, decimals, fractions, percentages, measurement];
+const MODULES = [facts, divide, equals, placevalue, addsub, multiply, algebra, words, decimals, fractions, percentages, measurement, geometry];
 
 export const GENERATORS = {};
 for (const m of MODULES) for (const s of m.skills) GENERATORS[s] = m;

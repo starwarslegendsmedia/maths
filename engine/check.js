@@ -80,6 +80,10 @@ export function isCorrect(answer, given) {
         : value.includes('/') ? sameFraction(v, value) : sameDecimal(v, value));
       return g.length === answer.values.length && g.every((v, i) => same(v, answer.values[i]));
     }
+    case 'pair':
+      // a point's two whole numbers, each in its own box, in order: "3" and "2" are not (2, 3) (stage 6 strand 4b,
+      // plans/2026-10-25-stage-6-plan.md "The answer kind `pair`, exactly")
+      return Array.isArray(given) && given.length === 2 && given.every((v, i) => asNumber(v) === answer.values[i]);
     default:
       throw new Error(`unknown answer kind ${answer.kind}`);
   }
@@ -94,6 +98,8 @@ export function answerText(answer) {
     case 'fraction': return `${answer.n}/${answer.d}`;
     case 'choice': return String(answer.value);
     case 'order': return answer.values.map(fmt).join(', ');
+    // its form with each box its value in order: "(3, 2)"
+    case 'pair': { let i = 0; return answer.form.replace(/☐/g, () => fmt(answer.values[i++])); }
     default: return '';
   }
 }

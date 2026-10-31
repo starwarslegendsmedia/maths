@@ -14,7 +14,16 @@
 // the place a large one is, "the netball court") or { op: 'marea', key: 'hectare', form, value, from, to } (a change
 // between square metres and hectares, its form 'to-larger' "25 000 m² = ☐ ha" or 'to-smaller' "3.5 ha = ☐ m²", as a
 // change of length's) or { op: 'marea', key: 'hectare', form: 'field', sides: { l, w }, unit: 'm', from: 'm²', to: 'ha',
-// name } (a field's area in hectares, "A field is a rectangle 250 m long and 100 m wide."). None of these ops is a
+// name } (a field's area in hectares, "A field is a rectangle 250 m long and 100 m wide.") or { op: 'marea', key, kind:
+// 'lshape' | 'para' | 'ptri', sides, unit, slant? } (an area of a shape, meas-area-shapes: an L-shape { W, H, cw, ch },
+// its outer width and height and the corner missing at its top right; a parallelogram { b, h, o, s }, its base, height,
+// the top edge's offset and its slanted side, slant true where the slanted side is labelled; a triangle { b, h, o }, its
+// base, height and the point along the base's line its apex is over) or { op: 'mvol', key, l, w, h, unit, cubes, name? }
+// (a rectangular prism's volume, meas-volume: l long, w wide and h high in whole units, cubes true where it is made of
+// 1 cm cubes; name the box or room a labelled one is). A capacity is an mconv between millilitres and litres, and a jug
+// an mread up its scale in litres (device 'jug', ask 'L' or 'mL', name its water, milk or juice); a mass an mconv or
+// mtotal in grams, kilograms and tonnes, and a reading of the kitchen scales an mread across them in kilograms (device
+// 'kitchen', ask 'kg' or 'g', name the thing on the pan, "the pumpkin"). None of these ops is a
 // whole-number one
 // (engine/methods.js WHOLE_OPS), so no whole-number way takes them, and every way here names its own. Every amount is
 // worked in BigInt thousandths of its kind's smallest unit (engine/units.js), never a float, and shown with a no-break
@@ -44,11 +53,34 @@
 // of different rectangles with an area of 24 cm²." (l.71-79), its teaching advice's "how many squares fit in one row and
 // multiply this by the number of rows that make up the width" and its 6 cm by 4 cm rectangle with a row and a column of
 // 1 cm squares (l.98-100); "Create the array structure of area using squares (1 cm × 1 cm) in rows and columns" (Stage
-// 2 Two-dimensional spatial structure A, saved copy …fae82874e2.md l.95). NSW Mathematics K–10 Syllabus (2022), 16 June
-// 2026 amendments, checked 28 October 2026 (the totals and perimeters, and the areas, 29 October 2026). Chosen for this
-// game, not a syllabus requirement: a ruler or tape measure read from a picture in place of a real device (S3 GM A l.59,
-// "Use a variety of measuring devices"), and the split and join forms with one box (plan "What is outside NESA in the
-// measurement strand"). "Moves to the right" means into smaller places, the number getting smaller, as dec-x10's way says
+// 2 Two-dimensional spatial structure A, saved copy …fae82874e2.md l.95). Areas of L-shapes, parallelograms and
+// triangles, MA3-2DS-03 (Outcomes l.292), each made rectangles, or by NESA's words: "Find different ways to calculate
+// the area of a composite L-shape figure", its L-shape "split into 2 rectangles (2 by 3 and 2 by 6) to find the area
+// (18)" (Stage 3 Two-dimensional spatial structure B, saved copy …fa0dfe5fec.md l.41-45), the whole rectangle less the
+// corner (l.104); "Show how to transform a parallelogram into a rectangle to find its area" (l.49), "Area of
+// parallelogram = base × height." (l.59); "Establish the relationship between the area of a triangle and the area of a
+// parallelogram formed by duplicating and rotating the triangle" (l.65), "The area of a triangle is half the area of a
+// parallelogram with the same base and height." (l.73). Volumes and capacities, MA3-3DS-02 (Outcomes l.300), by layers
+// of cubes or the front face first: "Describe arrangements of cubic-centimetre blocks in terms of layers", "Such as 5
+// layers of 8 cubic-centimetre blocks, where each layer is 4 rows of 2 blocks.", "Establish the relationship between the
+// number of cubes in one layer and the number of layers to find the volume of a rectangular prism" (Stage 3
+// Three-dimensional spatial structure B, saved copy …fa89ed4224.md l.46-50), "Describe the length, width and height of a
+// rectangular prism as the dimensions of the prism" (l.44), "Volume of rectangular prism = number of cubes in one layer
+// × number of layers." (l.60), its teaching advice's "row by column structure of each layer, multiplied by the number of
+// layers" (l.101); millilitres and litres changed as a length's units are, "Such as 375 mL is the same as 0.375 L.",
+// "Such as 8.7 L is the same as 8 litres and 700 millilitres.", "Such as 1.275 L." (Stage 3 Three-dimensional spatial
+// structure A, saved copy …fa51e61164.md l.62-72), "Such as 1250 mL = 1 litre 250 millilitres." (Stage 2
+// Three-dimensional spatial structure B, saved copy …faa2ba21e4.md l.74), and a jug's scale read as a ruler's, "Use a
+// scaled instrument to relate 1000 millilitres to one litre" (l.62). Masses, MA3-NSM-01 (Outcomes l.304), as a length's
+// units are changed, added and read: "Measure mass using scales" (Stage 3 Non-spatial measure A, saved copy …fa7e80b308.md
+// l.46), "Conversion between metric units of mass relies on working with units of 1000" (Stage 3 Non-spatial measure B,
+// saved copy …faebab48ca.md l.57). NSW Mathematics K–10 Syllabus (2022), 16 June
+// 2026 amendments, checked 28 October 2026 (the totals and perimeters, and the areas, 29 October 2026; the shapes against
+// step 4.0's copy of the live page, 29 October 2026; the volumes and capacities against the plan's quotes of the pages
+// read live 28 October 2026, 29 October 2026; the masses against the plan's quotes, M5, 30 October 2026). Chosen for this
+// game, not a syllabus requirement: a ruler, tape measure or set of kitchen scales read from a picture in place of a real
+// device (S3 GM A l.59, "Use a variety of measuring devices"), and the split and join forms with one box (plan "What is
+// outside NESA in the measurement strand"). "Moves to the right" means into smaller places, the number getting smaller, as dec-x10's way says
 // it, and "right" or "left" is always beside "places" (plan M1, "Ways").
 
 import { UNITS, amountText, inBase, fromBase } from './units.js';
@@ -66,8 +98,9 @@ const boxed = (text, small) => (small ? Number(text) : text);
 // ---- reading a scale (mread): a ruler in centimetres or a tape measure in metres, its smaller unit millimetres or
 // centimetres ----
 
-// the unit one small space is named in where it is a whole number of it: a ruler's millimetres, a tape's centimetres
-export const SMALLER = { cm: 'mm', m: 'cm' };
+// the unit one small space is named in where it is a whole number of it: a ruler's millimetres, a tape's centimetres, a
+// jug's millilitres, the kitchen scales' grams
+export const SMALLER = { cm: 'mm', m: 'cm', L: 'mL', kg: 'g' };
 // the scale's numbers in thousandths of its unit: the first mark, one labelled step, one small space, where the object
 // starts and ends, the labelled mark before the end and how many spaces past it the end is (the generator's hints too,
 // engine/items/measurement.js)
@@ -94,10 +127,33 @@ const smallSpace = (sum) => {
 const spaces = (n) => `${n} space${n === 1 ? '' : 's'}`;
 // where the object starts, past 0 or at it
 const fromZero = (sum) => scaleOf(sum).start === 0n;
+// A jug's water, milk or juice (meas-volume's jug key, plan M4): what is in it, "water" for the sum's "the water"; the
+// level "comes" past a mark where a length "ends" ("The water comes 3 spaces past 1 L"), and "it comes to ☐ L" where a
+// length's "it ends at ☐ cm"
+const jug = (sum) => sum.device === 'jug';
+export const contents = (sum) => sum.name.replace(/^the /, '');
+// The kitchen scales (meas-mass's read key, plan M5): what is read is where the pointer is, "The pointer is 3 spaces
+// past 1 kg", and "it comes to ☐ kg" as a jug's level does
+const kitchen = (sum) => sum.device === 'kitchen';
+const reaches = (sum) => (jug(sum) ? 'comes' : 'ends');
+const endsAt = (sum, u) => (jug(sum) || kitchen(sum) ? `it comes to ☐${NB}${u}` : `it ends at ☐${NB}${u}`);
+// a jug's level under its first labelled mark past 0 "comes 3 spaces up from 0", the 0 bare as the jug's own label, so no
+// step says "past 0 L" or "0 L and" (step 4.6's fix round, F2, the lead's words, R12); and so the kitchen scales' pointer,
+// "3 spaces along from 0" (step 4.7, the lead's ruling (a)); and so a ruler or tape, "The pencil ends 2 spaces along from
+// 0", then by the smaller unit "it ends at ☐ mm" and "4 mm: so …" (T3, step 4.8, the lead's ruling, pt92); any of them
+// from 1 up as before. "From 0" by the mark's value, not its place (step 4.6's fix review R2, finding 1; every jug and
+// set of scales is marked from 0, so the two agree on every problem)
+const upFrom0 = (sum) => scaleOf(sum).mark === 0n;
+const comesPast = (sum, s, mark, u) => {
+  const where = upFrom0(sum) ? `${jug(sum) ? 'up' : 'along'} from 0` : `past ${shown(mark, u)}`;
+  return kitchen(sum) ? `The pointer is ${spaces(s.past)} ${where}` : `${cap(sum.name)} ${reaches(sum)} ${spaces(s.past)} ${where}`;
+};
 
-// the answer step in the question's order, "So the pencil is ☐ cm long", after a way's own word ("4 cm and 5 mm: so …")
+// the answer step in the question's order, "So the pencil is ☐ cm long", a jug's "So there is ☐ L of water in the
+// jug", or the scales' "So the pumpkin has a mass of ☐ kg", after a way's own word ("4 cm and 5 mm: so …")
 function readAnswer(sum, lead) {
-  return { text: so(lead, `${sum.name} is ☐${NB}${sum.ask} long`), value: boxed(readValue(sum), sum.ask !== sum.unit), answer: true };
+  const claim = jug(sum) ? `there is ☐${NB}${sum.ask} of ${contents(sum)} in the jug` : kitchen(sum) ? `${sum.name} has a mass of ☐${NB}${sum.ask}` : `${sum.name} is ☐${NB}${sum.ask} long`;
+  return { text: so(lead, claim), value: boxed(readValue(sum), sum.ask !== sum.unit), answer: true };
 }
 
 // Each space first: what one small space is worth (one labelled step ÷ the spaces between), then count on from the
@@ -105,24 +161,26 @@ function readAnswer(sum, lead) {
 function spaceSteps(sum) {
   const s = scaleOf(sum), u = sum.unit, mark = asText(s.mark, u), next = asText(s.mark + s.step, u);
   const worth = { text: `From ${mark} to ${next} is ${shown(asText(s.step, u), u)}, cut into ${sum.parts} equal spaces: each space is ☐${NB}${u}`, value: asText(s.space, u) };
-  const ends = `${cap(sum.name)} ends ${spaces(s.past)} past ${shown(mark, u)}`, at = asText(s.end, u);
+  const ends = comesPast(sum, s, mark, u), at = asText(s.end, u);
   if (!fromZero(sum)) {
     const start = asText(s.start, u);
-    return [worth, { text: `${ends}: it ends at ☐${NB}${u}`, value: at },
+    return [worth, { text: `${ends}: ${endsAt(sum, u)}`, value: at },
       { text: so(`It starts at ${shown(start, u)}`, `${sum.name} is ${shown(at, u)} − ${shown(start, u)} = ☐${NB}${u} long`), value: readValue(sum), answer: true }];
   }
   if (sum.ask === u) return [worth, readAnswer(sum, ends)];
-  return [worth, { text: `${ends}: it ends at ☐${NB}${u}`, value: at }, readAnswer(sum, `${shown(at, u)} in ${UNITS[sum.ask].many}`)];
+  return [worth, { text: `${ends}: ${endsAt(sum, u)}`, value: at }, readAnswer(sum, `${shown(at, u)} in ${UNITS[sum.ask].many}`)];
 }
 
 // Use the smaller unit: one space named in it, then the spaces past the mark counted in it, then the reading in the unit
-// her box asks ("4 cm and 7 mm is 4.7 cm"); only from 0, and only where one space is a whole number of the smaller unit
+// her box asks ("4 cm and 7 mm is 4.7 cm"); only from 0, and only where one space is a whole number of the smaller unit.
+// A jug up from 0 counts its level in the smaller unit alone, "it comes to ☐ mL", then "750 mL: so …" (F2), and so a
+// ruler or a tape from 0, "it ends at ☐ mm", then "4 mm: so …" (T3)
 function smallSteps(sum) {
   const s = scaleOf(sum), u = sum.unit, small = SMALLER[u], mark = asText(s.mark, u), each = smallSpace(sum);
-  const over = asText(s.space * BigInt(s.past), u, small);
+  const over = asText(s.space * BigInt(s.past), u, small), up = upFrom0(sum);
   return [{ text: `${shown('1', u)} is ${shown(asText(1000n, u, small), small)}, cut into ${sum.parts} equal spaces: each space is ☐${NB}${small}`, value: Number(each) },
-    { text: `${cap(sum.name)} ends ${spaces(s.past)} past ${shown(mark, u)}: ${shown(mark, u)} and ☐${NB}${small}`, value: Number(over) },
-    readAnswer(sum, `${shown(mark, u)} and ${shown(over, small)}`)];
+    { text: `${comesPast(sum, s, mark, u)}: ${up ? endsAt(sum, small) : `${shown(mark, u)} and ☐${NB}${small}`}`, value: Number(over) },
+    readAnswer(sum, up ? shown(over, small) : `${shown(mark, u)} and ${shown(over, small)}`)];
 }
 // why the smaller unit cannot read it, true of the scale as shown: the object starts past 0, or a ruler's quarter of a
 // centimetre is 2.5 mm (the only space of a ruler or tape that is not a whole number of the smaller unit)
@@ -135,6 +193,11 @@ function smallStops(sum) {
 }
 
 const unitsOf = (sum) => [UNITS[sum.unit].one, UNITS[SMALLER[sum.unit]].one];
+// the word a way's units are measured by: a capacity's, a jug's millilitres and litres, a mass's grams, kilograms and
+// tonnes (plan "The ways", Words), else measure
+const measuredBy = (unit) => ({ capacity: 'capacity', mass: 'mass' }[UNITS[unit].kind] ?? 'measure');
+// the scale's word: the kitchen scales' "scales" (S3 NSM A l.95-111), else scale
+const scaleWord = (sum) => (kitchen(sum) ? 'scales' : 'scale');
 
 const scaleSpace = {
   op: 'mread', title: 'Each space first',
@@ -142,7 +205,7 @@ const scaleSpace = {
   steps: (sum) => keptOf(spaceSteps(sum)),
   picture: () => null,
   hint: () => 'How much is one small space worth? Count on from the number before it.',
-  words: (sum) => ['scale', 'measure', ...unitsOf(sum)],
+  words: (sum) => [scaleWord(sum), measuredBy(sum.unit), ...unitsOf(sum)],
 };
 
 const scaleSmall = {
@@ -152,7 +215,7 @@ const scaleSmall = {
   steps: (sum) => keptOf(smallSteps(sum)),
   picture: () => null,
   hint: () => 'How many of the smaller unit is one space?',
-  words: (sum) => ['scale', 'measure', ...unitsOf(sum)],
+  words: (sum) => [scaleWord(sum), measuredBy(sum.unit), ...unitsOf(sum)],
 };
 
 // ---- changing units (mconv): millimetres and centimetres, centimetres and metres, metres and kilometres ----
@@ -391,19 +454,42 @@ const unitsOfPair = (sum) => {
 };
 
 const changes = (sum) => sum?.op === 'mconv' || sum?.op === 'mtotal' || hectares(sum);
+// a change of units' or a total's word, by its units (a total of lengths, as a hectare's, measure)
+const changeWord = (sum) => (sum.op === 'mconv' ? measuredBy(sum.from) : sum.op === 'mtotal' ? measuredBy(sum.to) : 'measure');
 // A hectare under 1 ha has no chart, its words the same: whole units first is refused there, and on its refused card
 // (the refusal, the chart, the step that moves the digits, the answer step and the pad) the chart's top is 858 px from
 // the pad's bottom in WebKit at 390 × 844, so no scroll keeps the chart whole while she types; it went 14 px off the
-// top. Fact 9's own branch (step 4.4's code review finding 1, the lead's ruling, pt80)
-const unchartedIf = (sum, steps) => (hectares(sum) && splitStops(sum) ? steps.map(({ picture, ...st }) => st) : steps);
+// top. Fact 9's own branch (step 4.4's code review finding 1, the lead's ruling, pt80). And so a capacity under 1 L
+// (S's dry run of step 4.6: on 375 mL refused the chart's top was at -14 px at 390 wide; in WebKit before this, 37 of
+// the 127 such problems cut at 390, 45 at 375, 58 at 320, to-larger and to-smaller both, so no form keeps it whole)
+// And so a field (fact 9's branch, step 4.8, pt92's triage T4, the lead's ruling, pt93): by moving the digits its chart
+// was 186 px beside the step that moves them, and in "Show me one step" that step's top went off the screen on every
+// field with a chart, 141 of 212 fields, at 390 and 375 wide, her box, the pad, ✓ and the button kept; with no chart, 0
+// of 509 field items off on any screen (helper Y's measure, pt92)
+const capacities = (sum) => sum?.op === 'mconv' && UNITS[sum.from].kind === 'capacity';
+const fields = (sum) => hectares(sum) && sum.form === 'field';
+const unchartedIf = (sum, steps) => (((hectares(sum) || capacities(sum)) && splitStops(sum)) || fields(sum) ? steps.map(({ picture, ...st }) => st) : steps);
+// A total of masses with two parts to change has no chart on its second conversion, its words and value the same; its
+// first keeps its chart. Whole units first is refused there ("two parts need changing"), and on its refused card the
+// 144 px refusal stands between the chart and the step, so the chart's top is 848 to 948 px from the pad's bottom and it
+// went off the top while she typed ("50 g + 120 g + 2 kg = ☐ kg", the chart at -104..60 at 390 wide); in WebKit before
+// this, 3,536 such items cut at 390, 4,276 at 375, 4,280 at 320. The steps are the way's, so moving the digits picked
+// first has none there either. Fact 9's own branch, narrowed (helper Y's measure, the lead's ruling F1, step 4.7, pt90)
+// And so a total of lengths, every kind the generator makes ((cm; mm, m), (mm; cm, m), (m; mm, cm), (m; km, km), (km;
+// m, m)): before this, 9,315 such items a way had a chart on the second conversion, and in WebKit her own chart was cut
+// after the refusal on 6,695 of 19,480 items at 390 ("2 mm + 2 cm + 1.08 m = ☐ cm", the chart at -4..160) and 7,507 at
+// 375 (F1's branch for lengths, carried from step 4.7 to step 4.8, pt92)
+const masses = (sum) => sum?.op === 'mtotal' && UNITS[sum.to].kind === 'mass';
+const lengths = (sum) => sum?.op === 'mtotal' && UNITS[sum.to].kind === 'length';
+const secondUnchartedIf = (sum, steps) => ((masses(sum) || lengths(sum)) && toChange(sum).length > 1 ? steps.map(({ picture, ...st }, i) => (i === 1 ? st : steps[i])) : steps);
 
 const unitPlace = {
   op: 'mconv', title: 'Move the digits',
   fits: changes,
-  steps: (sum) => keptOf(sum.op === 'mtotal' ? totalPlaceSteps(sum) : sum.form === 'field' ? fieldPlaceSteps(sum) : unchartedIf(sum, placeSteps(sum))),
+  steps: (sum) => keptOf(sum.op === 'mtotal' ? secondUnchartedIf(sum, totalPlaceSteps(sum)) : unchartedIf(sum, sum.form === 'field' ? fieldPlaceSteps(sum) : placeSteps(sum))),
   picture: () => null,
   hint: () => 'How many of the smaller unit make one of the bigger unit? Which way do the digits move?',
-  words: (sum) => ['measure', ...unitsOfPair(sum)],
+  words: (sum) => [changeWord(sum), ...unitsOfPair(sum)],
 };
 
 const unitSplit = {
@@ -413,12 +499,12 @@ const unitSplit = {
   steps: (sum) => keptOf(sum.op === 'mtotal' ? totalSplitSteps(sum) : sum.form === 'field' ? fieldSplitSteps(sum) : splitSteps(sum)),
   picture: () => null,
   hint: () => 'How many whole units are there? What is left over?',
-  words: (sum) => ['measure', ...unitsOfPair(sum)],
+  words: (sum) => [changeWord(sum), ...unitsOfPair(sum)],
 };
 
 // ---- perimeter (mper): every side added, or the equal sides together ----
 
-const SHAPE_NAMES = { rect: 'rectangle', square: 'square', rhombus: 'rhombus', tri: 'triangle', lshape: 'L-shape' };
+const SHAPE_NAMES = { rect: 'rectangle', square: 'square', rhombus: 'rhombus', tri: 'triangle', lshape: 'L-shape', para: 'parallelogram', ptri: 'triangle' };
 // what the perimeter is of: the place a large rectangle is, "the playground", else the shape, "the rectangle"
 export const shapeName = (sum) => sum.name ?? `the ${SHAPE_NAMES[sum.kind]}`;
 // a triangle's sides, shortest first; how many lengths it has (1 equilateral, 2 isosceles, 3 scalene); and an isosceles
@@ -499,14 +585,20 @@ const perPairs = {
 // where a rectangle's unit squares are drawn square, one unit on each axis (engine/render/svg.js shape: both sides at
 // most 12, the longer at most 3 times the shorter); the generator's edge squares (engine/items/measurement.js) too
 export const squaresFit = ({ l, w }) => Math.max(l, w) <= 12 && Math.max(l, w) <= 3 * Math.min(l, w);
-// the answer: a rectangle's area, a whole number of unit², or a missing side's length; a hectare's as text
+// the answer: a rectangle's area, a whole number of unit², or a missing side's length; a hectare's as text; an
+// L-shape's, a parallelogram's or a triangle's area, a whole number of unit² (a triangle's base × height is even)
 export function areaValue(sum) {
   if (hectares(sum)) return convertValue(asConvert(sum));
+  const s = sum.sides;
+  if (sum.kind === 'lshape') return s.W * s.H - s.cw * s.ch;
+  if (sum.kind === 'para') return s.b * s.h;
+  if (sum.kind === 'ptri') return (s.b * s.h) / 2;
   return sum.key === 'missing' ? sum.sides[sum.unknown] : sum.sides.l * sum.sides.w;
 }
 // the answer step in the question's order: "So the area of the rectangle is 4 × 6 = ☐ cm²", or of the place it is told
-// with; a missing side's "So it is 24 ÷ 6 = ☐ cm wide"
-const areaAnswer = (sum, claim) => ({ text: so(null, `the area of ${shapeName(sum)} is ${claim} = ☐${NB}${sum.unit}²`), value: areaValue(sum), answer: true });
+// with, after a way's own words where it has them ("The triangle is half of it: so …"); a missing side's "So it is 24 ÷
+// 6 = ☐ cm wide"
+const areaAnswer = (sum, claim, lead = null) => ({ text: so(lead, `the area of ${shapeName(sum)} is ${claim} = ☐${NB}${sum.unit}²`), value: areaValue(sum), answer: true });
 const givenOf = (sum) => (sum.unknown === 'w' ? sum.sides.l : sum.sides.w);
 const sideWord = (sum) => (sum.unknown === 'w' ? 'wide' : 'long');
 const sideAnswer = (sum) => ({ text: so(null, `it is ${sum.sides.l * sum.sides.w} ÷ ${givenOf(sum)} = ☐${NB}${sum.unit} ${sideWord(sum)}`), value: areaValue(sum), answer: true });
@@ -530,6 +622,7 @@ function rowSteps(sum) {
 // Length × width: NESA's words, then the length times the width; backwards, the side given times the side missing is the
 // area, the area kept on the line of the word before it, as it ends its sentence (the looker's finding 11, step 4.2)
 function wordSteps(sum) {
+  if (sum.kind === 'para' || sum.kind === 'ptri') return shapeWordSteps(sum);
   if (sum.key === 'missing') {
     const times = sum.unknown === 'w' ? `${sum.sides.l} × the width` : `the length × ${sum.sides.w}`;
     return [{ text: `Area = length × width, so ${times} is${NB}${inAll(sum)}.` }, sideAnswer(sum)];
@@ -538,6 +631,11 @@ function wordSteps(sum) {
 }
 
 const rectangles = (sum) => sum?.op === 'marea' && sum.kind === 'rect';
+// A first-miss hint names squares or cubes as she sees them where the question's picture draws them (a rectangle's edge
+// squares, engine/items/measurement.js; a prism of cubes); where it draws none (a missing side, a rectangle too long for
+// its squares, a labelled box or room) it names them as imagined and by their size, "How many 1 cm squares would fit in
+// one row?" (T25's family, three lookers, step 4.8, the lead's ruling, pt92)
+const unit1 = (sum, thing) => `${shown('1', sum.unit)} ${thing}`;
 const areaWords = (sum) => ['area', 'length', 'width', UNITS[`${sum.unit}²`].one];
 
 const areaRows = {
@@ -545,18 +643,182 @@ const areaRows = {
   fits: rectangles,
   steps: (sum) => keptOf(rowSteps(sum)),
   picture: () => null,
-  hint: () => 'How many squares fit in one row? How many rows are there?',
+  hint: (sum) => (sum.key === 'rectangle' && squaresFit(sum.sides) ? 'How many squares fit in one row? How many rows are there?'
+    : `How many ${unit1(sum, 'squares')} would fit in one row? How many rows would there be?`),
   words: areaWords,
 };
+
+// ---- areas of L-shapes, parallelograms and triangles (marea, meas-area-shapes' l-shape, parallelogram and triangle
+// keys): each made rectangles, or NESA's words ----
+
+// the shapes whose areas meas-area-shapes finds, by kind (engine/render/svg.js shape), and a way's fit to each
+export const AREA_SHAPES = ['lshape', 'para', 'ptri'];
+const shapesOf = (kind) => (sum) => sum?.op === 'marea' && sum.kind === kind;
+const lshapes = shapesOf('lshape'), paras = shapesOf('para'), ptris = shapesOf('ptri');
+// The question's shape (plan M3, "Picture"): an L-shape with all six sides labelled; a parallelogram with its base, its
+// height dashed and labelled, and its slanted side labelled where the problem labels it; a triangle with its base and its
+// height. With a worked step's piece (more: { cut: 'h' }, { corner: true }, { move: true } or { double: true }) the same
+// shape marked working, so it shows in the worked steps only (plan M3, "Picture")
+export function shapePicture(sum, more = null) {
+  const { kind, unit, sides } = sum;
+  return { type: 'shape', kind, unit, sides, labels: 'area', ...(kind === 'lshape' ? {} : { height: sides.h }), ...(kind === 'para' && sum.slant ? { slant: sides.s } : {}),
+    ...(more ? { ...more, working: true } : {}) };
+}
+const shapeBox = (sum) => `☐${NB}${sum.unit}²`;
+// a rectangle's sides, "3 by 2", kept on one line as an amount is, a no-break space either side of "by" (G3, step 4.5:
+// "6 by / 2" broke at a line's end), said with plain spaces
+const by = (a, b) => `${a}${NB}by${NB}${b}`;
+
+// Cut into rectangles: cut across, as NESA's own L-shape is (S3 2DS B l.45, and its teaching advice's "A horizontal
+// dotted line cuts across the L-shape creating 2 rectangles"), the lower rectangle the full width and the one over it the rest, both named, its picture
+// the cut; each rectangle's area its own step, the one over it first, as M3 writes it ("3 by 2 and 6 by 2"); then the two
+// added
+function cutSteps(sum) {
+  const { W, H, cw, ch } = sum.sides, [a, b] = [[W - cw, ch], [W, H - ch]];
+  return [{ text: `Cut it across into two rectangles: ${by(...a)} and ${by(...b)}.`, picture: shapePicture(sum, { cut: 'h' }) },
+    { text: `${a[0]} × ${a[1]} = ${shapeBox(sum)}`, value: a[0] * a[1] }, { text: `${b[0]} × ${b[1]} = ${shapeBox(sum)}`, value: b[0] * b[1] },
+    areaAnswer(sum, `${a[0] * a[1]} + ${b[0] * b[1]}`)];
+}
+// The big rectangle first: the whole rectangle around it and the missing corner, its picture the corner dashed; each
+// one's area, then the corner taken away
+function wholeSteps(sum) {
+  const { W, H, cw, ch } = sum.sides;
+  return [{ text: `The whole rectangle is ${by(W, H)}, and the missing corner is ${by(cw, ch)}.`, picture: shapePicture(sum, { corner: true }) },
+    { text: `${W} × ${H} = ${shapeBox(sum)}`, value: W * H }, { text: `${cw} × ${ch} = ${shapeBox(sum)}`, value: cw * ch }, areaAnswer(sum, `${W * H} − ${cw * ch}`)];
+}
+// Make it a rectangle: the triangle cut off one end and moved to the other, its picture the move, so the rectangle is the
+// base long and the height high; never the slanted side
+function moveSteps(sum) {
+  const { b, h } = sum.sides;
+  return [{ text: `Cut the triangle off one end and move it to the other: a rectangle ${shown(String(b), sum.unit)} long and ${shown(String(h), sum.unit)} high.`, picture: shapePicture(sum, { move: true }) },
+    areaAnswer(sum, `${b} × ${h}`)];
+}
+// Two make a parallelogram: the triangle and a copy of it turned round make a parallelogram of its base and height, its
+// picture the copy dashed; its area, then the triangle half of it
+function doubleSteps(sum) {
+  const { b, h } = sum.sides;
+  return [{ text: `Two of these triangles make a parallelogram ${shown(String(b), sum.unit)} long and ${shown(String(h), sum.unit)} high: ${b} × ${h} = ${shapeBox(sum)}`, value: b * h,
+    picture: shapePicture(sum, { double: true }) }, areaAnswer(sum, `${b * h} ÷ 2`, 'The triangle is half of it')];
+}
+// Length × width's words on a parallelogram and a triangle: NESA's (S3 2DS B l.59, l.73), then the base times the height.
+// The "=" kept on the line of the words either side of it: a no-break space before an "=" is drawn as an ordinary one, a
+// count sentence's one place to break (js/answer.js counted), so at 390 and 375 wide "=" began a line (Y's finding, step
+// 4.5); a no-break space then a zero-width no-break space (U+FEFF) there, so the "=" no longer follows the no-break space
+// counted looks for and no line breaks before it, and the space is a full one (G3: the narrow U+202F read
+// "parallelogram= base"); speech says both as one space (js/speech.js words, \s), so the said text is the same
+const ZW = '\ufeff';
+function shapeWordSteps(sum) {
+  const { b, h } = sum.sides;
+  if (sum.kind === 'para') return [{ text: `Area of parallelogram${NB}${ZW}=${NB}base × height.` }, areaAnswer(sum, `${b} × ${h}`)];
+  return [{ text: 'The area of a triangle is half of base × height.' }, areaAnswer(sum, `${b} × ${h} ÷ 2`)];
+}
+const shapeWords = (sum) => ['area', ...(sum.kind === 'lshape' ? ['length', 'width'] : ['base', 'height', SHAPE_NAMES[sum.kind]]), UNITS[`${sum.unit}²`].one];
 
 const areaLength = {
   op: 'marea', title: 'Length × width',
-  fits: rectangles,
+  fits: (sum) => rectangles(sum) || paras(sum) || ptris(sum),
   steps: (sum) => keptOf(wordSteps(sum)),
   picture: () => null,
   hint: () => 'Which two lengths do you multiply?',
-  words: areaWords,
+  words: (sum) => (rectangles(sum) ? areaWords(sum) : shapeWords(sum)),
+};
+
+const areaSplit = {
+  op: 'marea', title: 'Cut into rectangles',
+  fits: lshapes,
+  steps: (sum) => keptOf(cutSteps(sum)),
+  picture: () => null,
+  hint: () => 'What are the sides of the two rectangles?',
+  words: shapeWords,
+};
+
+const areaTake = {
+  op: 'marea', title: 'The big rectangle first',
+  fits: lshapes,
+  steps: (sum) => keptOf(wholeSteps(sum)),
+  picture: () => null,
+  hint: () => 'How big is the whole rectangle? How big is the missing corner?',
+  words: shapeWords,
+};
+
+const areaMove = {
+  op: 'marea', title: 'Make it a rectangle',
+  fits: paras,
+  steps: (sum) => keptOf(moveSteps(sum)),
+  picture: () => null,
+  hint: () => 'When the triangle moves across, how long and how high is the rectangle?',
+  words: shapeWords,
+};
+
+const areaDouble = {
+  op: 'marea', title: 'Two make a parallelogram',
+  fits: ptris,
+  steps: (sum) => keptOf(doubleSteps(sum)),
+  picture: () => null,
+  hint: () => 'What is the area of the parallelogram the two triangles make?',
+  words: (sum) => [...shapeWords(sum), 'parallelogram'],
+};
+
+// ---- volumes of rectangular prisms (mvol, meas-volume's layers and prism keys): layers of cubes, or the front face
+// first ----
+
+// A volume sum is { op: 'mvol', key, l, w, h, unit, cubes, name? }: a prism l long, w wide (going back) and h high, in
+// whole units; cubes true where it is made of 1 cm cubes she counts (the layers key), else its three edges labelled and
+// name the box or room it is (the prism key, "the classroom")
+const vols = (sum) => sum?.op === 'mvol';
+// the answer: the volume, a whole number of unit³, never a side (every side is at least 2)
+export const volumeValue = ({ l, w, h }) => l * w * h;
+// The question's prism (plan M4, "Picture"): of cubes, or with its three edges labelled; with a worked step's piece
+// (more: { layer: true }, the top layer shaded, or { front: true }, the front face shaded) the same prism marked working,
+// so it shows in the worked steps only
+export function prismPicture(sum, more = null) {
+  return { type: 'prism', l: sum.l, w: sum.w, h: sum.h, ...(sum.cubes ? { cubes: true } : {}), unit: sum.unit, ...(more ? { ...more, working: true } : {}) };
+}
+// the answer step in the question's order, "Its volume is ☐ cm³": a way's own words, then "so its volume is 5 × 8 = ☐
+// cm³" (NESA's words, "5 layers of 8 cubic-centimetre blocks", S3 3DS B l.48)
+const volAnswer = (sum, lead, claim) => ({ text: so(lead, `its volume is ${claim} = ☐${NB}${sum.unit}³`), value: volumeValue(sum), answer: true });
+// a working step's number sentence, "4 × 2 = ☐", kept whole on one line: with no unit after its box nothing in
+// js/answer.js keeps it, so its "=" began a line wherever its value was shown ("2 × 2 / = 4", S's dry run, step 4.6);
+// no-break spaces in it, and before its "=" a no-break space then U+FEFF, as the parallelogram's words have (G3, step
+// 4.5: counted finds no no-break space straight before the "="), said the same
+const oneLine = (a, b) => `${a}${NB}×${NB}${b}${NB}${ZW}=${NB}☐`;
+
+// Layers of cubes: the cubes in one layer, then times the layers. Of cubes, the layer's rows going back first, then the
+// cubes in a row, as NESA says it ("each layer is 4 rows of 2 blocks", S3 3DS B l.48; the lead's ruling, step 4.6); a
+// labelled prism's layer of 1 cm cubes its length × its width. Each step ends on its box (the oracle reads no word after
+// a box but a unit)
+function layerSteps(sum) {
+  const { l, w, h } = sum;
+  const one = sum.cubes ? `One layer is ${w} rows of ${l} cubes: ${oneLine(w, l)}` : `One layer of ${shown('1', sum.unit)} cubes is ${oneLine(l, w)}`;
+  return [{ text: one, value: l * w, picture: prismPicture(sum, { layer: true }) }, volAnswer(sum, `${h} layers`, `${h} × ${l * w}`)];
+}
+// The front face first: the cubes on the front face, its length × its height, then times how many go back, the width; a
+// labelled prism's front face "6 by 2", kept on one line as step 4.5's pieces are
+function frontSteps(sum) {
+  const { l, w, h } = sum;
+  const face = sum.cubes ? `The front face is ${l} cubes long and ${h} high: ${oneLine(l, h)}` : `The front face is ${by(l, h)}: ${oneLine(l, h)}`;
+  return [{ text: face, value: l * h, picture: prismPicture(sum, { front: true }) }, volAnswer(sum, `There are ${w} of those going back`, `${w} × ${l * h}`)];
+}
+const volWords = (sum, more) => ['volume', ...more, UNITS[`${sum.unit}³`].one];
+
+const volLayers = {
+  op: 'mvol', title: 'Layers of cubes',
+  fits: vols,
+  steps: (sum) => keptOf(layerSteps(sum)),
+  picture: () => null,
+  hint: (sum) => (sum.cubes ? 'How many cubes are in one layer? How many layers are there?' : `How many ${unit1(sum, 'cubes')} would fit in one layer? How many layers would there be?`),
+  words: (sum) => volWords(sum, ['layer']),
+};
+
+const volFront = {
+  op: 'mvol', title: 'The front face first',
+  fits: vols,
+  steps: (sum) => keptOf(frontSteps(sum)),
+  picture: () => null,
+  hint: (sum) => (sum.cubes ? 'How many cubes are on the front face? How many go back?' : `How many ${unit1(sum, 'cubes')} would fit on the front face? How many would go back?`),
+  words: (sum) => volWords(sum, ['length', 'width', 'height']),
 };
 
 export const MEASURE_WAYS = { 'scale-space': scaleSpace, 'scale-small': scaleSmall, 'unit-place': unitPlace, 'unit-split': unitSplit, 'per-add': perAdd, 'per-pairs': perPairs,
-  'area-rows': areaRows, 'area-words': areaLength };
+  'area-rows': areaRows, 'area-words': areaLength, 'area-split': areaSplit, 'area-take': areaTake, 'area-move': areaMove, 'area-double': areaDouble,
+  'vol-layers': volLayers, 'vol-front': volFront };

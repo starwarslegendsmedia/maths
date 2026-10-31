@@ -26,6 +26,7 @@ import { DEC_ONE, DEC_PLACES, andList, countOf, decParts, decimalText, inOrder, 
 import { FRACTION_WAYS, fractionEstimateStep, relatedSum } from './fraction-ways.js';
 import { PERCENT_WAYS } from './percent-ways.js';
 import { MEASURE_WAYS } from './measure-ways.js';
+import { GEOMETRY_WAYS } from './geometry-ways.js';
 
 const PLACES = ['Ones', 'Tens', 'Hundreds', 'Thousands'];
 
@@ -1837,6 +1838,8 @@ export const METHODS = {
   ...PERCENT_WAYS,
   // the measurement ways (stage 6 strand 4), the same, in engine/measure-ways.js
   ...MEASURE_WAYS,
+  // the angle and position ways (stage 6 strand 4b), the same, in engine/geometry-ways.js
+  ...GEOMETRY_WAYS,
 };
 
 // ---- the ways of the skills whose generators build their own steps (engine/items/ways.js; plans/2026-10-25-two-ways-plan.md):

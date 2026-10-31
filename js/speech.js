@@ -155,6 +155,14 @@ const saidNumbers = (text) => text
     return `${dollars} dollar${dollars === '1' ? '' : 's'}${cents ? ` ${cents}` : ''}`;
   })
   .replace(/\$\s*☐/g, 'what, in dollars')
+  // "°" straight after a whole amount or a box, in degrees (stage 6 strand 4b, plan "Showing and saying an angle and a
+  // point"), before the units rule as a unit is: "120°" "120 degrees", "☐°" "what degrees", "1°" "1 degree"; any other
+  // "°" as it is. A point with a box, bracketed, a comma and one space between, each side a whole number or a box,
+  // without its brackets and each box "what": "(☐, ☐)" "what, what", "(2, ☐)" "2, what" (B2's answer step, the lead's
+  // ruling, R12, 30 October); a point "(2, 3)" as written, its brackets dropped by the voice and the pieces
+  // (js/pieces.js fragment)
+  .replace(/(?<![\d.])(\d+(?:\.\d+)?|☐)°/g, (_, n) => `${n} degree${n === '1' ? '' : 's'}`)
+  .replace(/\((\d+|☐), (\d+|☐)\)/g, (pair, a, b) => (pair.includes('☐') ? `${a}, ${b}`.replace(/☐/g, 'what') : pair))
   // a unit of engine/units.js after the whole amount or a box (stage 6 strand 4, plan "Showing and saying a unit"),
   // before the decimal rule so it sees the amount whole: "2.1 km" "2 point 1 kilometres", "1 km" "1 kilometre",
   // "☐ cm²" "what square centimetres", "m²" never "metres²"

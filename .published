@@ -6,6 +6,7 @@ engine/check.js
 engine/flash.js
 engine/fraction-ways.js
 engine/fractions.js
+engine/geometry-ways.js
 engine/goals.js
 engine/items/addsub.js
 engine/items/algebra.js
@@ -14,6 +15,7 @@ engine/items/divide.js
 engine/items/equals.js
 engine/items/facts.js
 engine/items/fractions.js
+engine/items/geometry.js
 engine/items/index.js
 engine/items/measurement.js
 engine/items/multiply.js
@@ -65,6 +67,7 @@ voices/guide/00ac2787422dac5c.m4a
 voices/guide/00ea4c2d1bbb5120.m4a
 voices/guide/00f333acf2af3bd9.m4a
 voices/guide/010850a22f339123.m4a
+voices/guide/012170332c3d0600.m4a
 voices/guide/01595bd1451d19da.m4a
 voices/guide/0166802f4646f657.m4a
 voices/guide/0168f7b58a5f1ba0.m4a
@@ -154,6 +157,7 @@ voices/guide/0772c15dc3072e26.m4a
 voices/guide/077ea491fcf73403.m4a
 voices/guide/07867e05ced99d1d.m4a
 voices/guide/078dcffc18ead4b4.m4a
+voices/guide/078e48b197a008ef.m4a
 voices/guide/0797aa62facb5a60.m4a
 voices/guide/079de37703384bfc.m4a
 voices/guide/07ab7f69c32acde2.m4a
@@ -190,6 +194,7 @@ voices/guide/0991ba50b2f667d1.m4a
 voices/guide/09b88ac12dc11cfb.m4a
 voices/guide/09bc8cc99272d370.m4a
 voices/guide/09c5ae17e4422f81.m4a
+voices/guide/09c60c9829d0d6ea.m4a
 voices/guide/09d1e2f979048b4a.m4a
 voices/guide/09d305cfb8dcaa45.m4a
 voices/guide/09d8e83cccb0b621.m4a
@@ -197,6 +202,7 @@ voices/guide/0a00c632bbdace27.m4a
 voices/guide/0a3d4d8eec22a236.m4a
 voices/guide/0a44df0a6b8ec963.m4a
 voices/guide/0a4ceeffd78411b2.m4a
+voices/guide/0a709c7135501a8c.m4a
 voices/guide/0a80d87a74cdbb0a.m4a
 voices/guide/0abbde98bc88ee1e.m4a
 voices/guide/0ac7514360798b07.m4a
@@ -273,6 +279,7 @@ voices/guide/0ed6ff5d8fdbfd04.m4a
 voices/guide/0ee6a68ae36e91c8.m4a
 voices/guide/0ee8ca1083266c0e.m4a
 voices/guide/0ef10227fa7bef32.m4a
+voices/guide/0ef303ca3b924b1d.m4a
 voices/guide/0f1132548b240505.m4a
 voices/guide/0f11e57fc896da94.m4a
 voices/guide/0f30b4589fc82a9c.m4a
@@ -311,8 +318,10 @@ voices/guide/10ff555c57c92a9a.m4a
 voices/guide/110458f6e82270b2.m4a
 voices/guide/11194f14ef4dbdf1.m4a
 voices/guide/1124b445e95f2501.m4a
+voices/guide/113dee560d8cac0b.m4a
 voices/guide/113f4307be3ce5a0.m4a
 voices/guide/1141dd235bec565c.m4a
+voices/guide/1152c96d270e0c3a.m4a
 voices/guide/1177c65f64fd39e8.m4a
 voices/guide/118b7dbea2c7ba79.m4a
 voices/guide/119d665c2cda1597.m4a
@@ -332,10 +341,13 @@ voices/guide/12361474e8e87cd4.m4a
 voices/guide/123b09b34b2835da.m4a
 voices/guide/12448e3299a66235.m4a
 voices/guide/1258342449f285f6.m4a
+voices/guide/126350eb6ef3750f.m4a
+voices/guide/127d05e079a9cece.m4a
 voices/guide/12875dfb661334d7.m4a
 voices/guide/12947ea4181c2b8d.m4a
 voices/guide/129f277181f427fd.m4a
 voices/guide/129fea155946090e.m4a
+voices/guide/12b47d83a014d4f4.m4a
 voices/guide/12b68002cc0ed35a.m4a
 voices/guide/12b737ed810b11c3.m4a
 voices/guide/12c04d0a3c4ff9aa.m4a
@@ -368,10 +380,12 @@ voices/guide/144f3948df190a73.m4a
 voices/guide/14675f244029dbda.m4a
 voices/guide/146f754c32bcf559.m4a
 voices/guide/1473d7f24e3fa045.m4a
+voices/guide/1482ae580c694a81.m4a
 voices/guide/149e7eaea39cf7ac.m4a
 voices/guide/14a15c236d1bdb9a.m4a
 voices/guide/14b0448ffec91dd3.m4a
 voices/guide/14e8ba01536bcd88.m4a
+voices/guide/14f40c21020c8c49.m4a
 voices/guide/14fbd52e85a2b594.m4a
 voices/guide/150b0111d39057e0.m4a
 voices/guide/15197ab7d36130f6.m4a
@@ -398,6 +412,7 @@ voices/guide/162fc37d5a301cdd.m4a
 voices/guide/1631e38754de103c.m4a
 voices/guide/166862230b15dfc0.m4a
 voices/guide/167de7b3ed76e65d.m4a
+voices/guide/16a11661b9ff0532.m4a
 voices/guide/16a23610b005ad42.m4a
 voices/guide/16aa73d9c83bc55b.m4a
 voices/guide/16bef2ed1e8b99d5.m4a
@@ -429,6 +444,7 @@ voices/guide/18175e125a92184f.m4a
 voices/guide/181b585495dbf037.m4a
 voices/guide/181df8f292ff28cc.m4a
 voices/guide/1824fef8536f0cce.m4a
+voices/guide/1827de1b93461a63.m4a
 voices/guide/182c981ace98d398.m4a
 voices/guide/18399c5cc1f07f01.m4a
 voices/guide/1841b9e4d4c31478.m4a
@@ -451,6 +467,7 @@ voices/guide/191aa0e500fb90cb.m4a
 voices/guide/1922d0c3e5c06dcf.m4a
 voices/guide/193accb1bc820556.m4a
 voices/guide/193db0e28e554bc7.m4a
+voices/guide/1951f2c655d9b448.m4a
 voices/guide/1952a1f7f9fc0f2a.m4a
 voices/guide/195a7ae604e771e5.m4a
 voices/guide/195fea6fcc4ccabe.m4a
@@ -464,6 +481,7 @@ voices/guide/19c65a1feea8313f.m4a
 voices/guide/19ebab74cd4f63d8.m4a
 voices/guide/19ec2d4dc2f1ea0f.m4a
 voices/guide/19ec5cec793b2413.m4a
+voices/guide/1a01bdcadc41c122.m4a
 voices/guide/1a090abec0bc79bc.m4a
 voices/guide/1a1aa45eca2d8de1.m4a
 voices/guide/1a4830902ac3280f.m4a
@@ -483,6 +501,7 @@ voices/guide/1af07260fe2471da.m4a
 voices/guide/1af1bbd56295b1af.m4a
 voices/guide/1b0315a62fc656c9.m4a
 voices/guide/1b0639869ef27c75.m4a
+voices/guide/1b10274d27480cea.m4a
 voices/guide/1b52db626811feda.m4a
 voices/guide/1b67e8c392011a68.m4a
 voices/guide/1b81ed6dcbc55140.m4a
@@ -497,6 +516,7 @@ voices/guide/1c626a22801a6409.m4a
 voices/guide/1c71c46f4f6bd2b0.m4a
 voices/guide/1c88da394de6d976.m4a
 voices/guide/1c8fa9fb76c84432.m4a
+voices/guide/1cac63dd3369fd0d.m4a
 voices/guide/1caf95ebd7531ecf.m4a
 voices/guide/1cdd7c668b36c434.m4a
 voices/guide/1ce1513a28540934.m4a
@@ -563,6 +583,7 @@ voices/guide/1f8bc8016a962c7a.m4a
 voices/guide/1f95a911bdfafa35.m4a
 voices/guide/1f99e7dcbb02b59a.m4a
 voices/guide/1f9fa92582f14cf9.m4a
+voices/guide/1fa10372abf90457.m4a
 voices/guide/1fa3457f7b27d629.m4a
 voices/guide/1fae2dc8bb8010e6.m4a
 voices/guide/1fb0b753286583fb.m4a
@@ -571,6 +592,7 @@ voices/guide/1fc8a04a3615f31a.m4a
 voices/guide/1fd7dd192ef530d6.m4a
 voices/guide/1fdbe332468bbe00.m4a
 voices/guide/1fe6536aa7e1b864.m4a
+voices/guide/20285ecb15cba873.m4a
 voices/guide/20333f0a1a9a909b.m4a
 voices/guide/203a938dbdb1f54b.m4a
 voices/guide/203ed30d5fd6b8b9.m4a
@@ -637,6 +659,7 @@ voices/guide/23afc34a206be131.m4a
 voices/guide/23cd64a9e6d0488c.m4a
 voices/guide/23e8d5346723a33f.m4a
 voices/guide/24026b9b4ef0e386.m4a
+voices/guide/2403f42b4706685c.m4a
 voices/guide/240531aa69390066.m4a
 voices/guide/24053986c0e557d6.m4a
 voices/guide/240679ad5a3adb82.m4a
@@ -682,6 +705,7 @@ voices/guide/25e57ab0c016c582.m4a
 voices/guide/25e66d1b279b4c74.m4a
 voices/guide/25f3e57f86c7f9c5.m4a
 voices/guide/2606ccfaf15dab8c.m4a
+voices/guide/2627f45f0910d6a5.m4a
 voices/guide/262bc33b83d5ff8c.m4a
 voices/guide/262d4170545339ac.m4a
 voices/guide/2632ab77d0e5866a.m4a
@@ -758,6 +782,7 @@ voices/guide/2b51b574705165cc.m4a
 voices/guide/2b53877f4e059c2d.m4a
 voices/guide/2b700b7cad0d0ea3.m4a
 voices/guide/2b7fe4dfb82c0a06.m4a
+voices/guide/2b89cad32e428994.m4a
 voices/guide/2ba20c9c109db1aa.m4a
 voices/guide/2ba3205f707a7644.m4a
 voices/guide/2bab6ae444711599.m4a
@@ -804,6 +829,7 @@ voices/guide/2e94ffffb37ccec9.m4a
 voices/guide/2e96958ba2dde8f0.m4a
 voices/guide/2e9ca49d5c744a8a.m4a
 voices/guide/2ecb0a47290f3c30.m4a
+voices/guide/2edba63695794c82.m4a
 voices/guide/2eef036645efc66f.m4a
 voices/guide/2eef81e00839e2e0.m4a
 voices/guide/2efd9c7940f33020.m4a
@@ -834,6 +860,7 @@ voices/guide/30038c8afe06908f.m4a
 voices/guide/30131ef08cbdb6dd.m4a
 voices/guide/30133a32b5df44a9.m4a
 voices/guide/303aa61d2c3ba8b3.m4a
+voices/guide/303c2a290b9ecfe8.m4a
 voices/guide/30547ee4c2bf2d92.m4a
 voices/guide/3064dd6ac31a40a7.m4a
 voices/guide/308d6742a25df53e.m4a
@@ -849,6 +876,7 @@ voices/guide/3136a5f12c03af4e.m4a
 voices/guide/313dd7f36004019f.m4a
 voices/guide/3177d16a007948d1.m4a
 voices/guide/318b2352e32c8586.m4a
+voices/guide/318e7feaf94f09ab.m4a
 voices/guide/3192152b0124b9ae.m4a
 voices/guide/31a0ad953a711135.m4a
 voices/guide/31c6a5fb57c6345f.m4a
@@ -866,6 +894,7 @@ voices/guide/327cfa115de4d98b.m4a
 voices/guide/327f2419fe51be36.m4a
 voices/guide/3289154c4b0b4a6f.m4a
 voices/guide/329395bf508e18fa.m4a
+voices/guide/32b67c4cd1753bac.m4a
 voices/guide/32bfd501cbda0d5b.m4a
 voices/guide/32cc6da662756929.m4a
 voices/guide/32d4df0504e519ef.m4a
@@ -881,6 +910,7 @@ voices/guide/3335f4a3c94219cc.m4a
 voices/guide/334a527531722e83.m4a
 voices/guide/335607685f486b9e.m4a
 voices/guide/33752fd583522c3b.m4a
+voices/guide/3377d1a430f0d1d6.m4a
 voices/guide/338610763d565841.m4a
 voices/guide/3399728ec565b59a.m4a
 voices/guide/33a3f0a9d6879ccc.m4a
@@ -982,12 +1012,14 @@ voices/guide/3926374a9c7eaefa.m4a
 voices/guide/392fa8f93238defd.m4a
 voices/guide/394077be72e1bc9b.m4a
 voices/guide/394a3e7723de0039.m4a
+voices/guide/3954f5f00ff28322.m4a
 voices/guide/3972e85fbd9726d8.m4a
 voices/guide/398b484250542398.m4a
 voices/guide/39a57c83c775f1a6.m4a
 voices/guide/39a709ddc2250184.m4a
 voices/guide/39ad178b62367c5b.m4a
 voices/guide/39c06e1dce69dd55.m4a
+voices/guide/39cffb51b7499cdd.m4a
 voices/guide/39d4c2705d587ce7.m4a
 voices/guide/39dba16f1f05216b.m4a
 voices/guide/39e2d3cac81012d4.m4a
@@ -1015,11 +1047,13 @@ voices/guide/3ae42a3bcf883c90.m4a
 voices/guide/3afb2fe037d80ddf.m4a
 voices/guide/3b0a125c8cf2870e.m4a
 voices/guide/3b19315a81344b58.m4a
+voices/guide/3b3fc2716672d4cc.m4a
 voices/guide/3b51101f7dc0e104.m4a
 voices/guide/3b52ce5b4088ea09.m4a
 voices/guide/3b5a522401fd0271.m4a
 voices/guide/3b6957fb59e5f383.m4a
 voices/guide/3b7163bcaee57a28.m4a
+voices/guide/3b769bf83e9d575a.m4a
 voices/guide/3b774ecf5acb1a83.m4a
 voices/guide/3b99f022042867e6.m4a
 voices/guide/3bb016d506214e9b.m4a
@@ -1032,6 +1066,7 @@ voices/guide/3c15e382b59346f9.m4a
 voices/guide/3c17a9e2691bbe01.m4a
 voices/guide/3c1b5f08009a572f.m4a
 voices/guide/3c1dbe47b73efadd.m4a
+voices/guide/3c2aaea916f839f4.m4a
 voices/guide/3c3e8712e40f89af.m4a
 voices/guide/3c564650747fa0ea.m4a
 voices/guide/3c69573fbaed6adc.m4a
@@ -1079,6 +1114,7 @@ voices/guide/3e779a4fa0dbc63e.m4a
 voices/guide/3e7ac6cd0f2328b4.m4a
 voices/guide/3e8df39f1ea1c82f.m4a
 voices/guide/3e973229d38caf67.m4a
+voices/guide/3e9bd48450ca44b9.m4a
 voices/guide/3e9e525748852b51.m4a
 voices/guide/3ea2e21a83a2fabc.m4a
 voices/guide/3ea69f36dd6d5b5c.m4a
@@ -1094,6 +1130,7 @@ voices/guide/3f1249ec1f2e5963.m4a
 voices/guide/3f1794736752f89a.m4a
 voices/guide/3f2e1708b39aa10d.m4a
 voices/guide/3f3865b83c0a92ef.m4a
+voices/guide/3f42b7c332b63a17.m4a
 voices/guide/3f56bfaa4b0517e2.m4a
 voices/guide/3f812c310303b000.m4a
 voices/guide/3ffc4fbf38721200.m4a
@@ -1106,6 +1143,7 @@ voices/guide/403ea01ce9c99f6c.m4a
 voices/guide/4059bc4449ae988c.m4a
 voices/guide/4090c6af92364021.m4a
 voices/guide/40acaa25b6ad175d.m4a
+voices/guide/40b2127ebc306a4c.m4a
 voices/guide/40c4b5b2756fbbe9.m4a
 voices/guide/40d05defb16b793d.m4a
 voices/guide/40d47c5c989936c0.m4a
@@ -1180,6 +1218,7 @@ voices/guide/44ad9a47b02a568f.m4a
 voices/guide/44ba6e711f0adf17.m4a
 voices/guide/44bcc102220aaae1.m4a
 voices/guide/44c05b5040f7565e.m4a
+voices/guide/44ed3921b8fdf49d.m4a
 voices/guide/453e6ab60807d812.m4a
 voices/guide/453ee7d126f5ecb5.m4a
 voices/guide/4547e75e4f042da9.m4a
@@ -1192,6 +1231,7 @@ voices/guide/45b7209ef504f07d.m4a
 voices/guide/45c03f530a86076b.m4a
 voices/guide/45cdb50ada551836.m4a
 voices/guide/45e38aabb6a54b35.m4a
+voices/guide/45ef579221ad7a06.m4a
 voices/guide/45fc224bcb9f2b19.m4a
 voices/guide/45fe478f21591903.m4a
 voices/guide/46027db3b927e083.m4a
@@ -1230,6 +1270,7 @@ voices/guide/47cc1af5da548ef6.m4a
 voices/guide/47cd59553d8bdec9.m4a
 voices/guide/47d0c384eaf4da01.m4a
 voices/guide/47de4e46e12d70f6.m4a
+voices/guide/47e626af51c9af6f.m4a
 voices/guide/480d69be159e93c5.m4a
 voices/guide/4818b8373c21dff8.m4a
 voices/guide/48253397e472feeb.m4a
@@ -1248,6 +1289,7 @@ voices/guide/48afddde67b358f8.m4a
 voices/guide/48b9d50f55533f56.m4a
 voices/guide/48c6cd6a6112aa2f.m4a
 voices/guide/48d90677809309ea.m4a
+voices/guide/48f1e1f240986203.m4a
 voices/guide/495ef49cfd43526e.m4a
 voices/guide/496ee3839f0602a9.m4a
 voices/guide/4995aabdb7e87ed8.m4a
@@ -1274,6 +1316,7 @@ voices/guide/4b365fd063b12d2a.m4a
 voices/guide/4b398eb9e45a8fe9.m4a
 voices/guide/4b4e8603f07ef983.m4a
 voices/guide/4b5c69c73fbd4c77.m4a
+voices/guide/4b79ec2d42a2cc8b.m4a
 voices/guide/4b7a06fa20b796a2.m4a
 voices/guide/4b9fe97fdba656cb.m4a
 voices/guide/4ba4b47d7b8cbda7.m4a
@@ -1362,6 +1405,7 @@ voices/guide/50c22018792d6445.m4a
 voices/guide/50d8f27c03191704.m4a
 voices/guide/50e36d8184cf9a47.m4a
 voices/guide/50e4a466e3dee40b.m4a
+voices/guide/50e4d7507af9ab53.m4a
 voices/guide/50ef5bd34d6e9788.m4a
 voices/guide/50fb2437953b8194.m4a
 voices/guide/50fc89c2c7066006.m4a
@@ -1372,6 +1416,7 @@ voices/guide/5133aa661bb9be61.m4a
 voices/guide/51450836265e112a.m4a
 voices/guide/514f3c291a1deb00.m4a
 voices/guide/515c2c892adeca4a.m4a
+voices/guide/5165102b5f9d2f83.m4a
 voices/guide/516dde3e756353cb.m4a
 voices/guide/516faf060e031615.m4a
 voices/guide/517686319e659047.m4a
@@ -1381,11 +1426,13 @@ voices/guide/518587461a3b27c4.m4a
 voices/guide/518b66c9a0667815.m4a
 voices/guide/518bc199e61fcafc.m4a
 voices/guide/5194df81e7e678aa.m4a
+voices/guide/51a64233037ce20d.m4a
 voices/guide/51adb6e57eca39c3.m4a
 voices/guide/51d0cbd5ffdfab41.m4a
 voices/guide/51d8e59eb571d221.m4a
 voices/guide/51d958743e7afb58.m4a
 voices/guide/51eb7f773783bfa6.m4a
+voices/guide/51fe68e8b9d83e4b.m4a
 voices/guide/520fff4eb3d33eb9.m4a
 voices/guide/5223094712c1d426.m4a
 voices/guide/52276fb8a486e0f7.m4a
@@ -1410,6 +1457,7 @@ voices/guide/534844d9183f3b1d.m4a
 voices/guide/534ef021ad49b45a.m4a
 voices/guide/5353e2c7d94989f0.m4a
 voices/guide/53604b9c4b970bd3.m4a
+voices/guide/53679fc9921143a9.m4a
 voices/guide/536bd423661d340d.m4a
 voices/guide/536cca0d69cddad6.m4a
 voices/guide/536db39f5cee37fb.m4a
@@ -1479,6 +1527,7 @@ voices/guide/574ad3fcac9b79c8.m4a
 voices/guide/575c0856b09a9f29.m4a
 voices/guide/575eda7e0750320a.m4a
 voices/guide/5764f308d7b7cfd2.m4a
+voices/guide/576f041d60e8824e.m4a
 voices/guide/57988633f14a7527.m4a
 voices/guide/57991bed607ffb2d.m4a
 voices/guide/57b0c3e289743988.m4a
@@ -1552,10 +1601,12 @@ voices/guide/5b829d44fb0a579d.m4a
 voices/guide/5bb8d68015c94a8b.m4a
 voices/guide/5bc9116b716d02c6.m4a
 voices/guide/5bcbb9a966ba550f.m4a
+voices/guide/5bd1992b78f070b0.m4a
 voices/guide/5bda933ee138ad00.m4a
 voices/guide/5be8c704ce335029.m4a
 voices/guide/5c11c4ddff1de07e.m4a
 voices/guide/5c214e60d4cc8447.m4a
+voices/guide/5c38aa2bb9a58cf0.m4a
 voices/guide/5c3c76b8ec7b56de.m4a
 voices/guide/5c3fb7aaddc0167f.m4a
 voices/guide/5c76389580abbfe7.m4a
@@ -1615,6 +1666,7 @@ voices/guide/601ae1f69934b88e.m4a
 voices/guide/604d114ecbac1061.m4a
 voices/guide/606287b9949460e2.m4a
 voices/guide/6084e57ed0322402.m4a
+voices/guide/609305b9f44b5bae.m4a
 voices/guide/60a91f208e7aef0a.m4a
 voices/guide/60ae97b2d1204c48.m4a
 voices/guide/60c3b6c1005b75f3.m4a
@@ -1626,15 +1678,18 @@ voices/guide/60dc191a53f54bfb.m4a
 voices/guide/60e59ea071bc135a.m4a
 voices/guide/60f902d6bc6c3725.m4a
 voices/guide/60ff27fc61281f2d.m4a
+voices/guide/610f72ca94929961.m4a
 voices/guide/612fde733084d25e.m4a
 voices/guide/6155a4d77511bd91.m4a
 voices/guide/616ae7fe4ecfd665.m4a
 voices/guide/61961de215dc2401.m4a
 voices/guide/619c25667843b862.m4a
 voices/guide/61a04dd81b349ab0.m4a
+voices/guide/61b194836323cb98.m4a
 voices/guide/61b53b4ea63df4b3.m4a
 voices/guide/61c2a84ac85f0974.m4a
 voices/guide/61e0e03485209202.m4a
+voices/guide/62020cc61c39cd68.m4a
 voices/guide/620b3681850efca1.m4a
 voices/guide/620c5e9031fe38c0.m4a
 voices/guide/62203e3f103b35e6.m4a
@@ -1655,6 +1710,7 @@ voices/guide/6336f16d8fb65a88.m4a
 voices/guide/6348e745097a43da.m4a
 voices/guide/6364ada0e29699bf.m4a
 voices/guide/6371aab2e6f1dcf2.m4a
+voices/guide/6372a96657c2a100.m4a
 voices/guide/637bb94c561696c0.m4a
 voices/guide/63924f7be1384b88.m4a
 voices/guide/639cab17de9bf0f8.m4a
@@ -1807,6 +1863,7 @@ voices/guide/6cf52dc8f486c541.m4a
 voices/guide/6cf9907d6dc2627a.m4a
 voices/guide/6d01ba38a176bb2c.m4a
 voices/guide/6d0499c7efe71fce.m4a
+voices/guide/6d1191482d864f3b.m4a
 voices/guide/6d1a2d6e7a3ead65.m4a
 voices/guide/6d1f093a648987fb.m4a
 voices/guide/6d4e18614236b6a9.m4a
@@ -1817,6 +1874,7 @@ voices/guide/6d8813f6f9494d31.m4a
 voices/guide/6d8c6fec56174c75.m4a
 voices/guide/6db000601a7fc3b5.m4a
 voices/guide/6dbbac3d99d5d06b.m4a
+voices/guide/6dc0eed37ae7a4c1.m4a
 voices/guide/6dc24c69965f267d.m4a
 voices/guide/6dd88348bbf9db40.m4a
 voices/guide/6dd93c03aa63afc5.m4a
@@ -1839,10 +1897,12 @@ voices/guide/6eac10f83ec883ff.m4a
 voices/guide/6eb139dd8eab70bb.m4a
 voices/guide/6ec1eaf489296977.m4a
 voices/guide/6ed12130820c17e7.m4a
+voices/guide/6ef8dfa6ccc0358e.m4a
 voices/guide/6efeb8886c32d537.m4a
 voices/guide/6f287506466aeacc.m4a
 voices/guide/6f2c478b35cfbd95.m4a
 voices/guide/6f475da09a769fc9.m4a
+voices/guide/6f6198b959106336.m4a
 voices/guide/6f70739854bdfbda.m4a
 voices/guide/6fa514916c14613b.m4a
 voices/guide/6fac20bda99d3f1b.m4a
@@ -1850,6 +1910,7 @@ voices/guide/6fc9dc667351af84.m4a
 voices/guide/6fdb0601702021f4.m4a
 voices/guide/6ff34accb79fb7c2.m4a
 voices/guide/6ffd77667dccdd68.m4a
+voices/guide/700275c3ee6646c5.m4a
 voices/guide/70095577a91cf5da.m4a
 voices/guide/700b324e1e7d8dd9.m4a
 voices/guide/701df4427388334e.m4a
@@ -1937,10 +1998,12 @@ voices/guide/74db09098215ba54.m4a
 voices/guide/7502c8daaeda3db7.m4a
 voices/guide/75210b23d0213fb2.m4a
 voices/guide/7526c19ab4720c97.m4a
+voices/guide/7548e169f2e10eff.m4a
 voices/guide/756fa3897eb7d460.m4a
 voices/guide/75814a0bdf57d591.m4a
 voices/guide/7594346724b538fb.m4a
 voices/guide/75a4738d2546c0cc.m4a
+voices/guide/75c0de24e325dc21.m4a
 voices/guide/75c81d7fe97f7210.m4a
 voices/guide/75db80f706f09f45.m4a
 voices/guide/75ee301cb29a3a04.m4a
@@ -1972,6 +2035,7 @@ voices/guide/781ed2fcecf16c7b.m4a
 voices/guide/782c1f9edefc4272.m4a
 voices/guide/784df409e3dbc441.m4a
 voices/guide/78a277b31bf0a369.m4a
+voices/guide/78bbb2852c904179.m4a
 voices/guide/78daec5f656f32d9.m4a
 voices/guide/78eec4729a6e100c.m4a
 voices/guide/78f58054c315b4c4.m4a
@@ -2023,6 +2087,7 @@ voices/guide/7bd7eecc31f3f0de.m4a
 voices/guide/7be1edf86175add9.m4a
 voices/guide/7be5769ea0442cec.m4a
 voices/guide/7bf970a234c7a60f.m4a
+voices/guide/7c0279690bafda40.m4a
 voices/guide/7c2b47d8f9e28ae8.m4a
 voices/guide/7c5434afff4e8c21.m4a
 voices/guide/7c5ccc376dac62bf.m4a
@@ -2079,6 +2144,7 @@ voices/guide/7fc859762b900e90.m4a
 voices/guide/7fd87fed3af07ea1.m4a
 voices/guide/7ff196a6eca1819c.m4a
 voices/guide/80074b91bd5a2680.m4a
+voices/guide/8008d1e2fb29a4ca.m4a
 voices/guide/80180b4527dbe27d.m4a
 voices/guide/801aa10ac2eab3d9.m4a
 voices/guide/801fb37fc24ed6a5.m4a
@@ -2094,6 +2160,7 @@ voices/guide/8098556375d87030.m4a
 voices/guide/8098782c3d2f93f3.m4a
 voices/guide/80ad8c6f0841e8d9.m4a
 voices/guide/80afee688fa767df.m4a
+voices/guide/80be5451dca9ac78.m4a
 voices/guide/80c3584e0bbe3855.m4a
 voices/guide/80c776d1704ed0a1.m4a
 voices/guide/80d1986936bbcde5.m4a
@@ -2106,6 +2173,7 @@ voices/guide/8160481b868a84a9.m4a
 voices/guide/8168a0ffa5f021be.m4a
 voices/guide/8183ec1cfa5ba3e9.m4a
 voices/guide/81af61f6d53b0e53.m4a
+voices/guide/81bdd77c96b33613.m4a
 voices/guide/81c604947c11febb.m4a
 voices/guide/81ccae31512a6f2e.m4a
 voices/guide/81d818f38163f142.m4a
@@ -2120,6 +2188,7 @@ voices/guide/82a7e5e92140151f.m4a
 voices/guide/82d25ad12946cf1a.m4a
 voices/guide/82ee0d906a00ac82.m4a
 voices/guide/82f7d610479c11b3.m4a
+voices/guide/832401c6ec088a80.m4a
 voices/guide/833e3566437a11b1.m4a
 voices/guide/834ea11a98e4c19e.m4a
 voices/guide/8355b8c7332e6282.m4a
@@ -2148,6 +2217,7 @@ voices/guide/84f3df7b6ba8a5f7.m4a
 voices/guide/84facb7bece7d38d.m4a
 voices/guide/8502be66c15954ab.m4a
 voices/guide/8505c96c6b07b01f.m4a
+voices/guide/850e7dd02ec047bc.m4a
 voices/guide/8526b12d608c9664.m4a
 voices/guide/8529dc6892cdd83e.m4a
 voices/guide/85372f6eed700de5.m4a
@@ -2230,6 +2300,7 @@ voices/guide/893dece6c6faae5e.m4a
 voices/guide/8941fc9cd56c7cb9.m4a
 voices/guide/894fd7ac0441e0c6.m4a
 voices/guide/896ecd4d9bbe6401.m4a
+voices/guide/897d30931ffa77e6.m4a
 voices/guide/8994f415982107ad.m4a
 voices/guide/89c51384ceb2d8fc.m4a
 voices/guide/89d4300e7f02f74a.m4a
@@ -2239,6 +2310,7 @@ voices/guide/89d75c345de1872a.m4a
 voices/guide/89e8d8a4f2ef708e.m4a
 voices/guide/8a0b2a6e83d8dba6.m4a
 voices/guide/8a0e9a2c7cb500ad.m4a
+voices/guide/8a22231cce4be6d7.m4a
 voices/guide/8a3f9d1e4bda9643.m4a
 voices/guide/8a4dc48f730cb906.m4a
 voices/guide/8a5097e4b900519d.m4a
@@ -2289,6 +2361,7 @@ voices/guide/8cbca7c88d96a3cd.m4a
 voices/guide/8cc5f980627c60e1.m4a
 voices/guide/8cd8098adb465bdf.m4a
 voices/guide/8ce3e96ced502f45.m4a
+voices/guide/8d02d8921d3e2ec8.m4a
 voices/guide/8d0cadc8c3d47cba.m4a
 voices/guide/8d1d7ee10fa43579.m4a
 voices/guide/8d58fa86814fbf40.m4a
@@ -2314,6 +2387,7 @@ voices/guide/8e7b5ace08fc7e1a.m4a
 voices/guide/8e7faa445980349a.m4a
 voices/guide/8e859fec8f26fc85.m4a
 voices/guide/8e8ed2e389a78017.m4a
+voices/guide/8e9e8e281c9623d2.m4a
 voices/guide/8ea6683c5fb72564.m4a
 voices/guide/8ea7e87692520f83.m4a
 voices/guide/8eabd5657cdaab92.m4a
@@ -2345,6 +2419,7 @@ voices/guide/9066d103d3babe7b.m4a
 voices/guide/9068b24feba01544.m4a
 voices/guide/907cd8c75714f136.m4a
 voices/guide/90bce29681ba60e7.m4a
+voices/guide/90bd09cf7bfd773b.m4a
 voices/guide/90c339f003ed99be.m4a
 voices/guide/90df543564ab767b.m4a
 voices/guide/90ef5864fafa218e.m4a
@@ -2407,8 +2482,11 @@ voices/guide/9427e1e257565cbe.m4a
 voices/guide/94434c9938dea417.m4a
 voices/guide/945073638a69a882.m4a
 voices/guide/94600b94bacf590c.m4a
+voices/guide/9490c660505517c0.m4a
 voices/guide/94912203d7040086.m4a
+voices/guide/94d0703a259f7b74.m4a
 voices/guide/9509ce4bba823384.m4a
+voices/guide/951a32ad6a521882.m4a
 voices/guide/952139242a924d24.m4a
 voices/guide/9550fe6d7762efab.m4a
 voices/guide/9564e646b9dcd2ff.m4a
@@ -2437,6 +2515,7 @@ voices/guide/96e593807a0344d5.m4a
 voices/guide/96ffe7c662933335.m4a
 voices/guide/973f9ef5f6f01415.m4a
 voices/guide/97550a461a052ba2.m4a
+voices/guide/975c1020a4414103.m4a
 voices/guide/97665d2aabdedff2.m4a
 voices/guide/9768142d443f7c24.m4a
 voices/guide/977d98749a00676c.m4a
@@ -2454,6 +2533,7 @@ voices/guide/981a57d73580e9b3.m4a
 voices/guide/9852844d001d26c7.m4a
 voices/guide/985fd28cd5185c8c.m4a
 voices/guide/98646beb059cc22b.m4a
+voices/guide/9868a9e778aad305.m4a
 voices/guide/9882b6e0c72c71f8.m4a
 voices/guide/988e6fe1e79f1428.m4a
 voices/guide/98956e4e36932379.m4a
@@ -2484,6 +2564,7 @@ voices/guide/99cdb9ce79a773ae.m4a
 voices/guide/99cfabed4ad77877.m4a
 voices/guide/99e43595682e94bb.m4a
 voices/guide/99e4c4b02a04558b.m4a
+voices/guide/9a03a5a829b99eda.m4a
 voices/guide/9a05b5ec7251c846.m4a
 voices/guide/9a2e66c32023c5e0.m4a
 voices/guide/9a3495d9bb3813c6.m4a
@@ -2523,6 +2604,7 @@ voices/guide/9cca6912d768204c.m4a
 voices/guide/9ce032e02c25df0c.m4a
 voices/guide/9cf95a4bfe01f00f.m4a
 voices/guide/9d0b2f5c35d3b8e3.m4a
+voices/guide/9d11da3d950f288d.m4a
 voices/guide/9d1726a2be6cfb56.m4a
 voices/guide/9d1a8b0100856424.m4a
 voices/guide/9d1df7e1048d6532.m4a
@@ -2584,6 +2666,7 @@ voices/guide/a0050a415628110c.m4a
 voices/guide/a00bea2c35436d6f.m4a
 voices/guide/a0186bbc96fd1a95.m4a
 voices/guide/a026a2cbb695903d.m4a
+voices/guide/a02d1d5c3642e185.m4a
 voices/guide/a040283e51d71617.m4a
 voices/guide/a07a09a825ebb138.m4a
 voices/guide/a0876db8779c25f9.m4a
@@ -2660,7 +2743,9 @@ voices/guide/a44360be79faba22.m4a
 voices/guide/a44691d82507fec7.m4a
 voices/guide/a44e4642a30c03c7.m4a
 voices/guide/a451e8e49c932b79.m4a
+voices/guide/a453984627cb7ba8.m4a
 voices/guide/a47becbb834f8945.m4a
+voices/guide/a48149bd119826e9.m4a
 voices/guide/a490fef61dcd4053.m4a
 voices/guide/a493bcc5fec84500.m4a
 voices/guide/a4a204a150974b0d.m4a
@@ -2669,6 +2754,7 @@ voices/guide/a4c4d6ae37fe4176.m4a
 voices/guide/a4c6365eb4c4bbf7.m4a
 voices/guide/a4cc0b08cc384a74.m4a
 voices/guide/a4ccf7156e1c66ca.m4a
+voices/guide/a4d38641f8ea3bb2.m4a
 voices/guide/a4f413b5f2d6db8f.m4a
 voices/guide/a50d3b7ee4547964.m4a
 voices/guide/a5177fd7790fbd17.m4a
@@ -2690,8 +2776,10 @@ voices/guide/a5f13ffe08e2e439.m4a
 voices/guide/a5f63e52d98ad39c.m4a
 voices/guide/a5f95be733fb7ece.m4a
 voices/guide/a6127f0abf3b7b64.m4a
+voices/guide/a61f9442d4412dd0.m4a
 voices/guide/a6212b69f0ed9a17.m4a
 voices/guide/a62d719f9bc14d12.m4a
+voices/guide/a63e3f50c75a0cd4.m4a
 voices/guide/a6510f4bae61e551.m4a
 voices/guide/a6586c92b42eda27.m4a
 voices/guide/a677bdbeed6f565d.m4a
@@ -2747,6 +2835,7 @@ voices/guide/a9a8655c62a0632f.m4a
 voices/guide/a9ae55b533a1d47c.m4a
 voices/guide/a9b4731596b9e7f5.m4a
 voices/guide/a9ec4c00aed1bde3.m4a
+voices/guide/a9ee15f2a2bfc512.m4a
 voices/guide/aa06d953c3d977fc.m4a
 voices/guide/aa0b020d21ec1fad.m4a
 voices/guide/aa0b39e97881262b.m4a
@@ -2785,6 +2874,7 @@ voices/guide/aca456acf53029a4.m4a
 voices/guide/aca744e46ffe61f2.m4a
 voices/guide/acade5c62fe0d6d0.m4a
 voices/guide/acb91b8063b59135.m4a
+voices/guide/acc505d8d5046c25.m4a
 voices/guide/accd14322bee5e0b.m4a
 voices/guide/acdaed73469e5a94.m4a
 voices/guide/acdc6f070b73ddad.m4a
@@ -2803,6 +2893,7 @@ voices/guide/add20bd480a4f6e2.m4a
 voices/guide/ade68375916e060d.m4a
 voices/guide/adff6b7058246b12.m4a
 voices/guide/ae07f58201ba2312.m4a
+voices/guide/ae09a842e1e1fa67.m4a
 voices/guide/ae28e4bc4d47bf31.m4a
 voices/guide/ae2c7ccef5fccad5.m4a
 voices/guide/ae35083208cf05d7.m4a
@@ -2823,8 +2914,10 @@ voices/guide/aefb1c55ddc7a46b.m4a
 voices/guide/af00af256044b615.m4a
 voices/guide/af00fefa45e9faad.m4a
 voices/guide/af1b4c8d0efc90b2.m4a
+voices/guide/af3b29cb1d12eb93.m4a
 voices/guide/af47875d5fbecbed.m4a
 voices/guide/af48889ff36ce087.m4a
+voices/guide/af4e2158ae8fe873.m4a
 voices/guide/af54261ce1b42920.m4a
 voices/guide/af6c709bbc82aeac.m4a
 voices/guide/af93da069c2e5267.m4a
@@ -2896,6 +2989,7 @@ voices/guide/b2cedbf01e917b6d.m4a
 voices/guide/b2e25279e179242d.m4a
 voices/guide/b2e2f589d1cca657.m4a
 voices/guide/b2ea64d699ec0cd3.m4a
+voices/guide/b31375f0b41d246f.m4a
 voices/guide/b31a89a5afb1a006.m4a
 voices/guide/b32f65629b1edc1c.m4a
 voices/guide/b33b859faf687755.m4a
@@ -2925,6 +3019,7 @@ voices/guide/b449ba03b853f355.m4a
 voices/guide/b456a10b01c48dce.m4a
 voices/guide/b456d2a78b7b375e.m4a
 voices/guide/b4680c92446fbf14.m4a
+voices/guide/b47a26ea52d76649.m4a
 voices/guide/b48d020efe96e2e3.m4a
 voices/guide/b496fcfe78a662ef.m4a
 voices/guide/b49e704cba5ee89f.m4a
@@ -2951,6 +3046,7 @@ voices/guide/b5e16fbd3d0e4a7f.m4a
 voices/guide/b61a5e7cf6b43803.m4a
 voices/guide/b6422ae1001d45df.m4a
 voices/guide/b6441375943c3da5.m4a
+voices/guide/b6701147b8c7321d.m4a
 voices/guide/b676dc1309f95f95.m4a
 voices/guide/b6843cffd892e406.m4a
 voices/guide/b6b7bdf05e4082da.m4a
@@ -3049,6 +3145,7 @@ voices/guide/bd07f1e3569376aa.m4a
 voices/guide/bd1afb80d9ba9e24.m4a
 voices/guide/bd1fd8c0dff26cff.m4a
 voices/guide/bd310c9ce96699ab.m4a
+voices/guide/bd32a0aef5e1f4e7.m4a
 voices/guide/bd40ed71740d938f.m4a
 voices/guide/bd498045d82b75da.m4a
 voices/guide/bd57bde9f6101a63.m4a
@@ -3104,6 +3201,7 @@ voices/guide/bf6ac6e1dfeb4509.m4a
 voices/guide/bf7708b40d0e3aea.m4a
 voices/guide/bf7b3b86b51a359a.m4a
 voices/guide/bf7c53e9187ecb48.m4a
+voices/guide/bf9bbf0bde19273b.m4a
 voices/guide/bf9d0dae0d71ba2d.m4a
 voices/guide/bfaf5b796eca7aba.m4a
 voices/guide/bfc26f44152cf793.m4a
@@ -3111,6 +3209,7 @@ voices/guide/bff848727cec5d3c.m4a
 voices/guide/bffbb267f02aee9f.m4a
 voices/guide/bffe54a6b984f696.m4a
 voices/guide/c015044cd9aa9bcb.m4a
+voices/guide/c0166b12a92b2025.m4a
 voices/guide/c016d7ff0b6cf08d.m4a
 voices/guide/c01c3330f8c84c50.m4a
 voices/guide/c01d8361580e8f5f.m4a
@@ -3119,10 +3218,12 @@ voices/guide/c0395e3aae01540b.m4a
 voices/guide/c04097c0dae4ae3c.m4a
 voices/guide/c053ac55d8a346eb.m4a
 voices/guide/c053b0e9867a504f.m4a
+voices/guide/c05c62369813b3e8.m4a
 voices/guide/c06461518a02a121.m4a
 voices/guide/c06659f4983980a0.m4a
 voices/guide/c097966b3b70c2f1.m4a
 voices/guide/c0a53d2e823b3958.m4a
+voices/guide/c0a9ff3b4ed58eaf.m4a
 voices/guide/c0c48be435e6da8d.m4a
 voices/guide/c0c4a9c440186426.m4a
 voices/guide/c0cd62a6c58dc65f.m4a
@@ -3135,6 +3236,7 @@ voices/guide/c129911ed74638c2.m4a
 voices/guide/c133ff2a757bb3fb.m4a
 voices/guide/c13cc3497010d422.m4a
 voices/guide/c14019d410329be0.m4a
+voices/guide/c14470359fd77ca4.m4a
 voices/guide/c14501429b3973e4.m4a
 voices/guide/c14b407f9e8cbefa.m4a
 voices/guide/c17b9a4a50a8ff0a.m4a
@@ -3152,6 +3254,7 @@ voices/guide/c229aa175eadc7a8.m4a
 voices/guide/c22bb8959995092c.m4a
 voices/guide/c266cb5da0981ccc.m4a
 voices/guide/c27f4f227e3cef15.m4a
+voices/guide/c289b83d2e5e3782.m4a
 voices/guide/c28a9eb225485cc6.m4a
 voices/guide/c29b3cba6d8f9dbf.m4a
 voices/guide/c2a6f1c7886973c7.m4a
@@ -3159,6 +3262,7 @@ voices/guide/c2bc6edac3367d40.m4a
 voices/guide/c2ce1eef34f2d8db.m4a
 voices/guide/c2e221249117d285.m4a
 voices/guide/c2ec2e5954d5a0fe.m4a
+voices/guide/c30b314f7559ff9c.m4a
 voices/guide/c31c5d842c1de07c.m4a
 voices/guide/c336240eeba1a13f.m4a
 voices/guide/c38ec625bc33e9b6.m4a
@@ -3212,6 +3316,7 @@ voices/guide/c66f3f492a4913cf.m4a
 voices/guide/c67ee7e42f7988bc.m4a
 voices/guide/c68a82875c0607ac.m4a
 voices/guide/c6be4cbad731fa1d.m4a
+voices/guide/c6bfe9ffc4838213.m4a
 voices/guide/c6d16120e732850e.m4a
 voices/guide/c712963beca04acb.m4a
 voices/guide/c7196c9edb23340a.m4a
@@ -3343,6 +3448,7 @@ voices/guide/cf01ac4d9400a968.m4a
 voices/guide/cf0d06e4a6f2c51c.m4a
 voices/guide/cf0da503333535ac.m4a
 voices/guide/cf17b6309f514738.m4a
+voices/guide/cf21ce4e4549960d.m4a
 voices/guide/cf2c53d35ee1569b.m4a
 voices/guide/cf47cf883d437151.m4a
 voices/guide/cf4bf66824b8c2aa.m4a
@@ -3354,6 +3460,7 @@ voices/guide/cfbf138b7fe6549c.m4a
 voices/guide/cfc61b967cd94182.m4a
 voices/guide/cfc8f98429931dd6.m4a
 voices/guide/cff19cc35a49fc6c.m4a
+voices/guide/cffd1d02eb10e5b6.m4a
 voices/guide/d008d2eb86d655ac.m4a
 voices/guide/d00a9ca3694acbab.m4a
 voices/guide/d00faa175514d764.m4a
@@ -3361,6 +3468,7 @@ voices/guide/d035488232679ae0.m4a
 voices/guide/d0405bd013c77dd9.m4a
 voices/guide/d0409b845876cd84.m4a
 voices/guide/d06d7636f3e1b5d7.m4a
+voices/guide/d0857fa0b961cf5f.m4a
 voices/guide/d085b66a9eb1c731.m4a
 voices/guide/d096b3893a5d45df.m4a
 voices/guide/d098c1cca36f9103.m4a
@@ -3369,6 +3477,7 @@ voices/guide/d0bd5a9b55dee74c.m4a
 voices/guide/d0d0cf4c5753060a.m4a
 voices/guide/d0ed371e256c847a.m4a
 voices/guide/d0f1af123a7cd1a4.m4a
+voices/guide/d102259c68d42d3f.m4a
 voices/guide/d103ade2123635d7.m4a
 voices/guide/d10dd1baa1874e0e.m4a
 voices/guide/d10ffeb35f7be8ce.m4a
@@ -3450,6 +3559,7 @@ voices/guide/d65befc4e49594e2.m4a
 voices/guide/d665d5cd2b04b6c3.m4a
 voices/guide/d66b4735f06b5d3c.m4a
 voices/guide/d682627af4913d1d.m4a
+voices/guide/d69cffe9dc429f39.m4a
 voices/guide/d6abad1438a88967.m4a
 voices/guide/d6b2cee80a00cbda.m4a
 voices/guide/d71485908b985514.m4a
@@ -3485,6 +3595,7 @@ voices/guide/d8863abb99e4fbd4.m4a
 voices/guide/d88cc20dc444258d.m4a
 voices/guide/d898806a932a47d0.m4a
 voices/guide/d8a12f089bca423c.m4a
+voices/guide/d8b43ba54dd46039.m4a
 voices/guide/d8cb77cdab3e1154.m4a
 voices/guide/d8dc74c27cda2b41.m4a
 voices/guide/d8e6fd840c0100ff.m4a
@@ -3575,6 +3686,7 @@ voices/guide/de7cc7b6e86c99ba.m4a
 voices/guide/deb1070a516b5dbc.m4a
 voices/guide/decf3aa1fde47c1c.m4a
 voices/guide/deddbf8957a75bc3.m4a
+voices/guide/df0b81b1c6daaa01.m4a
 voices/guide/df140ac0647e9b1e.m4a
 voices/guide/df2dfd530d1c8ec5.m4a
 voices/guide/df3b51e7577c5211.m4a
@@ -3600,6 +3712,7 @@ voices/guide/e07d03c6a3240a2f.m4a
 voices/guide/e0815e4d9e0e3db5.m4a
 voices/guide/e085096c7829ad71.m4a
 voices/guide/e092df3ecf1ccabb.m4a
+voices/guide/e098d6cdf4eb6516.m4a
 voices/guide/e0a11ca645661153.m4a
 voices/guide/e0adb506cfd601c0.m4a
 voices/guide/e0c42c16d3312daa.m4a
@@ -3777,6 +3890,7 @@ voices/guide/eabe5c617ac6252f.m4a
 voices/guide/eac7dfbd52742f96.m4a
 voices/guide/eae70b04f448e5b2.m4a
 voices/guide/eaffdb8427c5ee19.m4a
+voices/guide/eb06c010b852362f.m4a
 voices/guide/eb0d2c5ac87654e5.m4a
 voices/guide/eb1bf59b23f7d4ae.m4a
 voices/guide/eb1ee7a8881ccc15.m4a
@@ -3797,6 +3911,7 @@ voices/guide/ec5cd32786fe3fec.m4a
 voices/guide/ec6296e4ebac1a5e.m4a
 voices/guide/ec66a3d0d7a14fde.m4a
 voices/guide/ec69585697bd6e91.m4a
+voices/guide/ec6ba0e3d568f2ae.m4a
 voices/guide/ec9451e02b29cdaa.m4a
 voices/guide/ecb11617f486e7d3.m4a
 voices/guide/ecb3f71118c20120.m4a
@@ -3806,6 +3921,7 @@ voices/guide/eccc001b18d1b296.m4a
 voices/guide/ecccbdb185e8bc19.m4a
 voices/guide/eccecdd73d056d44.m4a
 voices/guide/ecd205e71973c5b3.m4a
+voices/guide/ecd2daa51b50cea9.m4a
 voices/guide/ece298d372cbdf14.m4a
 voices/guide/ecf8857950c9d253.m4a
 voices/guide/ed004201184a5abe.m4a
@@ -3906,6 +4022,7 @@ voices/guide/f33751d328a4ccc9.m4a
 voices/guide/f344383f8a9fa9d6.m4a
 voices/guide/f355e7cfc3dd5107.m4a
 voices/guide/f35f1d3e746df95b.m4a
+voices/guide/f362d3023fdd7c45.m4a
 voices/guide/f3630bf65954ee00.m4a
 voices/guide/f36d6c5808fddfbf.m4a
 voices/guide/f372f36883ea02b7.m4a
@@ -3921,6 +4038,7 @@ voices/guide/f3d704b6130393f8.m4a
 voices/guide/f3dddceb6a17dd82.m4a
 voices/guide/f3e600c01dfa34dd.m4a
 voices/guide/f3ea024e86aee5c7.m4a
+voices/guide/f414258c95af8147.m4a
 voices/guide/f42067a9053847fa.m4a
 voices/guide/f4272a7697b017ca.m4a
 voices/guide/f433effceb944f4e.m4a
@@ -3940,6 +4058,8 @@ voices/guide/f4e2f24e69a5b7cd.m4a
 voices/guide/f4eac54e1d547846.m4a
 voices/guide/f4f34160c996955d.m4a
 voices/guide/f4feab94c58234e6.m4a
+voices/guide/f504e8d15c3b6f15.m4a
+voices/guide/f51deae24e5525d0.m4a
 voices/guide/f5326f31adb77b69.m4a
 voices/guide/f5474816acf36d71.m4a
 voices/guide/f55815b1e955751b.m4a
@@ -3995,6 +4115,7 @@ voices/guide/f890677f8c4370b4.m4a
 voices/guide/f8b0375ec9754f99.m4a
 voices/guide/f8b93edb2fba65bd.m4a
 voices/guide/f8ba75925c4cd8c5.m4a
+voices/guide/f8d2079c0bf72af6.m4a
 voices/guide/f8e00aafddefa841.m4a
 voices/guide/f8fd74b813c115e6.m4a
 voices/guide/f9000eb966507c1a.m4a
@@ -4048,8 +4169,11 @@ voices/guide/fbd85e847dd728de.m4a
 voices/guide/fbd8d6720daba02e.m4a
 voices/guide/fbf4548e62aac79e.m4a
 voices/guide/fc042f90f6103504.m4a
+voices/guide/fc14a93271ee09ac.m4a
 voices/guide/fc19aed7776edd5f.m4a
+voices/guide/fc280f7c20aa1ce5.m4a
 voices/guide/fc5daefa8fee2a33.m4a
+voices/guide/fc6094f1dd72c369.m4a
 voices/guide/fc68c214583a3f1d.m4a
 voices/guide/fc6971bbdf12c867.m4a
 voices/guide/fc6acbffaebf5123.m4a
@@ -4104,6 +4228,7 @@ voices/guide/ffc58429f488d602.m4a
 voices/guide/ffc883e369461e4e.m4a
 voices/guide/fff1cd6c8373bcd3.m4a
 voices/guide/fffbb2a097630f2a.m4a
+voices/guide/fffcd2dbe92aad50.m4a
 voices/index.json
 voices/pieces.json
 voices/pieces/guide/0006fe5eb2d9cdc7.m4a
@@ -4117,6 +4242,7 @@ voices/pieces/guide/00511205de3dcfb5.m4a
 voices/pieces/guide/00543a6ee3133fa4.m4a
 voices/pieces/guide/00587cb53d90644f.m4a
 voices/pieces/guide/005ac67aa5837791.m4a
+voices/pieces/guide/0063ea3500c12895.m4a
 voices/pieces/guide/00651956b050bd6f.m4a
 voices/pieces/guide/0065279cc4876971.m4a
 voices/pieces/guide/006a99f3b25907b7.m4a
@@ -4145,12 +4271,14 @@ voices/pieces/guide/01289896fed12182.m4a
 voices/pieces/guide/012a1e08edd31e38.m4a
 voices/pieces/guide/012ae3a192979305.m4a
 voices/pieces/guide/013c9b07e7353474.m4a
+voices/pieces/guide/01515ec50090faf3.m4a
 voices/pieces/guide/0154dd20c3f4ae0f.m4a
 voices/pieces/guide/0165acd8fa3f56f7.m4a
 voices/pieces/guide/016bffb6edc44c73.m4a
 voices/pieces/guide/016f00758495951d.m4a
 voices/pieces/guide/0171a92c5c0bbe45.m4a
 voices/pieces/guide/0176d25a348346b0.m4a
+voices/pieces/guide/01842f56ad0aef54.m4a
 voices/pieces/guide/01851685e6617210.m4a
 voices/pieces/guide/018affa154a4a60a.m4a
 voices/pieces/guide/01b0e39e0fe62fd2.m4a
@@ -4158,6 +4286,7 @@ voices/pieces/guide/01b94a9f71560d0d.m4a
 voices/pieces/guide/01ca24c09f3fe015.m4a
 voices/pieces/guide/01d8e7108b0141f9.m4a
 voices/pieces/guide/01da1ee098bb454a.m4a
+voices/pieces/guide/01decd42e817854e.m4a
 voices/pieces/guide/01eb9d498acbec87.m4a
 voices/pieces/guide/01ee4a535e39bb9d.m4a
 voices/pieces/guide/020be152f0171c07.m4a
@@ -4205,12 +4334,14 @@ voices/pieces/guide/044b48042f419741.m4a
 voices/pieces/guide/046b9c4f8195e189.m4a
 voices/pieces/guide/0484800c0747a6e7.m4a
 voices/pieces/guide/0489a8ff5d27c680.m4a
+voices/pieces/guide/0490b588ce3d6efa.m4a
 voices/pieces/guide/04955360ab6419de.m4a
 voices/pieces/guide/04997959e7f520bd.m4a
 voices/pieces/guide/049997b1a1f78e8f.m4a
 voices/pieces/guide/049f4d66a5959f98.m4a
 voices/pieces/guide/04a3ce6bada6ceff.m4a
 voices/pieces/guide/04b2f960ab54a157.m4a
+voices/pieces/guide/04b31283c725bc34.m4a
 voices/pieces/guide/04b5db92409d26f1.m4a
 voices/pieces/guide/04bf34927e6cac93.m4a
 voices/pieces/guide/04bf3784745f4ab1.m4a
@@ -4219,6 +4350,7 @@ voices/pieces/guide/04cb72c4d2a7b131.m4a
 voices/pieces/guide/04eaf29f7eda9a5f.m4a
 voices/pieces/guide/04fcd7505fb9647b.m4a
 voices/pieces/guide/050861d1a9be52ec.m4a
+voices/pieces/guide/0509f548357d024b.m4a
 voices/pieces/guide/0511bcfe99db808b.m4a
 voices/pieces/guide/05189e2f962301ca.m4a
 voices/pieces/guide/051d7e8573994537.m4a
@@ -4244,12 +4376,14 @@ voices/pieces/guide/05ae358227a1fffb.m4a
 voices/pieces/guide/05bca057467f6d19.m4a
 voices/pieces/guide/05c3246af6dac9d9.m4a
 voices/pieces/guide/05d71b974589b09e.m4a
+voices/pieces/guide/05ed7bcc8c0e2ee4.m4a
 voices/pieces/guide/05fa3192cbda3baa.m4a
 voices/pieces/guide/0621db60b88dee21.m4a
 voices/pieces/guide/062d87047e58da0c.m4a
 voices/pieces/guide/0652e6f6a79454f5.m4a
 voices/pieces/guide/0652ea5e366cacde.m4a
 voices/pieces/guide/065f5fcac2a9e1a7.m4a
+voices/pieces/guide/0661a1be331101c5.m4a
 voices/pieces/guide/0664bc4b1e1c6627.m4a
 voices/pieces/guide/06658bc8a341570a.m4a
 voices/pieces/guide/0669ad1d69ef9709.m4a
@@ -4269,6 +4403,7 @@ voices/pieces/guide/071ba2b15b564dc5.m4a
 voices/pieces/guide/072106338b421da5.m4a
 voices/pieces/guide/07411410ae652a85.m4a
 voices/pieces/guide/074948c8b127665d.m4a
+voices/pieces/guide/075444b356390f40.m4a
 voices/pieces/guide/07558d8803e74f2d.m4a
 voices/pieces/guide/0757829e28398c26.m4a
 voices/pieces/guide/0758f1586075945d.m4a
@@ -4303,8 +4438,10 @@ voices/pieces/guide/0847a496afdfaae2.m4a
 voices/pieces/guide/08630eb241ca2229.m4a
 voices/pieces/guide/0873e42dfbe0f246.m4a
 voices/pieces/guide/0889a62c52a88914.m4a
+voices/pieces/guide/089a4bd7568f5e39.m4a
 voices/pieces/guide/08a73bbd975939ae.m4a
 voices/pieces/guide/08bec5dbb20e7479.m4a
+voices/pieces/guide/08c3ee0503c72e34.m4a
 voices/pieces/guide/08d57f8b585f5b2f.m4a
 voices/pieces/guide/08dab78ed7c35e75.m4a
 voices/pieces/guide/08e72e8f8f1e18c3.m4a
@@ -4318,6 +4455,7 @@ voices/pieces/guide/09070f368f9cd62a.m4a
 voices/pieces/guide/0914c18f1cc6ae3e.m4a
 voices/pieces/guide/091655e4688dbc24.m4a
 voices/pieces/guide/0922ad910bf6ba61.m4a
+voices/pieces/guide/0934324bf46c2742.m4a
 voices/pieces/guide/09362f7bc6a630e2.m4a
 voices/pieces/guide/093ebb17c0cb26ab.m4a
 voices/pieces/guide/0955f1fec307af04.m4a
@@ -4336,6 +4474,7 @@ voices/pieces/guide/09c74a32be71c252.m4a
 voices/pieces/guide/09c8c2803394d6da.m4a
 voices/pieces/guide/09c9cdbab041ad60.m4a
 voices/pieces/guide/09cb6e0087485ce9.m4a
+voices/pieces/guide/09da9529516064ab.m4a
 voices/pieces/guide/09dfeb1dd6a09adf.m4a
 voices/pieces/guide/09e3d7038acc4aa9.m4a
 voices/pieces/guide/09e8ca7336fffe02.m4a
@@ -4350,6 +4489,7 @@ voices/pieces/guide/0a274e64d9afe4b2.m4a
 voices/pieces/guide/0a31a68e2afca0fb.m4a
 voices/pieces/guide/0a374f5c5ee0ff51.m4a
 voices/pieces/guide/0a3dd29107a9e1ed.m4a
+voices/pieces/guide/0a4b29bae0474a3b.m4a
 voices/pieces/guide/0a4f20d1168970c6.m4a
 voices/pieces/guide/0a5143852ae23b68.m4a
 voices/pieces/guide/0a51913ec5f1f8c6.m4a
@@ -4360,8 +4500,10 @@ voices/pieces/guide/0a7309454734643a.m4a
 voices/pieces/guide/0a77394e7f974cc8.m4a
 voices/pieces/guide/0a782155df8699c0.m4a
 voices/pieces/guide/0a7a9bd94bffb7cf.m4a
+voices/pieces/guide/0a8521288c1dc0a1.m4a
 voices/pieces/guide/0a8b07bcb375d661.m4a
 voices/pieces/guide/0a8fc95e7aa7685b.m4a
+voices/pieces/guide/0a92d85883979ead.m4a
 voices/pieces/guide/0aa6414331a33ac8.m4a
 voices/pieces/guide/0ab8eb026506d8e4.m4a
 voices/pieces/guide/0ab8f9585323a376.m4a
@@ -4371,6 +4513,7 @@ voices/pieces/guide/0ad67c233f454062.m4a
 voices/pieces/guide/0ae40ce98073088a.m4a
 voices/pieces/guide/0afd3590982dac5b.m4a
 voices/pieces/guide/0b0415e6a463a0b6.m4a
+voices/pieces/guide/0b0a3804116ca79a.m4a
 voices/pieces/guide/0b1c40ecd78ce199.m4a
 voices/pieces/guide/0b1e75b9ca56f09d.m4a
 voices/pieces/guide/0b24cb8c68aafc29.m4a
@@ -4409,6 +4552,7 @@ voices/pieces/guide/0c7c00304c3e75c4.m4a
 voices/pieces/guide/0c7f7460a99fc531.m4a
 voices/pieces/guide/0c82d9c1a1092599.m4a
 voices/pieces/guide/0c8c0c58d7de6044.m4a
+voices/pieces/guide/0c8e2da4ba80895a.m4a
 voices/pieces/guide/0c980d055d9793a2.m4a
 voices/pieces/guide/0c9b1e773356c100.m4a
 voices/pieces/guide/0cab5a38fc92c1d3.m4a
@@ -4421,6 +4565,7 @@ voices/pieces/guide/0d03d5255c47b047.m4a
 voices/pieces/guide/0d05705f78d46bf9.m4a
 voices/pieces/guide/0d096400ff0318a7.m4a
 voices/pieces/guide/0d1067a5301ef63f.m4a
+voices/pieces/guide/0d110928c18b48fe.m4a
 voices/pieces/guide/0d111c348566e181.m4a
 voices/pieces/guide/0d198fcf7dbb75fa.m4a
 voices/pieces/guide/0d25c78a48157cc9.m4a
@@ -4438,6 +4583,7 @@ voices/pieces/guide/0d58be1b7877d17d.m4a
 voices/pieces/guide/0d5aa4d24b708f15.m4a
 voices/pieces/guide/0d603e2127a803c8.m4a
 voices/pieces/guide/0d67e30b96086bbb.m4a
+voices/pieces/guide/0d71f76ceabeb4ac.m4a
 voices/pieces/guide/0d876be0108dd0fa.m4a
 voices/pieces/guide/0d8a9aef31f6b8b2.m4a
 voices/pieces/guide/0d8e51993076b461.m4a
@@ -4453,10 +4599,12 @@ voices/pieces/guide/0de88d89960e2397.m4a
 voices/pieces/guide/0dee11ef29f76ddf.m4a
 voices/pieces/guide/0df0486852b59cf7.m4a
 voices/pieces/guide/0e1a25aa4df5502a.m4a
+voices/pieces/guide/0e1a2f01a6a61ce3.m4a
 voices/pieces/guide/0e1ba8f37ec313a4.m4a
 voices/pieces/guide/0e1c8ebe68f2e571.m4a
 voices/pieces/guide/0e2014d2f485fcb3.m4a
 voices/pieces/guide/0e24dc5327ec0be1.m4a
+voices/pieces/guide/0e2ceff4c1b34fc5.m4a
 voices/pieces/guide/0e309564058a2e2d.m4a
 voices/pieces/guide/0e3badcabfdc353f.m4a
 voices/pieces/guide/0e4266dfd03d11b0.m4a
@@ -4476,6 +4624,7 @@ voices/pieces/guide/0ec0a25612200889.m4a
 voices/pieces/guide/0ecbccb96e337546.m4a
 voices/pieces/guide/0ecdbaaf3384b134.m4a
 voices/pieces/guide/0ed6519a83e8a165.m4a
+voices/pieces/guide/0ee371365199245f.m4a
 voices/pieces/guide/0ef10b19eafe07fd.m4a
 voices/pieces/guide/0ef8d60de7c8fb41.m4a
 voices/pieces/guide/0efd37bcb68cafbe.m4a
@@ -4491,6 +4640,7 @@ voices/pieces/guide/0f5412c3ab9e5196.m4a
 voices/pieces/guide/0f669ebf8dd3e871.m4a
 voices/pieces/guide/0f68ea0426d12524.m4a
 voices/pieces/guide/0f69e4f244b0aa11.m4a
+voices/pieces/guide/0f74429b55fe854a.m4a
 voices/pieces/guide/0f7f0afaf6c2c03d.m4a
 voices/pieces/guide/0f81224e7ff147dc.m4a
 voices/pieces/guide/0f81a7ec208f18ba.m4a
@@ -4509,6 +4659,7 @@ voices/pieces/guide/0fdd52e676ed1f66.m4a
 voices/pieces/guide/0fdd73f5037c77d5.m4a
 voices/pieces/guide/0fe435a5436af992.m4a
 voices/pieces/guide/0ff6e0c77335f281.m4a
+voices/pieces/guide/100699d317220f71.m4a
 voices/pieces/guide/10092e06080dcdea.m4a
 voices/pieces/guide/101131bf608699b3.m4a
 voices/pieces/guide/1012845268248b6b.m4a
@@ -4586,9 +4737,11 @@ voices/pieces/guide/12bf29639a0e94bf.m4a
 voices/pieces/guide/12cacb7b385b2d97.m4a
 voices/pieces/guide/12cbd26b9b3bc290.m4a
 voices/pieces/guide/12cdb34c3bab144a.m4a
+voices/pieces/guide/12e5691772d2e42f.m4a
 voices/pieces/guide/12ecfbb18c190e47.m4a
 voices/pieces/guide/12f753efff04785f.m4a
 voices/pieces/guide/1306b45d9a24b5f8.m4a
+voices/pieces/guide/13070db735ab5e3b.m4a
 voices/pieces/guide/13114b2be65abab7.m4a
 voices/pieces/guide/1325ad88ed994767.m4a
 voices/pieces/guide/132d91f8800ff0d1.m4a
@@ -4616,8 +4769,11 @@ voices/pieces/guide/1484194f1febd571.m4a
 voices/pieces/guide/1489edbc3fa23597.m4a
 voices/pieces/guide/149b01af929507b1.m4a
 voices/pieces/guide/149c46c4b76ad5ba.m4a
+voices/pieces/guide/14aaab8a8b15dd98.m4a
+voices/pieces/guide/14bca1f0a214ca3a.m4a
 voices/pieces/guide/14d517f0310f36f0.m4a
 voices/pieces/guide/14d7607e9052a0df.m4a
+voices/pieces/guide/14dbfa596ac8f40f.m4a
 voices/pieces/guide/14dc9050e87b9690.m4a
 voices/pieces/guide/14de76881a918001.m4a
 voices/pieces/guide/14e1879d3fc72650.m4a
@@ -4627,10 +4783,12 @@ voices/pieces/guide/14f223e9923175f0.m4a
 voices/pieces/guide/14fe88cb0fd072e7.m4a
 voices/pieces/guide/152e0ef37ce68809.m4a
 voices/pieces/guide/153b44a282374321.m4a
+voices/pieces/guide/154c73936cbb3c8a.m4a
 voices/pieces/guide/15527599dd193ee3.m4a
 voices/pieces/guide/1558a5546fe15b5d.m4a
 voices/pieces/guide/15602699ae1af26d.m4a
 voices/pieces/guide/158a65708f9e8994.m4a
+voices/pieces/guide/158fb52e87507a6c.m4a
 voices/pieces/guide/1590c020616e1bfb.m4a
 voices/pieces/guide/15917b76ce8275a0.m4a
 voices/pieces/guide/15a0d000cddbe6bf.m4a
@@ -4647,6 +4805,7 @@ voices/pieces/guide/165b246841bad763.m4a
 voices/pieces/guide/16664822307a52ec.m4a
 voices/pieces/guide/167920d52cd0b865.m4a
 voices/pieces/guide/167add23a464f850.m4a
+voices/pieces/guide/1684b12155d421fc.m4a
 voices/pieces/guide/1684ec11a0791f5d.m4a
 voices/pieces/guide/16938a54f6afb062.m4a
 voices/pieces/guide/169b752d7c7649c7.m4a
@@ -4681,12 +4840,14 @@ voices/pieces/guide/179fd09e1116d43e.m4a
 voices/pieces/guide/179ff3330a516bbb.m4a
 voices/pieces/guide/17a5a93923911a83.m4a
 voices/pieces/guide/17a685d2ea09b85c.m4a
+voices/pieces/guide/17aba25fe9c09f22.m4a
 voices/pieces/guide/17b9d4417832d209.m4a
 voices/pieces/guide/17bdf7f323ffef34.m4a
 voices/pieces/guide/17bee9148c3f2f70.m4a
 voices/pieces/guide/17c5d712769c21f7.m4a
 voices/pieces/guide/17ca5dca26537df2.m4a
 voices/pieces/guide/17cfa71edd0f4634.m4a
+voices/pieces/guide/17de8da9a9e57123.m4a
 voices/pieces/guide/17e182ac97824d62.m4a
 voices/pieces/guide/17fc757f09d82a82.m4a
 voices/pieces/guide/180b848ad2b3e2dc.m4a
@@ -4717,10 +4878,13 @@ voices/pieces/guide/18cff4f22275133c.m4a
 voices/pieces/guide/18e15dc4c74169e9.m4a
 voices/pieces/guide/18e1d8c8f4ab0bbe.m4a
 voices/pieces/guide/18eb4632e3c8b05e.m4a
+voices/pieces/guide/18f87eefbbef0c70.m4a
 voices/pieces/guide/190123cded6ac6ee.m4a
 voices/pieces/guide/1906f8336ceb83d3.m4a
 voices/pieces/guide/1907c7d17e49832a.m4a
 voices/pieces/guide/190dadbe443550f5.m4a
+voices/pieces/guide/191c28e9b83fb796.m4a
+voices/pieces/guide/191ce6cfb2e50764.m4a
 voices/pieces/guide/19346bff4030ab37.m4a
 voices/pieces/guide/19366c4c4879d0fd.m4a
 voices/pieces/guide/19382a1323888640.m4a
@@ -4732,6 +4896,8 @@ voices/pieces/guide/194fd8083a882032.m4a
 voices/pieces/guide/196c174d736049c1.m4a
 voices/pieces/guide/19700a5f9c9088c0.m4a
 voices/pieces/guide/19714ee8513156c3.m4a
+voices/pieces/guide/1971aa7a2f1eee0c.m4a
+voices/pieces/guide/19763ea0285be84d.m4a
 voices/pieces/guide/1982e6ac332ccf86.m4a
 voices/pieces/guide/199d61de61056414.m4a
 voices/pieces/guide/19a25ddc7b53e207.m4a
@@ -4743,6 +4909,7 @@ voices/pieces/guide/19d1b16a3793982f.m4a
 voices/pieces/guide/19d43c7a4044dafc.m4a
 voices/pieces/guide/19e890125a754836.m4a
 voices/pieces/guide/19eabed6aaa938ca.m4a
+voices/pieces/guide/19fcb47186cd47e7.m4a
 voices/pieces/guide/1a0bbb3b37762f26.m4a
 voices/pieces/guide/1a12da5ccd129c8f.m4a
 voices/pieces/guide/1a13181192dc3ec5.m4a
@@ -4766,6 +4933,7 @@ voices/pieces/guide/1ac8101894f54757.m4a
 voices/pieces/guide/1ac90f03a1d9e2b5.m4a
 voices/pieces/guide/1acaabe8e4a9d6d9.m4a
 voices/pieces/guide/1adadcaf9f59efff.m4a
+voices/pieces/guide/1ade04ab441111c2.m4a
 voices/pieces/guide/1ae1890038493c06.m4a
 voices/pieces/guide/1ae9e55210093084.m4a
 voices/pieces/guide/1af28256aa786197.m4a
@@ -4774,6 +4942,7 @@ voices/pieces/guide/1b02cfcab0d3f066.m4a
 voices/pieces/guide/1b0fe0678abe8092.m4a
 voices/pieces/guide/1b16d54922dec94f.m4a
 voices/pieces/guide/1b1e24c2bb871c40.m4a
+voices/pieces/guide/1b227146e6f6ff0b.m4a
 voices/pieces/guide/1b31b5542aebe985.m4a
 voices/pieces/guide/1b4629d8eb7c256a.m4a
 voices/pieces/guide/1b49476d1a41b4a8.m4a
@@ -4799,7 +4968,9 @@ voices/pieces/guide/1bd49cde47c6dd11.m4a
 voices/pieces/guide/1bd9e651387d15c4.m4a
 voices/pieces/guide/1bdc4966dda67d94.m4a
 voices/pieces/guide/1bebe480c228cf6e.m4a
+voices/pieces/guide/1bfc5a6fb88cb049.m4a
 voices/pieces/guide/1bff16520c1917a2.m4a
+voices/pieces/guide/1c020b6a90d00a7d.m4a
 voices/pieces/guide/1c0fd62b1afd4da2.m4a
 voices/pieces/guide/1c1aead363afbdcc.m4a
 voices/pieces/guide/1c29a3ced50d1f63.m4a
@@ -4812,6 +4983,7 @@ voices/pieces/guide/1c52e5cbbaa99708.m4a
 voices/pieces/guide/1c5b532fe2aafa75.m4a
 voices/pieces/guide/1c5cce2add8ebf59.m4a
 voices/pieces/guide/1c72c91f53634dab.m4a
+voices/pieces/guide/1c775d80fd4a3349.m4a
 voices/pieces/guide/1c7f1a7bf8feb561.m4a
 voices/pieces/guide/1c8214a0151c4e76.m4a
 voices/pieces/guide/1c90cef68d991d88.m4a
@@ -4838,6 +5010,7 @@ voices/pieces/guide/1d8356806caf1d30.m4a
 voices/pieces/guide/1d851f273e92107e.m4a
 voices/pieces/guide/1d96766d029f8175.m4a
 voices/pieces/guide/1da2949d79cf0458.m4a
+voices/pieces/guide/1da72060a6c17bcd.m4a
 voices/pieces/guide/1db9e7d10e5b98be.m4a
 voices/pieces/guide/1dbea761cebe8b63.m4a
 voices/pieces/guide/1dc78ac64c6db653.m4a
@@ -4847,6 +5020,7 @@ voices/pieces/guide/1de9f85e57e2eb03.m4a
 voices/pieces/guide/1df889c14a3ff72f.m4a
 voices/pieces/guide/1dfb187706aa8738.m4a
 voices/pieces/guide/1e1526209b49f05a.m4a
+voices/pieces/guide/1e22d800411a42cf.m4a
 voices/pieces/guide/1e32c6df2eeab588.m4a
 voices/pieces/guide/1e34d0bfb519f5e4.m4a
 voices/pieces/guide/1e3ce0f877a3097d.m4a
@@ -4867,10 +5041,12 @@ voices/pieces/guide/1eb97bfc9737b50e.m4a
 voices/pieces/guide/1ebbc99a5512cb7d.m4a
 voices/pieces/guide/1ecd31fe6213728c.m4a
 voices/pieces/guide/1ecd4070f8f8985b.m4a
+voices/pieces/guide/1ece3170f5ec7b41.m4a
 voices/pieces/guide/1ed0e1f461bfd186.m4a
 voices/pieces/guide/1ed8fc67a25d2427.m4a
 voices/pieces/guide/1ed987599de6f7ef.m4a
 voices/pieces/guide/1eed491d208ea4ba.m4a
+voices/pieces/guide/1f10575065e0d93d.m4a
 voices/pieces/guide/1f10c909352819b8.m4a
 voices/pieces/guide/1f19f1dbe876e4f9.m4a
 voices/pieces/guide/1f2650f94155ed3f.m4a
@@ -4901,6 +5077,7 @@ voices/pieces/guide/1ff3cabbd844c95e.m4a
 voices/pieces/guide/1ff63688970de946.m4a
 voices/pieces/guide/20020d4f57eccc17.m4a
 voices/pieces/guide/200424d44cbb448d.m4a
+voices/pieces/guide/2006153366953383.m4a
 voices/pieces/guide/20182cbf1c66b426.m4a
 voices/pieces/guide/20251550c126b1e4.m4a
 voices/pieces/guide/203774e942164c64.m4a
@@ -4914,12 +5091,14 @@ voices/pieces/guide/20a8d227a22aa466.m4a
 voices/pieces/guide/20af3185673bc206.m4a
 voices/pieces/guide/20b75571ae248a3e.m4a
 voices/pieces/guide/20d3cb1e6dad66fb.m4a
+voices/pieces/guide/20d9f5e0e2111491.m4a
 voices/pieces/guide/20ddcb3d05688632.m4a
 voices/pieces/guide/20de619811b8f9fe.m4a
 voices/pieces/guide/20ef73a48044ca92.m4a
 voices/pieces/guide/20f4b781a7282725.m4a
 voices/pieces/guide/20fa2482391bc69f.m4a
 voices/pieces/guide/21039770fa57f1dc.m4a
+voices/pieces/guide/211b6b0f5a80e8ce.m4a
 voices/pieces/guide/21207867704843c5.m4a
 voices/pieces/guide/212eb149bb71f2f9.m4a
 voices/pieces/guide/213017a1a7033558.m4a
@@ -4929,6 +5108,7 @@ voices/pieces/guide/21708d84cd03df75.m4a
 voices/pieces/guide/217683de13985817.m4a
 voices/pieces/guide/21973dc4e811e95c.m4a
 voices/pieces/guide/2198b1f672d21e98.m4a
+voices/pieces/guide/2198b683754e8081.m4a
 voices/pieces/guide/219bf08f86c6b65d.m4a
 voices/pieces/guide/219e8a39a30d4202.m4a
 voices/pieces/guide/21b132d118a7a90b.m4a
@@ -4970,6 +5150,8 @@ voices/pieces/guide/22e02e669f007378.m4a
 voices/pieces/guide/22ea64dda9934831.m4a
 voices/pieces/guide/22ebda66f1ea405c.m4a
 voices/pieces/guide/22f18d0068d11255.m4a
+voices/pieces/guide/22f8661f7430dd2e.m4a
+voices/pieces/guide/22fba277e7954118.m4a
 voices/pieces/guide/2305bafe7bae09dd.m4a
 voices/pieces/guide/230726c3b623cb4b.m4a
 voices/pieces/guide/230e74eb32404ef3.m4a
@@ -5016,15 +5198,19 @@ voices/pieces/guide/2483abbd3314ad91.m4a
 voices/pieces/guide/248b311949d29108.m4a
 voices/pieces/guide/248c18821b3922b7.m4a
 voices/pieces/guide/24909903eb17dd3f.m4a
+voices/pieces/guide/249b55f987023a6a.m4a
 voices/pieces/guide/249ca1f8d82c4d04.m4a
+voices/pieces/guide/249f5d38db462a3e.m4a
 voices/pieces/guide/24a6e3b515259c08.m4a
 voices/pieces/guide/24aef2d0ab49a92e.m4a
+voices/pieces/guide/24b8dd835c83484a.m4a
 voices/pieces/guide/24be07b3c5763d23.m4a
 voices/pieces/guide/24d1f7d90e1a22bd.m4a
 voices/pieces/guide/24d8c2739314b9fd.m4a
 voices/pieces/guide/24e40be3b36de71c.m4a
 voices/pieces/guide/24e5661236f4bbe3.m4a
 voices/pieces/guide/24ec5b2e0988b9ff.m4a
+voices/pieces/guide/24fd7e7bc5482c27.m4a
 voices/pieces/guide/2521c795d5b3c2ca.m4a
 voices/pieces/guide/25233a5866f6560f.m4a
 voices/pieces/guide/252e4a5c041b4a8b.m4a
@@ -5049,9 +5235,12 @@ voices/pieces/guide/258ca5ebfb94d9cb.m4a
 voices/pieces/guide/2594e1324d78c17d.m4a
 voices/pieces/guide/25a05332e41f8cfb.m4a
 voices/pieces/guide/25a3f557afc33773.m4a
+voices/pieces/guide/25b1602016af2057.m4a
+voices/pieces/guide/25b2f71e5d797019.m4a
 voices/pieces/guide/25e1c2dc47aceb95.m4a
 voices/pieces/guide/25f2309a6290b52f.m4a
 voices/pieces/guide/25fa39f88d5e1930.m4a
+voices/pieces/guide/2604a7a5d48172c7.m4a
 voices/pieces/guide/26100ecba2ed8009.m4a
 voices/pieces/guide/26154b7b8717af7f.m4a
 voices/pieces/guide/26234b5bae63afd1.m4a
@@ -5065,6 +5254,7 @@ voices/pieces/guide/264cbfaccef2f44c.m4a
 voices/pieces/guide/265043cc82bb9263.m4a
 voices/pieces/guide/26566f50915c9a7e.m4a
 voices/pieces/guide/265fc782d76031cc.m4a
+voices/pieces/guide/2663326a3f4f8176.m4a
 voices/pieces/guide/267b3b02bc61ed54.m4a
 voices/pieces/guide/267c503bebe1e499.m4a
 voices/pieces/guide/267fc7ab6bff9f36.m4a
@@ -5090,6 +5280,7 @@ voices/pieces/guide/274486f00d6dba3e.m4a
 voices/pieces/guide/275097aca89dffab.m4a
 voices/pieces/guide/2755b37d8bda09c0.m4a
 voices/pieces/guide/276502c7c5a380ef.m4a
+voices/pieces/guide/276b0d6260d35ab4.m4a
 voices/pieces/guide/276dd849d6e3dcf6.m4a
 voices/pieces/guide/27710e8dac1dea6a.m4a
 voices/pieces/guide/277532c0f8500a9d.m4a
@@ -5102,6 +5293,7 @@ voices/pieces/guide/2796c00da939e885.m4a
 voices/pieces/guide/27973c07c4956ebb.m4a
 voices/pieces/guide/27a0fda4a698f55d.m4a
 voices/pieces/guide/27ae9a510d8e96a0.m4a
+voices/pieces/guide/27c2b94c74c90fea.m4a
 voices/pieces/guide/27c425623c77ec1d.m4a
 voices/pieces/guide/27cc0f608458737d.m4a
 voices/pieces/guide/27ccb56223ba7eb8.m4a
@@ -5111,12 +5303,14 @@ voices/pieces/guide/27f250b2f27ebaf5.m4a
 voices/pieces/guide/27f3a64e0f7c4ab7.m4a
 voices/pieces/guide/27febea55a3d8651.m4a
 voices/pieces/guide/280b9f4e5ffaa699.m4a
+voices/pieces/guide/282999889042d82c.m4a
 voices/pieces/guide/282a49dd5ed10ccf.m4a
 voices/pieces/guide/28330816dcb5a05a.m4a
 voices/pieces/guide/2838f691b2a6825c.m4a
 voices/pieces/guide/283c2260e8895a8e.m4a
 voices/pieces/guide/284066b50209f045.m4a
 voices/pieces/guide/2843fddcd39d5a93.m4a
+voices/pieces/guide/2848d231db4d9f72.m4a
 voices/pieces/guide/284a47ae8227e400.m4a
 voices/pieces/guide/284c6f1cc6e5de31.m4a
 voices/pieces/guide/284eef6a2f9a8cd7.m4a
@@ -5124,6 +5318,7 @@ voices/pieces/guide/2851368ecdb84c9a.m4a
 voices/pieces/guide/285a3a8ae40eb3d9.m4a
 voices/pieces/guide/285db2391e759e42.m4a
 voices/pieces/guide/28654db6723310eb.m4a
+voices/pieces/guide/2866d40b210f6941.m4a
 voices/pieces/guide/287a23dffd60d507.m4a
 voices/pieces/guide/287dfb4c259ae0a7.m4a
 voices/pieces/guide/287eae7d8e97759c.m4a
@@ -5140,6 +5335,7 @@ voices/pieces/guide/28bcc33ddbc1fa21.m4a
 voices/pieces/guide/28c2d84d44a72385.m4a
 voices/pieces/guide/28c9f98ab0bdb4b7.m4a
 voices/pieces/guide/28d21ffd30e71723.m4a
+voices/pieces/guide/28e59438f04ab32b.m4a
 voices/pieces/guide/28e6bdfaf6dae8f5.m4a
 voices/pieces/guide/28eb7c8f9bdc4011.m4a
 voices/pieces/guide/28ff05f4e113d4eb.m4a
@@ -5169,6 +5365,7 @@ voices/pieces/guide/29efd4f3eef79768.m4a
 voices/pieces/guide/29f03621e92fdf70.m4a
 voices/pieces/guide/29f93b59983cb405.m4a
 voices/pieces/guide/2a02d6a6c5905d4c.m4a
+voices/pieces/guide/2a0449c8f1343c00.m4a
 voices/pieces/guide/2a06e2c0032125de.m4a
 voices/pieces/guide/2a1d0d76c1addf81.m4a
 voices/pieces/guide/2a21232b30a076f2.m4a
@@ -5198,6 +5395,7 @@ voices/pieces/guide/2aee0acf55fc9f8e.m4a
 voices/pieces/guide/2af1082ba0f86b33.m4a
 voices/pieces/guide/2afaeafa7c10c0f1.m4a
 voices/pieces/guide/2b009046fa21295c.m4a
+voices/pieces/guide/2b16dac0eacc49ce.m4a
 voices/pieces/guide/2b2927eae6e32baa.m4a
 voices/pieces/guide/2b2ac9665be98479.m4a
 voices/pieces/guide/2b2f918f6644d2eb.m4a
@@ -5226,8 +5424,10 @@ voices/pieces/guide/2c0c6d3f8aafaf09.m4a
 voices/pieces/guide/2c154688dfe38bb0.m4a
 voices/pieces/guide/2c1d941ae7594df7.m4a
 voices/pieces/guide/2c20abf5b62798de.m4a
+voices/pieces/guide/2c4b0bb5f695de32.m4a
 voices/pieces/guide/2c5165439e751318.m4a
 voices/pieces/guide/2c58d836f00b4ce1.m4a
+voices/pieces/guide/2c6387f32881a022.m4a
 voices/pieces/guide/2c67906cb3887ca9.m4a
 voices/pieces/guide/2c7b538560cf05b7.m4a
 voices/pieces/guide/2c7b7eab567122db.m4a
@@ -5247,6 +5447,7 @@ voices/pieces/guide/2cea43fdb12d386e.m4a
 voices/pieces/guide/2cea7113dbe19d1c.m4a
 voices/pieces/guide/2d0fd166f5a10a34.m4a
 voices/pieces/guide/2d137fbb93375b16.m4a
+voices/pieces/guide/2d19de016941dfa4.m4a
 voices/pieces/guide/2d238ca837a881fb.m4a
 voices/pieces/guide/2d24f0247b8d0546.m4a
 voices/pieces/guide/2d2a69dc57cf1178.m4a
@@ -5262,6 +5463,7 @@ voices/pieces/guide/2d8dff3ffca8ce9e.m4a
 voices/pieces/guide/2d94df29c36ed2aa.m4a
 voices/pieces/guide/2d9b318375c39c85.m4a
 voices/pieces/guide/2d9c4be6580c4410.m4a
+voices/pieces/guide/2d9ceee24cdf2bc0.m4a
 voices/pieces/guide/2d9f895b6a793dcd.m4a
 voices/pieces/guide/2dc37afe6e118d9a.m4a
 voices/pieces/guide/2dd38d1c5862a9aa.m4a
@@ -5277,6 +5479,7 @@ voices/pieces/guide/2e194ad629ac53a8.m4a
 voices/pieces/guide/2e1b492760a25ec9.m4a
 voices/pieces/guide/2e1d00594897e252.m4a
 voices/pieces/guide/2e221e2cc2bca6db.m4a
+voices/pieces/guide/2e264a7c7b126040.m4a
 voices/pieces/guide/2e2f0803fc977c04.m4a
 voices/pieces/guide/2e35cfda326d1dbd.m4a
 voices/pieces/guide/2e466460bc1875b3.m4a
@@ -5318,6 +5521,7 @@ voices/pieces/guide/2fa82233af237f96.m4a
 voices/pieces/guide/2fa9f60f511d42cd.m4a
 voices/pieces/guide/2fb65cce6b1039c1.m4a
 voices/pieces/guide/2fb835fc9378f821.m4a
+voices/pieces/guide/2fbd7f78e3b36c49.m4a
 voices/pieces/guide/2fbffe4abc44b650.m4a
 voices/pieces/guide/2fca6088a512ce03.m4a
 voices/pieces/guide/2fcd482513aa89b1.m4a
@@ -5326,8 +5530,11 @@ voices/pieces/guide/2fd628ff1fd96097.m4a
 voices/pieces/guide/2fd8e5b7f8978694.m4a
 voices/pieces/guide/2fe705555dc84b71.m4a
 voices/pieces/guide/2fe9411576c479ba.m4a
+voices/pieces/guide/2ff25fbe60acf15c.m4a
 voices/pieces/guide/2ff2a0f3a9155ed5.m4a
 voices/pieces/guide/2ff6ff8c10c583d6.m4a
+voices/pieces/guide/2ff9abb9443d620f.m4a
+voices/pieces/guide/3006a7fbd453d05b.m4a
 voices/pieces/guide/300b13fdff8a6f9f.m4a
 voices/pieces/guide/300f19dc34af53d9.m4a
 voices/pieces/guide/3016639d5c0addfd.m4a
@@ -5397,6 +5604,7 @@ voices/pieces/guide/31f5aa1e1c6fb0bf.m4a
 voices/pieces/guide/3200c44f3b14df88.m4a
 voices/pieces/guide/32095eda43ef3dca.m4a
 voices/pieces/guide/3216f58826c2c286.m4a
+voices/pieces/guide/322bb0c314be47c1.m4a
 voices/pieces/guide/3237ea74d60e58be.m4a
 voices/pieces/guide/323d6689ca5a2386.m4a
 voices/pieces/guide/323f5c61e56c4507.m4a
@@ -5404,6 +5612,7 @@ voices/pieces/guide/3245dc446772a1e3.m4a
 voices/pieces/guide/3256c17a3a60e8f8.m4a
 voices/pieces/guide/326c9c0cf3b6d899.m4a
 voices/pieces/guide/3270078f57849b70.m4a
+voices/pieces/guide/327f56dcaff75f01.m4a
 voices/pieces/guide/3284374af4442c7e.m4a
 voices/pieces/guide/3285a932e20b4040.m4a
 voices/pieces/guide/328c4e28ee6115f8.m4a
@@ -5452,6 +5661,7 @@ voices/pieces/guide/33e581d95d9d18df.m4a
 voices/pieces/guide/33edbd572ac0c81a.m4a
 voices/pieces/guide/33f4478f67599282.m4a
 voices/pieces/guide/33f5e6d79791cc29.m4a
+voices/pieces/guide/3420cb307ffc1e62.m4a
 voices/pieces/guide/342221ae720ff3f4.m4a
 voices/pieces/guide/343181c81281e07b.m4a
 voices/pieces/guide/343890775d4342cf.m4a
@@ -5462,11 +5672,13 @@ voices/pieces/guide/3444af998f793797.m4a
 voices/pieces/guide/34509be5c731afa8.m4a
 voices/pieces/guide/3454ff3202d4908a.m4a
 voices/pieces/guide/345551c6bbe768b2.m4a
+voices/pieces/guide/3456fd6023b63f5a.m4a
 voices/pieces/guide/345cb88e409296fd.m4a
 voices/pieces/guide/346419166c7cfbee.m4a
 voices/pieces/guide/34676cff03f5935d.m4a
 voices/pieces/guide/3472c3e403705f28.m4a
 voices/pieces/guide/347b78d6cdf81fd2.m4a
+voices/pieces/guide/3481f5f2e505abf3.m4a
 voices/pieces/guide/34822b2e5d6b81be.m4a
 voices/pieces/guide/348ec18e6b5c278e.m4a
 voices/pieces/guide/34965bc3a6e380ce.m4a
@@ -5532,14 +5744,18 @@ voices/pieces/guide/36eff2cab06e9388.m4a
 voices/pieces/guide/36f06f8c3277407b.m4a
 voices/pieces/guide/36f8b080ba5da172.m4a
 voices/pieces/guide/371abb2bb4cc3801.m4a
+voices/pieces/guide/371f54e41543a6b4.m4a
 voices/pieces/guide/371fd2872f70b073.m4a
 voices/pieces/guide/3720b15da8354c38.m4a
 voices/pieces/guide/372d73288df93f19.m4a
 voices/pieces/guide/373453e17b2b3001.m4a
+voices/pieces/guide/373556a00113ecf7.m4a
 voices/pieces/guide/3761470cdb276909.m4a
 voices/pieces/guide/3764621c47416393.m4a
+voices/pieces/guide/376cd3a3ee48aa24.m4a
 voices/pieces/guide/376d39399f471ce4.m4a
 voices/pieces/guide/376fe6f92e3660c2.m4a
+voices/pieces/guide/3775a75cf3746d41.m4a
 voices/pieces/guide/37856f533e8626e3.m4a
 voices/pieces/guide/378f7b1c78157923.m4a
 voices/pieces/guide/379b0c0be55937de.m4a
@@ -5554,8 +5770,10 @@ voices/pieces/guide/37bb290724739b2c.m4a
 voices/pieces/guide/37bd9dc5fb9484df.m4a
 voices/pieces/guide/37c41fd874d9876b.m4a
 voices/pieces/guide/37d9c9dbdcb4fa73.m4a
+voices/pieces/guide/37ec37981640622a.m4a
 voices/pieces/guide/37eff8f2124ab8c3.m4a
 voices/pieces/guide/37f48f3e44dadbae.m4a
+voices/pieces/guide/37f518389448c81b.m4a
 voices/pieces/guide/37f7447edaea1ac2.m4a
 voices/pieces/guide/38006781af0e55fe.m4a
 voices/pieces/guide/3803b5dc4f168a51.m4a
@@ -5567,6 +5785,7 @@ voices/pieces/guide/382ad64944c69e79.m4a
 voices/pieces/guide/382e43bfde253d66.m4a
 voices/pieces/guide/38307ae419e3a2a7.m4a
 voices/pieces/guide/38389c81753e7d4d.m4a
+voices/pieces/guide/385ec4bf7f8953a7.m4a
 voices/pieces/guide/3864ae0dcf047dc5.m4a
 voices/pieces/guide/387e87c419b85acf.m4a
 voices/pieces/guide/38810882ce2d743e.m4a
@@ -5592,9 +5811,11 @@ voices/pieces/guide/39771d023c145c22.m4a
 voices/pieces/guide/3982bb985f0d193b.m4a
 voices/pieces/guide/398dbe195047ee96.m4a
 voices/pieces/guide/399307f15a39afc8.m4a
+voices/pieces/guide/39989c4e4388ab83.m4a
 voices/pieces/guide/3998d258e2d41aba.m4a
 voices/pieces/guide/399b914d51105833.m4a
 voices/pieces/guide/39b3120bc88e0795.m4a
+voices/pieces/guide/39b7817f08b9b311.m4a
 voices/pieces/guide/39ca4b6db25b7355.m4a
 voices/pieces/guide/39d510e1c3bc5c3d.m4a
 voices/pieces/guide/39df39d38dc6ae43.m4a
@@ -5612,6 +5833,7 @@ voices/pieces/guide/3a48a1a2ccc22293.m4a
 voices/pieces/guide/3a4db9c1993a3e88.m4a
 voices/pieces/guide/3a54119e316d6b97.m4a
 voices/pieces/guide/3a55796395eea81a.m4a
+voices/pieces/guide/3a70f9f6048f7a81.m4a
 voices/pieces/guide/3a80827dbc680374.m4a
 voices/pieces/guide/3a88dadc0921e74b.m4a
 voices/pieces/guide/3a9f548ebc83bfab.m4a
@@ -5633,6 +5855,7 @@ voices/pieces/guide/3b1eb360a0115485.m4a
 voices/pieces/guide/3b2999c4268642f1.m4a
 voices/pieces/guide/3b3643f44acd3659.m4a
 voices/pieces/guide/3b40797ece3ca5d5.m4a
+voices/pieces/guide/3b4302b9850f3bd3.m4a
 voices/pieces/guide/3b5149199928e4bb.m4a
 voices/pieces/guide/3b5224453e53884e.m4a
 voices/pieces/guide/3b6644f57465032c.m4a
@@ -5642,8 +5865,10 @@ voices/pieces/guide/3b8bef7b7c9b2290.m4a
 voices/pieces/guide/3b9a21f47a5c0225.m4a
 voices/pieces/guide/3b9c43066e7118d6.m4a
 voices/pieces/guide/3bc7fc191bfdbb5a.m4a
+voices/pieces/guide/3bcbe98f3160937e.m4a
 voices/pieces/guide/3bfb5f7e6a4e7823.m4a
 voices/pieces/guide/3c01e9edc736bad0.m4a
+voices/pieces/guide/3c03396e2482cc4c.m4a
 voices/pieces/guide/3c06649cb2c464b1.m4a
 voices/pieces/guide/3c10045580aef7d3.m4a
 voices/pieces/guide/3c4ac032fea3db33.m4a
@@ -5670,9 +5895,11 @@ voices/pieces/guide/3d1e282ccc1e6739.m4a
 voices/pieces/guide/3d2c018f2a40cab5.m4a
 voices/pieces/guide/3d2f3b89a5cbdbbb.m4a
 voices/pieces/guide/3d3559cb8136bd51.m4a
+voices/pieces/guide/3d3d07410fe435cf.m4a
 voices/pieces/guide/3d479372fbcfb830.m4a
 voices/pieces/guide/3d59b1f1767d131c.m4a
 voices/pieces/guide/3d5daba8e1b5031a.m4a
+voices/pieces/guide/3d73b6ea403ebbdf.m4a
 voices/pieces/guide/3d74c1f791336d0d.m4a
 voices/pieces/guide/3d8314c59560b096.m4a
 voices/pieces/guide/3d85d5bba1d9f535.m4a
@@ -5688,6 +5915,7 @@ voices/pieces/guide/3db48f081dcb13d7.m4a
 voices/pieces/guide/3db51fd5a41f9204.m4a
 voices/pieces/guide/3dba1668014cf2d5.m4a
 voices/pieces/guide/3dc6ebc10ada50e3.m4a
+voices/pieces/guide/3dca7c7c233d3f94.m4a
 voices/pieces/guide/3dcf17eab8c61eac.m4a
 voices/pieces/guide/3dd24fde5bbbe443.m4a
 voices/pieces/guide/3dd43965e1df73a3.m4a
@@ -5733,8 +5961,10 @@ voices/pieces/guide/3f0e650f87884bd3.m4a
 voices/pieces/guide/3f0f88d3562d09e9.m4a
 voices/pieces/guide/3f125f5431d63bbd.m4a
 voices/pieces/guide/3f1270cc1e962526.m4a
+voices/pieces/guide/3f1464fe07d2a82d.m4a
 voices/pieces/guide/3f1a5c6a185028b5.m4a
 voices/pieces/guide/3f1bea1f4a5ce1ee.m4a
+voices/pieces/guide/3f1c5bb2c639b81a.m4a
 voices/pieces/guide/3f2bb562523bde42.m4a
 voices/pieces/guide/3f5a94113ae831fd.m4a
 voices/pieces/guide/3f66508a524c9f09.m4a
@@ -5768,6 +5998,7 @@ voices/pieces/guide/408d4907d594ef76.m4a
 voices/pieces/guide/409ac02d7923d3ce.m4a
 voices/pieces/guide/40a64072581898e5.m4a
 voices/pieces/guide/40a738fe2537cd88.m4a
+voices/pieces/guide/40b193f708cbc99f.m4a
 voices/pieces/guide/40c28391125d4027.m4a
 voices/pieces/guide/40c70a488be2ef48.m4a
 voices/pieces/guide/40c8027ff6628bb4.m4a
@@ -5813,17 +6044,21 @@ voices/pieces/guide/428034e99fa3a571.m4a
 voices/pieces/guide/4281461a6fd79c28.m4a
 voices/pieces/guide/429ce0cbaa677787.m4a
 voices/pieces/guide/42ad1feea6fa0fe7.m4a
+voices/pieces/guide/42c5cc1c6b2d056d.m4a
 voices/pieces/guide/42c5e1d53e450a9f.m4a
 voices/pieces/guide/42cd4ba95d250be8.m4a
 voices/pieces/guide/42cdc5d3476b58e2.m4a
 voices/pieces/guide/42d103075e3d25b7.m4a
 voices/pieces/guide/42d522e803b603ae.m4a
+voices/pieces/guide/42dde3c7069df67d.m4a
 voices/pieces/guide/42dfab9a72b6a52c.m4a
 voices/pieces/guide/42ea3b709fd8003b.m4a
 voices/pieces/guide/42ee8610ea59865d.m4a
 voices/pieces/guide/42f1dab5e89b6a45.m4a
 voices/pieces/guide/430314330882bb11.m4a
 voices/pieces/guide/43059d8e47e46246.m4a
+voices/pieces/guide/430a231aaf7e0601.m4a
+voices/pieces/guide/4335d79ac5df1a35.m4a
 voices/pieces/guide/4343a7595dff7a78.m4a
 voices/pieces/guide/434906e92e84b242.m4a
 voices/pieces/guide/435372e8014191b0.m4a
@@ -5842,6 +6077,7 @@ voices/pieces/guide/43c11ef2b79c4aa8.m4a
 voices/pieces/guide/43cf45d1df8875eb.m4a
 voices/pieces/guide/43d70f6b1e7171df.m4a
 voices/pieces/guide/43dc968bf1661e70.m4a
+voices/pieces/guide/43eb8e39ec3c2ced.m4a
 voices/pieces/guide/43ef08a306c8bcc0.m4a
 voices/pieces/guide/43f7cb9c4aea5cba.m4a
 voices/pieces/guide/43f7fb2e6096b7f8.m4a
@@ -5860,8 +6096,10 @@ voices/pieces/guide/4491cf576d2799ec.m4a
 voices/pieces/guide/449c87d7447db693.m4a
 voices/pieces/guide/449dc64f030a7a7e.m4a
 voices/pieces/guide/44ac9696851e6d04.m4a
+voices/pieces/guide/44ba0694e81125b0.m4a
 voices/pieces/guide/44c236c662ab212b.m4a
 voices/pieces/guide/44c7bb52bfe6e6c7.m4a
+voices/pieces/guide/44ca0c55ed96c2e7.m4a
 voices/pieces/guide/44e260ab3e1ef7dc.m4a
 voices/pieces/guide/44e39f3aca999cbb.m4a
 voices/pieces/guide/44f185380d192cf7.m4a
@@ -5884,8 +6122,10 @@ voices/pieces/guide/457c38692c36394c.m4a
 voices/pieces/guide/4589fd7a1dabe372.m4a
 voices/pieces/guide/458c068d887228e1.m4a
 voices/pieces/guide/458f363e635a84cf.m4a
+voices/pieces/guide/45902c850ce3cb65.m4a
 voices/pieces/guide/45aa02b2ef656c6a.m4a
 voices/pieces/guide/45b297d1065978da.m4a
+voices/pieces/guide/45d02e7d6f854b33.m4a
 voices/pieces/guide/45d564a6e9cfefa7.m4a
 voices/pieces/guide/45e7e19e9fa762ba.m4a
 voices/pieces/guide/45ea8de2308beafd.m4a
@@ -5895,12 +6135,14 @@ voices/pieces/guide/46042340aa6a42a4.m4a
 voices/pieces/guide/460b4906bcdbdef7.m4a
 voices/pieces/guide/460e754c3cff050c.m4a
 voices/pieces/guide/461cfeb540d6ea4f.m4a
+voices/pieces/guide/461dac0249919b53.m4a
 voices/pieces/guide/4621ed626a27e548.m4a
 voices/pieces/guide/462ee7b6f0e52e1f.m4a
 voices/pieces/guide/463b50958f27141c.m4a
 voices/pieces/guide/463d66c6a16749a7.m4a
 voices/pieces/guide/46473538483fc8e3.m4a
 voices/pieces/guide/465c2b83f1466b68.m4a
+voices/pieces/guide/4669f339ec4b88cc.m4a
 voices/pieces/guide/46700e1bb3ed97b5.m4a
 voices/pieces/guide/4677f9a876ddfbac.m4a
 voices/pieces/guide/467fa75d7bfc6c48.m4a
@@ -5912,6 +6154,7 @@ voices/pieces/guide/46c88ff51f5645d9.m4a
 voices/pieces/guide/46c9180354688c3e.m4a
 voices/pieces/guide/46cf66a2f175649b.m4a
 voices/pieces/guide/46d635e969f2dbdd.m4a
+voices/pieces/guide/46db5013fd3da870.m4a
 voices/pieces/guide/46ddfa9f944f9f6a.m4a
 voices/pieces/guide/46def017d550c8dc.m4a
 voices/pieces/guide/46e970e69351385f.m4a
@@ -5945,6 +6188,7 @@ voices/pieces/guide/486f724a5b5ab627.m4a
 voices/pieces/guide/48750d8a5d2c5d02.m4a
 voices/pieces/guide/487c4269729aee64.m4a
 voices/pieces/guide/488290904e68477b.m4a
+voices/pieces/guide/489ad9ef6a7f6713.m4a
 voices/pieces/guide/489dda9496f6f8cd.m4a
 voices/pieces/guide/48abcc960945ffcf.m4a
 voices/pieces/guide/48af2d8218967447.m4a
@@ -5955,7 +6199,9 @@ voices/pieces/guide/48d63488db9e4ee7.m4a
 voices/pieces/guide/48ddefd0e80b7cfa.m4a
 voices/pieces/guide/48e3b5f9b19539a3.m4a
 voices/pieces/guide/48ea881ce82fae6f.m4a
+voices/pieces/guide/48ed1095e496ab67.m4a
 voices/pieces/guide/48f6214a6acf34ac.m4a
+voices/pieces/guide/48fb793240083c52.m4a
 voices/pieces/guide/49033ded416c1a1f.m4a
 voices/pieces/guide/492ad3aa848484de.m4a
 voices/pieces/guide/4940ceaacafa3495.m4a
@@ -5970,6 +6216,7 @@ voices/pieces/guide/496eeb8c4e407327.m4a
 voices/pieces/guide/49740729e12157c9.m4a
 voices/pieces/guide/497c19228e08d036.m4a
 voices/pieces/guide/4989e0cfce067e33.m4a
+voices/pieces/guide/498c5db624130aad.m4a
 voices/pieces/guide/4995e6367ea40b4e.m4a
 voices/pieces/guide/499d117ade19d9e9.m4a
 voices/pieces/guide/49aeddd1dbf64a4d.m4a
@@ -5979,6 +6226,7 @@ voices/pieces/guide/49c775e1422e68a2.m4a
 voices/pieces/guide/49c985310b96558c.m4a
 voices/pieces/guide/49d3f71b33ca4db9.m4a
 voices/pieces/guide/49e078484603b2ad.m4a
+voices/pieces/guide/49f260b94690947b.m4a
 voices/pieces/guide/49fcb54da9d72dd8.m4a
 voices/pieces/guide/49fd5b507230e3b0.m4a
 voices/pieces/guide/4a0276cbd746d095.m4a
@@ -5986,6 +6234,7 @@ voices/pieces/guide/4a07b0f5ece84061.m4a
 voices/pieces/guide/4a1576db0682034a.m4a
 voices/pieces/guide/4a1d0e8c99ce9795.m4a
 voices/pieces/guide/4a1f2e0bfc8b509f.m4a
+voices/pieces/guide/4a1fd93c8c7bdf61.m4a
 voices/pieces/guide/4a2d55774054ab58.m4a
 voices/pieces/guide/4a2ea6ed365709b0.m4a
 voices/pieces/guide/4a3a024413a364ae.m4a
@@ -5997,6 +6246,7 @@ voices/pieces/guide/4a6a64e5e341089a.m4a
 voices/pieces/guide/4a85be2727e06462.m4a
 voices/pieces/guide/4a8f13aaaff124ce.m4a
 voices/pieces/guide/4a90349769f3abad.m4a
+voices/pieces/guide/4a9726367f822796.m4a
 voices/pieces/guide/4aa730b3d12fd4d0.m4a
 voices/pieces/guide/4ab63d2ca4a8bc5f.m4a
 voices/pieces/guide/4ac9e91deebe7d6b.m4a
@@ -6018,12 +6268,14 @@ voices/pieces/guide/4b2aaaff380b7d0c.m4a
 voices/pieces/guide/4b43a2175dc2e25a.m4a
 voices/pieces/guide/4b5aee11d05daab6.m4a
 voices/pieces/guide/4b5d7f98a8d6426e.m4a
+voices/pieces/guide/4b5df1e612588e6f.m4a
 voices/pieces/guide/4b60cb169022f05a.m4a
 voices/pieces/guide/4b619dff4916538a.m4a
 voices/pieces/guide/4b63e2604eab0652.m4a
 voices/pieces/guide/4b6585f989a2a440.m4a
 voices/pieces/guide/4b65e03201a74c2a.m4a
 voices/pieces/guide/4b9a7e45df3f7b25.m4a
+voices/pieces/guide/4ba0c11494efa94b.m4a
 voices/pieces/guide/4bab39dbf1ee5948.m4a
 voices/pieces/guide/4baeb73a8b6366fd.m4a
 voices/pieces/guide/4bb4e680e5530dea.m4a
@@ -6044,6 +6296,7 @@ voices/pieces/guide/4c469ac926fd2ed7.m4a
 voices/pieces/guide/4c46d758b59b83ad.m4a
 voices/pieces/guide/4c5179d7340eadfe.m4a
 voices/pieces/guide/4c56d37e5279c883.m4a
+voices/pieces/guide/4c62e721ecf6c1b9.m4a
 voices/pieces/guide/4c6a7c2302cdc52f.m4a
 voices/pieces/guide/4c6c251c11cb7d67.m4a
 voices/pieces/guide/4c739a6b1a35f706.m4a
@@ -6054,6 +6307,7 @@ voices/pieces/guide/4c899700612a9356.m4a
 voices/pieces/guide/4c8e9720f87f363c.m4a
 voices/pieces/guide/4c8fc56af006da8c.m4a
 voices/pieces/guide/4c93882bf1349a5e.m4a
+voices/pieces/guide/4c974389bc39f572.m4a
 voices/pieces/guide/4ca00031cb3e1736.m4a
 voices/pieces/guide/4cc9162c74b7ecf7.m4a
 voices/pieces/guide/4cdcf5e366000f0b.m4a
@@ -6067,6 +6321,7 @@ voices/pieces/guide/4d35d213b3adb7d4.m4a
 voices/pieces/guide/4d3b4a4f81b9356e.m4a
 voices/pieces/guide/4d3ef4ca20b9e9ea.m4a
 voices/pieces/guide/4d3ffd78b30f1ce8.m4a
+voices/pieces/guide/4d4100a75b1c0992.m4a
 voices/pieces/guide/4d4b894e81f51347.m4a
 voices/pieces/guide/4d576af35fbedfa5.m4a
 voices/pieces/guide/4d5a9765cdb71435.m4a
@@ -6097,6 +6352,7 @@ voices/pieces/guide/4deab107a83a4a06.m4a
 voices/pieces/guide/4e0b8475eccd30da.m4a
 voices/pieces/guide/4e17081588f5a7c8.m4a
 voices/pieces/guide/4e2880840c230bb3.m4a
+voices/pieces/guide/4e2d0511cdc23e34.m4a
 voices/pieces/guide/4e49ce1d8ef1368f.m4a
 voices/pieces/guide/4e4d990f6ad719bd.m4a
 voices/pieces/guide/4e4d9ecadecf5ac9.m4a
@@ -6108,6 +6364,7 @@ voices/pieces/guide/4e9f60d096079172.m4a
 voices/pieces/guide/4ea6b7b9bec2f4f3.m4a
 voices/pieces/guide/4eaa76c183d249dd.m4a
 voices/pieces/guide/4eadf630f94848b3.m4a
+voices/pieces/guide/4eb8d00776c1c7ed.m4a
 voices/pieces/guide/4ec709235299ed0a.m4a
 voices/pieces/guide/4ec9a166bf428d07.m4a
 voices/pieces/guide/4ecc7b42a3465560.m4a
@@ -6117,6 +6374,7 @@ voices/pieces/guide/4eec3442fa55e047.m4a
 voices/pieces/guide/4ef20f1305d34ee6.m4a
 voices/pieces/guide/4ef97a4059e9f60a.m4a
 voices/pieces/guide/4f05e4e5b204356e.m4a
+voices/pieces/guide/4f06c393c14fa155.m4a
 voices/pieces/guide/4f15311c6c1236a3.m4a
 voices/pieces/guide/4f2db043c6b23ca0.m4a
 voices/pieces/guide/4f35d0ff8af34cc4.m4a
@@ -6127,6 +6385,7 @@ voices/pieces/guide/4f44eb3dd61e1c5c.m4a
 voices/pieces/guide/4f4c471e2e29a3a8.m4a
 voices/pieces/guide/4f5323c9a83a3241.m4a
 voices/pieces/guide/4f5869f4f4f12881.m4a
+voices/pieces/guide/4f6e5da29c999788.m4a
 voices/pieces/guide/4f7bf82ea3a105c7.m4a
 voices/pieces/guide/4f7de2262c250e55.m4a
 voices/pieces/guide/4f7fbc579ab0a2bb.m4a
@@ -6189,14 +6448,17 @@ voices/pieces/guide/51a0769130d560bf.m4a
 voices/pieces/guide/51a8b9c0dea0487d.m4a
 voices/pieces/guide/51b1de9f59dc43fb.m4a
 voices/pieces/guide/51d1e3d08d2e8159.m4a
+voices/pieces/guide/51d9fcb860c6b72f.m4a
 voices/pieces/guide/51dbc6d43679ea6e.m4a
 voices/pieces/guide/51faaeefdb440b3d.m4a
 voices/pieces/guide/51fdf4935277e36b.m4a
 voices/pieces/guide/52138b0866c9c9db.m4a
 voices/pieces/guide/521c8aad840cf8eb.m4a
+voices/pieces/guide/521d2fd648b249f4.m4a
 voices/pieces/guide/522967ec05283360.m4a
 voices/pieces/guide/522a45cb8483ba3e.m4a
 voices/pieces/guide/523bdf708af3eb06.m4a
+voices/pieces/guide/524a99f86c8653e1.m4a
 voices/pieces/guide/524c24371b1ce6ae.m4a
 voices/pieces/guide/525dcef7efd8947d.m4a
 voices/pieces/guide/527f98e0bf7bda93.m4a
@@ -6232,6 +6494,7 @@ voices/pieces/guide/53573f22ce119d77.m4a
 voices/pieces/guide/535e09a9d822e1ff.m4a
 voices/pieces/guide/536f4076896828b3.m4a
 voices/pieces/guide/5373db20cf40b4e4.m4a
+voices/pieces/guide/5380f07b993bdb10.m4a
 voices/pieces/guide/5386a2607f127b4c.m4a
 voices/pieces/guide/539142d65bcdce00.m4a
 voices/pieces/guide/53a474b566fb6505.m4a
@@ -6267,9 +6530,11 @@ voices/pieces/guide/54e690b16ac4f1b6.m4a
 voices/pieces/guide/54f047ce8886b263.m4a
 voices/pieces/guide/54f4a0edf3b46241.m4a
 voices/pieces/guide/5507c3887c9c520f.m4a
+voices/pieces/guide/551272b451e96962.m4a
 voices/pieces/guide/5512df6479633f80.m4a
 voices/pieces/guide/5528437cea643580.m4a
 voices/pieces/guide/5552792c7e0d220c.m4a
+voices/pieces/guide/5554f6e4d34493ac.m4a
 voices/pieces/guide/55642c292439a1aa.m4a
 voices/pieces/guide/5569d2be29723604.m4a
 voices/pieces/guide/5574a4d1571efdcf.m4a
@@ -6284,6 +6549,7 @@ voices/pieces/guide/55d22798054291ca.m4a
 voices/pieces/guide/55d5b34e111488ff.m4a
 voices/pieces/guide/55d6c8ce666ba991.m4a
 voices/pieces/guide/55e0431a387d41fc.m4a
+voices/pieces/guide/55f08a2bab1c7c75.m4a
 voices/pieces/guide/55fe3f3bc3018aef.m4a
 voices/pieces/guide/560799a5f79d6adf.m4a
 voices/pieces/guide/561a06283aa3380f.m4a
@@ -6294,14 +6560,18 @@ voices/pieces/guide/563dcb3d8b72e403.m4a
 voices/pieces/guide/5644031b40f3f7e5.m4a
 voices/pieces/guide/5656a2b6ec00692f.m4a
 voices/pieces/guide/565fd1b60a3a0176.m4a
+voices/pieces/guide/565fe31ebdeda758.m4a
 voices/pieces/guide/5663b4bf4b825ff1.m4a
 voices/pieces/guide/566b72220f1880b2.m4a
 voices/pieces/guide/566bf0a634f6535b.m4a
+voices/pieces/guide/566f490330f18f73.m4a
 voices/pieces/guide/5689d79cc8a51f56.m4a
+voices/pieces/guide/56988b9c886f1606.m4a
 voices/pieces/guide/56a69afcaf9a696e.m4a
 voices/pieces/guide/56a876550b7eace4.m4a
 voices/pieces/guide/56acfc1ae8d759ad.m4a
 voices/pieces/guide/56cd07b4b25aee4b.m4a
+voices/pieces/guide/56cf728a86ea2626.m4a
 voices/pieces/guide/56da09b09d0afafe.m4a
 voices/pieces/guide/56db5bfcaf207c7c.m4a
 voices/pieces/guide/56e7e327411acfd3.m4a
@@ -6381,6 +6651,7 @@ voices/pieces/guide/59ade18d63f070d1.m4a
 voices/pieces/guide/59b6fd4325b2ceac.m4a
 voices/pieces/guide/59bfcacab3308ba4.m4a
 voices/pieces/guide/59bff2cd915800df.m4a
+voices/pieces/guide/59d89e5deaf1cb1d.m4a
 voices/pieces/guide/59dff99609b7a873.m4a
 voices/pieces/guide/59e7c67c25661004.m4a
 voices/pieces/guide/59fbc3610ef4fcbe.m4a
@@ -6406,7 +6677,9 @@ voices/pieces/guide/5a6e26545a41d616.m4a
 voices/pieces/guide/5a7c8f47208c4812.m4a
 voices/pieces/guide/5a7dcfe9a700c69c.m4a
 voices/pieces/guide/5a7dd52a2fa6f035.m4a
+voices/pieces/guide/5a7eb85990678f8f.m4a
 voices/pieces/guide/5a83fa479fe457fb.m4a
+voices/pieces/guide/5a9ae2120ee876ce.m4a
 voices/pieces/guide/5aa2da02bd508442.m4a
 voices/pieces/guide/5aa9a44a86eefea4.m4a
 voices/pieces/guide/5ad1c1a952532d23.m4a
@@ -6417,6 +6690,8 @@ voices/pieces/guide/5b0a7f4c8b8f45f2.m4a
 voices/pieces/guide/5b15604704cbd8e1.m4a
 voices/pieces/guide/5b17478cbf7cfae3.m4a
 voices/pieces/guide/5b19a7a759585ecf.m4a
+voices/pieces/guide/5b1d10cf93a955e8.m4a
+voices/pieces/guide/5b1d2eb2a2e53a73.m4a
 voices/pieces/guide/5b255ee99efa2dfb.m4a
 voices/pieces/guide/5b3953d7f92b6e7c.m4a
 voices/pieces/guide/5b39b27c63f0fe92.m4a
@@ -6428,6 +6703,7 @@ voices/pieces/guide/5b6b86804460431c.m4a
 voices/pieces/guide/5b75b7c04cf6faf2.m4a
 voices/pieces/guide/5b794de4f61c9cd8.m4a
 voices/pieces/guide/5b8997097a0059cc.m4a
+voices/pieces/guide/5b8c84abf2c285ae.m4a
 voices/pieces/guide/5b91a40cf9185f4b.m4a
 voices/pieces/guide/5b96a4e817491122.m4a
 voices/pieces/guide/5babc40967b3293b.m4a
@@ -6437,6 +6713,7 @@ voices/pieces/guide/5bc6e646fe3ba373.m4a
 voices/pieces/guide/5bd0f74fdc2d19ba.m4a
 voices/pieces/guide/5bd2d1eb289079c0.m4a
 voices/pieces/guide/5bf720fc9f44e7d5.m4a
+voices/pieces/guide/5bfb5d3922eecf73.m4a
 voices/pieces/guide/5c151c379007f7cb.m4a
 voices/pieces/guide/5c2b1c7d90f785ac.m4a
 voices/pieces/guide/5c2cbcdab232a59e.m4a
@@ -6444,10 +6721,12 @@ voices/pieces/guide/5c44e291280ee2c9.m4a
 voices/pieces/guide/5c62466de8e34c9d.m4a
 voices/pieces/guide/5c625ae488f64221.m4a
 voices/pieces/guide/5c6e0641dd79a1dc.m4a
+voices/pieces/guide/5c7b743792a84c58.m4a
 voices/pieces/guide/5c7ecaceb320c84f.m4a
 voices/pieces/guide/5c812ca90bfaa25f.m4a
 voices/pieces/guide/5c8469d8efd4b37f.m4a
 voices/pieces/guide/5c84f55b122fc32a.m4a
+voices/pieces/guide/5c976c6700aae442.m4a
 voices/pieces/guide/5c99c13f6cfffd28.m4a
 voices/pieces/guide/5c9b307551e598b7.m4a
 voices/pieces/guide/5c9c4256f691297f.m4a
@@ -6466,6 +6745,7 @@ voices/pieces/guide/5cfb1e5253dc7828.m4a
 voices/pieces/guide/5d094f3940793191.m4a
 voices/pieces/guide/5d164851640e7c75.m4a
 voices/pieces/guide/5d407143a03d0135.m4a
+voices/pieces/guide/5d49ad2ee7370aa2.m4a
 voices/pieces/guide/5d4fc53acaa0b99e.m4a
 voices/pieces/guide/5d53d718a638d0bf.m4a
 voices/pieces/guide/5d54bcfef85c4126.m4a
@@ -6509,6 +6789,7 @@ voices/pieces/guide/5e9af57263bba80e.m4a
 voices/pieces/guide/5ea160718f3d53f0.m4a
 voices/pieces/guide/5ebd1bf601207670.m4a
 voices/pieces/guide/5ee45f3236956a6f.m4a
+voices/pieces/guide/5ee6711d15be5ab1.m4a
 voices/pieces/guide/5eeaa25b5b9d09b3.m4a
 voices/pieces/guide/5ef35039b09ae214.m4a
 voices/pieces/guide/5ef7f18c04224a13.m4a
@@ -6580,6 +6861,7 @@ voices/pieces/guide/61a6b92d6b604e49.m4a
 voices/pieces/guide/61aa363a9b0fc425.m4a
 voices/pieces/guide/61b93e3c95cc8360.m4a
 voices/pieces/guide/61b9947b3b78a836.m4a
+voices/pieces/guide/61bad966d77370e9.m4a
 voices/pieces/guide/61c1b62b5aa01271.m4a
 voices/pieces/guide/61c37bd8ae508495.m4a
 voices/pieces/guide/61c4f0e11ea1adf7.m4a
@@ -6608,6 +6890,7 @@ voices/pieces/guide/62a6f365ecfe2bb1.m4a
 voices/pieces/guide/62a9137767695acc.m4a
 voices/pieces/guide/62c29fadde64d3a0.m4a
 voices/pieces/guide/62c407e80c776955.m4a
+voices/pieces/guide/62c65ce002a54cd8.m4a
 voices/pieces/guide/62c8379469a215f9.m4a
 voices/pieces/guide/62d10bf1b851536c.m4a
 voices/pieces/guide/62dae8ed41851564.m4a
@@ -6616,6 +6899,7 @@ voices/pieces/guide/62fbc00defa2bcbb.m4a
 voices/pieces/guide/62ffb147b059c2b6.m4a
 voices/pieces/guide/630334b422eab1d3.m4a
 voices/pieces/guide/63099c2e2c958709.m4a
+voices/pieces/guide/6310298fe558a64c.m4a
 voices/pieces/guide/63176c305343dbce.m4a
 voices/pieces/guide/6320d953d90abaa5.m4a
 voices/pieces/guide/632f5f343a225423.m4a
@@ -6638,6 +6922,7 @@ voices/pieces/guide/638801d4926a61a3.m4a
 voices/pieces/guide/638b34a7efd90550.m4a
 voices/pieces/guide/63969e2fccc9cec5.m4a
 voices/pieces/guide/63a0ba269b040eb0.m4a
+voices/pieces/guide/63a1d869e5f26b7d.m4a
 voices/pieces/guide/63b2055dc163ed8d.m4a
 voices/pieces/guide/63b34602c60325c1.m4a
 voices/pieces/guide/63c14637cd8720a1.m4a
@@ -6646,6 +6931,7 @@ voices/pieces/guide/63c4556ff20df27a.m4a
 voices/pieces/guide/63ccdd8ce508afe7.m4a
 voices/pieces/guide/63cf56c29eaf66bf.m4a
 voices/pieces/guide/63ddcf5ec5f42f84.m4a
+voices/pieces/guide/63e04eba8ff875cc.m4a
 voices/pieces/guide/63e259d4172ffb8b.m4a
 voices/pieces/guide/63f49300a6cd30b9.m4a
 voices/pieces/guide/640bce447cbdd5ed.m4a
@@ -6657,10 +6943,12 @@ voices/pieces/guide/6469cd24839362f0.m4a
 voices/pieces/guide/647495efb4315fe9.m4a
 voices/pieces/guide/647c25bbc0e3d373.m4a
 voices/pieces/guide/647c347946b948c9.m4a
+voices/pieces/guide/6490a5b6f90f2d26.m4a
 voices/pieces/guide/64a2de06b1621484.m4a
 voices/pieces/guide/64a6618dff21b338.m4a
 voices/pieces/guide/64a769d827490d8f.m4a
 voices/pieces/guide/64bd48cc0e66c369.m4a
+voices/pieces/guide/64c9decf44665198.m4a
 voices/pieces/guide/64d88ab961a0f118.m4a
 voices/pieces/guide/64d9d0437e29129d.m4a
 voices/pieces/guide/64dc061e5de1059d.m4a
@@ -6693,10 +6981,12 @@ voices/pieces/guide/65ae622599927370.m4a
 voices/pieces/guide/65c4e55144659e9a.m4a
 voices/pieces/guide/65ce758467036857.m4a
 voices/pieces/guide/65de1f3c94a21d1e.m4a
+voices/pieces/guide/65e3769283bcde39.m4a
 voices/pieces/guide/65e4f2db11133bee.m4a
 voices/pieces/guide/65ef37246f69aec8.m4a
 voices/pieces/guide/65f306398acfab92.m4a
 voices/pieces/guide/65f7173dadadd738.m4a
+voices/pieces/guide/65f79b9faef7746a.m4a
 voices/pieces/guide/65fd7100fedb548d.m4a
 voices/pieces/guide/661cd4b82c665a78.m4a
 voices/pieces/guide/661e8de504d99777.m4a
@@ -6713,6 +7003,7 @@ voices/pieces/guide/66700989e92d6076.m4a
 voices/pieces/guide/6679688bea833445.m4a
 voices/pieces/guide/667f3344350f2e9b.m4a
 voices/pieces/guide/66997ed824fa4b3a.m4a
+voices/pieces/guide/669a0138dc1c5a98.m4a
 voices/pieces/guide/66b079a70f7c380e.m4a
 voices/pieces/guide/66c136e043002f2c.m4a
 voices/pieces/guide/66d1b5083190d6a0.m4a
@@ -6734,12 +7025,16 @@ voices/pieces/guide/679fe0e64a0e9307.m4a
 voices/pieces/guide/67a82fa5f1213cd1.m4a
 voices/pieces/guide/67ab0095393b31d5.m4a
 voices/pieces/guide/67b0ce252431494f.m4a
+voices/pieces/guide/67b19253459319c6.m4a
+voices/pieces/guide/67b285d2240e387e.m4a
 voices/pieces/guide/67b39c729b9dcd50.m4a
 voices/pieces/guide/67b6e48c63d2f109.m4a
 voices/pieces/guide/67c51e357ad6cbb6.m4a
 voices/pieces/guide/67cd2931ed255882.m4a
 voices/pieces/guide/67de50cf55b3e4f2.m4a
 voices/pieces/guide/67e71d7e392044c9.m4a
+voices/pieces/guide/67f7872030138d24.m4a
+voices/pieces/guide/6805811331c2f352.m4a
 voices/pieces/guide/68097290c38d827d.m4a
 voices/pieces/guide/68144c91d96f7704.m4a
 voices/pieces/guide/68162b26006df00c.m4a
@@ -6754,6 +7049,7 @@ voices/pieces/guide/6852dd4242874c17.m4a
 voices/pieces/guide/6854e5b5f27c51fa.m4a
 voices/pieces/guide/6856001fb5c67261.m4a
 voices/pieces/guide/6859529fd98a38b3.m4a
+voices/pieces/guide/6860113a266944b8.m4a
 voices/pieces/guide/686a3f10c04cf3c2.m4a
 voices/pieces/guide/687467f6ca1d4528.m4a
 voices/pieces/guide/6877095cda092d65.m4a
@@ -6765,6 +7061,7 @@ voices/pieces/guide/688cf449e1d13eae.m4a
 voices/pieces/guide/6890594f49e3efff.m4a
 voices/pieces/guide/689363780fdab017.m4a
 voices/pieces/guide/68a1c9ce50571e01.m4a
+voices/pieces/guide/68aa4b3d495bf5b6.m4a
 voices/pieces/guide/68b6853322192cb3.m4a
 voices/pieces/guide/68b6faa79e05211c.m4a
 voices/pieces/guide/68c578fe10d2df98.m4a
@@ -6842,6 +7139,7 @@ voices/pieces/guide/6b4a783ca978044a.m4a
 voices/pieces/guide/6b51cd531a926fa9.m4a
 voices/pieces/guide/6b5dca29e9b8c7f4.m4a
 voices/pieces/guide/6b68d5b484681a15.m4a
+voices/pieces/guide/6b7d8af731e0969d.m4a
 voices/pieces/guide/6b81a65f357eb1a2.m4a
 voices/pieces/guide/6b820960c5b9b49a.m4a
 voices/pieces/guide/6b88de20c336dd0e.m4a
@@ -6885,6 +7183,7 @@ voices/pieces/guide/6cd8733c2667ebb1.m4a
 voices/pieces/guide/6ceaa75a53d76d4c.m4a
 voices/pieces/guide/6cfe146340f75e4f.m4a
 voices/pieces/guide/6cfe3665dc384ff6.m4a
+voices/pieces/guide/6cff9509d0f1c553.m4a
 voices/pieces/guide/6d2106c01e187259.m4a
 voices/pieces/guide/6d2a54574c37f318.m4a
 voices/pieces/guide/6d32c6cb48fb1331.m4a
@@ -6909,6 +7208,7 @@ voices/pieces/guide/6dea26376b48598a.m4a
 voices/pieces/guide/6dee54d1672a8e7e.m4a
 voices/pieces/guide/6df0d4893862594c.m4a
 voices/pieces/guide/6df853b205c17c04.m4a
+voices/pieces/guide/6e06e814f00be801.m4a
 voices/pieces/guide/6e0f96c821ac41cd.m4a
 voices/pieces/guide/6e2617d14f434541.m4a
 voices/pieces/guide/6e2ad5de83172bf8.m4a
@@ -6956,6 +7256,7 @@ voices/pieces/guide/6fee7d9b7007201f.m4a
 voices/pieces/guide/6ff100675654fe4e.m4a
 voices/pieces/guide/6fffebf2b69be66b.m4a
 voices/pieces/guide/7005aafb4ac2d8c6.m4a
+voices/pieces/guide/7005c30c55a37e29.m4a
 voices/pieces/guide/7006b9399b34bf46.m4a
 voices/pieces/guide/700f4c4b0de003e8.m4a
 voices/pieces/guide/70288575730a6ab7.m4a
@@ -6994,14 +7295,17 @@ voices/pieces/guide/7192f4becac41599.m4a
 voices/pieces/guide/719313f0beea3bda.m4a
 voices/pieces/guide/719efde32e839333.m4a
 voices/pieces/guide/71ac613e6e811f93.m4a
+voices/pieces/guide/71b3f3cb65719669.m4a
 voices/pieces/guide/71c1a4f986d71842.m4a
 voices/pieces/guide/71c711d90170c34e.m4a
 voices/pieces/guide/71e24f9518b38763.m4a
 voices/pieces/guide/71e2ed48c3cbdb12.m4a
+voices/pieces/guide/71e7a01264c89121.m4a
 voices/pieces/guide/71ebb3f8dd658fc7.m4a
 voices/pieces/guide/71f2ad7db5c38a76.m4a
 voices/pieces/guide/71f48eef403aa70b.m4a
 voices/pieces/guide/71f70582fbd1aa2e.m4a
+voices/pieces/guide/7209ef355751287d.m4a
 voices/pieces/guide/721aa69274a7e9fc.m4a
 voices/pieces/guide/722de07a0f1d0508.m4a
 voices/pieces/guide/7230c1e106777281.m4a
@@ -7058,6 +7362,7 @@ voices/pieces/guide/7416a831dbb9c781.m4a
 voices/pieces/guide/741a72f93ee38631.m4a
 voices/pieces/guide/741b2d1e4a4956b6.m4a
 voices/pieces/guide/74240d091b0e3bee.m4a
+voices/pieces/guide/742c8b6b8bdda5f6.m4a
 voices/pieces/guide/742d47bbcf7cd95f.m4a
 voices/pieces/guide/74331181f1017053.m4a
 voices/pieces/guide/743aabbc0398a74a.m4a
@@ -7069,11 +7374,13 @@ voices/pieces/guide/74969c02a1d6cc19.m4a
 voices/pieces/guide/749feeb932b9d1c7.m4a
 voices/pieces/guide/74d06f087c65145c.m4a
 voices/pieces/guide/74e9cd0baa7d626c.m4a
+voices/pieces/guide/74ebbccbdb753777.m4a
 voices/pieces/guide/74f3baf0d6c97bf1.m4a
 voices/pieces/guide/74f4f00d9c550fa9.m4a
 voices/pieces/guide/74fa90af5cadc762.m4a
 voices/pieces/guide/74ffa50dbbd72fd4.m4a
 voices/pieces/guide/7513cf8b91a34350.m4a
+voices/pieces/guide/75150cb1a0601087.m4a
 voices/pieces/guide/751f81b58edfb892.m4a
 voices/pieces/guide/751fe346f41ce846.m4a
 voices/pieces/guide/7524800821aab315.m4a
@@ -7125,7 +7432,9 @@ voices/pieces/guide/76acc83737cd3d2a.m4a
 voices/pieces/guide/76bfb673da71043e.m4a
 voices/pieces/guide/76ca41043de92ae8.m4a
 voices/pieces/guide/76de554d88962be4.m4a
+voices/pieces/guide/76df25d11100db82.m4a
 voices/pieces/guide/76dfdfc8a651af93.m4a
+voices/pieces/guide/76e2c97ec56159a3.m4a
 voices/pieces/guide/76ed4110ec208ace.m4a
 voices/pieces/guide/76f643da83ea3fc2.m4a
 voices/pieces/guide/77006f5151e6e7bf.m4a
@@ -7216,6 +7525,7 @@ voices/pieces/guide/79c664a4e3393541.m4a
 voices/pieces/guide/79ca953894f07c65.m4a
 voices/pieces/guide/79dab07ea2f2a0c9.m4a
 voices/pieces/guide/79ec6bac49aa5dd6.m4a
+voices/pieces/guide/79ec8b95feefeffe.m4a
 voices/pieces/guide/79f5c93ee84aac44.m4a
 voices/pieces/guide/79f8a9243b9baeb4.m4a
 voices/pieces/guide/79fee3869281c54f.m4a
@@ -7227,6 +7537,7 @@ voices/pieces/guide/7a34e74a6ef9996c.m4a
 voices/pieces/guide/7a4109212864a492.m4a
 voices/pieces/guide/7a4216b16f6c724d.m4a
 voices/pieces/guide/7a466e7c2d0d12f0.m4a
+voices/pieces/guide/7a559c613f410d1e.m4a
 voices/pieces/guide/7a57773cf206d8cb.m4a
 voices/pieces/guide/7a5cdae2e36cba89.m4a
 voices/pieces/guide/7a697efe56b5318b.m4a
@@ -7265,6 +7576,7 @@ voices/pieces/guide/7b9664369e62bff3.m4a
 voices/pieces/guide/7b9daec21c9ce0f4.m4a
 voices/pieces/guide/7ba01b2682004d4f.m4a
 voices/pieces/guide/7ba38c044b757e28.m4a
+voices/pieces/guide/7ba41ef45dddba92.m4a
 voices/pieces/guide/7ba4be46c66aaf0d.m4a
 voices/pieces/guide/7ba9f22078dd90f2.m4a
 voices/pieces/guide/7bae95993e3786a0.m4a
@@ -7279,8 +7591,10 @@ voices/pieces/guide/7c174ad161c3c887.m4a
 voices/pieces/guide/7c189c5b281a677b.m4a
 voices/pieces/guide/7c1ed355949092d3.m4a
 voices/pieces/guide/7c49247651cae2f2.m4a
+voices/pieces/guide/7c4a79d782d86767.m4a
 voices/pieces/guide/7c5ec0ee90362bf1.m4a
 voices/pieces/guide/7c679161a2da3d74.m4a
+voices/pieces/guide/7c75a36f24db9475.m4a
 voices/pieces/guide/7c8fb6bcb5a46641.m4a
 voices/pieces/guide/7c9bc5c0fa2c90aa.m4a
 voices/pieces/guide/7c9e1f0bb1d37900.m4a
@@ -7297,6 +7611,7 @@ voices/pieces/guide/7d06d68f2304c1f4.m4a
 voices/pieces/guide/7d1a77cd1234fb2a.m4a
 voices/pieces/guide/7d1c14669ffebf5e.m4a
 voices/pieces/guide/7d2a21ab06106e66.m4a
+voices/pieces/guide/7d39b7907457f3ce.m4a
 voices/pieces/guide/7d73504d435f5cd8.m4a
 voices/pieces/guide/7d897bae9e35b37d.m4a
 voices/pieces/guide/7d942eb1c77b0b2e.m4a
@@ -7325,7 +7640,10 @@ voices/pieces/guide/7e4b1be4428f20df.m4a
 voices/pieces/guide/7e69a507d523cd8a.m4a
 voices/pieces/guide/7e70fdce37d2fbc4.m4a
 voices/pieces/guide/7e73467d7f2cd290.m4a
+voices/pieces/guide/7e73bfd5327afe0c.m4a
 voices/pieces/guide/7e7b4a045f7e4a7d.m4a
+voices/pieces/guide/7e83b77b3d58abb6.m4a
+voices/pieces/guide/7e89608794fb641f.m4a
 voices/pieces/guide/7e8aa76ca7a63c73.m4a
 voices/pieces/guide/7e8f3692bc6b5644.m4a
 voices/pieces/guide/7e90d73dc9f845eb.m4a
@@ -7356,21 +7674,28 @@ voices/pieces/guide/7f71d2eaa7b168df.m4a
 voices/pieces/guide/7f759ad07ddaa33c.m4a
 voices/pieces/guide/7f76bfaa51a2e6ec.m4a
 voices/pieces/guide/7f798016aaf3b4b7.m4a
+voices/pieces/guide/7f7c4c9013dcd6c8.m4a
 voices/pieces/guide/7f81c6476a7b8437.m4a
 voices/pieces/guide/7f92543b0586ca29.m4a
 voices/pieces/guide/7f9c279016f89fd0.m4a
 voices/pieces/guide/7fa67547dc1013fe.m4a
 voices/pieces/guide/7fb449fc85cf05d6.m4a
 voices/pieces/guide/7fba67bdd4aed4f5.m4a
+voices/pieces/guide/7fd8a54eaa657e9a.m4a
+voices/pieces/guide/7fde4f6f90df621a.m4a
 voices/pieces/guide/7ffc64d67c0bcf24.m4a
 voices/pieces/guide/8015afd0e414aef6.m4a
+voices/pieces/guide/8019199ecd64e816.m4a
+voices/pieces/guide/802b36f672b38041.m4a
 voices/pieces/guide/803eee2f492b9f40.m4a
 voices/pieces/guide/8048e96b221b93fd.m4a
+voices/pieces/guide/805b62cb07deac37.m4a
 voices/pieces/guide/805bb9bb243290f2.m4a
 voices/pieces/guide/806b7e127a8650bf.m4a
 voices/pieces/guide/806c86c4e6109eb3.m4a
 voices/pieces/guide/806f65aaf402c150.m4a
 voices/pieces/guide/807a57aced60bd13.m4a
+voices/pieces/guide/8085fff0183565c8.m4a
 voices/pieces/guide/8092ae53f3c72adb.m4a
 voices/pieces/guide/80a2ad958568816b.m4a
 voices/pieces/guide/80b60179afac5137.m4a
@@ -7384,6 +7709,7 @@ voices/pieces/guide/80d323c6aa5bcd5a.m4a
 voices/pieces/guide/80e2a2dc734701a0.m4a
 voices/pieces/guide/80e74c1edc5a09ed.m4a
 voices/pieces/guide/80ed18aecaa845e2.m4a
+voices/pieces/guide/80f2a4e054aa0763.m4a
 voices/pieces/guide/811277a03a89cce8.m4a
 voices/pieces/guide/8116037109d58aab.m4a
 voices/pieces/guide/811af5f83c416633.m4a
@@ -7402,6 +7728,7 @@ voices/pieces/guide/819307ddb4b2952e.m4a
 voices/pieces/guide/8193dbc7e97234ad.m4a
 voices/pieces/guide/819c71c097d3188c.m4a
 voices/pieces/guide/81b5ee144e32e493.m4a
+voices/pieces/guide/81d843705c1b161e.m4a
 voices/pieces/guide/81dbfb9887349071.m4a
 voices/pieces/guide/81dc42a0b3fceed9.m4a
 voices/pieces/guide/81df7b8d97a74045.m4a
@@ -7449,6 +7776,7 @@ voices/pieces/guide/837c5721037305da.m4a
 voices/pieces/guide/837d568a7287c5c0.m4a
 voices/pieces/guide/838ac687e4e44e96.m4a
 voices/pieces/guide/8395d1b91591d628.m4a
+voices/pieces/guide/83d3002f22732f32.m4a
 voices/pieces/guide/83da2feb252fc47e.m4a
 voices/pieces/guide/83e109d89d3000db.m4a
 voices/pieces/guide/83e31143a2e7bc62.m4a
@@ -7479,6 +7807,8 @@ voices/pieces/guide/84b02897fb10f232.m4a
 voices/pieces/guide/84b9f625b1f72b6f.m4a
 voices/pieces/guide/84d0e283f505725b.m4a
 voices/pieces/guide/84e73a7fca48b4f2.m4a
+voices/pieces/guide/84e878be9fbce7ad.m4a
+voices/pieces/guide/84ec6efbcbed05fc.m4a
 voices/pieces/guide/84f65fd0d2bfea0f.m4a
 voices/pieces/guide/8500cacd5a020258.m4a
 voices/pieces/guide/8516b160851a23ae.m4a
@@ -7494,6 +7824,7 @@ voices/pieces/guide/859126ef749f88d9.m4a
 voices/pieces/guide/8595031567fabf00.m4a
 voices/pieces/guide/859fc27334b67ab8.m4a
 voices/pieces/guide/85af08cb6d3cb2b2.m4a
+voices/pieces/guide/85b49ceb898407e3.m4a
 voices/pieces/guide/85bb6c0f6e6adb84.m4a
 voices/pieces/guide/85bcebe34a774814.m4a
 voices/pieces/guide/85c3558d037172d3.m4a
@@ -7519,12 +7850,15 @@ voices/pieces/guide/8682f2d33b9c1fcf.m4a
 voices/pieces/guide/86914e41c2a925a8.m4a
 voices/pieces/guide/8697be4c167b4546.m4a
 voices/pieces/guide/869c27559149e5ae.m4a
+voices/pieces/guide/86a2e3c3cf585844.m4a
 voices/pieces/guide/86a699e20a8fbfb4.m4a
 voices/pieces/guide/86b43883afffb297.m4a
+voices/pieces/guide/86bbdcac5b554ef8.m4a
 voices/pieces/guide/86c040723953a590.m4a
 voices/pieces/guide/86c69b014b8b30b6.m4a
 voices/pieces/guide/86c6db323989c491.m4a
 voices/pieces/guide/86d7a7337eb2cb27.m4a
+voices/pieces/guide/86d7c7b2aa2dfc5a.m4a
 voices/pieces/guide/86d8b25456480b4a.m4a
 voices/pieces/guide/86e269c087c24d53.m4a
 voices/pieces/guide/86e4c0f631b8b30c.m4a
@@ -7534,8 +7868,10 @@ voices/pieces/guide/86f5f456b392640f.m4a
 voices/pieces/guide/86f9ccd5169fcef8.m4a
 voices/pieces/guide/8709b5bfa6a3a7b4.m4a
 voices/pieces/guide/8713e1e67ba068c2.m4a
+voices/pieces/guide/873b14fd11d937d3.m4a
 voices/pieces/guide/873c89feeb7abcc5.m4a
 voices/pieces/guide/873ebbc5d6a81d0a.m4a
+voices/pieces/guide/874422755ce134a1.m4a
 voices/pieces/guide/874543732312f96a.m4a
 voices/pieces/guide/874f8b0b27e06a0a.m4a
 voices/pieces/guide/8753859292ae2997.m4a
@@ -7545,6 +7881,7 @@ voices/pieces/guide/875acfedca120a5b.m4a
 voices/pieces/guide/87628501e833169b.m4a
 voices/pieces/guide/876597cab1b6f258.m4a
 voices/pieces/guide/876721af60059cbc.m4a
+voices/pieces/guide/87679930271689d6.m4a
 voices/pieces/guide/877fa30fd077b1cb.m4a
 voices/pieces/guide/8785095f3fa5902f.m4a
 voices/pieces/guide/8786be79c6013f0b.m4a
@@ -7556,6 +7893,7 @@ voices/pieces/guide/87b131ce698b09ba.m4a
 voices/pieces/guide/87b62a7d78e3634a.m4a
 voices/pieces/guide/87bc89f2f3d836f4.m4a
 voices/pieces/guide/87beb1dd8f0c8d1c.m4a
+voices/pieces/guide/87becadfd3652bb3.m4a
 voices/pieces/guide/87c6b4b2dd060866.m4a
 voices/pieces/guide/87e12bb9f7099a45.m4a
 voices/pieces/guide/87e4df8fe41cebf2.m4a
@@ -7565,10 +7903,12 @@ voices/pieces/guide/88271ed22c8620b6.m4a
 voices/pieces/guide/8827d131f7fc75d0.m4a
 voices/pieces/guide/882f312b329e0af9.m4a
 voices/pieces/guide/88397389e247b3de.m4a
+voices/pieces/guide/8842ca3382947914.m4a
 voices/pieces/guide/8844a75d8cfb55fe.m4a
 voices/pieces/guide/884cfc4a0740a9ab.m4a
 voices/pieces/guide/8864cdc95a163697.m4a
 voices/pieces/guide/88666eda10020f40.m4a
+voices/pieces/guide/8866aa01e2efa9f7.m4a
 voices/pieces/guide/887c1fb5e0f6f954.m4a
 voices/pieces/guide/8885f1062fb324ba.m4a
 voices/pieces/guide/889600ca2adf64ce.m4a
@@ -7592,11 +7932,14 @@ voices/pieces/guide/892a807d0fb756f7.m4a
 voices/pieces/guide/892d7ba405695beb.m4a
 voices/pieces/guide/89312e0a173e5305.m4a
 voices/pieces/guide/894132dc37108b32.m4a
+voices/pieces/guide/8946ab89a071237f.m4a
+voices/pieces/guide/895cddfe3a4039fe.m4a
 voices/pieces/guide/897fa926d8736f64.m4a
 voices/pieces/guide/89804052277c0482.m4a
 voices/pieces/guide/898263fe8c595d30.m4a
 voices/pieces/guide/898b44abdcf410f3.m4a
 voices/pieces/guide/898d575baa60a4be.m4a
+voices/pieces/guide/899848ea0c7ae082.m4a
 voices/pieces/guide/89a819b4ce750417.m4a
 voices/pieces/guide/89ae24428be65434.m4a
 voices/pieces/guide/89b5bbaae45f52e2.m4a
@@ -7607,6 +7950,7 @@ voices/pieces/guide/89c980f01e3691bf.m4a
 voices/pieces/guide/89ca03aa41c1f25b.m4a
 voices/pieces/guide/89cc43e77515eb6f.m4a
 voices/pieces/guide/89ccefd6c1bb61d9.m4a
+voices/pieces/guide/89ce76c1057b7ffd.m4a
 voices/pieces/guide/89da4234ed505c86.m4a
 voices/pieces/guide/89eb5eb26a03340b.m4a
 voices/pieces/guide/89ef9255e86ef0de.m4a
@@ -7649,6 +7993,7 @@ voices/pieces/guide/8ba291b20359c8d7.m4a
 voices/pieces/guide/8ba4bc424c27c873.m4a
 voices/pieces/guide/8ba9b0d0c24e60ee.m4a
 voices/pieces/guide/8bb66b3ced95e017.m4a
+voices/pieces/guide/8bbb3e2ec92ec933.m4a
 voices/pieces/guide/8bbecba0defe8573.m4a
 voices/pieces/guide/8bd81fb1533e0545.m4a
 voices/pieces/guide/8be5fc8383fc6bfa.m4a
@@ -7689,6 +8034,7 @@ voices/pieces/guide/8d2db39efff3ec75.m4a
 voices/pieces/guide/8d3205d09c21da58.m4a
 voices/pieces/guide/8d3b6ee8e4673a41.m4a
 voices/pieces/guide/8d4b45349a589ddc.m4a
+voices/pieces/guide/8d56257655959d39.m4a
 voices/pieces/guide/8d5da25c1fb79ebc.m4a
 voices/pieces/guide/8d79458029f14155.m4a
 voices/pieces/guide/8d892df18e6e560d.m4a
@@ -7700,6 +8046,7 @@ voices/pieces/guide/8dc544e81b43abc7.m4a
 voices/pieces/guide/8ddd93cc21f629ca.m4a
 voices/pieces/guide/8de54b0b35f5977f.m4a
 voices/pieces/guide/8de6db2fecf874ed.m4a
+voices/pieces/guide/8dee057a89bb288c.m4a
 voices/pieces/guide/8e03a5640a7b42d3.m4a
 voices/pieces/guide/8e29881d0a40e168.m4a
 voices/pieces/guide/8e2d4037c598150e.m4a
@@ -7739,6 +8086,7 @@ voices/pieces/guide/8f2b6bd7e7b7646a.m4a
 voices/pieces/guide/8f4479506ac37db5.m4a
 voices/pieces/guide/8f478bedd62f0e19.m4a
 voices/pieces/guide/8f4aac38cc8a8421.m4a
+voices/pieces/guide/8f6943a83267241c.m4a
 voices/pieces/guide/8f758ae26fd276bd.m4a
 voices/pieces/guide/8f88892b2d7d6ccf.m4a
 voices/pieces/guide/8f93078c292d1bc5.m4a
@@ -7765,6 +8113,7 @@ voices/pieces/guide/9067c52cc5611c26.m4a
 voices/pieces/guide/906ff5e444eaadcc.m4a
 voices/pieces/guide/909a1706c1e9509b.m4a
 voices/pieces/guide/90aa817942b96a3a.m4a
+voices/pieces/guide/90b448601c19349f.m4a
 voices/pieces/guide/90ba52b10e2c47a1.m4a
 voices/pieces/guide/90bfc179d14c6732.m4a
 voices/pieces/guide/90df8c4feef4d33a.m4a
@@ -7793,12 +8142,15 @@ voices/pieces/guide/919c4aa10c823365.m4a
 voices/pieces/guide/91a44a72a2bbc764.m4a
 voices/pieces/guide/91a9ea5b431cef3a.m4a
 voices/pieces/guide/91bd4e96188a897f.m4a
+voices/pieces/guide/91c899e75e9fbac9.m4a
 voices/pieces/guide/91c8b686bcf59510.m4a
 voices/pieces/guide/91ca6430ce050561.m4a
+voices/pieces/guide/91cb1163f03025cd.m4a
 voices/pieces/guide/91d7d444fbf14e3b.m4a
 voices/pieces/guide/91eecac44909fd44.m4a
 voices/pieces/guide/91f4e4adda071b45.m4a
 voices/pieces/guide/920304f488b62f1c.m4a
+voices/pieces/guide/9211e5517217e847.m4a
 voices/pieces/guide/9221f2ae4f6fdf74.m4a
 voices/pieces/guide/9240992530981e51.m4a
 voices/pieces/guide/9256132962831d88.m4a
@@ -7811,6 +8163,7 @@ voices/pieces/guide/9299a0a7f0e3b94a.m4a
 voices/pieces/guide/92a4cdfe2ba1cc81.m4a
 voices/pieces/guide/92a955148e49ea46.m4a
 voices/pieces/guide/92aa51097db57b2c.m4a
+voices/pieces/guide/92be8bec265142fa.m4a
 voices/pieces/guide/92c2078789c55efc.m4a
 voices/pieces/guide/92c664ca18d9fce5.m4a
 voices/pieces/guide/92cb0caf6987b279.m4a
@@ -7825,8 +8178,12 @@ voices/pieces/guide/934ea6fdb8aad07a.m4a
 voices/pieces/guide/935e4c237fedf0b4.m4a
 voices/pieces/guide/936d265b892db10c.m4a
 voices/pieces/guide/937bf073e0161664.m4a
+voices/pieces/guide/9388ade97a72122a.m4a
+voices/pieces/guide/938d427e74b96956.m4a
 voices/pieces/guide/93a81f73571de6ea.m4a
 voices/pieces/guide/93a8d096bdd4fcfa.m4a
+voices/pieces/guide/93aca3d237b049e2.m4a
+voices/pieces/guide/93b43e7976a18143.m4a
 voices/pieces/guide/93c120fc4281a225.m4a
 voices/pieces/guide/93c2754cb53ca260.m4a
 voices/pieces/guide/93cf52e194165b0c.m4a
@@ -7871,6 +8228,7 @@ voices/pieces/guide/952ce2c122eced67.m4a
 voices/pieces/guide/95535c31a89cc12f.m4a
 voices/pieces/guide/955b70a4e255829c.m4a
 voices/pieces/guide/955f0a75d738d2df.m4a
+voices/pieces/guide/956c84598d3adc4e.m4a
 voices/pieces/guide/957554f6cef34b37.m4a
 voices/pieces/guide/9576b73fae64f4ce.m4a
 voices/pieces/guide/957d03fa3f7d4fc1.m4a
@@ -7899,9 +8257,12 @@ voices/pieces/guide/9607b1e1e96800b7.m4a
 voices/pieces/guide/96098e5d894c1214.m4a
 voices/pieces/guide/9619a8cf66895643.m4a
 voices/pieces/guide/964d163aefb4f48c.m4a
+voices/pieces/guide/965000c08a1b0672.m4a
 voices/pieces/guide/965732997d7066e1.m4a
 voices/pieces/guide/965ceb40573b866b.m4a
 voices/pieces/guide/965e27786d2c8bbf.m4a
+voices/pieces/guide/9663f81541bc1389.m4a
+voices/pieces/guide/967f406d05443cb2.m4a
 voices/pieces/guide/9688866130cf677d.m4a
 voices/pieces/guide/96a1d1f6565ace44.m4a
 voices/pieces/guide/96badd382706f633.m4a
@@ -7920,6 +8281,7 @@ voices/pieces/guide/96f2434d9dafef12.m4a
 voices/pieces/guide/9701d6872e32b88d.m4a
 voices/pieces/guide/970287b79b3773d3.m4a
 voices/pieces/guide/9704ec3d14b50253.m4a
+voices/pieces/guide/97057ad5fe2043ac.m4a
 voices/pieces/guide/9719d00c9c043554.m4a
 voices/pieces/guide/9723b52478bf19d6.m4a
 voices/pieces/guide/97279170de0d1bcd.m4a
@@ -7937,6 +8299,7 @@ voices/pieces/guide/97914f4b61f901d8.m4a
 voices/pieces/guide/97927a734023146a.m4a
 voices/pieces/guide/979b957c1cb9666f.m4a
 voices/pieces/guide/97aa8f3b25fc2e28.m4a
+voices/pieces/guide/97c070d8895ac6dd.m4a
 voices/pieces/guide/97c55703354ff2a9.m4a
 voices/pieces/guide/97d1cca426c4b20a.m4a
 voices/pieces/guide/97e0fce3c567a898.m4a
@@ -7955,6 +8318,7 @@ voices/pieces/guide/984a2ac0edf784d4.m4a
 voices/pieces/guide/984a6c901dab4ccf.m4a
 voices/pieces/guide/984e2bdcccb61de3.m4a
 voices/pieces/guide/98535750a551b070.m4a
+voices/pieces/guide/985e409509acf8a2.m4a
 voices/pieces/guide/9868f309ba8d2601.m4a
 voices/pieces/guide/986c01077e3b17e8.m4a
 voices/pieces/guide/9876fe3486566e69.m4a
@@ -7985,16 +8349,19 @@ voices/pieces/guide/99cd9d6b7cbfe57d.m4a
 voices/pieces/guide/99dc24c9c535142a.m4a
 voices/pieces/guide/99de8190d941d310.m4a
 voices/pieces/guide/99ecfa825b850993.m4a
+voices/pieces/guide/99f4e5c0070f002b.m4a
 voices/pieces/guide/99f56fc7c8516c2c.m4a
 voices/pieces/guide/9a0a3e5e9d929a2f.m4a
 voices/pieces/guide/9a27c18a1c52849f.m4a
 voices/pieces/guide/9a3d70d5614892aa.m4a
+voices/pieces/guide/9a3fddd213cc26ef.m4a
 voices/pieces/guide/9a42e76a35d98bc9.m4a
 voices/pieces/guide/9a4cd77ce071fa94.m4a
 voices/pieces/guide/9a6d6996f9494df9.m4a
 voices/pieces/guide/9a72758e5003c8d0.m4a
 voices/pieces/guide/9a7adae3c9abc671.m4a
 voices/pieces/guide/9a7e186c5e1ddea0.m4a
+voices/pieces/guide/9a7e92203aee9a47.m4a
 voices/pieces/guide/9a8732a8741b71a4.m4a
 voices/pieces/guide/9aab1f1aec1a3343.m4a
 voices/pieces/guide/9abd87f0c4b41dbc.m4a
@@ -8047,9 +8414,11 @@ voices/pieces/guide/9c98c1e8069a729f.m4a
 voices/pieces/guide/9c9d57d709856a1c.m4a
 voices/pieces/guide/9ca7d55589901a70.m4a
 voices/pieces/guide/9ca92f60fbf50e14.m4a
+voices/pieces/guide/9caed5879d15d7e2.m4a
 voices/pieces/guide/9cd3432c4d414b0a.m4a
 voices/pieces/guide/9cdc51dc86a5785f.m4a
 voices/pieces/guide/9cdeb9f613dbe199.m4a
+voices/pieces/guide/9cdf5d52ef2673fb.m4a
 voices/pieces/guide/9ce3a223eba61822.m4a
 voices/pieces/guide/9d09bbfd590a8e97.m4a
 voices/pieces/guide/9d0df438cb9f9948.m4a
@@ -8067,7 +8436,9 @@ voices/pieces/guide/9d6fbcdfd999db53.m4a
 voices/pieces/guide/9d71c7171df35465.m4a
 voices/pieces/guide/9d73b90931f46422.m4a
 voices/pieces/guide/9d7cc5b1767ca6c2.m4a
+voices/pieces/guide/9d875c4f18c0c644.m4a
 voices/pieces/guide/9d879cb23aef5765.m4a
+voices/pieces/guide/9d8b52582954cd9c.m4a
 voices/pieces/guide/9d8c325b0984a76f.m4a
 voices/pieces/guide/9d8d2946911b9627.m4a
 voices/pieces/guide/9d908083a487d252.m4a
@@ -8104,7 +8475,10 @@ voices/pieces/guide/9efd78c19d26c19d.m4a
 voices/pieces/guide/9f0bb8c00cbcec48.m4a
 voices/pieces/guide/9f1c5a9fc6c923d8.m4a
 voices/pieces/guide/9f1f7e256242896a.m4a
+voices/pieces/guide/9f2ddc9663712bd2.m4a
 voices/pieces/guide/9f3fea3025895bdd.m4a
+voices/pieces/guide/9f4a9048a4c88ff5.m4a
+voices/pieces/guide/9f52b42e4f393518.m4a
 voices/pieces/guide/9f569727f89ae674.m4a
 voices/pieces/guide/9f6bd2683ee8cf43.m4a
 voices/pieces/guide/9f71cfb42ea062a7.m4a
@@ -8115,9 +8489,11 @@ voices/pieces/guide/9f928072cafef06b.m4a
 voices/pieces/guide/9fa61dfa390d86d8.m4a
 voices/pieces/guide/9faf1b129999da4d.m4a
 voices/pieces/guide/9fb83c633c0e6320.m4a
+voices/pieces/guide/9fbea368a2962c71.m4a
 voices/pieces/guide/9fc03c541308d6e8.m4a
 voices/pieces/guide/9fc25b78f861b888.m4a
 voices/pieces/guide/9fd75dca0e0e2e10.m4a
+voices/pieces/guide/9fea184c601e1c42.m4a
 voices/pieces/guide/9feec7a3ebd82c78.m4a
 voices/pieces/guide/9ff22d7db313a53c.m4a
 voices/pieces/guide/9ff5baf170b186bd.m4a
@@ -8145,6 +8521,7 @@ voices/pieces/guide/a12451eec2c2a6a7.m4a
 voices/pieces/guide/a12c6741a0b65d5f.m4a
 voices/pieces/guide/a13ffee3ca2f2850.m4a
 voices/pieces/guide/a141742ba46f746c.m4a
+voices/pieces/guide/a1494d2703f9441c.m4a
 voices/pieces/guide/a152ca9cca0c23ca.m4a
 voices/pieces/guide/a152eaccca7d92ec.m4a
 voices/pieces/guide/a156047296ea44e1.m4a
@@ -8155,6 +8532,7 @@ voices/pieces/guide/a16740410f449d10.m4a
 voices/pieces/guide/a16a663e818463ab.m4a
 voices/pieces/guide/a172c27e6246f0ed.m4a
 voices/pieces/guide/a17a514d5600d8d6.m4a
+voices/pieces/guide/a181282ba774f324.m4a
 voices/pieces/guide/a182aafd76f165ba.m4a
 voices/pieces/guide/a1920a9c132610eb.m4a
 voices/pieces/guide/a1937eec17a2b976.m4a
@@ -8210,6 +8588,7 @@ voices/pieces/guide/a3af0f22bee23087.m4a
 voices/pieces/guide/a3c1add84b3f23ae.m4a
 voices/pieces/guide/a3cf1b9e17f9d927.m4a
 voices/pieces/guide/a3dac0dffeac6151.m4a
+voices/pieces/guide/a3db8c14cf5b114d.m4a
 voices/pieces/guide/a3f137e73c9218e6.m4a
 voices/pieces/guide/a3f2cda5002f9079.m4a
 voices/pieces/guide/a3f568bbdd5cffad.m4a
@@ -8275,6 +8654,7 @@ voices/pieces/guide/a64deb9f72ad6c3d.m4a
 voices/pieces/guide/a64e838bd078859e.m4a
 voices/pieces/guide/a652caf7e7bd18cf.m4a
 voices/pieces/guide/a6549e7293a2cbd8.m4a
+voices/pieces/guide/a673157b9bb249d0.m4a
 voices/pieces/guide/a674b9a68558f8ec.m4a
 voices/pieces/guide/a678f311759c491f.m4a
 voices/pieces/guide/a68330d2e55c6e3b.m4a
@@ -8286,6 +8666,7 @@ voices/pieces/guide/a6aa557af5cfc31f.m4a
 voices/pieces/guide/a6aff932e722f546.m4a
 voices/pieces/guide/a6b6deba89a198b5.m4a
 voices/pieces/guide/a6b7b741b3bbe7d8.m4a
+voices/pieces/guide/a6b89b750dc5760e.m4a
 voices/pieces/guide/a6b8f4ca68343e53.m4a
 voices/pieces/guide/a6c23afa69340eb6.m4a
 voices/pieces/guide/a6c8dbf777ff69a6.m4a
@@ -8303,6 +8684,7 @@ voices/pieces/guide/a72b9dd8729847ac.m4a
 voices/pieces/guide/a7353833f09d09d9.m4a
 voices/pieces/guide/a73da05b18f53b4a.m4a
 voices/pieces/guide/a73ddba4f803696b.m4a
+voices/pieces/guide/a741c1264571928a.m4a
 voices/pieces/guide/a74b96e842d27e3e.m4a
 voices/pieces/guide/a7563ab17f14fd7c.m4a
 voices/pieces/guide/a75c6f6ce517516d.m4a
@@ -8318,6 +8700,7 @@ voices/pieces/guide/a7c65b806e94b435.m4a
 voices/pieces/guide/a7c8a936ea96146c.m4a
 voices/pieces/guide/a7fc19f8286734cf.m4a
 voices/pieces/guide/a80041699ae212c8.m4a
+voices/pieces/guide/a80ccbfdc7ef7d4c.m4a
 voices/pieces/guide/a80e8a1b79e5646c.m4a
 voices/pieces/guide/a813f3b0e3150bda.m4a
 voices/pieces/guide/a81dd535828c5483.m4a
@@ -8335,14 +8718,17 @@ voices/pieces/guide/a87833e7a00abaa7.m4a
 voices/pieces/guide/a879008f4ebf292f.m4a
 voices/pieces/guide/a879c471d296e6b3.m4a
 voices/pieces/guide/a87dfa10ea233b81.m4a
+voices/pieces/guide/a888577a42ca1273.m4a
 voices/pieces/guide/a89672e6573a54bf.m4a
 voices/pieces/guide/a8c2c2e04e9b0e31.m4a
 voices/pieces/guide/a8c714b93f5243be.m4a
 voices/pieces/guide/a8c91628318cfba8.m4a
+voices/pieces/guide/a8e699c2399cd790.m4a
 voices/pieces/guide/a8eeea1c3b5d2e9b.m4a
 voices/pieces/guide/a8f0c53000426fc3.m4a
 voices/pieces/guide/a8f38eec6f88130a.m4a
 voices/pieces/guide/a8fa3f8110d8eb69.m4a
+voices/pieces/guide/a9034d3055e24321.m4a
 voices/pieces/guide/a90c6a75e62cc54a.m4a
 voices/pieces/guide/a91709e6aa39e1cc.m4a
 voices/pieces/guide/a9215c63189a4d85.m4a
@@ -8403,6 +8789,7 @@ voices/pieces/guide/aafe69edbc6fe27a.m4a
 voices/pieces/guide/ab0ae4e6607d8151.m4a
 voices/pieces/guide/ab2426fbdbb9d864.m4a
 voices/pieces/guide/ab37f8d464aa0082.m4a
+voices/pieces/guide/ab380dbe0dce58c8.m4a
 voices/pieces/guide/ab43275dbdf91f4c.m4a
 voices/pieces/guide/ab4c071a6f9a3d06.m4a
 voices/pieces/guide/ab4fdc54a1589eff.m4a
@@ -8417,6 +8804,7 @@ voices/pieces/guide/abddbd6dd11e3a99.m4a
 voices/pieces/guide/abe48154e1fcd81c.m4a
 voices/pieces/guide/abe627a0df935112.m4a
 voices/pieces/guide/ac009b095e02f4c1.m4a
+voices/pieces/guide/ac11a1bf1cfc9718.m4a
 voices/pieces/guide/ac14fbf4d581b0b6.m4a
 voices/pieces/guide/ac2f9620e65e76a8.m4a
 voices/pieces/guide/ac3bc7a392fd9b81.m4a
@@ -8443,8 +8831,10 @@ voices/pieces/guide/ace5d2c08dbf2508.m4a
 voices/pieces/guide/ace9efcf0384e5cd.m4a
 voices/pieces/guide/acf7c0fbf2dbdba8.m4a
 voices/pieces/guide/acfbae893c8d06d3.m4a
+voices/pieces/guide/ad085e127ed198e9.m4a
 voices/pieces/guide/ad1919864fb663cc.m4a
 voices/pieces/guide/ad2447dbf35d0b4e.m4a
+voices/pieces/guide/ad2e84a28f8aec34.m4a
 voices/pieces/guide/ad3143f80307bcf5.m4a
 voices/pieces/guide/ad33b60c32239d99.m4a
 voices/pieces/guide/ad35d587edaaced1.m4a
@@ -8463,6 +8853,7 @@ voices/pieces/guide/ad8a001881319ad0.m4a
 voices/pieces/guide/ad991e609c99cbcb.m4a
 voices/pieces/guide/ad99c5f4ec901e99.m4a
 voices/pieces/guide/ad9d1f9ded557789.m4a
+voices/pieces/guide/ada19db3d5ac76ab.m4a
 voices/pieces/guide/ada7441440aa7df2.m4a
 voices/pieces/guide/adad807dd8374703.m4a
 voices/pieces/guide/adbcedd6a42bd21c.m4a
@@ -8487,6 +8878,7 @@ voices/pieces/guide/ae3b29557608d809.m4a
 voices/pieces/guide/ae3fb088b16d6955.m4a
 voices/pieces/guide/ae43470cc2bcd992.m4a
 voices/pieces/guide/ae615a4dfdb36672.m4a
+voices/pieces/guide/ae640e738fb9fc37.m4a
 voices/pieces/guide/ae64a38868234480.m4a
 voices/pieces/guide/ae76edf6253040e0.m4a
 voices/pieces/guide/ae7c984227ad195d.m4a
@@ -8498,6 +8890,7 @@ voices/pieces/guide/aeac91aae0176e87.m4a
 voices/pieces/guide/aeb21942ac144fb5.m4a
 voices/pieces/guide/aebc787c4ce2ca84.m4a
 voices/pieces/guide/aec73458b050e29a.m4a
+voices/pieces/guide/aec907ca14b8ce40.m4a
 voices/pieces/guide/aeda5ebebc2c73de.m4a
 voices/pieces/guide/aeddf34aa050a279.m4a
 voices/pieces/guide/aee53962ec927520.m4a
@@ -8507,6 +8900,7 @@ voices/pieces/guide/af0036f225481411.m4a
 voices/pieces/guide/af06ef7bde935d2b.m4a
 voices/pieces/guide/af15e390549cb9bc.m4a
 voices/pieces/guide/af18a69538ae5ad0.m4a
+voices/pieces/guide/af1cdd8a9aa46ca3.m4a
 voices/pieces/guide/af241794315760e1.m4a
 voices/pieces/guide/af2702b053037898.m4a
 voices/pieces/guide/af280453aa75cbf1.m4a
@@ -8519,11 +8913,13 @@ voices/pieces/guide/af72d0343812fc8e.m4a
 voices/pieces/guide/af7eb11b9894f0a2.m4a
 voices/pieces/guide/af93265adecc57ad.m4a
 voices/pieces/guide/afa4f84e78bc99d6.m4a
+voices/pieces/guide/afb1781b310a72ac.m4a
 voices/pieces/guide/afc029d3fa867314.m4a
 voices/pieces/guide/afc4e4d51449b2fd.m4a
 voices/pieces/guide/afd1633777ca6a67.m4a
 voices/pieces/guide/afde99b8fe48ea68.m4a
 voices/pieces/guide/afe8af11f06e331c.m4a
+voices/pieces/guide/afe902801a3f35de.m4a
 voices/pieces/guide/aff2e91699e6dc28.m4a
 voices/pieces/guide/aff7091a4ede3884.m4a
 voices/pieces/guide/affc37255e700385.m4a
@@ -8545,6 +8941,7 @@ voices/pieces/guide/b061b9351aee284c.m4a
 voices/pieces/guide/b065d169de3d0575.m4a
 voices/pieces/guide/b0792e3c77ccf75a.m4a
 voices/pieces/guide/b07d72f139f9e479.m4a
+voices/pieces/guide/b07f6c30d11369e1.m4a
 voices/pieces/guide/b0a18a914ed76dfb.m4a
 voices/pieces/guide/b0ad11a888a2c84b.m4a
 voices/pieces/guide/b0d4a197ef06d1f4.m4a
@@ -8556,6 +8953,7 @@ voices/pieces/guide/b1212302026e34b8.m4a
 voices/pieces/guide/b125c240d5f9a852.m4a
 voices/pieces/guide/b133a80bbd5d1671.m4a
 voices/pieces/guide/b13a55b4fe5960c2.m4a
+voices/pieces/guide/b142833145d3c980.m4a
 voices/pieces/guide/b143f746d878c3d0.m4a
 voices/pieces/guide/b15776ab60f97352.m4a
 voices/pieces/guide/b15ca6d2325fe2d9.m4a
@@ -8567,12 +8965,18 @@ voices/pieces/guide/b18ad60314d54fe2.m4a
 voices/pieces/guide/b18cc023eb84589f.m4a
 voices/pieces/guide/b1931dfb9d90da4b.m4a
 voices/pieces/guide/b199cc659a95ac53.m4a
+voices/pieces/guide/b1a08f156e524faf.m4a
+voices/pieces/guide/b1b18e84a0f6f8d5.m4a
 voices/pieces/guide/b1b24bd9b27a3ec4.m4a
 voices/pieces/guide/b1bac3bb8b73c7b1.m4a
+voices/pieces/guide/b1c121c01cab011e.m4a
+voices/pieces/guide/b1c1789a25c851c7.m4a
 voices/pieces/guide/b1c97fa1f88205e5.m4a
+voices/pieces/guide/b1da5381dd9db5f1.m4a
 voices/pieces/guide/b1de70d54ad5e5f5.m4a
 voices/pieces/guide/b1e6fbd18fd9d809.m4a
 voices/pieces/guide/b1efe11d885fa6a6.m4a
+voices/pieces/guide/b1fa3f74ed5f32c0.m4a
 voices/pieces/guide/b2015413684d49ae.m4a
 voices/pieces/guide/b206c4cdd59c0239.m4a
 voices/pieces/guide/b20f575f630ce191.m4a
@@ -8583,6 +8987,7 @@ voices/pieces/guide/b22eb7d006ee9640.m4a
 voices/pieces/guide/b23ef360f468b219.m4a
 voices/pieces/guide/b250257f2d301c8a.m4a
 voices/pieces/guide/b2652e27e0b722de.m4a
+voices/pieces/guide/b265b798a522c2f6.m4a
 voices/pieces/guide/b2675e5a46be8e9b.m4a
 voices/pieces/guide/b26a7a7e4bac2c79.m4a
 voices/pieces/guide/b26dd6cc9d67eeb7.m4a
@@ -8592,6 +8997,7 @@ voices/pieces/guide/b2adbfdef49e9dd3.m4a
 voices/pieces/guide/b2d2111a12d3945d.m4a
 voices/pieces/guide/b2db132107c911da.m4a
 voices/pieces/guide/b2e05f79f4636eed.m4a
+voices/pieces/guide/b2e65e2c753736f9.m4a
 voices/pieces/guide/b2ed3b70adc408f2.m4a
 voices/pieces/guide/b30096535927d5fa.m4a
 voices/pieces/guide/b30425e51546631b.m4a
@@ -8612,6 +9018,7 @@ voices/pieces/guide/b3ae1397167d1a87.m4a
 voices/pieces/guide/b3ba8d7788d52824.m4a
 voices/pieces/guide/b3bb9161c72ca1d8.m4a
 voices/pieces/guide/b3c267d5c7744987.m4a
+voices/pieces/guide/b3c2c480759e87b2.m4a
 voices/pieces/guide/b3c8c93551222c6b.m4a
 voices/pieces/guide/b3deed39034d6401.m4a
 voices/pieces/guide/b3df6b3aea72963a.m4a
@@ -8622,6 +9029,7 @@ voices/pieces/guide/b3e6f39e093d84f4.m4a
 voices/pieces/guide/b3eb025625db311d.m4a
 voices/pieces/guide/b3ec89b4e9e29f7e.m4a
 voices/pieces/guide/b3ed467678e2ceac.m4a
+voices/pieces/guide/b40e17130a7d979f.m4a
 voices/pieces/guide/b410530c7a53cfb6.m4a
 voices/pieces/guide/b414050c6edd1a42.m4a
 voices/pieces/guide/b417d50388c989b7.m4a
@@ -8639,6 +9047,7 @@ voices/pieces/guide/b473275c8eb929d1.m4a
 voices/pieces/guide/b475dc5f2bce0dd9.m4a
 voices/pieces/guide/b47c5715d56c1932.m4a
 voices/pieces/guide/b480d2d5040a8065.m4a
+voices/pieces/guide/b49edbb93eed823d.m4a
 voices/pieces/guide/b4a250169e3290e7.m4a
 voices/pieces/guide/b4ab949f9fc6e19e.m4a
 voices/pieces/guide/b4bcf7d5daf1bf44.m4a
@@ -8651,6 +9060,7 @@ voices/pieces/guide/b4e9c1d7f47dfdd7.m4a
 voices/pieces/guide/b4ef9007ffbbf287.m4a
 voices/pieces/guide/b4fdd034a6876425.m4a
 voices/pieces/guide/b51232c9675c593f.m4a
+voices/pieces/guide/b51e3cdd2b832a83.m4a
 voices/pieces/guide/b528ef4dd3c6b438.m4a
 voices/pieces/guide/b52c95ae2d161776.m4a
 voices/pieces/guide/b53b7d69c7c1e838.m4a
@@ -8716,6 +9126,7 @@ voices/pieces/guide/b759b038fe212bbe.m4a
 voices/pieces/guide/b75e596eeed7990e.m4a
 voices/pieces/guide/b7691e962efdaa61.m4a
 voices/pieces/guide/b76ed53429f8f97e.m4a
+voices/pieces/guide/b774a33fb575edb8.m4a
 voices/pieces/guide/b776885ddaab3b29.m4a
 voices/pieces/guide/b77b57b33eec1fdd.m4a
 voices/pieces/guide/b77c46353db3561a.m4a
@@ -8733,6 +9144,7 @@ voices/pieces/guide/b7d08750aa3de147.m4a
 voices/pieces/guide/b7d7f431afee660a.m4a
 voices/pieces/guide/b7e8b9e85a15f3df.m4a
 voices/pieces/guide/b7ebeaafaf890c17.m4a
+voices/pieces/guide/b7f2d073e4dad29f.m4a
 voices/pieces/guide/b802dd36246676a1.m4a
 voices/pieces/guide/b806bf2c5332cc71.m4a
 voices/pieces/guide/b8192857c51fd87e.m4a
@@ -8762,6 +9174,7 @@ voices/pieces/guide/b937702dbe0380bb.m4a
 voices/pieces/guide/b93cf7192f99ce41.m4a
 voices/pieces/guide/b93d78a3d65fcaac.m4a
 voices/pieces/guide/b93db853c00f21ee.m4a
+voices/pieces/guide/b954cdf2ab6e742a.m4a
 voices/pieces/guide/b955a1a149f0305e.m4a
 voices/pieces/guide/b958d4b483bd86c5.m4a
 voices/pieces/guide/b95fc9f6bcb01674.m4a
@@ -8776,8 +9189,10 @@ voices/pieces/guide/b9a13f1cc61cc5e1.m4a
 voices/pieces/guide/b9b717765803f1b3.m4a
 voices/pieces/guide/b9bb8830c92503b8.m4a
 voices/pieces/guide/b9c4bdd42903bf91.m4a
+voices/pieces/guide/b9c5908d167c15c4.m4a
 voices/pieces/guide/b9c5e3b9e69ac34c.m4a
 voices/pieces/guide/b9d20fc694cd092b.m4a
+voices/pieces/guide/b9d408f5539a5655.m4a
 voices/pieces/guide/b9d7421c96dfec81.m4a
 voices/pieces/guide/b9def4411ca03f68.m4a
 voices/pieces/guide/b9e84be6daf10df1.m4a
@@ -8791,6 +9206,7 @@ voices/pieces/guide/ba37d4797995c3d2.m4a
 voices/pieces/guide/ba39afc0200eab29.m4a
 voices/pieces/guide/ba3ce51664cc7109.m4a
 voices/pieces/guide/ba5474256cc780ea.m4a
+voices/pieces/guide/ba5ad35683a9be80.m4a
 voices/pieces/guide/ba7a66c733918513.m4a
 voices/pieces/guide/ba7c17a0ec60fc5c.m4a
 voices/pieces/guide/ba943e710a8bd8e7.m4a
@@ -8799,7 +9215,9 @@ voices/pieces/guide/ba96d8a7207713cd.m4a
 voices/pieces/guide/baa93f80e7d5a1bf.m4a
 voices/pieces/guide/bab0957b28ce79e2.m4a
 voices/pieces/guide/bab44dca97e383fe.m4a
+voices/pieces/guide/bac30e619572bf7c.m4a
 voices/pieces/guide/bacbf72bb28d1819.m4a
+voices/pieces/guide/bad02adf773340ce.m4a
 voices/pieces/guide/baed3d26406be226.m4a
 voices/pieces/guide/baf0d365320cae57.m4a
 voices/pieces/guide/baf75820660463c9.m4a
@@ -8817,6 +9235,7 @@ voices/pieces/guide/bb7fda48655d7d60.m4a
 voices/pieces/guide/bb80954522b8fa2c.m4a
 voices/pieces/guide/bb894fba1fe0c646.m4a
 voices/pieces/guide/bb8c73e92db4a3c5.m4a
+voices/pieces/guide/bb8eecc6a32ac730.m4a
 voices/pieces/guide/bbafb18308c6bb56.m4a
 voices/pieces/guide/bbcae519109102d0.m4a
 voices/pieces/guide/bbd4df680db328ed.m4a
@@ -8871,6 +9290,7 @@ voices/pieces/guide/bdad8ebed228bedd.m4a
 voices/pieces/guide/bdb543ca0774d1d8.m4a
 voices/pieces/guide/bdb58e18712b8af4.m4a
 voices/pieces/guide/bdbb6df0190d9601.m4a
+voices/pieces/guide/bdc2fdb58fbcb53d.m4a
 voices/pieces/guide/bdca144e529b1ea5.m4a
 voices/pieces/guide/bddda9314e0da06b.m4a
 voices/pieces/guide/bde6635622cf11c1.m4a
@@ -8895,6 +9315,7 @@ voices/pieces/guide/be7154cf2458d8ba.m4a
 voices/pieces/guide/be796c385f0055f9.m4a
 voices/pieces/guide/be7b134a6314ddec.m4a
 voices/pieces/guide/be9e97a0f920ab74.m4a
+voices/pieces/guide/be9f3b2459f36851.m4a
 voices/pieces/guide/bea78ad0645d7d16.m4a
 voices/pieces/guide/bea9983f00bacd26.m4a
 voices/pieces/guide/bebb2c8e9dbcfdfb.m4a
@@ -8928,6 +9349,7 @@ voices/pieces/guide/bf7b8397aace4c57.m4a
 voices/pieces/guide/bfa945bf43b6b003.m4a
 voices/pieces/guide/bfad12a15cc8b0c9.m4a
 voices/pieces/guide/bfb784cf281247e1.m4a
+voices/pieces/guide/bfc39fb4da8f01dd.m4a
 voices/pieces/guide/bfc42e569c066d0b.m4a
 voices/pieces/guide/bfca8b468a94a414.m4a
 voices/pieces/guide/bfcb562aab34784c.m4a
@@ -8939,6 +9361,7 @@ voices/pieces/guide/bff15653cb9c5f78.m4a
 voices/pieces/guide/bff50ec8f135462b.m4a
 voices/pieces/guide/c0028496d58898ce.m4a
 voices/pieces/guide/c005d67625e05f46.m4a
+voices/pieces/guide/c0064c0544a08f31.m4a
 voices/pieces/guide/c011f3d392eaf781.m4a
 voices/pieces/guide/c011f7cf68042339.m4a
 voices/pieces/guide/c027ef0e0663b5e3.m4a
@@ -8961,7 +9384,9 @@ voices/pieces/guide/c0be7497a1f71c27.m4a
 voices/pieces/guide/c0c9f41021509505.m4a
 voices/pieces/guide/c0de3f24178de84b.m4a
 voices/pieces/guide/c0e9d8b1452921ed.m4a
+voices/pieces/guide/c0ebd3f76021f1f9.m4a
 voices/pieces/guide/c0f3dfce11278692.m4a
+voices/pieces/guide/c0f72a7f85e6a66a.m4a
 voices/pieces/guide/c127c7971f5b6ee4.m4a
 voices/pieces/guide/c1326d1b66d5a791.m4a
 voices/pieces/guide/c1456168a3009f11.m4a
@@ -8976,6 +9401,7 @@ voices/pieces/guide/c1a289534dd542a2.m4a
 voices/pieces/guide/c1ac5c624fccc9be.m4a
 voices/pieces/guide/c1ad669353af4810.m4a
 voices/pieces/guide/c1dd0bb2906def05.m4a
+voices/pieces/guide/c1e307531aef7f6f.m4a
 voices/pieces/guide/c1e83511ab57a4c0.m4a
 voices/pieces/guide/c1e8d9e73ee99b87.m4a
 voices/pieces/guide/c1e9b79ef9d92699.m4a
@@ -8986,6 +9412,7 @@ voices/pieces/guide/c21e6f4867303d2f.m4a
 voices/pieces/guide/c229388367c21439.m4a
 voices/pieces/guide/c23b82768ddef31e.m4a
 voices/pieces/guide/c241fdac9c4dc24c.m4a
+voices/pieces/guide/c248dd1b4e0d9baa.m4a
 voices/pieces/guide/c24fa52d1165d897.m4a
 voices/pieces/guide/c2501312b6f13fa9.m4a
 voices/pieces/guide/c2553f415cb12dd6.m4a
@@ -9006,6 +9433,7 @@ voices/pieces/guide/c2e0048cf44cfc59.m4a
 voices/pieces/guide/c2ec53e43de69b3c.m4a
 voices/pieces/guide/c2ef88d544b9aa76.m4a
 voices/pieces/guide/c2ff160e0ba03cf1.m4a
+voices/pieces/guide/c306991eeb007c56.m4a
 voices/pieces/guide/c314fd6da4ae9d45.m4a
 voices/pieces/guide/c31768942d903e26.m4a
 voices/pieces/guide/c3222b2a184c9077.m4a
@@ -9023,7 +9451,9 @@ voices/pieces/guide/c350170190484573.m4a
 voices/pieces/guide/c35279c508f1de9d.m4a
 voices/pieces/guide/c35bc9e29b25f608.m4a
 voices/pieces/guide/c35c0c2428a51520.m4a
+voices/pieces/guide/c364357fa40a179b.m4a
 voices/pieces/guide/c37cd4ab7ed07392.m4a
+voices/pieces/guide/c37ef3f6212e3d2e.m4a
 voices/pieces/guide/c38437fede779642.m4a
 voices/pieces/guide/c38828a59cd4a1a5.m4a
 voices/pieces/guide/c3908ac60fe4a0e2.m4a
@@ -9055,6 +9485,7 @@ voices/pieces/guide/c4860f5aa4b2fc9c.m4a
 voices/pieces/guide/c495b27f1102fb6d.m4a
 voices/pieces/guide/c495fdcd86167825.m4a
 voices/pieces/guide/c49a43c1213e607c.m4a
+voices/pieces/guide/c49b8bc18f2bfc09.m4a
 voices/pieces/guide/c4a1b31c9066cc51.m4a
 voices/pieces/guide/c4aa9c3a08e5c69e.m4a
 voices/pieces/guide/c4abb049d57c8d35.m4a
@@ -9161,10 +9592,12 @@ voices/pieces/guide/c8af5bd20b047344.m4a
 voices/pieces/guide/c8b53d15177413bf.m4a
 voices/pieces/guide/c8b682e5e86f7a99.m4a
 voices/pieces/guide/c8b71f0bd33b1e34.m4a
+voices/pieces/guide/c8e0ed80f69b0819.m4a
 voices/pieces/guide/c8f1a7b95e90233b.m4a
 voices/pieces/guide/c8faadf010c94538.m4a
 voices/pieces/guide/c8ff8d108e845329.m4a
 voices/pieces/guide/c902a0dacbd5ec05.m4a
+voices/pieces/guide/c9034a5ad11094d7.m4a
 voices/pieces/guide/c90664c1251fbb9b.m4a
 voices/pieces/guide/c9116a6c15a85afc.m4a
 voices/pieces/guide/c9258904bf8d7031.m4a
@@ -9191,9 +9624,12 @@ voices/pieces/guide/c9ee45cd1d4e85f2.m4a
 voices/pieces/guide/c9f0022581686763.m4a
 voices/pieces/guide/c9fabd95f8a5bd63.m4a
 voices/pieces/guide/ca0553ced7c0f8fa.m4a
+voices/pieces/guide/ca064c826b9ea60f.m4a
 voices/pieces/guide/ca1071240ae50feb.m4a
 voices/pieces/guide/ca1beffb69f307d8.m4a
 voices/pieces/guide/ca233997f0b9ac05.m4a
+voices/pieces/guide/ca23f9f0cc7d24cd.m4a
+voices/pieces/guide/ca24c48362b023d4.m4a
 voices/pieces/guide/ca2b7c064a09c24a.m4a
 voices/pieces/guide/ca2d399ae21864df.m4a
 voices/pieces/guide/ca52bf75d844425d.m4a
@@ -9206,6 +9642,7 @@ voices/pieces/guide/ca8a0b224f2b39e7.m4a
 voices/pieces/guide/ca8ab1f09eab12ef.m4a
 voices/pieces/guide/ca8d3d4eea0912eb.m4a
 voices/pieces/guide/ca9db6700b2f3c34.m4a
+voices/pieces/guide/caa407e47e3c5f6a.m4a
 voices/pieces/guide/cabacbe44537ff8b.m4a
 voices/pieces/guide/cac5318ef3f7311a.m4a
 voices/pieces/guide/cb18b313fd3eb7ad.m4a
@@ -9226,6 +9663,7 @@ voices/pieces/guide/cbb7ae1da8e34d92.m4a
 voices/pieces/guide/cbdf3baaacac6603.m4a
 voices/pieces/guide/cbdfc75cb9f99d51.m4a
 voices/pieces/guide/cbe711e11dfaf6f8.m4a
+voices/pieces/guide/cbe92feab1fbe0de.m4a
 voices/pieces/guide/cbee42974f366c0c.m4a
 voices/pieces/guide/cbf57cfefa124a55.m4a
 voices/pieces/guide/cbff2684384f38b0.m4a
@@ -9305,6 +9743,7 @@ voices/pieces/guide/ce66abc406fe8c54.m4a
 voices/pieces/guide/ce693ce442400a87.m4a
 voices/pieces/guide/ce6e7d830258aaec.m4a
 voices/pieces/guide/ce77cf2f24562ef2.m4a
+voices/pieces/guide/ce7866270d6f9c0f.m4a
 voices/pieces/guide/ce8a2adf80d726e4.m4a
 voices/pieces/guide/ce8ae09f047cdd3a.m4a
 voices/pieces/guide/ce99290e35bd5b2c.m4a
@@ -9320,7 +9759,9 @@ voices/pieces/guide/cef0960e4d3bf7e7.m4a
 voices/pieces/guide/cf15ca6a936020c7.m4a
 voices/pieces/guide/cf17d695cbe031ae.m4a
 voices/pieces/guide/cf2b9aee336e9493.m4a
+voices/pieces/guide/cf2eb580580d692e.m4a
 voices/pieces/guide/cf355ca0ed755e7f.m4a
+voices/pieces/guide/cf3609b963b2172f.m4a
 voices/pieces/guide/cf3e796de44ff696.m4a
 voices/pieces/guide/cf3f0ce8cbc3ba68.m4a
 voices/pieces/guide/cf6002192eb9c12e.m4a
@@ -9338,6 +9779,7 @@ voices/pieces/guide/cfa286ca8430bd9e.m4a
 voices/pieces/guide/cfab55b34604ce03.m4a
 voices/pieces/guide/cfabd5466aa777dd.m4a
 voices/pieces/guide/cfb4b3a915f7fd93.m4a
+voices/pieces/guide/cfb916d026f9ad63.m4a
 voices/pieces/guide/cfbc2b33a2f13201.m4a
 voices/pieces/guide/cfcd84d4dfeb429f.m4a
 voices/pieces/guide/cfce1a17e7c6ea8b.m4a
@@ -9345,12 +9787,14 @@ voices/pieces/guide/cfd11e5eae9ac2ac.m4a
 voices/pieces/guide/cfd35b04b1904609.m4a
 voices/pieces/guide/cfd9aaad619e9f44.m4a
 voices/pieces/guide/cfec1d7aca8c8f51.m4a
+voices/pieces/guide/cfefe9de3c96957d.m4a
 voices/pieces/guide/cff2704ffe44fc77.m4a
 voices/pieces/guide/cff5d3d6ba0139e8.m4a
 voices/pieces/guide/cff7ce8a8025f905.m4a
 voices/pieces/guide/d003b03a597c9a8c.m4a
 voices/pieces/guide/d004e644281f74ab.m4a
 voices/pieces/guide/d014419f7009eb40.m4a
+voices/pieces/guide/d02d5cf09f86e077.m4a
 voices/pieces/guide/d030e5e4d0d781c5.m4a
 voices/pieces/guide/d041674a92b25794.m4a
 voices/pieces/guide/d0481eb8c4daa44a.m4a
@@ -9401,6 +9845,7 @@ voices/pieces/guide/d1f94caf558de16a.m4a
 voices/pieces/guide/d2196cd51e65b89e.m4a
 voices/pieces/guide/d230f658cc667feb.m4a
 voices/pieces/guide/d2400ca2237e0fe2.m4a
+voices/pieces/guide/d256b72baae1b56f.m4a
 voices/pieces/guide/d25f82c417204e9b.m4a
 voices/pieces/guide/d260d58e0dcb7ff4.m4a
 voices/pieces/guide/d2841f47a21d5073.m4a
@@ -9444,6 +9889,7 @@ voices/pieces/guide/d3e7e39a0f02bc30.m4a
 voices/pieces/guide/d3f45d86943506b2.m4a
 voices/pieces/guide/d3fd3e20df7369d5.m4a
 voices/pieces/guide/d4001008943e07b7.m4a
+voices/pieces/guide/d40196a836c5ef05.m4a
 voices/pieces/guide/d4062a60f50cb3de.m4a
 voices/pieces/guide/d408918fb39afda0.m4a
 voices/pieces/guide/d41a44d73923c427.m4a
@@ -9470,6 +9916,7 @@ voices/pieces/guide/d4c03ab4195ef8c3.m4a
 voices/pieces/guide/d4cac6bf24f5aff5.m4a
 voices/pieces/guide/d4d8676346aae84c.m4a
 voices/pieces/guide/d4ee33cb27803628.m4a
+voices/pieces/guide/d511beabe3acd1ba.m4a
 voices/pieces/guide/d512b8e83ba67897.m4a
 voices/pieces/guide/d5149c1715562052.m4a
 voices/pieces/guide/d53deb6111f9b354.m4a
@@ -9502,12 +9949,14 @@ voices/pieces/guide/d63c029da54929ef.m4a
 voices/pieces/guide/d644928dbbfd690a.m4a
 voices/pieces/guide/d6504900d21b05df.m4a
 voices/pieces/guide/d65c7b0f879ff262.m4a
+voices/pieces/guide/d6606fb15f990fac.m4a
 voices/pieces/guide/d660ea2ce8eef010.m4a
 voices/pieces/guide/d66333ad5703a77b.m4a
 voices/pieces/guide/d676a650e0403f44.m4a
 voices/pieces/guide/d68002c5db708749.m4a
 voices/pieces/guide/d69668e634d2e7c3.m4a
 voices/pieces/guide/d6c6bc8cecd0d0e3.m4a
+voices/pieces/guide/d6cc41c5374fa498.m4a
 voices/pieces/guide/d6e5d4dc11387776.m4a
 voices/pieces/guide/d6ee47fb9a0fa018.m4a
 voices/pieces/guide/d6fbcf00a972e730.m4a
@@ -9517,6 +9966,8 @@ voices/pieces/guide/d716c2130853d02a.m4a
 voices/pieces/guide/d7353135af6d2244.m4a
 voices/pieces/guide/d7376b80dfeb6a64.m4a
 voices/pieces/guide/d74481e9c616ed01.m4a
+voices/pieces/guide/d74f45227dd73566.m4a
+voices/pieces/guide/d751b2deda6809e9.m4a
 voices/pieces/guide/d76176c48bcfb90b.m4a
 voices/pieces/guide/d7634c3674c0edda.m4a
 voices/pieces/guide/d766349e9fd55db6.m4a
@@ -9530,6 +9981,8 @@ voices/pieces/guide/d7bceb50aba5187b.m4a
 voices/pieces/guide/d7ca24ef8acb4567.m4a
 voices/pieces/guide/d7d38968353e304d.m4a
 voices/pieces/guide/d7d8916ca46c707b.m4a
+voices/pieces/guide/d7fc735fbbaea2a8.m4a
+voices/pieces/guide/d80299cc399148ed.m4a
 voices/pieces/guide/d80c81609ba57694.m4a
 voices/pieces/guide/d80f5bb41df01043.m4a
 voices/pieces/guide/d8116e6dd5e3ae41.m4a
@@ -9548,6 +10001,7 @@ voices/pieces/guide/d859d6c6a002ee3a.m4a
 voices/pieces/guide/d85d1e1149cd302a.m4a
 voices/pieces/guide/d86ed493cefc0db1.m4a
 voices/pieces/guide/d8817762559b01ce.m4a
+voices/pieces/guide/d887d9736ad91efd.m4a
 voices/pieces/guide/d8958084318072a8.m4a
 voices/pieces/guide/d8aad0a7ab03c726.m4a
 voices/pieces/guide/d8c0e6fda882c2c7.m4a
@@ -9558,6 +10012,7 @@ voices/pieces/guide/d8dfb0c28851029e.m4a
 voices/pieces/guide/d8e0f39d0388ffed.m4a
 voices/pieces/guide/d8ff018c4f480c14.m4a
 voices/pieces/guide/d903aa9151451ab0.m4a
+voices/pieces/guide/d907ae80e7cb8e8b.m4a
 voices/pieces/guide/d91a76ea175ecc43.m4a
 voices/pieces/guide/d92f71c6d31acbf0.m4a
 voices/pieces/guide/d940524c8178e097.m4a
@@ -9624,8 +10079,11 @@ voices/pieces/guide/db62ec9b19dcb5b4.m4a
 voices/pieces/guide/db630f3f700b31ae.m4a
 voices/pieces/guide/db6905ede7168e5e.m4a
 voices/pieces/guide/db695c3222ed41f0.m4a
+voices/pieces/guide/db69a4e52681d1ac.m4a
 voices/pieces/guide/db6d156c8143f79f.m4a
+voices/pieces/guide/db734121383f8bff.m4a
 voices/pieces/guide/db7631fbbf812a1d.m4a
+voices/pieces/guide/db7751e94b7714d8.m4a
 voices/pieces/guide/db81b7306f363499.m4a
 voices/pieces/guide/db86d2de46ddd6d9.m4a
 voices/pieces/guide/db90bdf32ba86be1.m4a
@@ -9637,9 +10095,11 @@ voices/pieces/guide/dbd8dd6fa43dc84b.m4a
 voices/pieces/guide/dbd9a226ed065bb8.m4a
 voices/pieces/guide/dbe9dc9467fc0b8f.m4a
 voices/pieces/guide/dbf0c2adbde1740f.m4a
+voices/pieces/guide/dc0301095dbed2d4.m4a
 voices/pieces/guide/dc09be11ab297ffc.m4a
 voices/pieces/guide/dc152f77ca3bc041.m4a
 voices/pieces/guide/dc1c8e2720ba294a.m4a
+voices/pieces/guide/dc228b3a70444f13.m4a
 voices/pieces/guide/dc34c1c6df07b89c.m4a
 voices/pieces/guide/dc4ffe285e341e10.m4a
 voices/pieces/guide/dc514d516e1de1da.m4a
@@ -9651,6 +10111,7 @@ voices/pieces/guide/dc97d6ab030aef25.m4a
 voices/pieces/guide/dc9cf45085755190.m4a
 voices/pieces/guide/dca34db449763898.m4a
 voices/pieces/guide/dcab147f609dc502.m4a
+voices/pieces/guide/dcabea93384c7462.m4a
 voices/pieces/guide/dcb345081982715c.m4a
 voices/pieces/guide/dcbfda1a9e63b402.m4a
 voices/pieces/guide/dcccdd6d0204c91f.m4a
@@ -9690,6 +10151,7 @@ voices/pieces/guide/ddfc3b70116e2b88.m4a
 voices/pieces/guide/de0367d0d8a416c4.m4a
 voices/pieces/guide/de130e2b53db147d.m4a
 voices/pieces/guide/de27ced864e0dfdc.m4a
+voices/pieces/guide/de309e986544514a.m4a
 voices/pieces/guide/de38c430b8a8ddee.m4a
 voices/pieces/guide/de3b5b7d2ac5b629.m4a
 voices/pieces/guide/de3c9a118acfbae8.m4a
@@ -9701,6 +10163,7 @@ voices/pieces/guide/de7bd6fb01474405.m4a
 voices/pieces/guide/de846fa524b7bd97.m4a
 voices/pieces/guide/de885763d2a36b7f.m4a
 voices/pieces/guide/de96408cd502cbc0.m4a
+voices/pieces/guide/de96454b976f97a8.m4a
 voices/pieces/guide/de9e77fd5d334f0e.m4a
 voices/pieces/guide/dea38c7759d31d94.m4a
 voices/pieces/guide/dea685551c8b999d.m4a
@@ -9730,12 +10193,14 @@ voices/pieces/guide/df9685fd81618df7.m4a
 voices/pieces/guide/df970c680dd4737e.m4a
 voices/pieces/guide/dfa395b2e96e198d.m4a
 voices/pieces/guide/dfa57ce6eb660294.m4a
+voices/pieces/guide/dfb3595b9a933664.m4a
 voices/pieces/guide/dfb58e21b71cc5a8.m4a
 voices/pieces/guide/dfc54a6ca793af7f.m4a
 voices/pieces/guide/dfd96de0c16a9b46.m4a
 voices/pieces/guide/dfdbf2e722791f3c.m4a
 voices/pieces/guide/dfdf05a0f0696082.m4a
 voices/pieces/guide/dfe194d95f39e546.m4a
+voices/pieces/guide/dfe6455784f48cd8.m4a
 voices/pieces/guide/dff9628ca24732f0.m4a
 voices/pieces/guide/dffba851790a0de5.m4a
 voices/pieces/guide/e0044a70f2f4502e.m4a
@@ -9779,10 +10244,13 @@ voices/pieces/guide/e122c5034908e6c7.m4a
 voices/pieces/guide/e1293114292dd2c1.m4a
 voices/pieces/guide/e14396898e225e08.m4a
 voices/pieces/guide/e15d0a0787803e7b.m4a
+voices/pieces/guide/e15dc507dc704e0b.m4a
+voices/pieces/guide/e161496a2e9b2961.m4a
 voices/pieces/guide/e172f252af07af8e.m4a
 voices/pieces/guide/e178fb97c59c83bc.m4a
 voices/pieces/guide/e185208198bdfc26.m4a
 voices/pieces/guide/e1897ee71994f29e.m4a
+voices/pieces/guide/e193d021500e6a59.m4a
 voices/pieces/guide/e1aa9dcd64ce3986.m4a
 voices/pieces/guide/e1af1bf377cefb0b.m4a
 voices/pieces/guide/e1dcc39243636c92.m4a
@@ -9792,16 +10260,20 @@ voices/pieces/guide/e20c2a1971e40aff.m4a
 voices/pieces/guide/e21333b5c3a283ff.m4a
 voices/pieces/guide/e217cf2f000312f9.m4a
 voices/pieces/guide/e2180ffa982441bb.m4a
+voices/pieces/guide/e21b9098dc037b17.m4a
 voices/pieces/guide/e222eab943327fe0.m4a
 voices/pieces/guide/e23c0795c8617758.m4a
 voices/pieces/guide/e2628ab59cff8908.m4a
 voices/pieces/guide/e262ff98bded28a5.m4a
 voices/pieces/guide/e267f8907035e314.m4a
+voices/pieces/guide/e26c34ea17578bc0.m4a
 voices/pieces/guide/e26f44c819edd061.m4a
 voices/pieces/guide/e274219b727e6411.m4a
 voices/pieces/guide/e27a75a13d2284c8.m4a
 voices/pieces/guide/e283e80727aa3c71.m4a
 voices/pieces/guide/e28afbc8f612f6e4.m4a
+voices/pieces/guide/e28c4dfaadd204e3.m4a
+voices/pieces/guide/e293d7a9c9ea9908.m4a
 voices/pieces/guide/e299072d948cf47b.m4a
 voices/pieces/guide/e2a42846613e89fd.m4a
 voices/pieces/guide/e2ac38af398cdc13.m4a
@@ -9819,12 +10291,14 @@ voices/pieces/guide/e2f39c6a83a0c62d.m4a
 voices/pieces/guide/e2fb408db7413cdd.m4a
 voices/pieces/guide/e3053d0835e5987d.m4a
 voices/pieces/guide/e30d063b446ca106.m4a
+voices/pieces/guide/e313df1a333201ff.m4a
 voices/pieces/guide/e32a94c4e4ad53c1.m4a
 voices/pieces/guide/e345cf299119a756.m4a
 voices/pieces/guide/e34af1089a303221.m4a
 voices/pieces/guide/e35e709a234e93e2.m4a
 voices/pieces/guide/e3686eb73f1f8ae1.m4a
 voices/pieces/guide/e37568d4dc17e9c1.m4a
+voices/pieces/guide/e38acbe6af96d70d.m4a
 voices/pieces/guide/e3954e0ed2d398d1.m4a
 voices/pieces/guide/e39a76f5213b98ab.m4a
 voices/pieces/guide/e3a10d608b3fd784.m4a
@@ -9839,6 +10313,7 @@ voices/pieces/guide/e3ee7238ddeb4a23.m4a
 voices/pieces/guide/e3fdfbe0a3194ad8.m4a
 voices/pieces/guide/e3ffd8beb84779e8.m4a
 voices/pieces/guide/e408e68849874418.m4a
+voices/pieces/guide/e41169d7831b4130.m4a
 voices/pieces/guide/e418b832681722b3.m4a
 voices/pieces/guide/e423485ca236b524.m4a
 voices/pieces/guide/e4267d2ce69f5164.m4a
@@ -9854,6 +10329,7 @@ voices/pieces/guide/e45b1ead236ddc36.m4a
 voices/pieces/guide/e46069e6fdc96545.m4a
 voices/pieces/guide/e465a492fb308d88.m4a
 voices/pieces/guide/e46a559c5542b7f9.m4a
+voices/pieces/guide/e4712f9c69dae2a5.m4a
 voices/pieces/guide/e47a19d71c3e4a92.m4a
 voices/pieces/guide/e490140054d983f9.m4a
 voices/pieces/guide/e491f7985b734e0d.m4a
@@ -9873,6 +10349,7 @@ voices/pieces/guide/e4d823adb818863c.m4a
 voices/pieces/guide/e4e0abc08333bee8.m4a
 voices/pieces/guide/e4eb13a0bd88d9ee.m4a
 voices/pieces/guide/e4fbc96ed513af3e.m4a
+voices/pieces/guide/e50ca3347fe2340f.m4a
 voices/pieces/guide/e50e14d716cb720c.m4a
 voices/pieces/guide/e50e92ee4b0e3c29.m4a
 voices/pieces/guide/e52ffe126407b0a6.m4a
@@ -9882,8 +10359,10 @@ voices/pieces/guide/e547ea7d13654da3.m4a
 voices/pieces/guide/e54a16c27a73cdcf.m4a
 voices/pieces/guide/e54a33f8ae0ca1d1.m4a
 voices/pieces/guide/e557430a5e9282fd.m4a
+voices/pieces/guide/e55fa533b095c668.m4a
 voices/pieces/guide/e56006128b25f1ff.m4a
 voices/pieces/guide/e56c32b6d2de0565.m4a
+voices/pieces/guide/e57ec1ebfd5772a3.m4a
 voices/pieces/guide/e5811e6452ff934e.m4a
 voices/pieces/guide/e588a90ebdd58b0d.m4a
 voices/pieces/guide/e591d4c09c4edb2c.m4a
@@ -9893,6 +10372,7 @@ voices/pieces/guide/e5d1939e4fc6e83d.m4a
 voices/pieces/guide/e5d4f3aaf3a8aef7.m4a
 voices/pieces/guide/e5d70bbf15830a91.m4a
 voices/pieces/guide/e5de84f48264a648.m4a
+voices/pieces/guide/e5e48b645f6ee153.m4a
 voices/pieces/guide/e5f5e286ac317e15.m4a
 voices/pieces/guide/e60297e1fb199773.m4a
 voices/pieces/guide/e6050fb3e62f1625.m4a
@@ -9915,11 +10395,13 @@ voices/pieces/guide/e6f81f856889a0c2.m4a
 voices/pieces/guide/e6fa827f01253513.m4a
 voices/pieces/guide/e704d2a0117ce868.m4a
 voices/pieces/guide/e7322c64eaf85596.m4a
+voices/pieces/guide/e73720dc103c6b59.m4a
 voices/pieces/guide/e739305fb7ae9130.m4a
 voices/pieces/guide/e73ae2aa62c73391.m4a
 voices/pieces/guide/e73c3c1bea334d07.m4a
 voices/pieces/guide/e74262f69731742e.m4a
 voices/pieces/guide/e752f704d91e8701.m4a
+voices/pieces/guide/e765aff146f8f730.m4a
 voices/pieces/guide/e766d4806ad5b4cb.m4a
 voices/pieces/guide/e76b80404c36ef90.m4a
 voices/pieces/guide/e77a91de1c869afe.m4a
@@ -9945,6 +10427,7 @@ voices/pieces/guide/e83941eee4e6d0e4.m4a
 voices/pieces/guide/e83d16fc59220bdb.m4a
 voices/pieces/guide/e848825075c28ecb.m4a
 voices/pieces/guide/e8585d506844aabf.m4a
+voices/pieces/guide/e8593e7a4d8446fb.m4a
 voices/pieces/guide/e85ae3138764ab4e.m4a
 voices/pieces/guide/e8664f0311ba5734.m4a
 voices/pieces/guide/e86ba19e93d0bd34.m4a
@@ -9956,9 +10439,12 @@ voices/pieces/guide/e8885ee588d41232.m4a
 voices/pieces/guide/e89d2b4111f0fafc.m4a
 voices/pieces/guide/e8a1cf83b00148c0.m4a
 voices/pieces/guide/e8a2a82ec68c7909.m4a
+voices/pieces/guide/e8a8e353c06b92af.m4a
+voices/pieces/guide/e8a9f3d721319072.m4a
 voices/pieces/guide/e8acb9a490d541b2.m4a
 voices/pieces/guide/e8b27eff64dffde0.m4a
 voices/pieces/guide/e8b604faab427a39.m4a
+voices/pieces/guide/e8ba042e1c383dd1.m4a
 voices/pieces/guide/e8be8df1689e0976.m4a
 voices/pieces/guide/e8c04cbf3c21dff7.m4a
 voices/pieces/guide/e8c3c167a25961aa.m4a
@@ -9981,8 +10467,11 @@ voices/pieces/guide/e961290a25a3cd3a.m4a
 voices/pieces/guide/e966278576604d35.m4a
 voices/pieces/guide/e96afc25fb22c9fa.m4a
 voices/pieces/guide/e98143d91c9c9dc0.m4a
+voices/pieces/guide/e984e0ca1fee6a1a.m4a
 voices/pieces/guide/e9853f3fa80518f0.m4a
 voices/pieces/guide/e985eb282c6ccde7.m4a
+voices/pieces/guide/e986b48c47cc3204.m4a
+voices/pieces/guide/e9874888bd0715f6.m4a
 voices/pieces/guide/e98f7c65773a5dc9.m4a
 voices/pieces/guide/e993cb5f220428ea.m4a
 voices/pieces/guide/e99df205b5fe6a12.m4a
@@ -9995,18 +10484,23 @@ voices/pieces/guide/e9c323b43e8869cd.m4a
 voices/pieces/guide/e9c67a6610356e0d.m4a
 voices/pieces/guide/e9d200265e3f4484.m4a
 voices/pieces/guide/e9d57a041157e29f.m4a
+voices/pieces/guide/e9d6959a8bb81e78.m4a
 voices/pieces/guide/e9e45361c51530d4.m4a
 voices/pieces/guide/e9e85cce24340a6f.m4a
 voices/pieces/guide/e9ee7daaeb0c68eb.m4a
+voices/pieces/guide/e9f12ead383b2f13.m4a
 voices/pieces/guide/e9f1c8dbb93db919.m4a
 voices/pieces/guide/e9f9867d58640075.m4a
+voices/pieces/guide/e9f9b6a392fe5dc9.m4a
 voices/pieces/guide/ea0398404e9fff86.m4a
+voices/pieces/guide/ea12aaa9fa862da1.m4a
 voices/pieces/guide/ea1452fdb3f3db4a.m4a
 voices/pieces/guide/ea18788420c491cf.m4a
 voices/pieces/guide/ea2b1d977940f0c0.m4a
 voices/pieces/guide/ea30856da08f18c5.m4a
 voices/pieces/guide/ea3e57c916e72327.m4a
 voices/pieces/guide/ea3e930b3a85c6bb.m4a
+voices/pieces/guide/ea402ed90a2b581a.m4a
 voices/pieces/guide/ea51e705edb5b337.m4a
 voices/pieces/guide/ea633ff7caa709ab.m4a
 voices/pieces/guide/ea6b4aed62dde49c.m4a
@@ -10015,6 +10509,7 @@ voices/pieces/guide/ea86efba6e62ec96.m4a
 voices/pieces/guide/ea8a20a97ebd2785.m4a
 voices/pieces/guide/ea9a5018a0824293.m4a
 voices/pieces/guide/ea9dee651b3a0b98.m4a
+voices/pieces/guide/eaa4445fa7256dc2.m4a
 voices/pieces/guide/eaa7dc3338193a0d.m4a
 voices/pieces/guide/eaa8da38b744af66.m4a
 voices/pieces/guide/eaab43ceb4247c02.m4a
@@ -10035,12 +10530,14 @@ voices/pieces/guide/eb5f85a79ef7788f.m4a
 voices/pieces/guide/eb60df5855a5f3b6.m4a
 voices/pieces/guide/eb71b78f47dd98ab.m4a
 voices/pieces/guide/eb77a36831f57564.m4a
+voices/pieces/guide/eb7bd189414d81c9.m4a
 voices/pieces/guide/eb8c6fa737f1725d.m4a
 voices/pieces/guide/eb99363f9ee0be1a.m4a
 voices/pieces/guide/eb99a4dab1f6876e.m4a
 voices/pieces/guide/eb9c02725e4c2818.m4a
 voices/pieces/guide/eb9f96cf0ff690b3.m4a
 voices/pieces/guide/ebbb1ddd156a4087.m4a
+voices/pieces/guide/ebc3b48d9939e7c3.m4a
 voices/pieces/guide/ebc94d640f2c2ff7.m4a
 voices/pieces/guide/ebd69e2f5519941c.m4a
 voices/pieces/guide/ebd8ec57c002865f.m4a
@@ -10064,6 +10561,7 @@ voices/pieces/guide/ec4bdb2072889b48.m4a
 voices/pieces/guide/ec4dac89aebee502.m4a
 voices/pieces/guide/ec4e9f01fca2ba17.m4a
 voices/pieces/guide/ec7af4a9e37361da.m4a
+voices/pieces/guide/ec8b951c2644a8d8.m4a
 voices/pieces/guide/ec98c3d9717025d1.m4a
 voices/pieces/guide/eca5ab89cc8123b2.m4a
 voices/pieces/guide/ecaa1230acb12239.m4a
@@ -10082,6 +10580,8 @@ voices/pieces/guide/ed28ebcfa105d883.m4a
 voices/pieces/guide/ed3443e3028b2eda.m4a
 voices/pieces/guide/ed480384a820d1b8.m4a
 voices/pieces/guide/ed5abef3b90e3b1e.m4a
+voices/pieces/guide/ed6933ac4760399d.m4a
+voices/pieces/guide/ed762de62463f53a.m4a
 voices/pieces/guide/ed78daf7ac346780.m4a
 voices/pieces/guide/ed7a50c04c931a6f.m4a
 voices/pieces/guide/ed8398f1c51b8f3b.m4a
@@ -10101,10 +10601,12 @@ voices/pieces/guide/ede88523acc958c7.m4a
 voices/pieces/guide/edf0c960c8759861.m4a
 voices/pieces/guide/ee05fe5f9bb632a7.m4a
 voices/pieces/guide/ee06fab542268733.m4a
+voices/pieces/guide/ee1085a122ef9bf1.m4a
 voices/pieces/guide/ee3770e9c0157a66.m4a
 voices/pieces/guide/ee4f40ca9182fd9c.m4a
 voices/pieces/guide/ee51c58adfce0b8e.m4a
 voices/pieces/guide/ee639b0109645349.m4a
+voices/pieces/guide/ee6601236b972aa5.m4a
 voices/pieces/guide/ee6834cd2f806a13.m4a
 voices/pieces/guide/ee7742f909d1b7ca.m4a
 voices/pieces/guide/ee79cf1a2676c8c9.m4a
@@ -10136,6 +10638,7 @@ voices/pieces/guide/ef1779907ef17e81.m4a
 voices/pieces/guide/ef2733ed07b36341.m4a
 voices/pieces/guide/ef30dfce48000cdc.m4a
 voices/pieces/guide/ef393cd6ad99ddee.m4a
+voices/pieces/guide/ef4211f08ef23887.m4a
 voices/pieces/guide/ef422e721f6b7793.m4a
 voices/pieces/guide/ef61d5c15d9aded7.m4a
 voices/pieces/guide/ef71ebebb728e503.m4a
@@ -10150,6 +10653,7 @@ voices/pieces/guide/efa935ae953e4785.m4a
 voices/pieces/guide/efaa5898c4c4d891.m4a
 voices/pieces/guide/efad27696563e736.m4a
 voices/pieces/guide/efbcbe8a267b21b4.m4a
+voices/pieces/guide/efbfa92661061732.m4a
 voices/pieces/guide/efc14023d518336b.m4a
 voices/pieces/guide/efc3c2dc88fb8de3.m4a
 voices/pieces/guide/efc5e5cce47a7dbc.m4a
@@ -10187,6 +10691,7 @@ voices/pieces/guide/f0b63d3a1a5c89bc.m4a
 voices/pieces/guide/f0c221f0a34a6447.m4a
 voices/pieces/guide/f0c3c839ba08bafd.m4a
 voices/pieces/guide/f0d30b9c0c3a21ac.m4a
+voices/pieces/guide/f0d74760bba3ddde.m4a
 voices/pieces/guide/f0db36aa89175edd.m4a
 voices/pieces/guide/f0dc451f876989bb.m4a
 voices/pieces/guide/f0ddbcb9bdaa4866.m4a
@@ -10198,7 +10703,9 @@ voices/pieces/guide/f1087b899dca63c7.m4a
 voices/pieces/guide/f10e74dba47f59c8.m4a
 voices/pieces/guide/f115f5b2e65c8366.m4a
 voices/pieces/guide/f11a117c9f445513.m4a
+voices/pieces/guide/f121feb3eedb32bd.m4a
 voices/pieces/guide/f124fad64382aa6c.m4a
+voices/pieces/guide/f126a13c29255bda.m4a
 voices/pieces/guide/f12909cc809c2d81.m4a
 voices/pieces/guide/f13b002d8082ddf6.m4a
 voices/pieces/guide/f13ea331f954411d.m4a
@@ -10210,7 +10717,10 @@ voices/pieces/guide/f1704de3d85bd5b2.m4a
 voices/pieces/guide/f17bb8a6a9e8c9a2.m4a
 voices/pieces/guide/f181c7295fe50265.m4a
 voices/pieces/guide/f190479de7ceb1c1.m4a
+voices/pieces/guide/f19f68cce7881f5d.m4a
+voices/pieces/guide/f1a7302ed8c9f1aa.m4a
 voices/pieces/guide/f1ab9866bb6953ed.m4a
+voices/pieces/guide/f1ae23c884c347a0.m4a
 voices/pieces/guide/f1aed43e74421c2a.m4a
 voices/pieces/guide/f1b9c4d4e547c6b2.m4a
 voices/pieces/guide/f1c9e355791d45d4.m4a
@@ -10242,10 +10752,12 @@ voices/pieces/guide/f27372a4e7f62e82.m4a
 voices/pieces/guide/f27e1f391f3bf9f4.m4a
 voices/pieces/guide/f2886bfe01e5169f.m4a
 voices/pieces/guide/f292dcf787af13a2.m4a
+voices/pieces/guide/f2a1d173954b65c4.m4a
 voices/pieces/guide/f2bfd57028d0c499.m4a
 voices/pieces/guide/f2cdbeec19df7ed9.m4a
 voices/pieces/guide/f2d7894cc972325a.m4a
 voices/pieces/guide/f2df2a7a121f88d6.m4a
+voices/pieces/guide/f2e04ba3aca97eca.m4a
 voices/pieces/guide/f2e4341ffda40f7a.m4a
 voices/pieces/guide/f2e748a1e2ee6c09.m4a
 voices/pieces/guide/f2fb051e0b5bbe74.m4a
@@ -10262,6 +10774,7 @@ voices/pieces/guide/f33d63d1130e2318.m4a
 voices/pieces/guide/f345c3c8ff841aa7.m4a
 voices/pieces/guide/f34850e13c276d36.m4a
 voices/pieces/guide/f34f11c278d09075.m4a
+voices/pieces/guide/f354baaefb3579e9.m4a
 voices/pieces/guide/f366baa1afc6bc8c.m4a
 voices/pieces/guide/f36dcc84f6f65e98.m4a
 voices/pieces/guide/f3774ff7d0527459.m4a
@@ -10270,12 +10783,14 @@ voices/pieces/guide/f3860c4bf3491e60.m4a
 voices/pieces/guide/f3915c103edf5a49.m4a
 voices/pieces/guide/f3aaf902a4acb49e.m4a
 voices/pieces/guide/f3ad9c6c659a5973.m4a
+voices/pieces/guide/f3af8a4841cf02e2.m4a
 voices/pieces/guide/f3b3c03fe45a97e2.m4a
 voices/pieces/guide/f3b4a873ff1a109c.m4a
 voices/pieces/guide/f3c61485400912e7.m4a
 voices/pieces/guide/f3c6e4a255f04e53.m4a
 voices/pieces/guide/f3d48a74b9ab1ae9.m4a
 voices/pieces/guide/f3dc14d0b7f2e8a7.m4a
+voices/pieces/guide/f3de7f5f72ca56aa.m4a
 voices/pieces/guide/f3e75241f83143e4.m4a
 voices/pieces/guide/f3ff2deeba4d911a.m4a
 voices/pieces/guide/f4048b90861314bf.m4a
@@ -10291,6 +10806,7 @@ voices/pieces/guide/f4480dda486dc500.m4a
 voices/pieces/guide/f44d34b2fd691d5a.m4a
 voices/pieces/guide/f44dcf10ca63dabc.m4a
 voices/pieces/guide/f4656278d7f0db0f.m4a
+voices/pieces/guide/f46d2773068dce13.m4a
 voices/pieces/guide/f4788ab2177d9bca.m4a
 voices/pieces/guide/f47b32a6891446cb.m4a
 voices/pieces/guide/f47e9d7060e5f617.m4a
@@ -10309,6 +10825,7 @@ voices/pieces/guide/f4ddfb294efb96c8.m4a
 voices/pieces/guide/f4ec0a2a702a1220.m4a
 voices/pieces/guide/f4ee2d1975c6528d.m4a
 voices/pieces/guide/f4f6994251d253e9.m4a
+voices/pieces/guide/f50a88f431539284.m4a
 voices/pieces/guide/f50bacf4b864c773.m4a
 voices/pieces/guide/f50c74cbce2948e5.m4a
 voices/pieces/guide/f51ad4deca5e84a6.m4a
@@ -10327,6 +10844,7 @@ voices/pieces/guide/f5a90eca0636dc10.m4a
 voices/pieces/guide/f5b143bb3e912d14.m4a
 voices/pieces/guide/f5b29bda3e5dee28.m4a
 voices/pieces/guide/f5c3ada3f96c797e.m4a
+voices/pieces/guide/f5d4dfa00adc8c7b.m4a
 voices/pieces/guide/f5d81e18f920fd37.m4a
 voices/pieces/guide/f5eb87bd0a49069b.m4a
 voices/pieces/guide/f5ec3d2595c95b8c.m4a
@@ -10335,6 +10853,7 @@ voices/pieces/guide/f6176d2e88cf6a35.m4a
 voices/pieces/guide/f61d4e3b09a18792.m4a
 voices/pieces/guide/f61edd1275808e06.m4a
 voices/pieces/guide/f62c2745e71811b6.m4a
+voices/pieces/guide/f636531d62b478dc.m4a
 voices/pieces/guide/f63f39f1d93aa6e8.m4a
 voices/pieces/guide/f64475200462c264.m4a
 voices/pieces/guide/f658d23e698663bb.m4a
@@ -10342,6 +10861,7 @@ voices/pieces/guide/f66c5e5fd0d78bc6.m4a
 voices/pieces/guide/f66c987ff12bfcb2.m4a
 voices/pieces/guide/f66ea3976c9d4a52.m4a
 voices/pieces/guide/f67300a54397f65a.m4a
+voices/pieces/guide/f676f3b995c76794.m4a
 voices/pieces/guide/f67ef0d622ac3ac5.m4a
 voices/pieces/guide/f6922afb66c92fcd.m4a
 voices/pieces/guide/f6961d1ebd9b0a4b.m4a
@@ -10349,6 +10869,7 @@ voices/pieces/guide/f69c6320362bc2a5.m4a
 voices/pieces/guide/f69d97c4960f3666.m4a
 voices/pieces/guide/f6aa00f5c94f222c.m4a
 voices/pieces/guide/f6b5e7abeac74d0d.m4a
+voices/pieces/guide/f6be1fe684b355da.m4a
 voices/pieces/guide/f6c2d5233c7a122f.m4a
 voices/pieces/guide/f6cbd101d38e5641.m4a
 voices/pieces/guide/f6d6872dab91fb14.m4a
@@ -10381,6 +10902,7 @@ voices/pieces/guide/f798865c0b1e0ab7.m4a
 voices/pieces/guide/f7b251ab90fd3ddb.m4a
 voices/pieces/guide/f7b52d0374bc771c.m4a
 voices/pieces/guide/f7c4f0066ae2f2f2.m4a
+voices/pieces/guide/f7c8a883ec2b1b6f.m4a
 voices/pieces/guide/f7cee7a9b4dcc0b2.m4a
 voices/pieces/guide/f7d99a6f4f262367.m4a
 voices/pieces/guide/f7d9d12a4c6e2a39.m4a
@@ -10391,6 +10913,7 @@ voices/pieces/guide/f8126feb8437295f.m4a
 voices/pieces/guide/f816f2d37ce05d3e.m4a
 voices/pieces/guide/f817ac5f601d740b.m4a
 voices/pieces/guide/f8206459a98198e9.m4a
+voices/pieces/guide/f83c8cde9bd5a56e.m4a
 voices/pieces/guide/f840aa0858252578.m4a
 voices/pieces/guide/f840b7b85e494ffb.m4a
 voices/pieces/guide/f84be151da32ebf8.m4a
@@ -10400,6 +10923,7 @@ voices/pieces/guide/f86521b65e8d2207.m4a
 voices/pieces/guide/f86f3f3cef2e5ead.m4a
 voices/pieces/guide/f871adfdbac78b8a.m4a
 voices/pieces/guide/f873b33c1d0c8787.m4a
+voices/pieces/guide/f87fc2f2f05e0744.m4a
 voices/pieces/guide/f88942d0a52a2eae.m4a
 voices/pieces/guide/f8895d407860c43c.m4a
 voices/pieces/guide/f88c4bbdb15fb468.m4a
@@ -10407,8 +10931,11 @@ voices/pieces/guide/f88ecf96826e224e.m4a
 voices/pieces/guide/f891edb0e82ddf9b.m4a
 voices/pieces/guide/f89ab16ba991ba52.m4a
 voices/pieces/guide/f8a1140094b676e8.m4a
+voices/pieces/guide/f8a57912d8b163e1.m4a
+voices/pieces/guide/f8b38b13d1e33ec7.m4a
 voices/pieces/guide/f8bc13d8d130023d.m4a
 voices/pieces/guide/f8bcd954052325d9.m4a
+voices/pieces/guide/f8c386d95b8ec152.m4a
 voices/pieces/guide/f8cfa218a29490d9.m4a
 voices/pieces/guide/f8ea8c884bba0c7f.m4a
 voices/pieces/guide/f8f3213604da3cf6.m4a
@@ -10464,23 +10991,28 @@ voices/pieces/guide/fa709fb067fd35ec.m4a
 voices/pieces/guide/fa7a1bf269a1f6ef.m4a
 voices/pieces/guide/fa8063e4a74d2002.m4a
 voices/pieces/guide/fa80d62b668e76c1.m4a
+voices/pieces/guide/fa89bd3f668ea9da.m4a
+voices/pieces/guide/fa99b2f33c1307f2.m4a
 voices/pieces/guide/faa100fd2a2da6c8.m4a
 voices/pieces/guide/faa670b8051d63b3.m4a
 voices/pieces/guide/fab955f8cac10d13.m4a
 voices/pieces/guide/fac06e74aa5d8c5c.m4a
 voices/pieces/guide/fac845d5105c48a9.m4a
 voices/pieces/guide/fac98ef4f89ddd16.m4a
+voices/pieces/guide/faccbfc1f32f5c8e.m4a
 voices/pieces/guide/fad2ab535c6d0cc5.m4a
 voices/pieces/guide/fadc0d5da0407b3c.m4a
 voices/pieces/guide/faea622da38490ba.m4a
 voices/pieces/guide/fb069596fefce78d.m4a
 voices/pieces/guide/fb093c1bcde59296.m4a
+voices/pieces/guide/fb0cbb3c15df02de.m4a
 voices/pieces/guide/fb148c2d5f4a13bd.m4a
 voices/pieces/guide/fb1adaa23127a3cd.m4a
 voices/pieces/guide/fb26e2b3f096ff17.m4a
 voices/pieces/guide/fb372c6832d4ab72.m4a
 voices/pieces/guide/fb4f4d8bd4c7a7c1.m4a
 voices/pieces/guide/fb57d43de9d1b6e5.m4a
+voices/pieces/guide/fb595e446cbb367c.m4a
 voices/pieces/guide/fb6ff07b187eb85d.m4a
 voices/pieces/guide/fb7d1bb3825d4b72.m4a
 voices/pieces/guide/fb848016d09cf367.m4a
@@ -10491,6 +11023,7 @@ voices/pieces/guide/fba6d5b5dc808165.m4a
 voices/pieces/guide/fbafed336cd6b8b5.m4a
 voices/pieces/guide/fbb4be16df8210b8.m4a
 voices/pieces/guide/fbb8295ad15d794f.m4a
+voices/pieces/guide/fbc2d9518ab9031a.m4a
 voices/pieces/guide/fbd040791f5559a1.m4a
 voices/pieces/guide/fbd592c6a7326f22.m4a
 voices/pieces/guide/fbe1a24943dd346a.m4a
@@ -10500,8 +11033,10 @@ voices/pieces/guide/fc0d732632c7f76e.m4a
 voices/pieces/guide/fc1d16059c9eb926.m4a
 voices/pieces/guide/fc1ff162e598a8d7.m4a
 voices/pieces/guide/fc3bd8f17d9be40a.m4a
+voices/pieces/guide/fc40a6c3c87e7a06.m4a
 voices/pieces/guide/fc4281b690b4e073.m4a
 voices/pieces/guide/fc689c5dfc990132.m4a
+voices/pieces/guide/fc6b79c38d85db6a.m4a
 voices/pieces/guide/fc745e92b130f4b5.m4a
 voices/pieces/guide/fc745f3e652c9249.m4a
 voices/pieces/guide/fc782eceaee8a69a.m4a
@@ -10546,6 +11081,8 @@ voices/pieces/guide/fe35d3faa878b2af.m4a
 voices/pieces/guide/fe3b540adb5fabdf.m4a
 voices/pieces/guide/fe3f856bb46f9f97.m4a
 voices/pieces/guide/fe56cea3d06bf02e.m4a
+voices/pieces/guide/fe6556f9abff5ce3.m4a
+voices/pieces/guide/fe674d6552fec069.m4a
 voices/pieces/guide/fe6f9e6b2164dcfd.m4a
 voices/pieces/guide/fe730695de6442a0.m4a
 voices/pieces/guide/fe7a162df44717bd.m4a
@@ -10564,8 +11101,10 @@ voices/pieces/guide/fede9d4dbcce3145.m4a
 voices/pieces/guide/fee2a9712f1c830f.m4a
 voices/pieces/guide/fee4b3d1078694a2.m4a
 voices/pieces/guide/fee4c7d7b267b99b.m4a
+voices/pieces/guide/fef07963d03af1de.m4a
 voices/pieces/guide/fef8c53558e5425b.m4a
 voices/pieces/guide/ff020d3591bf62c9.m4a
+voices/pieces/guide/ff0518ab0d00d876.m4a
 voices/pieces/guide/ff09728cfb88c3cf.m4a
 voices/pieces/guide/ff0ad88035a60e0b.m4a
 voices/pieces/guide/ff131218d61407d1.m4a

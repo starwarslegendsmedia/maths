@@ -29,7 +29,12 @@ export function isDone(p) {
   return undetermined(p).length === 0;
 }
 
-// The next skill to probe: the one whose result settles the most skills in the worse case.
+// The next skill to probe: the one whose two results, pass and miss, settle the most between them, scored as
+// (skills settled if she passes) × (skills settled if she misses). This weighs both results, where taking the worse
+// result first (the score before step 4.8) kept probing balanced skills in the middle of the map and left short side
+// branches open: with release 5's five measurement skills a simulated student was placed within four sittings 359 times
+// in 400, under the 90% the plan asks, and the product places one 377 of 400 (378 at release 4, 367 before) in
+// 9.9 probes on average rather than 13.6, so her sittings are fewer too (step 4.8, the lead's ruling).
 export function nextProbe(p) {
   const open = new Set(undetermined(p));
   if (!open.size) return null;
@@ -38,7 +43,7 @@ export function nextProbe(p) {
   for (const id of open) {
     const below = [...ancestors(id)].filter((a) => open.has(a)).length;
     const above = [...descendants(id)].filter((d) => open.has(d)).length;
-    const score = Math.min(below, above) * 100 + below + above; // balanced first, then most settled
+    const score = (below + 1) * (above + 1); // a pass settles it and what it rests on, a miss it and what rests on it
     if (score > bestScore) { bestScore = score; best = id; }
   }
   return best;

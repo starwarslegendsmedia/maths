@@ -15,12 +15,13 @@ import { placementFromEvents, isDone as placementDone } from '../engine/placemen
 import { makeRng } from '../engine/rng.js';
 import { didLine, PART_WAY } from '../engine/rounds.js';
 
-export const RELEASE = 4;
+export const RELEASE = 5;
 const root = document.getElementById('app');
 const params = new URLSearchParams(location.search);
 const preview = params.has('preview'); // shows stories not yet approved
 window.__preview = preview;
 const store = new Store(window.localStorage);
+store.watch(window); // another open copy's answers read in as it saves them (engine/store.js)
 let stories = [];
 
 const releaseSkills = () => inRelease(RELEASE).map((s) => s.id);
@@ -117,15 +118,21 @@ function orStop(runner, session) {
   return Promise.race([stopped, session().then(() => false)]);
 }
 
+// The lines a placement sitting ends on, here so tools/voice-lines.mjs lists them as said (step 4.9's review 2, finding
+// 2, 31 October 2026)
+export const PLACED_FIRST = 'That\'s it, the game knows where you\'re up to. Tomorrow the real lessons start.';
+export const PLACED_AGAIN = 'That\'s it, the game knows where you\'re up to. Your lessons carry on next time.';
+export const PLACEMENT_MORE = 'Thanks! That\'s enough finding out for today. A bit more tomorrow.';
+
 async function placementSession() {
   const runner = new Runner(root, store, { readAloud: store.settings.readAloud });
   store.add('session', { phase: 'start', kind: 'placement' });
   let finished = false;
   const stopped = await orStop(runner, async () => { finished = await runner.placementSitting(releaseSkills()); });
   store.add('session', { phase: 'end', kind: 'placement', done: runner.count.done, ...(stopped ? { stopped: true } : {}) });
-  await summary(runner, finished
-    ? 'That\'s it, the game knows where you\'re up to. Tomorrow the real lessons start.'
-    : 'Thanks! That\'s enough finding out for today. A bit more tomorrow.');
+  // a girl who has had lessons, sent back here by a new release, is told they carry on (step 4.9's review, 31 October)
+  const lessons = store.events.some((e) => e.type === 'session' && e.kind === 'lesson');
+  await summary(runner, finished ? (lessons ? PLACED_AGAIN : PLACED_FIRST) : PLACEMENT_MORE);
 }
 
 async function todaysSession() {

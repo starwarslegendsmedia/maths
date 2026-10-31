@@ -96,9 +96,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .picture:has(> svg.pic-scale) { width: 100%; }
 .picture > svg.pic-scale { margin: 0 auto; }
 /* a shape the same: a rhombus 340 px wide shrank to 300, its 18 px label to 15.9 px as she sees it (WebKit at 390 × 844,
-   stage 6 step 4.3, pt78) */
-.picture:has(> svg.pic-shape) { width: 100%; }
-.picture > svg.pic-shape { margin: 0 auto; }
+   stage 6 step 4.3, pt78); and an angle and a grid, a grid of 8 columns 339 px wide its labels 15.9 px too (stage 6 step
+   4b.1, pt96) */
+.picture:has(> svg.pic-shape, > svg.pic-angle, > svg.pic-plane) { width: 100%; }
+.picture > svg.pic-shape, .picture > svg.pic-angle, .picture > svg.pic-plane { margin: 0 auto; }
+/* an L-shape's cut on a way's card ("Another way", js/runner.js askWay) across the card's padding, as wide as the page's
+   line: in the card's 318 px its 16 px rectangle labels came to 15 px as she sees it (WebKit at 390 × 844, stage 6 step 4.5,
+   pt82) */
+.way > .picture:has(> svg .pic-piece) { width: calc(100% + 40px); margin: 12px -20px 0; }
 /* a fraction question's strips or tape docked under the top edge (js/runner.js askOnly), the page sliding under it on the
    page's colour, the page's own scroll anchoring off (WebKit moved the page by itself as a step went in: the measure, pt61);
    the card under it, its padding smaller, with the steps between its words and its "Answer:" line, and "Show me one step"

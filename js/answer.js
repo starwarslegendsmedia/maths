@@ -56,7 +56,9 @@ export function fracNodes(text, slot = null, { step = false, inStep = false, who
   // and a box with "%" straight after it ("So 100% − 30% = ☐%", stage 6 strand 3, plan "Showing a percentage"), or "$"
   // straight before it in her question ("The sale price is $☐.", which WebKit parted at a line's end in 150 of 1,440 such
   // asks at 320 and 390 wide, stage 6 step 3.4, fact 7); not in a step or a step's box (inStep), where the word problems'
-  // "So the answer is $☐." was never parted and draws as before (the lead's ruling, R12)
+  // "So the answer is $☐." was never parted and draws as before (the lead's ruling, R12); and a box with "°" straight
+  // after it ("120° and ☐°.", stage 6 strand 4b, plan "Showing and saying an angle and a point"), as a "%" is (a point,
+  // "(☐, ☐)", is kept whole below, as a part kept on one line)
   const plain = (into, t) => {
     if (!slot) return t && into.push(t);
     const parts = t.split('☐');
@@ -64,7 +66,7 @@ export function fracNodes(text, slot = null, { step = false, inStep = false, who
     parts.forEach((p, i) => {
       // after a box with its "$", the mark after it too ("$☐.", which WebKit wrapped onto a line of its own at 390 wide,
       // stage 6 step 3.4, the looker's round 3)
-      const joined = i ? p.match(dollar ? /^(?:\u00a0\S+|%|[.?!,;:])/ : /^(?:\u00a0\S+|%)/) : null;
+      const joined = i ? p.match(dollar ? /^(?:\u00a0\S+|[%\u00b0]|[.?!,;:])/ : /^(?:\u00a0\S+|[%\u00b0])/) : null;
       let rest = joined ? p.slice(joined[0].length) : p;
       const next = !step && !inStep && i < parts.length - 1 && rest.endsWith('$');
       if (next) rest = rest.slice(0, -1);
@@ -87,8 +89,11 @@ export function fracNodes(text, slot = null, { step = false, inStep = false, who
   // replay, fact 3); one with two "=" may break before the first and nowhere else, as a count sentence may (counted: at
   // 320 px "50% of 398 = half of 398 = 199" is 280 px, past a step's 220, WebKit, 28 October 2026); and so in a step
   // naming dollars, whose sum has no "%" ("So the discount in dollars is 47 ÷ 4 = ☐", "Take it off: so the sale price in
-  // dollars is 47 − 11.75 = ☐", pct-discount's ways, stage 6 step 3.4)
-  const ends = percent || (step && /\bin dollars\b/.test(text)) ? text.match(ENDS) : null;
+  // dollars is 47 − 11.75 = ☐", pct-discount's ways, stage 6 step 3.4); and so in a step or her step box whose box has
+  // "°" after it, its sentence having none inside ("So the angles are 120° and 180 − 120 = ☐°", stage 6 strand 4b, plan
+  // "Rules every generator of this strand keeps"), which broke before its "=" in her step box at 320 wide, as a count
+  // sentence may (WebKit, 30 October 2026)
+  const ends = percent || (step && /\bin dollars\b/.test(text)) || ((step || inStep) && text.includes('☐°')) ? text.match(ENDS) : null;
   if (ends) {
     const from = ends.index, to = from + ends[0].length;
     const signs = [...ends[0].matchAll(/([  ]*)=/g)].slice(0, -1);
@@ -108,6 +113,23 @@ export function fracNodes(text, slot = null, { step = false, inStep = false, who
   const units = [...runs, ...(step || inStep ? [...text.matchAll(UNIT_LABEL)] : []).filter((l) => !runs.some((u) => l.index < u.index + u[0].length && u.index < l.index + l[0].length))];
   const worded = step || inStep ? [...text.matchAll(WORD_BOX)].filter((w) => !units.some((u) => w.index < u.index + u[0].length && u.index < w.index + w[0].length)) : [];
   for (const m of [...units, ...worded]) keep = [...keep.filter(([a, b]) => b <= m.index || a >= m.index + m[0].length), [m.index, m.index + m[0].length]];
+  // and in a step a working step's whole-number sentence ending on its box, no unit after it, its spaces no-break ones
+  // ("The front face is 2 by 11: 2 × 11 = ☐", engine/measure-ways.js oneLine), whose box went alone to the next line at
+  // fade 2: a box breaks off after any character, a no-break space or U+FEFF too, and only a span that does not wrap keeps
+  // it with its "=" (stage 6 step 4.6, WebKit at 390 wide, G2), made smaller only where it is wider than its line, as
+  // one with its unit after the box is
+  if ((step || inStep) && !keep.length && !fracs.length) {
+    for (const m of text.matchAll(WHOLE_BOX)) { units.push(m); keep.push([m.index, m.index + m[0].length]); }
+  }
+  // and anywhere a point, its two whole numbers or boxes in brackets ("(☐, ☐)", "(2, ☐)", "(3, 2)"), which broke after
+  // its comma at 390 wide ("so the point at (3, 2) is C.", WebKit, the step 4b.1 code review's finding 1), with or without
+  // a box in the text, its closing mark left outside it; none inside a part already kept (stage 6 strand 4b)
+  const points = [...text.matchAll(POINT)].map((m) => [m.index, m.index + m[0].length]).filter(([a, b]) => !keep.some(([x, y]) => a < y && x < b));
+  keep.push(...points);
+  // and anywhere "x-axis" and "y-axis", which a browser may break at their hyphen ("the y-" / "axis.", a way's card at
+  // 390 wide, the step 4b.3 replay's shot 116), each kept whole as a point is, the text as written (stage 6 strand 4b)
+  const axes = [...text.matchAll(AXIS)].map((m) => [m.index, m.index + m[0].length]).filter(([a, b]) => !keep.some(([x, y]) => a < y && x < b));
+  keep.push(...axes);
   const kept = fracs.length || keep.length;
   if (!kept && text.includes('\u00a0=')) return counted(text, plain);
   if (!kept && !slot) return [text];
@@ -119,7 +141,7 @@ export function fracNodes(text, slot = null, { step = false, inStep = false, who
   }
   keep.sort((a, b) => a[0] - b[0]);
   // a "%" after a sentence's last number or box kept with it too ("3/4 = ☐%", "So 3/4 = 75%.")
-  for (const k of keep) if (/[,.?!:;%]/.test(text[k[1]] ?? '')) k[1]++;
+  for (const k of keep) if (!points.includes(k) && !axes.includes(k) && /[,.?!:;%]/.test(text[k[1]] ?? '')) k[1]++;
   let at = 0;
   // the text from at up to end, into a list
   const upTo = (into, end) => {
@@ -186,6 +208,10 @@ const WORD_BOX = new RegExp(`[^\\s]+ ☐\\u00a0${UNIT_SYMBOL}`, 'g');
 // in a step's number sentence")
 const UNIT_NUMBER = '\\d+(?:\\u00a0\\d{3})*(?:\\.\\d+)?';
 const UNIT_LABEL = new RegExp(`(?<![\\d.])${UNIT_NUMBER}(?:[ \\u00a0][+−×÷][ \\u00a0]${UNIT_NUMBER})*[ \\u00a0]=[ \\u00a0]☐\\u00a0${UNIT_SYMBOL}`, 'g');
+// and a whole-number sentence joined by no-break spaces, a U+FEFF before its "=", ending on its box with nothing after
+// it but a closing mark ("4 × 2 = ☐", engine/measure-ways.js oneLine); only such, so the steps of every skill before,
+// with no U+FEFF before an "=", draw as they did
+const WHOLE_BOX = new RegExp(`(?<![\\d.\\/$])\\d+(?:\\u00a0[+−×÷]\\u00a0\\d+)*\\u00a0\\ufeff=\\u00a0☐(?![\\u00a0\\d\\/%])`, 'g');
 
 // A number sentence with units kept on one line (fracNodes), at the card's own size (css/app.css .ask, .ask.long) where
 // that fits its line, else made just small enough to: at 30 px the widest, "68.906 km = 68 km ☐ m", is 388 px, and a
@@ -213,9 +239,14 @@ function fit(span) {
 }
 
 // a step's closing number sentence (fracNodes): its parts those of a number sentence, or a per cent or half of an amount
-// ("25% of 120", "half of 328"), ending "= ☐" at the end of the text, a closing mark after it
+// ("25% of 120", "half of 328"), ending "= ☐" at the end of the text, a "%" or "°" after the box and a closing mark after
+// it
 const OF_TERM = `(?:(?<![\\d.\\/])\\d+(?:\\.\\d+)?%|\\bhalf) of (?<![\\d.\\/])\\d+(?:\\u00a0\\d{3})*(?:\\.\\d+)?`;
-const ENDS = new RegExp(`(?:${OF_TERM}|${SENTENCE_TERM})(?:[ \\u00a0]*[=+−×÷<>][ \\u00a0]*(?:${OF_TERM}|${SENTENCE_TERM}))*[ \\u00a0]*=[ \\u00a0]*☐%?(?=[.?!]?$)`);
+const ENDS = new RegExp(`(?:${OF_TERM}|${SENTENCE_TERM})(?:[ \\u00a0]*[=+−×÷<>][ \\u00a0]*(?:${OF_TERM}|${SENTENCE_TERM}))*[ \\u00a0]*=[ \\u00a0]*☐[%°]?(?=[.?!]?$)`);
+// a point, its two whole numbers or boxes in brackets with a comma and a space between ("(☐, ☐)", "(2, ☐)", "(3, 2)")
+const POINT = /\((?:\d+|☐), (?:\d+|☐)\)/g;
+// a grid's axis named (fracNodes)
+const AXIS = /\b[xy]-axis\b/g;
 
 // Render text with ☐ turned into boxes, a fraction's two numerator first; returns { el, boxes }.
 function withBoxes(text, cls = 'ask') {
@@ -300,8 +331,9 @@ export function answerWidget(item, { onSubmit, onSkip, mode = 'normal', below = 
     boxLine = askEl;
   } else {
     askEl = h('div', { class: 'ask words' }, ...(mode === 'normal' ? marked(item) : fracNodes(item.ask)));
-    if (kind === 'number' || kind === 'decimal' || kind === 'fraction' || kind === 'remainder') {
-      const line = withBoxes(kind === 'remainder' ? 'Answer: ☐ r ☐' : kind === 'fraction' ? 'Answer: ☐/☐' : 'Answer: ☐', 'ask');
+    if (kind === 'number' || kind === 'decimal' || kind === 'fraction' || kind === 'remainder' || kind === 'pair') {
+      // a pair in its own form, "Answer: (☐, ☐)" (stage 6 strand 4b, plan "The answer kind `pair`, exactly")
+      const line = withBoxes(kind === 'remainder' ? 'Answer: ☐ r ☐' : kind === 'fraction' ? 'Answer: ☐/☐' : kind === 'pair' ? `Answer: ${item.answer.form}` : 'Answer: ☐', 'ask');
       askEl = h('div', {}, askEl, between, line.el);
       boxes = line.boxes;
       boxLine = line.el;
